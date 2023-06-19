@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if [[ -n "$1" ]]; then
+  npx lint-staged $1 --no-stash
+else
+  echo "Skipping linting for non-source files"
+fi

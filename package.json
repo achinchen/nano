@@ -2,12 +2,25 @@
   "name": "@nano/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx"
+  },
   "private": true,
+  "lint-staged": {
+    "{packages,services,tools}/**/*.{js,jsx,ts,tsx}": [
+      "yarn nx affected:lint --fix true --parallel --uncommitted --allow-empty --base=origin/main --head=HEAD"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "@commitlint/config-nx-scopes": "^17.6.4",
     "@nx/js": "16.3.2",
     "@nx/workspace": "16.3.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "nx": "16.3.2",
     "prettier": "^2.6.2",
     "typescript": "~5.0.2"
