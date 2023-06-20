@@ -1,0 +1,9 @@
+{
+  "cSpell.words": ["nano", "nrwl", "unocss"],
+  "files.autoSave": "onFocusChange",
+  "files.autoSaveDelay": 600000,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": null
+}
