@@ -1,5 +1,10 @@
 {
-  "cSpell.words": ["nano", "nrwl", "unocss"],
+  "cSpell.words": [
+    "commitlint",
+    "nano",
+    "nrwl",
+    "unocss"
+  ],
   "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 600000,
   "editor.codeActionsOnSave": {
