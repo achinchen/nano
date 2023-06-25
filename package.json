@@ -18,8 +18,8 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@commitlint/config-nx-scopes": "^17.6.4",
     "@nx/eslint-plugin": "^16.3.2",
     "@nx/express": "^16.3.2",
