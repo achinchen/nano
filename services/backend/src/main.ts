@@ -1,10 +1,4 @@
-import express from 'express';
-
-const app = express();
-
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to backend!' });
-});
+import app from './app';
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
