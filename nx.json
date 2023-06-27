@@ -28,7 +28,7 @@
     "sharedGlobals": []
   },
   "workspaceLayout": {
-    "appsDir": "packages",
+    "appsDir": "services",
     "libsDir": "packages"
   },
   "generators": {
