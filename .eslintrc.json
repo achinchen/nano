@@ -124,6 +124,7 @@
       ],
       "parserOptions": {
         "project": [
+          "services/*/tsconfig.json",
           "services/*/tsconfig.*?.json",
           "packages/*/tsconfig.*?.json"
         ]
