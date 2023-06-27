@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "streetsidesoftware.code-spell-checker",
     "firsttris.vscode-jest-runner",
-    "antfu.unocss"
+    "antfu.unocss",
+    "esbenp.prettier-vscode"
   ]
 }
