@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/services/frontend"
+        "outputPath": "services/frontend/dist"
       },
       "configurations": {
         "development": {
@@ -44,7 +44,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": ["{workspaceRoot}/{projectRoot}/coverage"],
       "options": {
         "jestConfig": "services/frontend/jest.config.ts",
         "passWithNoTests": true
