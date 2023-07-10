@@ -7,6 +7,9 @@
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx"
   },
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "lint-staged": {
     "{packages,services,tools}/**/*.{js,jsx,ts,tsx}": [
       "yarn nx affected:lint --fix true --parallel --uncommitted --allow-empty --base=origin/main --head=HEAD"
