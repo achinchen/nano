@@ -11,7 +11,7 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "services/backend/dist",
+        "outputPath": "services/backend/dist/api",
         "outputFileName": "index.js",
         "main": "services/backend/src/main.ts",
         "tsConfig": "services/backend/tsconfig.app.json",
