@@ -5,6 +5,9 @@
     "nrwl",
     "unocss"
   ],
+  "unocss.root": [
+    "services/frontend"
+  ],
   "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 600000,
   "editor.codeActionsOnSave": {
