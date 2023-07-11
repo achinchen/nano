@@ -4,7 +4,7 @@
   "sourceRoot": "services/frontend",
   "projectType": "application",
   "targets": {
-    "build": {
+    "build:next": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
@@ -18,22 +18,53 @@
         "production": {}
       }
     },
-    "serve": {
+    "build:css": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m" 
+        ],
+        "forwardAllArgs": true
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "commands": [
+          "nx build:css frontend",
+          "nx build:next frontend"
+        ],
+        "parallel":  false
+      }
+    },
+    "serve:next": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "frontend:build",
+        "buildTarget": "frontend:build:next",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "frontend:build:development",
+          "buildTarget": "frontend:build:next:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "frontend:build:production",
+          "buildTarget": "frontend:build:next:production",
           "dev": false
         }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "commands": [
+          "nx build:css frontend --watch",
+          "nx serve:next frontend"
+        ],
+        "parallel":  true
       }
     },
     "export": {
