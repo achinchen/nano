@@ -1,4 +1,4 @@
-import './global.css';
+import './styles/index.css';
 
 export const metadata = {
   title: 'Welcome to frontend',

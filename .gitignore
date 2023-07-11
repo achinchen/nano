@@ -40,3 +40,13 @@ Thumbs.db
 
 # Next.js
 .next
+
+# we use eslint config instead of prettier directly
+/.prettierignore
+/.prettierrc
+
+# we use vite instead of babel
+babel.config.json
+
+# we build the css in buildtime 
+uno.css
