@@ -45,4 +45,4 @@ export const MONTHS = [
 ];
 export const MONTHS_SHORT = MONTHS.map((month) => month.slice(0, 3));
 
-export const PANEL_MODES = ['Day', 'Week', 'Month', 'Year'] as const;
+export const MODES = ['Day', 'Week', 'Month', 'Year'] as const;

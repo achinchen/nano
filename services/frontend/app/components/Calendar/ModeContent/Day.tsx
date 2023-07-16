@@ -1,15 +1,10 @@
+import type { Props } from './type';
 import { Fragment, useMemo } from 'react';
-import dayjs from 'dayjs';
-import { weekDays, getDay, getMonth } from './utils';
-import { HOURS, DAYS } from './constants';
+import { weekDays, getDay, getMonth } from '~frontend/components/Calendar/utils';
+import { HOURS, DAYS } from '~frontend/components/Calendar/constants';
 
-type Props = {
-  selectedDate: dayjs.Dayjs;
-  today: dayjs.Dayjs;
-};
-
-const CalendarDay = ({ selectedDate, today }: Props) => {
-  const currentWeek = useMemo(() => weekDays(selectedDate), [selectedDate]);
+export function Day({ selectedDate, today }: Props) {
+  const currentWeek = weekDays(selectedDate);
   const todayDay = getDay(today);
   const todayMonth = getMonth(today);
   const selectedDay = getDay(selectedDate);
@@ -52,6 +47,6 @@ const CalendarDay = ({ selectedDate, today }: Props) => {
       </ol>
     </Fragment>
   );
-};
+}
 
-export default CalendarDay;
+export default Day;

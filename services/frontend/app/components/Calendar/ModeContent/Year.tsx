@@ -1,15 +1,10 @@
-import type { Day } from './types';
+import type { Day } from '~frontend/components/Calendar/type';
+import type { Props } from './type';
 import { useMemo } from 'react';
-import dayjs from 'dayjs';
-import { MONTHS, DAYS_SHORT } from './constants';
-import { getYear, getMonth, getDay, monthDaysInYear } from './utils';
+import { MONTHS, DAYS_SHORT } from '~frontend/components/Calendar/constants';
+import { getYear, getMonth, getDay, monthDaysInYear } from '~frontend/components/Calendar/utils';
 
-type Props = {
-  selectedDate: dayjs.Dayjs;
-  today: dayjs.Dayjs;
-};
-
-const CalendarYear = ({ selectedDate, today }: Props) => {
+const Year = ({ selectedDate, today }: Props) => {
   const todayDay = getDay(today);
   const todayMonth = getMonth(today);
 
@@ -67,4 +62,4 @@ const CalendarYear = ({ selectedDate, today }: Props) => {
   );
 };
 
-export default CalendarYear;
+export default Year;

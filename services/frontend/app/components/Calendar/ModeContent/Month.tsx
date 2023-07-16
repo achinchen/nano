@@ -1,14 +1,9 @@
+import type { Props } from './type';
 import { Fragment, useMemo } from 'react';
-import dayjs from 'dayjs';
-import { DAYS } from './constants';
-import { getMonth, getDay, monthDays } from './utils';
+import { DAYS } from '~frontend/components/Calendar/constants';
+import { getMonth, getDay, monthDays } from '~frontend/components/Calendar/utils';
 
-type Props = {
-  selectedDate: dayjs.Dayjs;
-  today: dayjs.Dayjs;
-};
-
-const CalendarMonth = ({ selectedDate, today }: Props) => {
+const Month = ({ selectedDate, today }: Props) => {
   const todayDay = getDay(today);
   const todayMonth = getMonth(today);
   const selectedMonth = getMonth(selectedDate);
@@ -43,4 +38,4 @@ const CalendarMonth = ({ selectedDate, today }: Props) => {
   );
 };
 
-export default CalendarMonth;
+export default Month;

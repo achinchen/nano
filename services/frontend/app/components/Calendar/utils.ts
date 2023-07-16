@@ -2,7 +2,7 @@ import dayjs, { extend } from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import weekYear from 'dayjs/plugin/weekYear';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import { Day } from './types';
+import { Day } from './type';
 
 extend(weekday);
 extend(weekYear);
@@ -11,6 +11,8 @@ extend(weekOfYear);
 export const getMonth = (date: dayjs.Dayjs): number => Number(date.format('M'));
 export const getDay = (date: dayjs.Dayjs): number => Number(date.format('D'));
 export const getYear = (date: dayjs.Dayjs): number => Number(date.format('YYYY'));
+
+export const getToday = (): dayjs.Dayjs => dayjs();
 
 export const theMonthDays = (date: dayjs.Dayjs): Day[] => {
   const theMonth = getMonth(date);

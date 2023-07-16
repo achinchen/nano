@@ -1,24 +1,23 @@
-import { PANEL_MODES } from './constants';
-import { Mode } from './types';
+import { MODES } from '../constants';
+import { Mode } from '../type';
+import { useCalendarContext } from '../context';
 
-type Props = {
-  mode: Mode;
-  updateMode: (mode: Mode) => void;
-};
+const CalendarModeSwitcher = () => {
+  const { mode: currentMode, updateMode } = useCalendarContext();
 
-const CalendarHeader = ({ mode, updateMode }: Props) => {
-  const onClick = (newMode: Mode) => () => {
-    if (mode === newMode) return;
-    updateMode(newMode);
+  const onClick = (targetMode: Mode) => () => {
+    if (currentMode === targetMode) return;
+    updateMode(targetMode);
   };
+
   return (
     <nav className="flex justify-center border-b border-gray-300 border-solid p-2">
       <ol className="flex border-gray-300 rounded-md border-solid bg-gray-200">
-        {PANEL_MODES.map((MODE) => (
+        {MODES.map((MODE) => (
           <li
             key={MODE}
             className={`flex w-16 h-6 border-l first:rounded-l-md last:rounded-r-md first:border-l-0 
-              ${MODE === mode ? 'bg-white text-gray-800' : 'text-gray-600'}
+              ${MODE === currentMode ? 'bg-white text-gray-800' : 'text-gray-600'}
             `}
           >
             <button
@@ -34,4 +33,4 @@ const CalendarHeader = ({ mode, updateMode }: Props) => {
   );
 };
 
-export default CalendarHeader;
+export default CalendarModeSwitcher;
