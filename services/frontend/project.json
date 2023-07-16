@@ -4,6 +4,15 @@
   "sourceRoot": "services/frontend",
   "projectType": "application",
   "targets": {
+    "build:css": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m" 
+        ],
+        "forwardAllArgs": true
+      }
+    },
     "build:next": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
@@ -18,31 +27,11 @@
         "production": {}
       }
     },
-    "build:css": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m" 
-        ],
-        "forwardAllArgs": true
-      }
-    },
-    "build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "commands": [
-          "nx build:css frontend",
-          "nx build:next frontend"
-        ],
-        "parallel":  false
-      }
-    },
     "serve:next": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "frontend:build:next",
+        "buildTarget": "frontend:build",
         "dev": true
       },
       "configurations": {
@@ -61,10 +50,21 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "commands": [
-          "nx build:css frontend --watch",
-          "nx serve:next frontend"
+          "nx run frontend:build:css --watch",
+          "nx run frontend:serve:next:development"
         ],
         "parallel":  true
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "commands": [
+          "nx run frontend:build:css",
+          "nx run frontend:build:next:production"
+        ],
+        "parallel": false
       }
     },
     "export": {
