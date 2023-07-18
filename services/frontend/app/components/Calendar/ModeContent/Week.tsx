@@ -1,6 +1,10 @@
 import type { Props } from './type';
 import { Fragment, useMemo } from 'react';
-import { weekDays, getDay, getMonth } from '~frontend/components/Calendar/utils';
+import {
+  weekDays,
+  getDay,
+  getMonth,
+} from '~frontend/components/Calendar/utils';
 import { HOURS, DAYS } from '~frontend/components/Calendar/constants';
 
 const Week = ({ selectedDate, today }: Props) => {
@@ -19,7 +23,9 @@ const Week = ({ selectedDate, today }: Props) => {
             </span>
             <span
               className={`flex justify-center items-center p-1 w-6 h-6 md:ml-1 ${
-                month === todayMonth && day === todayDay && 'rounded-full text-white bg-red-500'
+                month === todayMonth &&
+                day === todayDay &&
+                'rounded-full text-white bg-red-500'
               }`}
             >
               {day}
@@ -39,7 +45,9 @@ const Week = ({ selectedDate, today }: Props) => {
       {HOURS.map((HOUR, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Fragment key={`${HOUR}-${index}`}>
-          <li className="bg-white p-2 pl-0 text-right text-sm text-gray-600">{HOUR}</li>
+          <li className="bg-white p-2 pl-0 text-right text-sm text-gray-600">
+            {HOUR}
+          </li>
           {Array.from({ length: 7 }).map((_, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <li key={index} className="bg-white" />

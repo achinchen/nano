@@ -13,7 +13,9 @@ function Calendar() {
   const updateSelectedDate =
     ({ isPrevious }: { isPrevious: boolean }) =>
     () => {
-      const newDate = isPrevious ? selectedDate.subtract(1, 'month') : selectedDate.add(1, 'month');
+      const newDate = isPrevious
+        ? selectedDate.subtract(1, 'month')
+        : selectedDate.add(1, 'month');
       setSelectedDate(newDate);
     };
 

@@ -50,3 +50,7 @@ babel.config.json
 
 # we build the css in buildtime 
 uno.css
+
+# prevent commit env
+.env.local
+.env.*.local

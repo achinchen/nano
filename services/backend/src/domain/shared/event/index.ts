@@ -19,7 +19,9 @@ export class DomainEvent implements DomainEventInterface {
   }
 
   private static generateId() {
-    return `${DomainEvent.generateHash(Date.now())}${DomainEvent.generateHash(Math.random())}`;
+    return `${DomainEvent.generateHash(Date.now())}${DomainEvent.generateHash(
+      Math.random()
+    )}`;
   }
 
   emit(name, payload) {

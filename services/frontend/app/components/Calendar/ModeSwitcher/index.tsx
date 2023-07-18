@@ -17,7 +17,11 @@ const CalendarModeSwitcher = () => {
           <li
             key={MODE}
             className={`flex w-16 h-6 border-l first:rounded-l-md last:rounded-r-md first:border-l-0 
-              ${MODE === currentMode ? 'bg-white text-gray-800' : 'text-gray-600'}
+              ${
+                MODE === currentMode
+                  ? 'bg-white text-gray-800'
+                  : 'text-gray-600'
+              }
             `}
           >
             <button

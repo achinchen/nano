@@ -1,7 +1,11 @@
 import type { Props } from './type';
 import { Fragment, useMemo } from 'react';
 import { DAYS } from '~frontend/components/Calendar/constants';
-import { getMonth, getDay, monthDays } from '~frontend/components/Calendar/utils';
+import {
+  getMonth,
+  getDay,
+  monthDays,
+} from '~frontend/components/Calendar/utils';
 
 const Month = ({ selectedDate, today }: Props) => {
   const todayDay = getDay(today);
@@ -22,11 +26,19 @@ const Month = ({ selectedDate, today }: Props) => {
         {daysInMonth.map(({ month, day }) => (
           <li
             key={`${month}-${day}`}
-            className={`relative p-1 ${month !== selectedMonth ? 'bg-gray-200 text-gray-600' : 'bg-white '}`}
+            className={`relative p-1 ${
+              month !== selectedMonth
+                ? 'bg-gray-200 text-gray-600'
+                : 'bg-white '
+            }`}
           >
             <span
               className={`absolute top-0 right-0 inline-block m-1 p-1 w-8 flex justify-center content-end 
-                ${month === todayMonth && day === todayDay && 'rounded-full text-white bg-red-500'}
+                ${
+                  month === todayMonth &&
+                  day === todayDay &&
+                  'rounded-full text-white bg-red-500'
+                }
               `}
             >
               {day}

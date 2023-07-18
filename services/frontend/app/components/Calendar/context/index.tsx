@@ -33,9 +33,14 @@ export const CalendarContext = createContext<InitialState>({
 
 CalendarContext.displayName = 'CalendarContext';
 
-export const CalendarContextProvider = ({ children }: { children: JSX.Element }) => {
+export const CalendarContextProvider = ({
+  children,
+}: {
+  children: JSX.Element;
+}) => {
   const [today, updateToday] = useState<InitialState['today']>(INITIAL_TODAY);
-  const [selectedDate, setSelectedDate] = useState<InitialState['today']>(INITIAL_TODAY);
+  const [selectedDate, setSelectedDate] =
+    useState<InitialState['today']>(INITIAL_TODAY);
   const [mode, updateMode] = useState<Mode>(DEFAULT_MODE);
 
   return (
@@ -57,7 +62,9 @@ export const CalendarContextProvider = ({ children }: { children: JSX.Element })
 export function useCalendarContext() {
   const context = useContext(CalendarContext);
   if (context === undefined) {
-    throw new Error('The CalendarContext hook must be used within a CalendarContextProvider.Provider');
+    throw new Error(
+      'The CalendarContext hook must be used within a CalendarContextProvider.Provider'
+    );
   }
   return context;
 }
