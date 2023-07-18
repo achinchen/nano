@@ -10,7 +10,8 @@ extend(weekOfYear);
 
 export const getMonth = (date: dayjs.Dayjs): number => Number(date.format('M'));
 export const getDay = (date: dayjs.Dayjs): number => Number(date.format('D'));
-export const getYear = (date: dayjs.Dayjs): number => Number(date.format('YYYY'));
+export const getYear = (date: dayjs.Dayjs): number =>
+  Number(date.format('YYYY'));
 
 export const getToday = (): dayjs.Dayjs => dayjs();
 
