@@ -1,5 +1,4 @@
 import path from 'node:path';
-import { config } from 'dotenv';
 import createError from 'http-errors';
 import express, { json, urlencoded, static as expressStatic } from 'express';
 import session from 'express-session';
@@ -7,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import logger from 'morgan';
 import csrf from 'tiny-csrf';
+import { config } from 'dotenv';
 import authRouter from './domain/user/http/routes';
 
 config();
