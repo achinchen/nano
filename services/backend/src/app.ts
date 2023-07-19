@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import logger from 'morgan';
 import csrf from 'tiny-csrf';
+import authRouter from './domain/user/http/routes';
 
 config();
 
@@ -51,7 +52,8 @@ app.use(function (req, res, next) {
 //   next();
 // });
 
-// app.use('/', authRouter);
+app.use('/', authRouter);
+
 app.use('/', function (req, res) {
   res.send('Hello World!');
 });
