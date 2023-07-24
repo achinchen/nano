@@ -11,11 +11,11 @@ describe('EmailValueObject', () => {
   });
 
   test.each([
-    ['test@example.com', 'test@example.com'],
-    [' test@example.com ', 'test@example.com'],
-    ['abc', new Error(ERROR_MESSAGE)],
-    ['123', new Error(ERROR_MESSAGE)],
-    ['invalid-email', new Error(ERROR_MESSAGE)],
+    ['test@example.com', ['test@example.com']],
+    [' test@example.com ', ['test@example.com']],
+    ['abc', ['abc', new Error(ERROR_MESSAGE)]],
+    ['123', ['123', new Error(ERROR_MESSAGE)]],
+    ['invalid-email', ['invalid-email', new Error(ERROR_MESSAGE)]],
   ])('should return %p when isEmail function returns %p', (input, expected) => {
     let result;
 

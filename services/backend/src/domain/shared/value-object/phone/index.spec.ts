@@ -11,11 +11,11 @@ describe('PhoneValueObject', () => {
   });
 
   test.each([
-    ['1234567890', '1234567890'],
-    ['+1 223 456 7890', '+12234567890'],
-    ['abc', new Error(ERROR_MESSAGE)],
-    ['123', new Error(ERROR_MESSAGE)],
-    ['123-456-7890', '1234567890'],
+    ['1234567890', ['1234567890']],
+    ['+1 223 456 7890', ['+12234567890']],
+    ['abc', ['abc', new Error(ERROR_MESSAGE)]],
+    ['123', ['123', new Error(ERROR_MESSAGE)]],
+    ['123-456-7890', ['1234567890']],
   ])('should return %p when isPhone function returns %p', (input, expected) => {
     let result;
 
