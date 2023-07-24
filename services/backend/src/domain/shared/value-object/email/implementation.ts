@@ -1,8 +1,10 @@
+import type { IResult } from '~backend/domain/shared/result';
 import { IValueObject } from '~backend/domain/shared/value-object/abstract';
+import { Result } from '~backend/domain/shared/result';
 import { isEmail } from './utils';
 
 type Input = string;
-type Output = [Input] | [Input, Error];
+type Output = IResult<Input>;
 
 export const ERROR_MESSAGE = 'Invalid email';
 
@@ -12,8 +14,7 @@ export class EmailValueObject implements IValueObject<Input, Output> {
   }
   execute(email: Input): Output {
     const cleanEmail = EmailValueObject.clearSpacesEmail(email);
-    let error: Error | undefined;
-    if (!isEmail(cleanEmail)) error = new Error(ERROR_MESSAGE);
-    return [cleanEmail, error];
+    if (!isEmail(cleanEmail)) return Result.fail(ERROR_MESSAGE);
+    return Result.ok<Input>(cleanEmail);
   }
 }

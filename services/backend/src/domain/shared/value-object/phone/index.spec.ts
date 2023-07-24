@@ -1,4 +1,5 @@
 /* eslint-disable jest/no-conditional-expect */
+import { Result } from '~backend/domain/shared/result';
 import * as utils from './utils';
 import { ERROR_MESSAGE, PhoneValueObject } from './implementation';
 import phoneValueObject from '.';
@@ -11,29 +12,25 @@ describe('PhoneValueObject', () => {
   });
 
   test.each([
-    ['1234567890', ['1234567890']],
-    ['+1 223 456 7890', ['+12234567890']],
-    ['abc', ['abc', new Error(ERROR_MESSAGE)]],
-    ['123', ['123', new Error(ERROR_MESSAGE)]],
-    ['123-456-7890', ['1234567890']],
-  ])('should return %p when isPhone function returns %p', (input, expected) => {
-    let result;
+    ['1234567890', Result.ok('1234567890')],
+    ['+1 223 456 7890', Result.ok('+12234567890')],
+    ['abc', Result.fail(ERROR_MESSAGE)],
+    ['123', Result.fail(ERROR_MESSAGE)],
+    ['123-456-7890', Result.ok('1234567890')],
+  ])(
+    'should return %p when isPhone function returns %p',
+    (input, [expectedError, expectedValue]) => {
+      const [error, result] = phoneValueObject.execute(input);
 
-    try {
-      result = phoneValueObject.execute(input);
-    } catch (error) {
-      result = error;
+      if (error) {
+        expect(error).toBe(expectedError);
+      } else {
+        expect(result).toBe(expectedValue);
+      }
+
+      expect(utils.isPhone).toHaveBeenCalledWith(
+        PhoneValueObject.clearSpacesPhoneNumber(input)
+      );
     }
-
-    if (expected instanceof Error) {
-      expect(result).toBeInstanceOf(Error);
-      expect(result.message).toBe(expected.message);
-    } else {
-      expect(result).toEqual(expected);
-    }
-
-    expect(utils.isPhone).toHaveBeenCalledWith(
-      PhoneValueObject.clearSpacesPhoneNumber(input)
-    );
-  });
+  );
 });

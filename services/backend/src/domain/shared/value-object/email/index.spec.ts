@@ -1,4 +1,5 @@
 /* eslint-disable jest/no-conditional-expect */
+import { Result } from '~backend/domain/shared/result';
 import * as utils from './utils';
 import { ERROR_MESSAGE, EmailValueObject } from './implementation';
 import emailValueObject from '.';
@@ -11,29 +12,24 @@ describe('EmailValueObject', () => {
   });
 
   test.each([
-    ['test@example.com', ['test@example.com']],
-    [' test@example.com ', ['test@example.com']],
-    ['abc', ['abc', new Error(ERROR_MESSAGE)]],
-    ['123', ['123', new Error(ERROR_MESSAGE)]],
-    ['invalid-email', ['invalid-email', new Error(ERROR_MESSAGE)]],
-  ])('should return %p when isEmail function returns %p', (input, expected) => {
-    let result;
+    ['test@example.com', Result.ok('test@example.com')],
+    [' test@example.com ', Result.ok('test@example.com')],
+    ['abc', Result.fail(ERROR_MESSAGE)],
+    ['123', Result.fail(ERROR_MESSAGE)],
+    ['invalid-email', Result.fail(ERROR_MESSAGE)],
+  ])(
+    'should return %p when isEmail function returns %p',
+    (input, [expectedError, expectedValue]) => {
+      const [error, result] = emailValueObject.execute(input);
+      if (!error) {
+        expect(result).toBe(expectedValue);
+      } else {
+        expect(error).toBe(expectedError);
+      }
 
-    try {
-      result = emailValueObject.execute(input);
-    } catch (error) {
-      result = error;
+      expect(utils.isEmail).toHaveBeenCalledWith(
+        EmailValueObject.clearSpacesEmail(input)
+      );
     }
-
-    if (expected instanceof Error) {
-      expect(result).toBeInstanceOf(Error);
-      expect(result.message).toBe(expected.message);
-    } else {
-      expect(result).toEqual(expected);
-    }
-
-    expect(utils.isEmail).toHaveBeenCalledWith(
-      EmailValueObject.clearSpacesEmail(input)
-    );
-  });
+  );
 });
