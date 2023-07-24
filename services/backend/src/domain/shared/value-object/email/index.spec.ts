@@ -1,23 +1,39 @@
-import validatorIsEmail from 'validator/lib/isEmail';
-import { isEmail } from './index';
+/* eslint-disable jest/no-conditional-expect */
+import * as utils from './utils';
+import { ERROR_MESSAGE, EmailValueObject } from './implementation';
+import emailValueObject from '.';
 
-jest.mock('validator/lib/isEmail');
+jest.spyOn(utils, 'isEmail');
 
-describe('isEmail', () => {
+describe('EmailValueObject', () => {
   beforeEach(() => {
-    validatorIsEmail.mockReset();
+    jest.clearAllMocks();
   });
 
   test.each([
-    ['test@example.com', true],
-    ['invalid-email', false],
-    ['another@example.com', true],
-  ])('should return %p for email: %p', (email, expectedResult) => {
-    validatorIsEmail.mockReturnValue(expectedResult);
+    ['test@example.com', 'test@example.com'],
+    [' test@example.com ', 'test@example.com'],
+    ['abc', new Error(ERROR_MESSAGE)],
+    ['123', new Error(ERROR_MESSAGE)],
+    ['invalid-email', new Error(ERROR_MESSAGE)],
+  ])('should return %p when isEmail function returns %p', (input, expected) => {
+    let result;
 
-    const result = isEmail(email);
+    try {
+      result = emailValueObject.execute(input);
+    } catch (error) {
+      result = error;
+    }
 
-    expect(result).toBe(expectedResult);
-    expect(validatorIsEmail).toHaveBeenCalledWith(email);
+    if (expected instanceof Error) {
+      expect(result).toBeInstanceOf(Error);
+      expect(result.message).toBe(expected.message);
+    } else {
+      expect(result).toEqual(expected);
+    }
+
+    expect(utils.isEmail).toHaveBeenCalledWith(
+      EmailValueObject.clearSpacesEmail(input)
+    );
   });
 });

@@ -1,3 +1,4 @@
-import validatorIsEmail from 'validator/lib/isEmail';
+import { EmailValueObject } from './implementation';
 
-export const isEmail = (email: string) => validatorIsEmail(email);
+const emailValueObject = new EmailValueObject();
+export default emailValueObject;
