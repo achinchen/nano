@@ -1,6 +1,8 @@
 import { config } from 'dotenv';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import { User } from './domain/user/infra/db/user';
+import { UserFederatedCredential } from './domain/user/infra/db/user-federated-credential';
 
 config();
 
@@ -10,7 +12,7 @@ export const dataSource = new DataSource({
   driver: {},
   synchronize: true,
   logging: false,
-  entities: ['**/domain/*/infra/db/*.ts'],
+  entities: [User, UserFederatedCredential],
   migrations: [],
   subscribers: [],
 });
