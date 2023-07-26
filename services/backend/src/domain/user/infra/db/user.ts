@@ -17,18 +17,6 @@ export class User {
   @Column({ length: 60, unique: true })
   email: string;
 
-  @Column({ length: 60, unique: true })
-  emailVerified: string;
-
-  @Column()
+  @Column({ length: 30, unique: true })
   phone: string;
-}
-
-export class UserFederatedCredentials {
-  constructor(
-    public id: string,
-    public userId: string,
-    public provider: string,
-    public subject: string
-  ) {}
 }
