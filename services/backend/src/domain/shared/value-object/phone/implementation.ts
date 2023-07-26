@@ -1,7 +1,7 @@
 import type { IResult } from '~backend/domain/shared/result';
 import { Result } from '~backend/domain/shared/result';
 import { IValueObject } from '~backend/domain/shared/value-object/abstract';
-import { isPhone } from './utils';
+// import { isPhone } from './utils';
 
 type Input = string;
 type Output = IResult<Input>;
@@ -14,7 +14,7 @@ export class PhoneValueObject implements IValueObject<Input, Output> {
   }
   execute(phone: Input): Output {
     const cleanPhone = PhoneValueObject.clearSpacesPhoneNumber(phone);
-    if (!isPhone(cleanPhone)) return Result.fail(ERROR_MESSAGE);
+    // if (!isPhone(cleanPhone)) return Result.fail(ERROR_MESSAGE);
     return Result.ok(cleanPhone);
   }
 }
