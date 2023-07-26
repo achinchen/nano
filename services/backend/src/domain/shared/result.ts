@@ -1,5 +1,6 @@
 type Ok<T> = [null, T];
-type Failed<T> = [T];
+export type Failed<T> = [T];
+export type IResult<T, FailedT = string> = Ok<T> | Failed<FailedT>;
 
 export class Result {
   static ok<T>(input: T): Ok<T> {
@@ -10,5 +11,3 @@ export class Result {
     return [errorMessage];
   }
 }
-
-export type IResult<T, FailedT = string> = Ok<T> | Failed<FailedT>;
