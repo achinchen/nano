@@ -4,9 +4,9 @@ import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { userFederatedCredentialRepository } from '~backend/domain/user/repository/user-federated-credential';
 import { createUserUseCase } from '~backend/domain/user/use-case/create-user';
-import { userRepository } from '../../repository/user';
+import { userRepository } from '~backend/domain/user/repository/user';
 
-async function verify(
+export async function verify(
   accessToken: string,
   refreshToken: string,
   profile: Profile,
