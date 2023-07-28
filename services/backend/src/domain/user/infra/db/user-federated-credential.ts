@@ -1,5 +1,11 @@
 import type { FederatedCredentialProvider } from '~backend/domain/user/entity';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BeforeInsert,
+  BeforeUpdate,
+} from 'typeorm';
 import { FEDERATED_CREDENTIALS } from '~backend/domain/user/entity';
 
 @Entity()
@@ -18,4 +24,21 @@ export class UserFederatedCredential {
 
   @Column()
   userId: number;
+
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
+
+  @BeforeInsert()
+  insertCreated() {
+    this.createdAt = new Date();
+    this.updatedAt = new Date();
+  }
+
+  @BeforeUpdate()
+  insertUpdated() {
+    this.updatedAt = new Date();
+  }
 }
