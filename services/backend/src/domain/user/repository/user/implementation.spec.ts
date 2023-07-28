@@ -1,6 +1,4 @@
-/* eslint-disable testing-library/no-await-sync-query */
 import type { User } from '~backend/domain/user/entity';
-// eslint-disable-next-line import/order
 import type { CreateUserDTO } from '~backend/domain/user/dto';
 
 const mockDBUserRepository = {

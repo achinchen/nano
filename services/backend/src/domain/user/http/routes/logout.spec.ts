@@ -3,7 +3,6 @@ import { logout } from './logout';
 const logoutMiddleware = logout();
 
 describe('Logout', () => {
-
   it('calls req.logout and redirect to / on successful logout', () => {
     const req = {
       logout: jest.fn((cb) => cb(null)),

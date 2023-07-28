@@ -1,5 +1,4 @@
 import { passport as AuthService } from '~backend/domain/user/service/auth/google';
-// eslint-disable-next-line import/order
 import { logout } from './logout';
 
 jest.mock('./logout', () => {

@@ -1,7 +1,3 @@
-/* eslint-disable testing-library/no-await-sync-query */
-import { dataSource } from '~backend/data-source';
-import { UserFederatedCredential as DBUserFederatedCredential } from '~backend/domain/user/infra/db/user-federated-credential';
-// eslint-disable-next-line import/order
 import { CreateUserFederatedCredentialDTO } from '~backend/domain/user/dto';
 
 const mockDBUserFederatedCredentialRepository = {
