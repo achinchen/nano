@@ -1,19 +1,23 @@
 export class User {
   constructor(
+    public id: number,
     public nickname: string,
     public firstName: string,
     public lastName: string,
     public email: string,
-    public emailVerified: string,
     public phone: string
   ) {}
 }
 
-export class UserFederatedCredentials {
+export const FEDERATED_CREDENTIALS = ['google', 'facebook', 'apple'];
+export type FederatedCredentialProvider =
+  (typeof FEDERATED_CREDENTIALS)[number];
+
+export class UserFederatedCredential {
   constructor(
-    public id: string,
-    public userId: string,
-    public provider: string,
+    public id: number,
+    public userId: number,
+    public provider: FederatedCredentialProvider,
     public subject: string
   ) {}
 }

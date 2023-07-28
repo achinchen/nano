@@ -7,8 +7,11 @@
       "rules": {}
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {}
+      "files": ["*.spec.ts"],
+      "rules": {
+        "testing-library/no-await-sync-query": "off",
+        "import/order": "warn"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

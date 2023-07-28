@@ -18,25 +18,20 @@ app.use(logger('dev'));
 app.use(json());
 
 app.use(urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(
-  csrf(
-    '123456789iamasecret987654321look', // secret -- must be 32 bits or chars in length
-    ['POST'], // the request methods we want CSRF protection for
-    ['/detail', /\/detail\.*/i], // any URLs we want to exclude, either as strings or regexp
-    [process.env.SITE_URL + '/service-worker.js'] // any requests from here will not see the token and will not generate a new one
-  )
-);
+app.use(cookieParser('123456789iamasecret987654321look'));
+app.use(csrf('123456789iamasecret987654321look'));
 
 app.use(expressStatic(path.join(__dirname, 'assets')));
 app.use(
   session({
-    secret: 'keyboard cat',
+    secret: '123456789iamasecret987654321look',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { secure: app.get('env') === 'production', signed: true },
   })
 );
+
+app.use(passport.initialize());
 app.use(passport.authenticate('session'));
 
 app.use(function (req, res, next) {
@@ -47,15 +42,28 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.use(function (req, res, next) {
-//   res.locals.csrfToken = req.csrfToken();
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 app.use('/', authRouter);
 
-app.use('/', function (req, res) {
+app.use('/health-check', function (req, res) {
   res.send('Hello World!');
+});
+
+function isAuthenticated(req, res, next) {
+  if (req.session.passport?.user) next();
+  else next('route');
+}
+
+app.get('/', isAuthenticated, function (req, res) {
+  res.send(`hello, ${req.session.passport.user.nickname}`);
+});
+
+app.get('/', function (req, res) {
+  res.send(`hello, guest`);
 });
 
 app.use(function (req, res, next) {

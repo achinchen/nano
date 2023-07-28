@@ -1,76 +1,72 @@
+import type { Profile } from 'passport';
+import type { User } from '~backend/domain/user/entity';
 import passport from 'passport';
-import GoogleStrategy from 'passport-google-oauth20';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { userFederatedCredentialRepository } from '~backend/domain/user/repository/user-federated-credential';
+import { createUserUseCase } from '~backend/domain/user/use-case/create-user';
+import { userRepository } from '~backend/domain/user/repository/user';
 
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: process.env['GOOGLE_CLIENT_ID'],
-//       clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-//       callbackURL: '/oauth2/redirect/google',
-//       state: true,
-//     },
-//     function verify(accessToken, refreshToken, profile, cb) {
-//       db.get(
-//         'SELECT * FROM FederatedCredentials WHERE provider = ? AND subject = ?',
-//         ['https://www.facebook.com', profile.id],
-//         function (err, row) {
-//           if (err) {
-//             return cb(err);
-//           }
-//           if (!row) {
-//             db.run(
-//               'INSERT INTO users (name) VALUES (?)',
-//               [profile.displayName],
-//               function (err) {
-//                 if (err) {
-//                   return cb(err);
-//                 }
-//                 const id = this.lastID;
-//                 db.run(
-//                   'INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)',
-//                   [id, 'https://www.facebook.com', profile.id],
-//                   function (err) {
-//                     if (err) {
-//                       return cb(err);
-//                     }
-//                     const user = {
-//                       id: id,
-//                       name: profile.displayName,
-//                     };
-//                     return cb(null, user);
-//                   }
-//                 );
-//               }
-//             );
-//           } else {
-//             db.get(
-//               'SELECT * FROM users WHERE id = ?',
-//               [row.user_id],
-//               function (err, row) {
-//                 if (err) {
-//                   return cb(err);
-//                 }
-//                 if (!row) {
-//                   return cb(null, false);
-//                 }
-//                 return cb(null, row);
-//               }
-//             );
-//           }
-//         }
-//       );
-//     }
-//   )
-// );
+export async function verify(
+  accessToken: string,
+  refreshToken: string,
+  profile: Profile,
+  cb: (error: null | Error, user?: User | false) => void
+) {
+  try {
+    const federatedCredential =
+      await userFederatedCredentialRepository.getByProviderAndSubject({
+        provider: 'google',
+        subject: profile.id,
+      });
 
-passport.serializeUser(function (user, cb) {
+    if (!federatedCredential) {
+      const [error, user] = await createUserUseCase.execute({
+        nickname: profile.displayName,
+        firstName: profile.name?.givenName || '',
+        lastName: profile.name?.familyName || '',
+        email: profile.emails?.[0].value || '',
+        phone: '',
+        provider: 'google',
+        subject: profile.id || '',
+      });
+      if (error) return cb(null, false);
+      return cb(null, user);
+    } else {
+      const user = await userRepository.getById(federatedCredential.userId);
+      if (!user) return cb(null, false);
+      return cb(null, user);
+    }
+  } catch (error) {
+    return cb(error);
+  }
+}
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: '/oauth2/redirect/google',
+      state: true,
+      scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email',
+      ],
+    },
+    verify
+  )
+);
+
+passport.serializeUser(function (user: User, cb) {
   process.nextTick(function () {
-    cb(null, { id: user.id, username: user.username, name: user.name });
+    cb(null, { id: user.id, nickname: user.nickname, email: user.email });
   });
 });
 
-passport.deserializeUser(function (user, cb) {
+passport.deserializeUser(function (user: User, cb) {
   process.nextTick(function () {
     return cb(null, user);
   });
 });
+
+export { passport };

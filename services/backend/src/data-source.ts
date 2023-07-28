@@ -1,17 +1,19 @@
 import { config } from 'dotenv';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { User, UserFederatedCredentials } from './domain/user/infra/db';
+import { app } from './app';
+import { User } from './domain/user/infra/db/user';
+import { UserFederatedCredential } from './domain/user/infra/db/user-federated-credential';
 
 config();
 
-export const AppDataSource = new DataSource({
+export const dataSource = new DataSource({
   type: 'mysql',
   url: process.env.DB_URL,
   driver: {},
-  synchronize: true,
+  synchronize: app.get('env') === 'development',
   logging: false,
-  entities: [User, UserFederatedCredentials],
+  entities: [User, UserFederatedCredential],
   migrations: [],
   subscribers: [],
 });
