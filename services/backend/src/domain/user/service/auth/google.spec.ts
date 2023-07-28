@@ -4,6 +4,9 @@ import { userFederatedCredentialRepository } from '~backend/domain/user/reposito
 import { createUserUseCase } from '~backend/domain/user/use-case/create-user';
 import { userRepository } from '~backend/domain/user/repository/user';
 
+jest.mock('passport');
+jest.mock('passport-google-oauth20');
+
 const mockProfile: Profile = {
   id: 'google_user_id',
   displayName: 'John Doe',

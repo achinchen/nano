@@ -23,6 +23,15 @@
         "production": {}
       }
     },
+    "docker:up": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "docker compose -f ./services/backend/docker-compose.yml up"
+        ],
+        "forwardAllArgs": false
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
@@ -36,6 +45,17 @@
         "production": {
           "buildTarget": "backend:build:production"
         }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "commands": [
+          "nx run backend:docker:up",
+          "nx run backend:serve:development"
+        ],
+        "parallel":  true
       }
     },
     "lint": {

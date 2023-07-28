@@ -6,7 +6,11 @@ import phoneValueObject from '~backend/domain/shared/value-object/phone';
 import emailValueObject from '~backend/domain/shared/value-object/email';
 import { CreateUserUseCase } from './implementation';
 
-jest.spyOn(AppError, 'Unexpected');
+jest.mock('~backend/domain/shared/error', () => ({
+  AppError: {
+    Unexpected: jest.fn((error) => [error]),
+  },
+}));
 
 jest.mock('~backend/domain/shared/value-object/phone', () => ({
   execute: jest.fn((phone: string) => [null, phone]),
@@ -126,7 +130,7 @@ describe('CreateUserUseCase', () => {
 
     expect(AppError.Unexpected).toHaveBeenCalledWith(errorInstance);
     expect(result).toBeUndefined();
-    expect(error).toEqual(AppError.Unexpected(errorInstance)[0]);
+    expect(error).toBe(AppError.Unexpected(errorInstance)[0]);
 
     expect(mockUserRepository.exist).toHaveBeenCalledWith(payload.email);
     expect(mockUserRepository.create).not.toHaveBeenCalledWith({
