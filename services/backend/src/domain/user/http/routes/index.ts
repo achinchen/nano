@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import { passport } from '~backend/domain/user/service/auth/google';
+import { logout } from './logout';
 
-const PROVIDER = 'google';
+export const PROVIDER = 'google';
 
 const router = Router();
 router.get('/login/federated/google', passport.authenticate(PROVIDER));
@@ -14,13 +15,6 @@ router.get(
   })
 );
 
-router.get('/logout', function (req, res, next) {
-  req.logout(function (err) {
-    if (err) {
-      return next(err);
-    }
-    res.redirect('/');
-  });
-});
+router.get('/logout', logout());
 
 export default router;
