@@ -8,6 +8,7 @@ import logger from 'morgan';
 import csrf from 'tiny-csrf';
 import { config } from 'dotenv';
 import authRouter from './domain/user/http/routes';
+import orderRouter from './domain/order/http/routes';
 
 config();
 
@@ -49,8 +50,10 @@ app.use(function (req, res, next) {
 
 app.use('/', authRouter);
 
+app.use('/', orderRouter);
+
 app.use('/health-check', function (req, res) {
-  res.send('Hello World!');
+  res.send('pong');
 });
 
 function isAuthenticated(req, res, next) {
