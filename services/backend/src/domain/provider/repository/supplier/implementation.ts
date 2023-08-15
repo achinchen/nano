@@ -45,7 +45,7 @@ export class SupplierRepository implements ISupplierRepository {
   }
 
   async deleteById(id: Supplier['id']): Promise<boolean> {
-    const supplier = await supplierRepository.softDelete({ id });
+    const supplier = await supplierRepository.delete({ id });
     return Boolean(supplier);
   }
 }

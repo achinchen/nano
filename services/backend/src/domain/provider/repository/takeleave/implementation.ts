@@ -26,7 +26,7 @@ export class TakeleaveRepository implements ITakeleaveRepository {
   }
 
   async deleteById(id: Takeleave['id']): Promise<boolean> {
-    const takeleave = await takeleaveRepository.softDelete({ id });
+    const takeleave = await takeleaveRepository.delete({ id });
     return Boolean(takeleave);
   }
 }

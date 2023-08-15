@@ -26,7 +26,7 @@ export class LocationRepository implements ILocationRepository {
   }
 
   async deleteById(id: Location['id']): Promise<boolean> {
-    const location = await locationRepository.softDelete({ id });
+    const location = await locationRepository.delete({ id });
     return Boolean(location);
   }
 }
