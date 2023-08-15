@@ -8,7 +8,7 @@ export class Provider {
   ) {}
 }
 
-export class TakeLeave {
+export class Takeleave {
   constructor(
     public id: number,
     public startAt: Date,

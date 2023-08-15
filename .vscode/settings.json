@@ -3,6 +3,7 @@
     "commitlint",
     "nano",
     "nrwl",
+    "takeleave",
     "unocss"
   ],
   "unocss.root": [
