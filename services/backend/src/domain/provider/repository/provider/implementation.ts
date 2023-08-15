@@ -18,9 +18,13 @@ export class ProviderRepository implements IProviderRepository {
     return provider;
   }
 
+  async getByOwnerId(ownerId: Provider['ownerId']): Promise<Provider> {
+    const provider = await providerRepository.findOneBy({ ownerId });
+    return provider;
+  }
+
   async deleteById(id: Provider['id']): Promise<boolean> {
     const provider = await providerRepository.softDelete({ id });
-    console.log(provider);
     return Boolean(provider);
   }
 }
