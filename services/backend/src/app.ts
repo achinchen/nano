@@ -9,6 +9,7 @@ import csrf from 'tiny-csrf';
 import { config } from 'dotenv';
 import authRouter from './domain/user/http/routes';
 import orderRouter from './domain/order/http/routes';
+import providerRouter from './domain/provider/http/routes';
 
 config();
 
@@ -49,7 +50,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', authRouter);
-
+app.use('/', providerRouter);
 app.use('/', orderRouter);
 
 app.use('/health-check', function (req, res) {
