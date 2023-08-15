@@ -5,7 +5,7 @@ const mockDBLocationRepository = {
   save: jest.fn(),
   find: jest.fn(),
   findOneBy: jest.fn(),
-  softDelete: jest.fn(),
+  delete: jest.fn(),
 };
 
 jest.mock('~backend/data-source', () => ({
@@ -67,11 +67,11 @@ describe('LocationRepository', () => {
   });
 
   it('should delete a location by id', async () => {
-    mockDBLocationRepository.softDelete.mockResolvedValueOnce(location);
+    mockDBLocationRepository.delete.mockResolvedValueOnce(location);
 
     const result = await locationRepository.deleteById(location.id);
 
-    expect(mockDBLocationRepository.softDelete).toHaveBeenCalledWith({
+    expect(mockDBLocationRepository.delete).toHaveBeenCalledWith({
       id: location.id,
     });
     expect(result).toBe(true);

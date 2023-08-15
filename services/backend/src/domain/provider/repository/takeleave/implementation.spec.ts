@@ -5,7 +5,7 @@ const mockDBTakeleaveRepository = {
   save: jest.fn(),
   findOneBy: jest.fn(),
   find: jest.fn(),
-  softDelete: jest.fn(),
+  delete: jest.fn(),
 };
 
 jest.mock('~backend/data-source', () => ({
@@ -67,11 +67,11 @@ describe('TakeleaveRepository', () => {
   });
 
   it('should delete a takeleave by id', async () => {
-    mockDBTakeleaveRepository.softDelete.mockResolvedValueOnce(takeleave);
+    mockDBTakeleaveRepository.delete.mockResolvedValueOnce(takeleave);
 
     const result = await takeleaveRepository.deleteById(takeleave.id);
 
-    expect(mockDBTakeleaveRepository.softDelete).toHaveBeenCalledWith({
+    expect(mockDBTakeleaveRepository.delete).toHaveBeenCalledWith({
       id: takeleave.id,
     });
     expect(result).toBe(true);

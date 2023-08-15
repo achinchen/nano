@@ -6,7 +6,7 @@ const mockDBSupplierRepository = {
   update: jest.fn(),
   find: jest.fn(),
   findOneBy: jest.fn(),
-  softDelete: jest.fn(),
+  delete: jest.fn(),
 };
 
 jest.mock('~backend/data-source', () => ({
@@ -88,11 +88,11 @@ describe('SupplierRepository', () => {
   });
 
   it('should delete a supplier by id', async () => {
-    mockDBSupplierRepository.softDelete.mockResolvedValueOnce(supplier);
+    mockDBSupplierRepository.delete.mockResolvedValueOnce(supplier);
 
     const result = await supplierRepository.deleteById(supplier.id);
 
-    expect(mockDBSupplierRepository.softDelete).toHaveBeenCalledWith({
+    expect(mockDBSupplierRepository.delete).toHaveBeenCalledWith({
       id: supplier.id,
     });
     expect(result).toBe(true);
