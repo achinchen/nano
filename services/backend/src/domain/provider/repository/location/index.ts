@@ -1,5 +1,5 @@
-import { ProviderRepository } from './implementation';
+import { LocationRepository } from './implementation';
 
-export type { IProviderRepository } from './abstract';
+export type { ILocationRepository } from './abstract';
 
-export const providerRepository = new ProviderRepository();
+export const locationRepository = new LocationRepository();

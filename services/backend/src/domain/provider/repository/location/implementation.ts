@@ -1,25 +1,32 @@
-import type { Takeleave } from '~backend/domain/provider/takeleave';
-import type { IProviderRepository } from './abstract';
+import type { Provider, Location } from '~backend/domain/provider/entity';
+import type { ILocationRepository } from './abstract';
 import { dataSource } from '~backend/data-source';
-import { Takeleave as DBTakeleave } from '~backend/domain/provider/infra/db/takeleave';
-import { CreateProviderDTO } from '~backend/domain/provider/dto';
+import { Location as DBLocation } from '~backend/domain/provider/infra/db/location';
+import { CreateLocationDTO } from '~backend/domain/provider/dto';
 
-const takeleaveRepository = dataSource.getRepository(DBTakeleave);
+const locationRepository = dataSource.getRepository(DBLocation);
 
-export class ProviderRepository implements IProviderRepository {
-  async create(payload: CreateProviderDTO): Promise<Takeleave> {
-    const takeleavePayload = takeleaveRepository.create(payload);
-    const takeleave = await takeleaveRepository.save(takeleavePayload);
-    return takeleave;
+export class LocationRepository implements ILocationRepository {
+  async create(payload: CreateLocationDTO): Promise<Location> {
+    const locationPayload = locationRepository.create(payload);
+    const location = await locationRepository.save(locationPayload);
+    return location;
   }
 
-  async getById(id: Takeleave['id']): Promise<Takeleave> {
-    const takeleave = await takeleaveRepository.findOneBy({ id });
-    return takeleave;
+  async getById(id: Location['id']): Promise<Location> {
+    const location = await locationRepository.findOneBy({ id });
+    return location;
   }
 
-  async deleteById(id: Takeleave['id']): Promise<boolean> {
-    const takeleave = await takeleaveRepository.softDelete({ id });
-    return Boolean(takeleave);
+  async getAllByProviderId(providerId: Provider['id']): Promise<Location[]> {
+    const locations = await locationRepository.find({
+      where: { providerId },
+    });
+    return locations;
+  }
+
+  async deleteById(id: Location['id']): Promise<boolean> {
+    const location = await locationRepository.softDelete({ id });
+    return Boolean(location);
   }
 }

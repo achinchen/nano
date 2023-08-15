@@ -1,18 +1,9 @@
-import type { Provider } from '~backend/domain/provider/entity';
-import type { CreateProviderDTO } from '~backend/domain/provider/dto';
+import type { Provider, Location } from '~backend/domain/provider/entity';
+import type { CreateLocationDTO } from '~backend/domain/provider/dto';
 
-export interface ITakeLeaveRepository {
-  create(payload: CreateProviderDTO): Promise<Provider>;
-  getById(id: Provider['id']): Promise<Provider>;
-  deleteById(id: Provider['id']): Promise<boolean>;
+export interface ILocationRepository {
+  create(payload: CreateLocationDTO): Promise<Location>;
+  getById(id: Location['id']): Promise<Location>;
+  getAllByProviderId(id: Provider['id']): Promise<Location[]>;
+  deleteById(id: Location['id']): Promise<boolean>;
 }
-
-// -location;
-// getAllByProviderId;
-// getById;
-// deleteById
-// - supplier;
-// create;
-// updateById;
-// getById;
-// deleteById;
