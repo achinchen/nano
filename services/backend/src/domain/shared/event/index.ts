@@ -1,11 +1,11 @@
 import EventEmitter from 'node:events';
 
-interface DomainEventInterface {
+export interface IDomainEvent {
   eventEmitter: EventEmitter;
   id: string;
 }
 
-export class DomainEvent implements DomainEventInterface {
+export class DomainEvent implements IDomainEvent {
   eventEmitter: EventEmitter;
   id: string;
 
