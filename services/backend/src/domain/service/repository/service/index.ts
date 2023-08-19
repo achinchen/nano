@@ -1,5 +1,5 @@
-import { ProviderRepository } from './implementation';
+import { ServiceRepository } from './implementation';
 
-export type { IProviderRepository } from './abstract';
+export type { IServiceRepository } from './abstract';
 
-export const providerRepository = new ProviderRepository();
+export const serviceRepository = new ServiceRepository();

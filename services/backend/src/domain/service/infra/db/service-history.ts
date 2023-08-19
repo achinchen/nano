@@ -1,25 +1,58 @@
+import type { Field } from '~backend/domain/service/entity';
 import {
+  Index,
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Index,
   BeforeInsert,
   BeforeUpdate,
   BeforeSoftRemove,
 } from 'typeorm';
 
 @Entity()
-@Index(['lastHistory', 'providerId'], { unique: true })
-export class Service {
+export class ServiceHistory {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  version: string;
+
+  @Column({ length: 30 })
+  name: string;
+
   @Index()
-  @Column({ nullable: true })
-  lastHistoryId?: number;
+  @Column()
+  supplierId: number;
 
   @Column()
-  providerId: number;
+  locationId: number;
+
+  @Column({ length: 500 })
+  description: string;
+
+  @Column('time')
+  duration: Date;
+
+  @Column()
+  attendee: number;
+
+  @Column()
+  allday: boolean;
+
+  @Column()
+  startAt: Date;
+
+  @Column()
+  endAt: Date;
+
+  @Column('simple-array')
+  fields: Field[];
+
+  @Column()
+  note: string;
+
+  @Column()
+  serviceId: number;
 
   @Column()
   createdAt: Date;

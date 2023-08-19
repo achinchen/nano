@@ -8,7 +8,7 @@ import { Takeleave } from './domain/provider/infra/db/takeleave';
 import { Location } from './domain/provider/infra/db/location';
 import { Supplier } from './domain/provider/infra/db/supplier';
 import { Service } from './domain/service/infra/db/service';
-// import { ServiceHistory } from './domain/service/infra/db/service-history';
+import { ServiceHistory } from './domain/service/infra/db/service-history';
 
 config();
 
@@ -26,6 +26,7 @@ export const dataSource = new DataSource({
     Location,
     Supplier,
     Service,
+    ServiceHistory,
   ],
   migrations: [],
   subscribers: [],

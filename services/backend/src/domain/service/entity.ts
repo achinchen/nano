@@ -1,10 +1,13 @@
 export class Service {
   constructor(
     public id: number,
-    public lastHistoryId: number,
-    public providerId: number
+    public providerId: number,
+    public lastHistoryId?: number
   ) {}
 }
+
+const FIELDS = ['name', 'email', 'SNSId', 'phone'] as const;
+export type Field = (typeof FIELDS)[number];
 
 export class ServiceHistory {
   constructor(
@@ -19,7 +22,7 @@ export class ServiceHistory {
     public allday: boolean,
     public startAt: Date,
     public endAt: Date,
-    public fields: string[],
+    public fields: Field[],
     public note: string,
     public serviceId: number
   ) {}
