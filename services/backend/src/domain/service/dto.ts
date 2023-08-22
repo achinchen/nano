@@ -1,4 +1,11 @@
 import type { Service, ServiceHistory } from '~backend/domain/service/entity';
 
-export type CreateServiceDTO = Omit<Service, 'id'> &
-  Omit<ServiceHistory, 'id' | 'serviceId' | 'version'>;
+type Payload = Omit<ServiceHistory, 'id' | 'serviceId' | 'version'>;
+
+export type CreateServiceDTO = Omit<Service, 'id'> & Payload;
+
+export type UpdateServiceDTO =
+  | Partial<Payload> & {
+      version: ServiceHistory['version'];
+      id: Service['id'];
+    };

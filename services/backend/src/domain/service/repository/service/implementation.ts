@@ -3,7 +3,10 @@ import { Service, ServiceHistory } from '~backend/domain/service/entity';
 import { dataSource } from '~backend/data-source';
 import { Service as DBService } from '~backend/domain/service/infra/db/service';
 import { ServiceHistory as DBServiceHistory } from '~backend/domain/service/infra/db/service-history';
-import { CreateServiceDTO } from '~backend/domain/service/dto';
+import {
+  CreateServiceDTO,
+  UpdateServiceDTO,
+} from '~backend/domain/service/dto';
 
 const serviceRepository = dataSource.getRepository(DBService);
 const serviceHistoryRepository = dataSource.getRepository(DBServiceHistory);
@@ -29,12 +32,33 @@ export class ServiceRepository implements IServiceRepository {
     return serviceHistory;
   }
 
+  async getInfoByIdAndProviderId(
+    id: Service['id'],
+    providerId: Service['providerId']
+  ): Promise<ServiceHistory> {
+    const serviceHistory = await serviceHistoryRepository
+      .createQueryBuilder('serviceHistory')
+      .innerJoinAndSelect(
+        DBService,
+        'service',
+        'service.lastHistoryId = serviceHistory.id'
+      )
+      .where(
+        'serviceHistory.serviceId = :id and service.providerId = :providerId',
+        { id, providerId }
+      )
+      .getOne();
+
+    console.log('serviceHistory', serviceHistory);
+    return serviceHistory;
+  }
+
   async getInfoById(id: Service['id']): Promise<ServiceHistory> {
     const serviceHistory = await serviceHistoryRepository
       .createQueryBuilder('serviceHistory')
-      .innerJoinAndMapOne(
-        'service',
+      .innerJoinAndSelect(
         DBService,
+        'service',
         'service.lastHistoryId = serviceHistory.id'
       )
       .where('serviceHistory.serviceId = :id', { id })
@@ -59,7 +83,22 @@ export class ServiceRepository implements IServiceRepository {
       .cache(true)
       .getMany();
 
-    console.log('serviceHistory', serviceHistory);
     return serviceHistory;
+  }
+
+  async update({ id, ...payload }: UpdateServiceDTO): Promise<boolean> {
+    const serviceHistoryPayload = serviceHistoryRepository.create({
+      serviceId,
+      ...payload,
+    });
+    const serviceHistory = await serviceHistoryRepository.save(
+      serviceHistoryPayload
+    );
+
+    await serviceRepository.update(serviceId, {
+      lastHistoryId: serviceHistory.id,
+    });
+
+    return Boolean(serviceHistory);
   }
 }

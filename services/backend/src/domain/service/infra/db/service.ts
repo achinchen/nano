@@ -1,5 +1,6 @@
 import {
   Entity,
+  PrimaryColumn,
   PrimaryGeneratedColumn,
   Column,
   Index,
@@ -9,11 +10,12 @@ import {
 } from 'typeorm';
 
 @Entity()
-@Index(['lastHistory', 'providerId'], { unique: true })
+@Index(['lastHistoryId', 'providerId'], { unique: true })
 export class Service {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @PrimaryColumn()
   @Index()
   @Column({ nullable: true })
   lastHistoryId?: number;
