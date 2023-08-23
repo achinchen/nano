@@ -43,11 +43,38 @@ export class Guard {
     }
   }
 
+  public static notNullOrUndefinedOrEmptyString(
+    argument: unknown,
+    argumentName: string
+  ): IResult<GuardResponse> {
+    if (argument === null || argument === undefined || argument === '') {
+      return Result.fail(
+        `${argumentName} is one of null, undefined,  empty string`
+      );
+    } else {
+      return Result.ok(argument);
+    }
+  }
+
   public static notNullOrUndefinedBulk(
     args: GuardArgumentCollection
   ): IResult<GuardResponse> {
     for (const arg of args) {
       const result = this.notNullOrUndefined(arg.argument, arg.argumentName);
+      if (result[0]) return result;
+    }
+
+    return Result.ok<GuardResponse>(args);
+  }
+
+  public static notNullOrUndefinedOrEmptyStringBulk(
+    args: GuardArgumentCollection
+  ): IResult<GuardResponse> {
+    for (const arg of args) {
+      const result = this.notNullOrUndefinedOrEmptyString(
+        arg.argument,
+        arg.argumentName
+      );
       if (result[0]) return result;
     }
 

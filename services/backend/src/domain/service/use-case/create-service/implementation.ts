@@ -2,7 +2,7 @@ import type { ServiceHistory } from '~backend/domain/service/entity';
 import type { CreateServiceDTO } from '~backend/domain/service/dto';
 import type { IServiceRepository } from '~backend/domain/service/repository/service/abstract';
 import type { IResult } from '~backend/domain/shared/result';
-import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root/service';
+import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root';
 import { Result } from '~backend/domain/shared/result';
 import { AppError, AppErrorUnexpected } from '~backend/domain/shared/error';
 import { UseCase } from '~backend/domain/shared/use-case';

@@ -8,16 +8,17 @@ import {
 import {
   SERVICE_CREATED,
   SERVICE_UPDATED,
+  HAS_ORDER_SERVICE_UPDATED,
 } from '~backend/domain/service/event';
 import { Result } from '~backend/domain/shared/result';
 
-const FIRST_VERSION = '1.0.0';
+export const FIRST_VERSION = '1.0.0';
 
 export class ServiceAggregateRoot extends AggregateRoot {
   public static createService(
     payload: CreateServiceDTO
   ): IResult<CreateServiceDTO> {
-    const guardResult = Guard.notNullOrUndefinedBulk(
+    const guardResult = Guard.notNullOrUndefinedOrEmptyStringBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,
         argument: value,
@@ -39,7 +40,7 @@ export class ServiceAggregateRoot extends AggregateRoot {
   public static updateService(
     payload: Omit<UpdateServiceDTO, 'id'>
   ): IResult<Omit<UpdateServiceDTO, 'id'>> {
-    const guardResult = Guard.notNullOrUndefinedBulk(
+    const guardResult = Guard.notNullOrUndefinedOrEmptyStringBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,
         argument: value,
@@ -57,7 +58,7 @@ export class ServiceAggregateRoot extends AggregateRoot {
     payload: Omit<UpdateServiceDTO, 'id'>
   ): IResult<Omit<UpdateServiceDTO, 'id'>> {
     // supplierId/ locationId/ duration，
-    const guardResult = Guard.notNullOrUndefinedBulk(
+    const guardResult = Guard.notNullOrUndefinedOrEmptyStringBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,
         argument: value,
@@ -67,7 +68,7 @@ export class ServiceAggregateRoot extends AggregateRoot {
     if (error) return guardResult;
 
     const serviceAggregateRoot = new ServiceAggregateRoot();
-    serviceAggregateRoot.addDomainEvent(SERVICE_UPDATED, payload);
+    serviceAggregateRoot.addDomainEvent(HAS_ORDER_SERVICE_UPDATED, payload);
 
     return Result.ok(payload);
   }

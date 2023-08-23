@@ -9,3 +9,5 @@ export type UpdateServiceDTO =
       version: ServiceHistory['version'];
       id: Service['id'];
     };
+
+export type CloseServiceDTO = Omit<Service, 'lastHistoryId'>;

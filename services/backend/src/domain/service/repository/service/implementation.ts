@@ -32,6 +32,14 @@ export class ServiceRepository implements IServiceRepository {
     return serviceHistory;
   }
 
+  async getByIdAndProviderId(
+    id: Service['id'],
+    providerId: Service['providerId']
+  ) {
+    const service = await serviceRepository.findOneBy({ id, providerId });
+    return service;
+  }
+
   async getInfoByIdAndProviderId(
     id: Service['id'],
     providerId: Service['providerId']
@@ -49,7 +57,6 @@ export class ServiceRepository implements IServiceRepository {
       )
       .getOne();
 
-    console.log('serviceHistory', serviceHistory);
     return serviceHistory;
   }
 
@@ -88,17 +95,22 @@ export class ServiceRepository implements IServiceRepository {
 
   async update({ id, ...payload }: UpdateServiceDTO): Promise<boolean> {
     const serviceHistoryPayload = serviceHistoryRepository.create({
-      serviceId,
+      serviceId: id,
       ...payload,
     });
     const serviceHistory = await serviceHistoryRepository.save(
       serviceHistoryPayload
     );
 
-    await serviceRepository.update(serviceId, {
+    await serviceRepository.update(id, {
       lastHistoryId: serviceHistory.id,
     });
 
     return Boolean(serviceHistory);
+  }
+
+  async deleteById(id: Service['id']): Promise<boolean> {
+    const service = await serviceRepository.softDelete({ id });
+    return Boolean(service);
   }
 }

@@ -2,7 +2,7 @@ import type { Service } from '~backend/domain/service/entity';
 import type { UpdateServiceDTO } from '~backend/domain/service/dto';
 import type { IServiceRepository } from '~backend/domain/service/repository/service/abstract';
 import type { IResult } from '~backend/domain/shared/result';
-import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root/service';
+import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root';
 import { Result } from '~backend/domain/shared/result';
 import versionValueObject from '~backend/domain/service/value-object/version';
 import { AppError, AppErrorUnexpected } from '~backend/domain/shared/error';

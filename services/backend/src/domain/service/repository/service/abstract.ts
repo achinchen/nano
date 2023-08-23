@@ -6,6 +6,10 @@ import type {
 
 export interface IServiceRepository {
   create(payload: CreateServiceDTO): Promise<ServiceHistory>;
+  getByIdAndProviderId(
+    id: Service['id'],
+    providerId: Service['providerId']
+  ): Promise<Service>;
   getInfoByIdAndProviderId(
     id: Service['id'],
     providerId: Service['providerId']
@@ -15,4 +19,5 @@ export interface IServiceRepository {
     provider: Service['providerId']
   ): Promise<ServiceHistory[]>;
   update(payload: UpdateServiceDTO): Promise<boolean>;
+  deleteById(id: Service['id']): Promise<boolean>;
 }

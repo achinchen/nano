@@ -1,9 +1,9 @@
 import { IServiceRepository } from '~backend/domain/service/repository/service/abstract';
 import { Result } from '~backend/domain/shared/result';
 import { NOT_ALLOW } from '~backend/domain/service/error';
-import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root/service';
+import { ServiceAggregateRoot } from '~backend/domain/service/aggregate-root';
 
-jest.mock('~backend/domain/service/aggregate-root/service', () => ({
+jest.mock('~backend/domain/service/aggregate-root', () => ({
   ServiceAggregateRoot: {
     createService: jest.fn(),
   },
