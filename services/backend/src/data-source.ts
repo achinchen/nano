@@ -9,6 +9,7 @@ import { Location } from './domain/provider/infra/db/location';
 import { Supplier } from './domain/provider/infra/db/supplier';
 import { Service } from './domain/service/infra/db/service';
 import { ServiceHistory } from './domain/service/infra/db/service-history';
+import { Order } from './domain/order/infra/db/order';
 
 config();
 
@@ -27,6 +28,7 @@ export const dataSource = new DataSource({
     Supplier,
     Service,
     ServiceHistory,
+    Order,
   ],
   migrations: [],
   subscribers: [],
