@@ -8,7 +8,11 @@ import {
   ORDER_PERMITTED,
   ORDER_REJECTED,
 } from '~backend/domain/order/event';
-import { CreateOrderDTO, PermitOrderDTO } from '~backend/domain/order/dto';
+import {
+  CreateOrderDTO,
+  PermitOrderDTO,
+  RejectOrderDTO,
+} from '~backend/domain/order/dto';
 import { Result } from '~backend/domain/shared/result';
 
 export const DEFAULT_STATE = 'accepted' as State;
@@ -83,9 +87,9 @@ export class OrderAggregateRoot extends AggregateRoot {
     return Result.ok(aggregateRootResult);
   }
 
-  public static rejectedOrder(
-    payload: Omit<PermitOrderDTO, 'state'>
-  ): IResult<PermitOrderDTO & { state: Order['state'] }> {
+  public static rejectOrder(
+    payload: Omit<RejectOrderDTO, 'state'>
+  ): IResult<RejectOrderDTO & { state: Order['state'] }> {
     const guardResult = Guard.notNullOrUndefinedBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,
