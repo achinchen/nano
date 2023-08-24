@@ -6,25 +6,25 @@ import { OrderAggregateRoot } from '~backend/domain/order/aggregate-root';
 
 jest.mock('~backend/domain/order/aggregate-root', () => ({
   OrderAggregateRoot: {
-    createOrder: jest.fn(),
+    requestOrder: jest.fn(),
   },
 }));
 
-type Payload = Parameters<CreateOrderUseCase['execute']>[0];
+type Payload = Parameters<RequestOrderUseCase['execute']>[0];
 
 const mockOrderRepository = {
   create: jest.fn(),
 } as unknown as jest.Mocked<IOrderRepository>;
 
 const mockOrderAggregateRoot = {
-  createOrder: OrderAggregateRoot.createOrder,
+  requestOrder: OrderAggregateRoot.requestOrder,
 } as unknown as jest.Mocked<typeof OrderAggregateRoot>;
 
-import { CreateOrderUseCase } from './implementation';
+import { RequestOrderUseCase } from './implementation';
 
-const createOrderUseCase = new CreateOrderUseCase(mockOrderRepository);
+const requestOrderUseCase = new RequestOrderUseCase(mockOrderRepository);
 
-describe('CreateOrderUseCase', () => {
+describe('RequestOrderUseCase', () => {
   const payload: Payload = {
     providerId: 1,
     serviceHistoryId: 10,
@@ -52,7 +52,7 @@ describe('CreateOrderUseCase', () => {
 
   it('should return a Result.fail if the payload does not have a userId', async () => {
     const { userId: _, ...payloadWithoutUserID } = payload;
-    const result = await createOrderUseCase.execute(
+    const result = await requestOrderUseCase.execute(
       payloadWithoutUserID as Payload
     );
     expect(result).toEqual(Result.fail(NOT_ALLOW));
@@ -60,19 +60,19 @@ describe('CreateOrderUseCase', () => {
 
   it('should return a Result object with an error if there is an error creating the order', async () => {
     const errorMessage = 'Error creating order';
-    mockOrderAggregateRoot.createOrder.mockReturnValueOnce(
+    mockOrderAggregateRoot.requestOrder.mockReturnValueOnce(
       Result.fail(errorMessage)
     );
-    const [error] = await createOrderUseCase.execute(payload);
+    const [error] = await requestOrderUseCase.execute(payload);
     expect(error).toBe(errorMessage);
   });
 
   it('should return a Result object with the order if the order is created successfully', async () => {
-    mockOrderAggregateRoot.createOrder.mockReturnValueOnce(
+    mockOrderAggregateRoot.requestOrder.mockReturnValueOnce(
       Result.ok(aggregateRootResult)
     );
     mockOrderRepository.create.mockResolvedValueOnce(order);
-    const [error, result] = await createOrderUseCase.execute(payload);
+    const [error, result] = await requestOrderUseCase.execute(payload);
     expect(error).toBe(null);
     expect(result).toEqual(order);
   });
