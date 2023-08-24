@@ -18,6 +18,14 @@ export class OrderRepository implements IOrderRepository {
     return order;
   }
 
+  async getByIdAndProviderId(
+    id: Order['id'],
+    providerId: Order['providerId']
+  ): Promise<Order> {
+    const order = await orderRepository.findOneBy({ id, providerId });
+    return order;
+  }
+
   async getAllByUserId(userId: Order['userId']): Promise<Order[]> {
     const orders = await orderRepository.findBy({ userId });
     return orders;

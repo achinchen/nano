@@ -4,3 +4,4 @@ type Payload = Omit<Order, 'id' | 'noteUpdatedAt'>;
 
 export type CreateOrderDTO = Payload;
 export type RequestOrderDTO = CreateOrderDTO;
+export type RequestOrderDTO = CreateOrderDTO;
