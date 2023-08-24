@@ -8,7 +8,7 @@ export const STATES = [
 export type State = (typeof STATES)[number];
 
 const FIELDS = ['name', 'email', 'SNSId', 'phone'] as const;
-export type Field = { [key in (typeof FIELDS)[number]]: string };
+export type Field = Partial<{ [key in (typeof FIELDS)[number]]: string }>;
 
 export class Order {
   constructor(

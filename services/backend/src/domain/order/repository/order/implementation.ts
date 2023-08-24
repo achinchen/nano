@@ -1,15 +1,18 @@
 import type { IOrderRepository } from './abstract';
-import { Order } from '~backend/domain/order/entity';
+import { Field, Order } from '~backend/domain/order/entity';
 import { dataSource } from '~backend/data-source';
 import { Order as DBOrder } from '~backend/domain/order/infra/db/order';
-// import {
-//   CreateServiceDTO,
-//   UpdateServiceDTO,
-// } from '~backend/domain/order/dto';
+import { CreateOrderDTO } from '~backend/domain/order/dto';
 
 const orderRepository = dataSource.getRepository(DBOrder);
 
 export class OrderRepository implements IOrderRepository {
+  async create(payload: CreateOrderDTO): Promise<Order> {
+    const orderPayload = orderRepository.create(payload);
+    const order = await orderRepository.save(orderPayload);
+    return order;
+  }
+
   async getById(id: Order['id']): Promise<Order> {
     const order = await orderRepository.findOneBy({ id });
     return order;
