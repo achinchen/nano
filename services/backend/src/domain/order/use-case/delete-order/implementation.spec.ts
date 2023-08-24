@@ -45,6 +45,7 @@ describe('DeleteOrderUseCase', () => {
       providerId
     );
   });
+
   it('should delete order', async () => {
     mockOrderRepository.getByIdAndProviderId.mockResolvedValue({
       id,

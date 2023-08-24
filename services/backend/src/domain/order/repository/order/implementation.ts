@@ -1,12 +1,13 @@
 import type { IOrderRepository } from './abstract';
-import { Field, Order } from '~backend/domain/order/entity';
+import { Order } from '~backend/domain/order/entity';
 import { dataSource } from '~backend/data-source';
 import { Order as DBOrder } from '~backend/domain/order/infra/db/order';
-import { CreateOrderDTO } from '~backend/domain/order/dto';
+import { CreateOrderDTO, UpdateOrderDTO } from '~backend/domain/order/dto';
 
 const orderRepository = dataSource.getRepository(DBOrder);
 
 export class OrderRepository implements IOrderRepository {
+
   async create(payload: CreateOrderDTO): Promise<Order> {
     const orderPayload = orderRepository.create(payload);
     const order = await orderRepository.save(orderPayload);
@@ -35,6 +36,11 @@ export class OrderRepository implements IOrderRepository {
     // TODO: paginated
     const orders = await orderRepository.findBy({ providerId });
     return orders;
+  }
+
+  async update({ id, ...payload }: UpdateOrderDTO): Promise<boolean> {
+    const order = await orderRepository.update({ id }, payload);
+    return Boolean(order);
   }
 
   async deleteById(id: Order['id']): Promise<boolean> {

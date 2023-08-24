@@ -1,5 +1,5 @@
 import type { Order } from '~backend/domain/order/entity';
-import { CreateOrderDTO } from '~backend/domain/order/dto';
+import { CreateOrderDTO, UpdateOrderDTO } from '~backend/domain/order/dto';
 
 export interface IOrderRepository {
   create(order: CreateOrderDTO): Promise<Order>;
@@ -8,6 +8,7 @@ export interface IOrderRepository {
     id: Order['id'],
     provider: Order['providerId']
   ): Promise<Order>;
+  update(payload: UpdateOrderDTO): Promise<boolean>;
   getAllByProviderId(provider: Order['providerId']): Promise<Order[]>;
   getAllByUserId(id: Order['id']): Promise<Order[]>;
   deleteById(id: Order['id']): Promise<boolean>;
