@@ -149,18 +149,9 @@ describe('OrderRepository', () => {
       };
 
       mockDBOrderRepository.create.mockReturnValueOnce(payload.payload);
-      mockTransactionalEntityManager.save.mockReturnValueOnce(order);
+      mockTransactionalEntityManager.save.mockResolvedValueOnce(order);
 
       const result = await orderRepository.merge(payload);
-
-      // const order = await dataSource.manager.transaction(
-      //   async (transactionalEntityManager) => {
-      //     await transactionalEntityManager.softDelete(DBOrder, { id });
-      //     const orderPayload = orderRepository.create(payload);
-      //     const order = await transactionalEntityManager.save(orderPayload);
-      //     return order;
-      //   }
-      // );
 
       expect(mockTransactionalEntityManager.softDelete).toHaveBeenCalledWith(
         DBOrder,
