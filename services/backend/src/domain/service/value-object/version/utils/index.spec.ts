@@ -84,8 +84,8 @@ describe('bumpVersion', () => {
     ([version, release], expectedResult) => {
       mockIncrement.mockReturnValue(expectedResult);
 
-      type release = Parameters<typeof bumpVersion>[1];
-      const result = bumpVersion(version, release as release);
+      type Release = Parameters<typeof bumpVersion>[1];
+      const result = bumpVersion(version, release as Release);
 
       expect(result).toBe(expectedResult);
       expect(mockIncrement).toHaveBeenCalledWith(version, release);

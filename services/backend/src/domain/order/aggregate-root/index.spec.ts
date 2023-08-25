@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import { DomainEvent } from '~backend/domain/shared/event';
 import {
   DEFAULT_STATE,
@@ -70,7 +71,8 @@ describe('OrderAggregateRoot', () => {
   };
 
   describe('createOrder', () => {
-    const { id: _, state: __, ...payload } = mockOrder;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, state, ...payload } = mockOrder;
 
     it('should return an error if any required field is missing', () => {
       const [error] = OrderAggregateRoot.createOrder({
@@ -96,7 +98,8 @@ describe('OrderAggregateRoot', () => {
   });
 
   describe('requestOrder', () => {
-    const { id: _, state: __, ...payload } = mockOrder;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, state, ...payload } = mockOrder;
 
     it('should return an error if any required field is missing', () => {
       const [error] = OrderAggregateRoot.requestOrder({

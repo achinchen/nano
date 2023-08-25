@@ -1,5 +1,5 @@
 import type { IResult } from '~backend/domain/shared/result';
-import type { State, Order } from '~backend/domain/order/entity';
+import type { Order } from '~backend/domain/order/entity';
 import { AggregateRoot } from '~backend/domain/shared/aggregate-root';
 import { Guard } from '~backend/domain/shared/guard';
 import {

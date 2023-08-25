@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import 'reflect-metadata';
-import { DataSource, } from 'typeorm';
+import { DataSource } from 'typeorm';
 import { User } from './domain/user/infra/db/user';
 import { UserFederatedCredential } from './domain/user/infra/db/user-federated-credential';
 import { Provider } from './domain/provider/infra/db/provider';

@@ -51,7 +51,8 @@ describe('RequestOrderUseCase', () => {
   };
 
   it('should return a Result.fail if the payload does not have a userId', async () => {
-    const { userId: _, ...payloadWithoutUserID } = payload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { userId, ...payloadWithoutUserID } = payload;
     const result = await requestOrderUseCase.execute(
       payloadWithoutUserID as Payload
     );

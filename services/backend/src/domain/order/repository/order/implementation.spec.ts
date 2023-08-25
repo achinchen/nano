@@ -63,7 +63,8 @@ describe('OrderRepository', () => {
 
   describe('create', () => {
     it('should create a new order', async () => {
-      const { id: _, ...payload } = mockOrder;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...payload } = mockOrder;
 
       mockDBOrderRepository.create.mockReturnValueOnce(payload);
       mockDBOrderRepository.save.mockReturnValueOnce(mockOrder);
