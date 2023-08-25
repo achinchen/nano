@@ -20,12 +20,12 @@ import {
   MergeOrderDTO,
 } from '~backend/domain/order/dto';
 import { Result } from '~backend/domain/shared/result';
-
-export const DEFAULT_STATE = 'accepted' as State;
-export const REQUESTED_STATE = 'requested' as State;
-export const PERMITTED_STATE = 'permitted' as State;
-export const REJECTED_STATE = 'rejected' as State;
-
+import {
+  DEFAULT_STATE,
+  REQUESTED_STATE,
+  PERMITTED_STATE,
+  REJECTED_STATE,
+} from './constants';
 export class OrderAggregateRoot extends AggregateRoot {
   public static createOrder(
     payload: Omit<CreateOrderDTO, 'state'>
