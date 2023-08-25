@@ -1,3 +1,4 @@
+import { Service as DBService } from '~backend/domain/service/infra/db/service';
 import { CreateServiceDTO } from '~backend/domain/service/dto';
 
 const mockDBServiceRepository = {
@@ -29,12 +30,24 @@ const mockDBServiceHistoryRepository = {
   }),
 };
 
+const mockTransactionalEntityManager = {
+  update: jest.fn(),
+  save: jest.fn(),
+};
+
 jest.mock('~backend/data-source', () => ({
   dataSource: {
     getRepository: jest
       .fn()
       .mockReturnValueOnce(mockDBServiceRepository)
       .mockReturnValueOnce(mockDBServiceHistoryRepository),
+    manager: {
+      transaction: jest
+        .fn()
+        .mockImplementation((callback) =>
+          callback(mockTransactionalEntityManager)
+        ),
+    },
   },
 }));
 
@@ -68,19 +81,18 @@ describe('ServiceRepository', () => {
       const serviceHistory = { id: 1 };
 
       mockDBServiceRepository.create.mockReturnValueOnce(service);
-      mockDBServiceRepository.save.mockReturnValueOnce(service);
+      mockTransactionalEntityManager.save.mockResolvedValueOnce(service);
       mockDBServiceHistoryRepository.create.mockReturnValueOnce(serviceHistory);
-      mockDBServiceHistoryRepository.save.mockReturnValueOnce(serviceHistory);
+      mockTransactionalEntityManager.save.mockResolvedValueOnce(serviceHistory);
 
       const result = await serviceRepository.create(payload);
 
       expect(mockDBServiceRepository.create).toHaveBeenCalledWith({
         providerId: payload.providerId,
       });
-      expect(mockDBServiceRepository.save).toHaveBeenCalledWith(service);
+      expect(mockTransactionalEntityManager.save).toHaveBeenCalledWith(service);
       expect(mockDBServiceHistoryRepository.create).toHaveBeenCalledWith({
         serviceId: service.id,
-        // version: payload.version,
         name: payload.name,
         supplierId: payload.supplierId,
         locationId: payload.locationId,
@@ -93,10 +105,11 @@ describe('ServiceRepository', () => {
         fields: payload.fields,
         note: payload.note,
       });
-      expect(mockDBServiceHistoryRepository.save).toHaveBeenCalledWith(
+      expect(mockTransactionalEntityManager.save).toHaveBeenCalledWith(
         serviceHistory
       );
-      expect(mockDBServiceRepository.update).toHaveBeenCalledWith(
+      expect(mockTransactionalEntityManager.update).toHaveBeenCalledWith(
+        DBService,
         {
           id: service.id,
         },
