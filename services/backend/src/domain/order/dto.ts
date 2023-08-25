@@ -7,3 +7,4 @@ export type RequestOrderDTO = CreateOrderDTO;
 export type UpdateOrderDTO = Partial<Payload> & Pick<Order, 'id'>;
 export type PermitOrderDTO = Pick<Order, 'providerId' | 'id'>;
 export type RejectOrderDTO = Pick<Order, 'providerId' | 'id'>;
+export type UpdateOrderNoteDTO = Pick<Order, 'providerId' | 'id' | 'note'>;

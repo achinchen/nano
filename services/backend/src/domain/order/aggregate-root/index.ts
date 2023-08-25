@@ -7,11 +7,13 @@ import {
   ORDER_REQUESTED,
   ORDER_PERMITTED,
   ORDER_REJECTED,
+  ORDER_NOTE_UPDATED
 } from '~backend/domain/order/event';
 import {
   CreateOrderDTO,
   PermitOrderDTO,
   RejectOrderDTO,
+  UpdateOrderNoteDTO,
 } from '~backend/domain/order/dto';
 import { Result } from '~backend/domain/shared/result';
 
@@ -106,6 +108,28 @@ export class OrderAggregateRoot extends AggregateRoot {
 
     const orderAggregateRoot = new OrderAggregateRoot();
     orderAggregateRoot.addDomainEvent(ORDER_REJECTED, aggregateRootResult);
+    return Result.ok(aggregateRootResult);
+  }
+
+  public static updateOrderNote(
+    payload: UpdateOrderNoteDTO
+  ): IResult<UpdateOrderNoteDTO & { noteUpdatedAt: Order['noteUpdatedAt'] }> {
+    const guardResult = Guard.notNullOrUndefinedBulk(
+      Object.entries(payload).map(([key, value]) => ({
+        argumentName: key,
+        argument: value,
+      }))
+    );
+    const [error] = guardResult;
+    if (error) return guardResult;
+
+    const aggregateRootResult = {
+      ...payload,
+      noteUpdatedAt: new Date(),
+    };
+
+    const orderAggregateRoot = new OrderAggregateRoot();
+    orderAggregateRoot.addDomainEvent(ORDER_NOTE_UPDATED, aggregateRootResult);
     return Result.ok(aggregateRootResult);
   }
 }
