@@ -7,13 +7,15 @@ import {
   ORDER_REQUESTED,
   ORDER_PERMITTED,
   ORDER_REJECTED,
-  ORDER_NOTE_UPDATED
+  ORDER_NOTE_UPDATED,
+  ORDER_SERVICE_HISTORY_UPDATED,
 } from '~backend/domain/order/event';
 import {
   CreateOrderDTO,
   PermitOrderDTO,
   RejectOrderDTO,
   UpdateOrderNoteDTO,
+  UpdateOrderServiceHistoryDTO,
 } from '~backend/domain/order/dto';
 import { Result } from '~backend/domain/shared/result';
 
@@ -131,5 +133,13 @@ export class OrderAggregateRoot extends AggregateRoot {
     const orderAggregateRoot = new OrderAggregateRoot();
     orderAggregateRoot.addDomainEvent(ORDER_NOTE_UPDATED, aggregateRootResult);
     return Result.ok(aggregateRootResult);
+  }
+
+  public static updateOrderServiceHistory(
+    payload: UpdateOrderServiceHistoryDTO
+  ): IResult<UpdateOrderServiceHistoryDTO> {
+    const orderAggregateRoot = new OrderAggregateRoot();
+    orderAggregateRoot.addDomainEvent(ORDER_SERVICE_HISTORY_UPDATED, payload);
+    return Result.ok(payload);
   }
 }

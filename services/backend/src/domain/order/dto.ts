@@ -8,3 +8,7 @@ export type UpdateOrderDTO = Partial<Payload> & Pick<Order, 'id'>;
 export type PermitOrderDTO = Pick<Order, 'providerId' | 'id'>;
 export type RejectOrderDTO = Pick<Order, 'providerId' | 'id'>;
 export type UpdateOrderNoteDTO = Pick<Order, 'providerId' | 'id' | 'note'>;
+export type UpdateOrderServiceHistoryDTO = Pick<
+  Order,
+  'providerId' | 'id' | 'serviceHistoryId'
+>;
