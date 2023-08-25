@@ -8,7 +8,7 @@ import { OrderAggregateRoot } from '~backend/domain/order/aggregate-root';
 import { UseCase } from '~backend/domain/shared/use-case';
 import { NOT_ALLOW } from '~backend/domain/order/error';
 
-type CreatedOrderResult = Order;
+type CreateOrderResult = Order;
 export type Payload = Omit<CreateOrderDTO, 'state'>;
 type Return = IResult<Order> | AppErrorUnexpected;
 
@@ -25,7 +25,7 @@ export class CreateOrderUseCase implements UseCase<Payload, Promise<Return>> {
       const [error, result] = OrderAggregateRoot.createOrder(payload);
       if (error) return Result.fail(error);
       const order = await this.orderRepository.create(result);
-      return Result.ok<CreatedOrderResult>(order);
+      return Result.ok<CreateOrderResult>(order);
     } catch (error) {
       return AppError.Unexpected(error);
     }
