@@ -51,7 +51,8 @@ describe('CreateServiceUseCase', () => {
   };
 
   it('should return a Result.fail if the payload does not have a providerId', async () => {
-    const { providerId: _, ...payloadWithoutProviderId } = payload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { providerId, ...payloadWithoutProviderId } = payload;
     const result = await createServiceUseCase.execute(
       payloadWithoutProviderId as Payload
     );

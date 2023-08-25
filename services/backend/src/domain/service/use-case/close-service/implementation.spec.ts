@@ -45,6 +45,7 @@ describe('CloseServiceUseCase', () => {
       providerId
     );
   });
+
   it('should close service', async () => {
     mockServiceRepository.getByIdAndProviderId.mockResolvedValue({
       id,

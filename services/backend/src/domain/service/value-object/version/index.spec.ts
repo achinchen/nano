@@ -1,7 +1,7 @@
 /* eslint-disable jest/no-conditional-expect */
 import { Result } from '~backend/domain/shared/result';
 import * as utils from './utils';
-import { ERROR_MESSAGE, VersionValueObject } from './implementation';
+import { ERROR_MESSAGE } from './implementation';
 import versionValueObject from '.';
 
 jest.mock('./utils');
@@ -58,7 +58,6 @@ describe('VersionValueObject.isGetter', () => {
     }
   );
 });
-
 
 describe('VersionValueObject.bump*', () => {
   beforeEach(() => {

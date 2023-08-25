@@ -14,21 +14,29 @@ const serviceHistoryRepository = dataSource.getRepository(DBServiceHistory);
 export class ServiceRepository implements IServiceRepository {
   async create(payload: CreateServiceDTO): Promise<ServiceHistory> {
     const { providerId, ...resetPayload } = payload;
-    const servicePayload = serviceRepository.create({ providerId });
-    const service = await serviceRepository.save(servicePayload);
-
-    const serviceHistoryPayload = serviceHistoryRepository.create({
-      serviceId: service.id,
-      ...resetPayload,
-    });
-    const serviceHistory = await serviceHistoryRepository.save(
-      serviceHistoryPayload
+    const serviceHistory = await dataSource.manager.transaction(
+      async (transactionalEntityManager) => {
+        const servicePayload = serviceRepository.create({ providerId });
+        const service = await transactionalEntityManager.save(servicePayload);
+        const serviceHistoryPayload = serviceHistoryRepository.create({
+          serviceId: service.id,
+          ...resetPayload,
+        });
+        const serviceHistory = await transactionalEntityManager.save(
+          serviceHistoryPayload
+        );
+        await transactionalEntityManager.update(
+          DBService,
+          {
+            id: service.id,
+          },
+          {
+            lastHistoryId: serviceHistory.id,
+          }
+        );
+        return serviceHistory;
+      }
     );
-
-    await serviceRepository.update(service.id, {
-      lastHistoryId: serviceHistory.id,
-    });
-
     return serviceHistory;
   }
 
@@ -102,9 +110,12 @@ export class ServiceRepository implements IServiceRepository {
       serviceHistoryPayload
     );
 
-    await serviceRepository.update(id, {
-      lastHistoryId: serviceHistory.id,
-    });
+    await serviceRepository.update(
+      { id },
+      {
+        lastHistoryId: serviceHistory.id,
+      }
+    );
 
     return Boolean(serviceHistory);
   }
