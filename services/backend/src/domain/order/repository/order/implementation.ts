@@ -2,12 +2,15 @@ import type { IOrderRepository } from './abstract';
 import { Order } from '~backend/domain/order/entity';
 import { dataSource } from '~backend/data-source';
 import { Order as DBOrder } from '~backend/domain/order/infra/db/order';
-import { CreateOrderDTO, UpdateOrderDTO } from '~backend/domain/order/dto';
+import {
+  CreateOrderDTO,
+  UpdateOrderDTO,
+  MergeOrderDTO,
+} from '~backend/domain/order/dto';
 
 const orderRepository = dataSource.getRepository(DBOrder);
 
 export class OrderRepository implements IOrderRepository {
-
   async create(payload: CreateOrderDTO): Promise<Order> {
     const orderPayload = orderRepository.create(payload);
     const order = await orderRepository.save(orderPayload);
@@ -41,6 +44,19 @@ export class OrderRepository implements IOrderRepository {
   async update({ id, ...payload }: UpdateOrderDTO): Promise<boolean> {
     const order = await orderRepository.update({ id }, payload);
     return Boolean(order);
+  }
+
+  async merge({ id, payload }: MergeOrderDTO): Promise<Order> {
+    const order = await dataSource.manager.transaction(
+      async (transactionalEntityManager) => {
+        await orderRepository.softDelete({ id });
+        const orderPayload = orderRepository.create(payload);
+        const order = await transactionalEntityManager.save(orderPayload);
+        return order;
+      }
+    );
+
+    return order;
   }
 
   async deleteById(id: Order['id']): Promise<boolean> {

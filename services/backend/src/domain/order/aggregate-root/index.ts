@@ -9,6 +9,7 @@ import {
   ORDER_REJECTED,
   ORDER_NOTE_UPDATED,
   ORDER_SERVICE_HISTORY_UPDATED,
+  ORDER_MERGED,
 } from '~backend/domain/order/event';
 import {
   CreateOrderDTO,
@@ -16,6 +17,7 @@ import {
   RejectOrderDTO,
   UpdateOrderNoteDTO,
   UpdateOrderServiceHistoryDTO,
+  MergeOrderDTO,
 } from '~backend/domain/order/dto';
 import { Result } from '~backend/domain/shared/result';
 
@@ -141,5 +143,27 @@ export class OrderAggregateRoot extends AggregateRoot {
     const orderAggregateRoot = new OrderAggregateRoot();
     orderAggregateRoot.addDomainEvent(ORDER_SERVICE_HISTORY_UPDATED, payload);
     return Result.ok(payload);
+  }
+
+  public static mergeOrder({
+    target,
+    payload: { id, ...order },
+  }: {
+    target: Pick<Order, 'serviceHistoryId' | 'startAt'>;
+    payload: Order;
+  }): IResult<MergeOrderDTO> {
+    const aggregateRootResult = {
+      payload: {
+        ...order,
+        serviceHistoryId: target.serviceHistoryId,
+        startAt: target.startAt,
+        state: PERMITTED_STATE,
+      },
+      id,
+    };
+
+    const orderAggregateRoot = new OrderAggregateRoot();
+    orderAggregateRoot.addDomainEvent(ORDER_MERGED, aggregateRootResult);
+    return Result.ok(aggregateRootResult);
   }
 }
