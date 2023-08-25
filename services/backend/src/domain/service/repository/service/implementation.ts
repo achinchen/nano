@@ -25,9 +25,14 @@ export class ServiceRepository implements IServiceRepository {
       serviceHistoryPayload
     );
 
-    await serviceRepository.update(service.id, {
-      lastHistoryId: serviceHistory.id,
-    });
+    await serviceRepository.update(
+      {
+        id: service.id,
+      },
+      {
+        lastHistoryId: serviceHistory.id,
+      }
+    );
 
     return serviceHistory;
   }
@@ -102,9 +107,12 @@ export class ServiceRepository implements IServiceRepository {
       serviceHistoryPayload
     );
 
-    await serviceRepository.update(id, {
-      lastHistoryId: serviceHistory.id,
-    });
+    await serviceRepository.update(
+      { id },
+      {
+        lastHistoryId: serviceHistory.id,
+      }
+    );
 
     return Boolean(serviceHistory);
   }

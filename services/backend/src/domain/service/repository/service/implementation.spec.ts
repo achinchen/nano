@@ -1,5 +1,3 @@
-import { Service as DBService } from '~backend/domain/service/infra/db/service';
-import { ServiceHistory as DBServiceHistory } from '~backend/domain/service/infra/db/service-history';
 import { CreateServiceDTO } from '~backend/domain/service/dto';
 
 const mockDBServiceRepository = {
@@ -98,9 +96,14 @@ describe('ServiceRepository', () => {
       expect(mockDBServiceHistoryRepository.save).toHaveBeenCalledWith(
         serviceHistory
       );
-      expect(mockDBServiceRepository.update).toHaveBeenCalledWith(service.id, {
-        lastHistoryId: serviceHistory.id,
-      });
+      expect(mockDBServiceRepository.update).toHaveBeenCalledWith(
+        {
+          id: service.id,
+        },
+        {
+          lastHistoryId: serviceHistory.id,
+        }
+      );
       expect(result).toEqual(serviceHistory);
     });
   });
@@ -202,9 +205,12 @@ describe('ServiceRepository', () => {
       expect(mockDBServiceHistoryRepository.save).toHaveBeenCalledWith(
         serviceHistory
       );
-      expect(mockDBServiceRepository.update).toHaveBeenCalledWith(id, {
-        lastHistoryId: serviceHistory.id,
-      });
+      expect(mockDBServiceRepository.update).toHaveBeenCalledWith(
+        { id },
+        {
+          lastHistoryId: serviceHistory.id,
+        }
+      );
       expect(result).toBe(true);
     });
   });
