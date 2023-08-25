@@ -49,7 +49,7 @@ export class OrderRepository implements IOrderRepository {
   async merge({ id, payload }: MergeOrderDTO): Promise<Order> {
     const order = await dataSource.manager.transaction(
       async (transactionalEntityManager) => {
-        await orderRepository.softDelete({ id });
+        await transactionalEntityManager.softDelete(DBOrder, { id });
         const orderPayload = orderRepository.create(payload);
         const order = await transactionalEntityManager.save(orderPayload);
         return order;
