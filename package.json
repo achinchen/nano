@@ -33,7 +33,8 @@
     "semver": "^7.5.4",
     "tiny-csrf": "^1.1.3",
     "tslib": "^2.3.0",
-    "validator": "^13.9.0"
+    "validator": "^13.9.0",
+    "winston": "^3.10.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
