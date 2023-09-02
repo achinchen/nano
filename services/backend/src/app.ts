@@ -4,9 +4,9 @@ import express, { json, urlencoded, static as expressStatic } from 'express';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
-import logger from 'morgan';
 import csrf from 'tiny-csrf';
 import { config } from 'dotenv';
+import { middleware as loggerMiddleware } from './domain/shared/http/middleware/logger';
 import authRouter from './domain/user/http/routes';
 import orderRouter from './domain/order/http/routes';
 import providerRouter from './domain/provider/http/routes';
@@ -16,7 +16,6 @@ config();
 export const app = express();
 app.locals.pluralize = require('pluralize');
 
-app.use(logger('dev'));
 app.use(json());
 
 app.use(urlencoded({ extended: false }));
@@ -48,6 +47,8 @@ app.use(function (req, res, next) {
   res.locals.csrfToken = req.csrfToken();
   next();
 });
+
+app.use(loggerMiddleware);
 
 app.use('/', authRouter);
 app.use('/', providerRouter);

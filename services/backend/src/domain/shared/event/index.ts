@@ -1,4 +1,5 @@
 import EventEmitter from 'node:events';
+import { logger } from '~backend/domain/shared/logger';
 import { backupEvent } from './backup';
 
 export interface IDomainEvent {
@@ -40,9 +41,6 @@ export class DomainEvent implements IDomainEvent {
   }
 
   private log(name, payload): void {
-    console.info(
-      '[Domain Event Created]',
-      JSON.stringify({ name, payload, id: this.id })
-    );
+    logger.info('Domain Event Created', { name, payload, id: this.id });
   }
 }
