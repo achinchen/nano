@@ -7,19 +7,7 @@ export abstract class AggregateRoot {
     this.domainEvent = new DomainEvent();
   }
 
-  get id() {
-    return this.domainEvent.id;
-  }
-
   protected addDomainEvent(name, payload): void {
     this.domainEvent.emit(name, payload);
-    this.log(name, payload);
-  }
-
-  private log(name, payload): void {
-    console.info(
-      '[Domain Event Created]',
-      JSON.stringify({ name, payload, id: this.id })
-    );
   }
 }

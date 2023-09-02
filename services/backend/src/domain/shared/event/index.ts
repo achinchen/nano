@@ -1,4 +1,5 @@
 import EventEmitter from 'node:events';
+import { backupEvent } from './backup';
 
 export interface IDomainEvent {
   eventEmitter: EventEmitter;
@@ -26,6 +27,8 @@ export class DomainEvent implements IDomainEvent {
 
   emit(name, payload) {
     this.eventEmitter.emit(name, payload);
+    this.log(name, payload);
+    backupEvent({ name, payload, id: this.id });
   }
 
   subscribe(name, listener) {
@@ -34,5 +37,12 @@ export class DomainEvent implements IDomainEvent {
 
   unsubscribe(name, listener) {
     this.eventEmitter.off(name, listener);
+  }
+
+  private log(name, payload): void {
+    console.info(
+      '[Domain Event Created]',
+      JSON.stringify({ name, payload, id: this.id })
+    );
   }
 }
