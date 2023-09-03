@@ -58,3 +58,4 @@ uno.css
 # prevent commit logger 
 error.log
 combined.log
+newrelic_agent.log

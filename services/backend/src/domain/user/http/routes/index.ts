@@ -1,10 +1,16 @@
 import { Router } from 'express';
 import { passport } from '~backend/domain/user/service/auth/google';
+import { setupControllerMonitor } from '~backend/domain/shared/monitor';
 import { logout } from './logout';
 
 export const PROVIDER = 'google';
 
 const router = Router();
+router.use(function (req, res, next) {
+  setupControllerMonitor('user', `${req.method}/${req.path}`);
+  next();
+});
+
 router.get('/login/federated/google', passport.authenticate(PROVIDER));
 
 router.get(
