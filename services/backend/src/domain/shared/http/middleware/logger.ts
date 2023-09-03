@@ -1,3 +1,4 @@
+import '~backend/domain/shared/monitor';
 import { createLogger, format, transports } from 'winston';
 import morgan from 'morgan';
 import { TIMESTAMP_FORMAT } from '~backend/domain/shared/logger/constants';

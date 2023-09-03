@@ -10,8 +10,10 @@ import { middleware as loggerMiddleware } from './domain/shared/http/middleware/
 import authRouter from './domain/user/http/routes';
 import orderRouter from './domain/order/http/routes';
 import providerRouter from './domain/provider/http/routes';
+import { setupMonitor } from './domain/shared/monitor';
 
 config();
+setupMonitor(express);
 
 export const app = express();
 app.locals.pluralize = require('pluralize');
