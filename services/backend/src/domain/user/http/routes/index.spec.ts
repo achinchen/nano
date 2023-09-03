@@ -1,5 +1,6 @@
 import { passport as AuthService } from '~backend/domain/user/service/auth/google';
 import { logout } from './logout';
+import router, { PROVIDER } from '.';
 
 jest.mock('./logout', () => {
   return {
@@ -8,6 +9,15 @@ jest.mock('./logout', () => {
     }),
   };
 });
+
+jest.mock('~backend/domain/shared/http/middleware/transaction', () => {
+  return {
+    middleware: jest.fn().mockReturnValue((req, res, next) => {
+      next();
+    }),
+  };
+});
+
 jest.mock('~backend/domain/user/service/auth/google', () => {
   return {
     passport: {
@@ -19,8 +29,6 @@ jest.mock('~backend/domain/user/service/auth/google', () => {
     },
   };
 });
-
-import router, { PROVIDER } from '.';
 
 it('calls AuthService.authenticate with the correct provider for /login/federated/google', async () => {
   await router.get('/login/federated/google');

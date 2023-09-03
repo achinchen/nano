@@ -1,15 +1,12 @@
 import { Router } from 'express';
 import { passport } from '~backend/domain/user/service/auth/google';
-import { setupControllerMonitor } from '~backend/domain/shared/monitor';
+import { middleware as transactionMiddleware } from '~backend/domain/shared/http/middleware/transaction';
 import { logout } from './logout';
 
 export const PROVIDER = 'google';
 
 const router = Router();
-router.use(function (req, res, next) {
-  setupControllerMonitor('user', `${req.method}/${req.path}`);
-  next();
-});
+router.use(transactionMiddleware('user'));
 
 router.get('/login/federated/google', passport.authenticate(PROVIDER));
 
