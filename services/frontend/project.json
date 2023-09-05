@@ -8,7 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m" 
+          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m"
         ],
         "forwardAllArgs": true
       }
@@ -53,7 +53,7 @@
           "nx run frontend:build:css --watch",
           "nx run frontend:serve:next:development"
         ],
-        "parallel":  true
+        "parallel": true
       }
     },
     "build": {
@@ -92,6 +92,66 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["services/frontend/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build:storybook:css": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "unocss 'services/frontend/app/components/**/*.{ts,tsx,mdx}' -o 'services/frontend/.storybook/styles/uno.css' -c 'services/frontend/unocss.config.ts'"
+        ],
+        "forwardAllArgs": true
+      }
+    },
+    "dev:storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "services/frontend/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build:storybook:css frontend --watch", "nx dev:storybook frontend"],
+        "parallel": true
+      }
+    },
+    "build:storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "storybook/frontend/dist",
+        "configDir": "services/frontend/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
+      "dependsOn": ["build:storybook:css"]
+    },
+    "test:storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c services/frontend/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static:storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "frontend:build:storybook",
+        "staticFilePath": "storybook/frontend/dist"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "frontend:build:storybook:ci"
+        }
       }
     }
   },
