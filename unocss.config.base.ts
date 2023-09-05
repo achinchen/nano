@@ -22,6 +22,11 @@ const config = {
   ],
   transformers: [transformerDirective()],
   theme: {
+    breakpoints: {
+      sm: '320px',
+      md: '920px',
+      lg: '1200px'
+    },
     boxShadow: {
       default: '0 2 4 rgba(0, 0, 0, 0.05)',
       hover: '2 2 4 rgba(0, 0, 0, 0.20)',
