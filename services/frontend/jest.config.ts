@@ -8,4 +8,7 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: './coverage',
+  setupFilesAfterEnv: [
+    "@testing-library/jest-dom"
+  ],
 };
