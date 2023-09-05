@@ -22,6 +22,16 @@ const config = {
   ],
   transformers: [transformerDirective()],
   theme: {
+    colors: {
+      primary: {
+        100: '#DFF8F8',
+        200: '#5DDBDE',
+        400: '#7DE2E5',
+        500: '#5DDBDE',
+        600: '#58D0D3',
+        800: '#4AAFB2',
+      },
+    },
     breakpoints: {
       sm: '320px',
       md: '920px',
