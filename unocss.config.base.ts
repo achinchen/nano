@@ -28,9 +28,9 @@ const config = {
       lg: '1200px'
     },
     boxShadow: {
-      default: '0 2 4 rgba(0, 0, 0, 0.05)',
-      hover: '2 2 4 rgba(0, 0, 0, 0.20)',
-      dialog: '0 0 8 rgba(0, 0, 0, 0.20)'
+      default: '0 2 4 rgba(0, 0, 0, 0.20)',
+      hover: '2 2 8 rgba(0, 0, 0, 0.20)',
+      dialog: '0 0 8 rgba(0, 0, 0, 0.40)'
     }
   }
 } as UserConfig;
