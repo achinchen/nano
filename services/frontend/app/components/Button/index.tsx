@@ -51,12 +51,16 @@ export function Button({
       {...attributes}
     >
       <span className="inline-flex items-center justify-center">
-        {loading ? (
+        {loading && prefixIcon ? (
           <Icon icon={LOADING_ICON} size={sizeConfig.icon} className="mr-2" />
         ) : prefixIcon ? (
           <Icon icon={prefixIcon} size={sizeConfig.icon} className="mr-2" />
         ) : null}
-        {children}
+        {loading && !prefixIcon ? (
+          <Icon icon={LOADING_ICON} size={sizeConfig.icon} />
+        ) : (
+          children
+        )}
       </span>
     </button>
   );
