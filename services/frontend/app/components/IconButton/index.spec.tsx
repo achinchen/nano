@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import { LOADING_ICON } from './constants';
 import { IconButton } from '.';
-
-const MOCK_LOADING_ICON = 'i-mdi-loading';
 
 describe('IconButton', () => {
   it('renders with the correct custom className', () => {
@@ -33,6 +32,6 @@ describe('IconButton', () => {
 
   it('renders with the loading prop is true', () => {
     render(<IconButton icon="i-solar-magnifer-linear" loading />);
-    expect(screen.getByRole('img')).toHaveClass(MOCK_LOADING_ICON);
+    expect(screen.getByRole('img')).toHaveClass(LOADING_ICON);
   });
 });
