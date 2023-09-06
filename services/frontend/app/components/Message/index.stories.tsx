@@ -34,6 +34,7 @@ export const Default = (args: MessageProps) => {
 };
 
 Default.args = {
+  title: 'Lorem ipsum dolor sit amet',
   children:
     'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet',
 };

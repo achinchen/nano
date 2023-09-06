@@ -13,6 +13,7 @@ import {
 type MessageProps = Omit<MessageType, 'id'>;
 
 export const Message = ({
+  title,
   children,
   severity,
   onClick,
@@ -46,9 +47,13 @@ export const Message = ({
         role="alert"
         onClick={onClick}
       >
-        <Icon className="min-w-5 color-inherit" icon={ICON[severity]} />
+        <Icon
+          className="min-w-5 color-inherit"
+          size="xl"
+          icon={ICON[severity]}
+        />
         <div className="mx-2">
-          <header className="font-bold capitalize">{severity}</header>
+          <header className="font-bold capitalize">{title}</header>
           <p className="m-0 max-h-10 overflow-hidden text-ellipsis text-zinc-700">
             {children}
           </p>
@@ -56,7 +61,7 @@ export const Message = ({
         <IconButton
           icon="i-solar-close-circle-outline"
           color="dark"
-          size="xl"
+          size="sm"
           variant="text"
           rounded
           className="ml-auto"

@@ -8,7 +8,11 @@ const mockChildren = 'mockChildren';
 
 describe('Message: render', () => {
   const setup = () => {
-    render(<Message severity="error">{mockChildren}</Message>);
+    render(
+      <Message severity="error" title="title">
+        {mockChildren}
+      </Message>
+    );
   };
 
   it('render successfully', () => {

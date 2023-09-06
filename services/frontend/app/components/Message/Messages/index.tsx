@@ -9,7 +9,7 @@ const MessagesWithContext = () => {
   return (
     <div
       id={MESSAGES_ROOT_ID}
-      className="position-fixed left-1/2 top-0 flex flex-col translate-x--50% items-center"
+      className="position-fixed bottom-0 left-0 flex flex-col items-center"
       hidden={withoutMessages}
     >
       {messages.map((message) => (

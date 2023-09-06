@@ -30,7 +30,6 @@ export const Default = {
     color: 'primary',
     variant: 'solid',
     className: '',
-    hasPadding: true,
     disabled: false,
     loading: false,
   },

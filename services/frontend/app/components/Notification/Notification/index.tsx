@@ -31,20 +31,18 @@ export const Notification = ({
         onClick={onClick}
       >
         <Icon
-          className="min-w-7 color-inherit"
-          size="3xl"
+          className="min-w-6 color-inherit"
+          size="xl"
           icon={ICON[severity]}
         />
         <div className="mx-2">
           <header className="font-bold capitalize">{title}</header>
-          <p className="m-0 max-h-10 overflow-hidden text-ellipsis text-zinc-700">
-            {children}
-          </p>
+          <p className="m-0 text-zinc-700">{children}</p>
         </div>
         <IconButton
           icon="i-solar-close-circle-outline"
           color="dark"
-          size="2xl"
+          size="sm"
           variant="text"
           rounded
           className="ml-auto"
