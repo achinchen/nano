@@ -23,7 +23,9 @@ export const MessagesContext = createContext<InitialState>({
   messages: [],
 });
 
-MessagesContext.displayName = 'MessagesContext';
+if (process.env.NODE_ENV !== 'production') {
+  MessagesContext.displayName = 'MessagesContext';
+}
 
 export const MessagesContextProvider = ({
   children,

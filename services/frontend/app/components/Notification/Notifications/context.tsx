@@ -23,7 +23,9 @@ export const NotificationsContext = createContext<InitialState>({
   Notifications: [],
 });
 
-NotificationsContext.displayName = 'NotificationsContext';
+if (process.env.NODE_ENV !== 'production') {
+  NotificationsContext.displayName = 'NotificationsContext';
+}
 
 export const NotificationsContextProvider = ({
   children,
