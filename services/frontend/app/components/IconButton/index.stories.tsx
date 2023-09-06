@@ -1,6 +1,5 @@
 import type { Meta } from '@storybook/react';
-import { SIZES } from '~frontend/components/Icon';
-import { COLORS, VARIANTS } from './constants';
+import { COLORS, VARIANTS, SIZES } from './constants';
 import { IconButton } from '.';
 
 const Story: Meta<typeof IconButton> = {
@@ -27,7 +26,7 @@ export default Story;
 export const Default = {
   args: {
     icon: 'i-solar-magnifer-linear',
-    size: 'xl',
+    size: 'md',
     color: 'primary',
     variant: 'solid',
     className: '',
