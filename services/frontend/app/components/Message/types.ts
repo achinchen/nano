@@ -6,6 +6,7 @@ export type MessageEvent = CustomEvent<MessageProps>;
 export type MessageId = string;
 
 export type MessageProps = {
+  title: string;
   children: JSX.Element | string;
   severity: MessageSeverity;
   onClick?: () => void;

@@ -5,6 +5,7 @@ import { MESSAGES_ROOT_ID } from './constants';
 let mockMessages = ['error', 'info', 'success', 'warning'].map((severity) => ({
   id: severity,
   severity,
+  title: `${severity} title`,
   children: `${severity} message`,
 }));
 
