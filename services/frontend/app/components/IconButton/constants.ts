@@ -41,7 +41,7 @@ export const THEME_CONFIG: ThemeConfig = {
 };
 
 const BASE_SIZE_CLASS_NAMES =
-  'text-3 p-0.25 cursor-pointer appearance-none border rounded border-solid outline-none transition duration-150 ease-in-out disabled:cursor-not-allowed focus:outline-none';
+  'text-3 p-0.25 cursor-pointer appearance-none border border-solid outline-none transition duration-150 ease-in-out disabled:cursor-not-allowed focus:outline-none';
 
 export const SIZE_CONFIG: SizeConfig = {
   sm: {
