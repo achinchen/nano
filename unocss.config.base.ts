@@ -24,12 +24,13 @@ const config = {
   theme: {
     colors: {
       primary: {
-        100: '#DFF8F8',
-        200: '#5DDBDE',
-        400: '#7DE2E5',
-        500: '#5DDBDE',
-        600: '#58D0D3',
-        800: '#4AAFB2',
+        100: '#EFFBFC',
+        200: '#CEEEEF',
+        300: '#83D5D7',
+        400: '#39BCBE',
+        500: '#08ABAE',
+        600: '#08A2A5',
+        800: '#06898B',
       },
     },
     breakpoints: {
