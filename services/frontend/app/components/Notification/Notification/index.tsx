@@ -1,5 +1,5 @@
 import type { Notification as NotificationType } from '~frontend/components/Notification/types';
-import { useEffect, useState, Fragment, useCallback } from 'react';
+import { useState, Fragment, useCallback } from 'react';
 import { IconButton } from '~frontend/components/IconButton';
 import { Icon } from '~frontend/components/Icon';
 import { COLOR, ICON, CONTAINER_CLASSNAMES } from './constants';
