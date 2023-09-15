@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react';
+import { useState } from 'react';
 import { Switch } from '.';
 
 const Story: Meta<typeof Switch> = {
@@ -8,9 +9,12 @@ const Story: Meta<typeof Switch> = {
 
 export default Story;
 
-export const Default = {
-  args: {
-    checked: false,
-    onChange: () => console.log('QQ'),
-  },
+export const Default = () => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <Switch
+      checked={checked}
+      onChange={() => setChecked((checked) => !checked)}
+    />
+  );
 };
