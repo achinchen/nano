@@ -6,13 +6,20 @@
   "files": [
     "../../node_modules/@nx/react/typings/image.d.ts"
   ],
-  "exclude": ["components/**/*.spec.ts", "components/**/*.test.ts"],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ],
   "include": [
-    "components/**/*.stories.ts",
-    "components/**/*.stories.js",
-    "components/**/*.stories.jsx",
-    "components/**/*.stories.tsx",
-    "components/**/*.stories.mdx",
+    "app/components/**/*.ts",
+    "app/components/**/*.js",
+    "app/components/**/*.tsx",
+    "app/components/**/*.jsx",
+    "app/components/**/*.stories.ts",
+    "app/components/**/*.stories.js",
+    "app/components/**/*.stories.jsx",
+    "app/components/**/*.stories.tsx",
+    "app/components/**/*.stories.mdx",
     ".storybook/*.js",
     ".storybook/*.ts"
   ]
