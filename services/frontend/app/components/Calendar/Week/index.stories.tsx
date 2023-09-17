@@ -1,11 +1,11 @@
 import type { Meta } from '@storybook/react';
 import { useState } from 'react';
 import { Switch } from '~frontend/components/Switch';
-import { DatePickerWeek } from '.';
+import { CalendarWeek } from '.';
 
-const Story: Meta<typeof DatePickerWeek> = {
-  component: DatePickerWeek,
-  title: 'DatePickerWeek',
+const Story: Meta<typeof CalendarWeek> = {
+  component: CalendarWeek,
+  title: 'CalendarWeek',
 };
 
 export default Story;
@@ -21,7 +21,7 @@ export const Default = () => {
         checked={isLoose}
         onChange={() => setIsLoose((isLoose) => !isLoose)}
       />
-      <DatePickerWeek
+      <CalendarWeek
         loose={isLoose}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}

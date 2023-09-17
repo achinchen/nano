@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { DAYS } from '~frontend/components/DatePicker/constants';
-import { getMonthDays } from '~frontend/components/DatePicker/Month/utils';
-import { DatePickerMonthTight } from '.';
+import { DAYS } from '~frontend/components/shared/constants';
+import { getMonthDays } from '~frontend/components/shared/utils';
+import { CalendarMonthTight } from '.';
 
-describe('DatePickerMonthTight', () => {
+describe('CalendarMonthTight', () => {
   const onSelect = jest.fn();
   const selectedDate = new Date('2023-01-28, 00:00:00');
 
   it('renders the days of the week', () => {
     render(
-      <DatePickerMonthTight onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthTight onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     DAYS.forEach((day) => {
@@ -20,7 +20,7 @@ describe('DatePickerMonthTight', () => {
 
   it('should render the days of the month', () => {
     render(
-      <DatePickerMonthTight onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthTight onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     const daysInMonth = getMonthDays(selectedDate);
@@ -34,7 +34,7 @@ describe('DatePickerMonthTight', () => {
 
   it('calls onSelect when a day is clicked', async () => {
     render(
-      <DatePickerMonthTight onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthTight onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     const dayToClick = selectedDate.getDate();

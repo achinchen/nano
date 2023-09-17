@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
-import { DAYS } from '~frontend/components/DatePicker/constants';
-import { useDatePicker } from '~frontend/components/DatePicker/hooks/use-date-picker';
-import { getMonthDays } from '../utils';
+import { DAYS } from '~frontend/components/shared/constants';
+import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
+import { getMonthDays } from '~frontend/components/shared/utils';
 
-type MonthProps = React.PropsWithChildren<{
+type CalendarMonthProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
 }>;
 
-export const DatePickerMonthTight = ({
+export const CalendarMonthTight = ({
   onSelect,
   selectedDate,
-}: MonthProps) => {
-  const { selected, getCurrentColor, onDateSelect } = useDatePicker({
+}: CalendarMonthProps) => {
+  const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
   });

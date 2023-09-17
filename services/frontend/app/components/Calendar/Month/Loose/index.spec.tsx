@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { DAYS } from '~frontend/components/DatePicker/constants';
-import { getMonthDays } from '~frontend/components/DatePicker/Month/utils';
-import { DatePickerMonthLoose } from '.';
+import { DAYS } from '~frontend/components/shared/constants';
+import { getMonthDays } from '~frontend/components/shared/utils';
+import { CalendarMonthLoose } from '.';
 
-describe('DatePickerMonthLoose', () => {
+describe('CalendarMonthLoose', () => {
   const onSelect = jest.fn();
   const selectedDate = new Date('2023-01-28, 00:00:00');
 
   it('renders the days of the week', () => {
     render(
-      <DatePickerMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     DAYS.forEach((day) => {
@@ -20,7 +20,7 @@ describe('DatePickerMonthLoose', () => {
 
   it('should render the days of the month', () => {
     render(
-      <DatePickerMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     const daysInMonth = getMonthDays(selectedDate);
@@ -34,7 +34,7 @@ describe('DatePickerMonthLoose', () => {
 
   it('calls onSelect when a day is clicked', async () => {
     render(
-      <DatePickerMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
+      <CalendarMonthLoose onSelect={onSelect} selectedDate={selectedDate} />
     );
 
     const dayToClick = selectedDate.getDate();

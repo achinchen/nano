@@ -1,21 +1,20 @@
 import { useMemo } from 'react';
-import { DAYS } from '~frontend/components/DatePicker/constants';
-import { useDatePicker } from '~frontend/components/DatePicker/hooks/use-date-picker';
-import { getWeekDays } from './utils';
+import { DAYS } from '~frontend/components/shared/constants';
+import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
+import { getWeekDays } from '~frontend/components/shared/utils';
 
-type DatePickerWeekProps = React.PropsWithChildren<{
+type CalendarWeekProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
   loose?: boolean;
 }>;
 
-export const DatePickerWeek = ({
+export const CalendarWeek = ({
   loose,
   onSelect,
   selectedDate,
-  children,
-}: DatePickerWeekProps) => {
-  const { selected, getCurrentColor, onDateSelect } = useDatePicker({
+}: CalendarWeekProps) => {
+  const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
   });

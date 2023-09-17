@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react';
 import { useState } from 'react';
-import { DatePickerMonthLoose, DatePickerMonthTight } from '.';
+import { CalendarMonthLoose, CalendarMonthTight } from '.';
 
-const Story: Meta<typeof DatePickerMonthLoose> = {
-  component: DatePickerMonthLoose,
-  title: 'DatePickerMonth',
+const Story: Meta<typeof CalendarMonthLoose> = {
+  component: CalendarMonthLoose,
+  title: 'CalendarMonth',
 };
 
 export default Story;
@@ -13,7 +13,7 @@ export const Loose = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <DatePickerMonthLoose
+    <CalendarMonthLoose
       selectedDate={selectedDate}
       onSelect={setSelectedDate}
     />
@@ -24,7 +24,7 @@ export const Tight = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <DatePickerMonthTight
+    <CalendarMonthTight
       selectedDate={selectedDate}
       onSelect={setSelectedDate}
     />
