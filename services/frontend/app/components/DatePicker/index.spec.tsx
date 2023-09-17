@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { DAYS } from '~frontend/components/DatePicker/constants';
-import { getWeekDays } from '~frontend/components/DatePicker/Week/utils';
-import { DatePickerWeek } from '.';
+import { DAYS } from '~frontend/components/shared/constants';
+import { getMonthDays } from '~frontend/components/shared/utils';
+import { DatePicker } from '.';
 
-describe('DatePickerWeek', () => {
+describe('DatePicker', () => {
   const onSelect = jest.fn();
   const selectedDate = new Date('2023-01-28, 00:00:00');
 
   it('renders the days of the week', () => {
-    render(<DatePickerWeek onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
 
     DAYS.forEach((day) => {
       expect(screen.getByText(day)).toBeInTheDocument();
@@ -17,19 +17,19 @@ describe('DatePickerWeek', () => {
   });
 
   it('should render the days of the month', () => {
-    render(<DatePickerWeek onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
 
-    const daysInMonth = getWeekDays(selectedDate);
+    const daysInMonth = getMonthDays(selectedDate);
 
     daysInMonth.forEach(({ day }) => {
-      expect(screen.getByText(String(day))).toBeInTheDocument();
+      expect(screen.getAllByText(String(day))[0]).toBeInTheDocument();
     });
 
     expect(screen.getAllByRole('button')).toHaveLength(daysInMonth.length);
   });
 
   it('calls onSelect when a day is clicked', async () => {
-    render(<DatePickerWeek onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
 
     const dayToClick = selectedDate.getDate();
     await userEvent.click(

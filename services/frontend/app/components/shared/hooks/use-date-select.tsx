@@ -9,7 +9,7 @@ type Parameters = {
   selectedDate?: Date;
 };
 
-export const useDatePicker = ({ selectedDate, onSelect }: Parameters) => {
+export const useDateSelect = ({ selectedDate, onSelect }: Parameters) => {
   const today = useMemo(() => new Date(), []);
   const selected = useMemo(() => selectedDate ?? today, [today, selectedDate]);
 
