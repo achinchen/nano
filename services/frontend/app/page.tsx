@@ -1,5 +1,3 @@
-import Calendar from './components/DatePicker';
-
 export default async function Index() {
-  return <Calendar />;
+  return <div>hello world</div>;
 }
