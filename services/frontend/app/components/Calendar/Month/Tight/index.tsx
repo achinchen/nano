@@ -1,16 +1,22 @@
+import type { Status } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
 import { DAYS } from '~frontend/components/shared/constants';
 import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/shared/utils';
+import { STATUS_CLASS } from '~frontend/components/Calendar/constants';
 
 type CalendarMonthProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
+  data?: {
+    [key: string]: Status;
+  };
 }>;
 
 export const CalendarMonthTight = ({
   onSelect,
   selectedDate,
+  data,
 }: CalendarMonthProps) => {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -44,7 +50,9 @@ export const CalendarMonthTight = ({
             >
               {day}
             </span>
-            <span className="absolute bottom--1.5 inline-block h-2 w-2 rounded bg-transparent" />
+            {data?.[`${month}-${day}`] && (
+              <span className={STATUS_CLASS[data[`${month}-${day}`]]} />
+            )}
           </li>
         ))}
       </ol>

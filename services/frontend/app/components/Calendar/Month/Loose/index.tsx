@@ -2,10 +2,14 @@ import { useMemo } from 'react';
 import { DAYS } from '~frontend/components/shared/constants';
 import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/shared/utils';
+import { Content } from './Content';
 
 type CalendarMonthProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
+  data?: {
+    [key: string]: string[];
+  };
 }>;
 
 const LAST_ROW_START_INDEX = 35;
@@ -13,7 +17,7 @@ const LAST_ROW_START_INDEX = 35;
 export const CalendarMonthLoose = ({
   onSelect,
   selectedDate,
-  children,
+  data,
 }: CalendarMonthProps) => {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -38,7 +42,7 @@ export const CalendarMonthLoose = ({
           <li
             role="button"
             key={`${month}-${day}`}
-            className={`h-35 flex flex-col cursor-pointer items-center p-2 border-b-px  border-b-solid ${
+            className={`h-35 flex flex-col cursor-pointer items-center pa-2 border-b-px  border-b-solid ${
               index < LAST_ROW_START_INDEX
                 ? 'border-b-zinc-200'
                 : 'border-b-transparent'
@@ -51,7 +55,9 @@ export const CalendarMonthLoose = ({
             >
               {day}
             </span>
-            {children}
+            {data?.[`${month}-${day}`] && (
+              <Content data={data[`${month}-${day}`]} />
+            )}
           </li>
         ))}
       </ol>

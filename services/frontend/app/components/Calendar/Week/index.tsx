@@ -1,18 +1,24 @@
+import type { Status } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
 import { DAYS } from '~frontend/components/shared/constants';
 import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
 import { getWeekDays } from '~frontend/components/shared/utils';
+import { STATUS_CLASS } from '~frontend/components/Calendar/constants';
 
 type CalendarWeekProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
   loose?: boolean;
+  data?: {
+    [key: string]: Status;
+  };
 }>;
 
 export const CalendarWeek = ({
   loose,
   onSelect,
   selectedDate,
+  data,
 }: CalendarWeekProps) => {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -55,8 +61,8 @@ export const CalendarWeek = ({
             >
               {day}
             </span>
-            {loose || (
-              <span className="absolute bottom--1.5 inline-block h-2 w-2 rounded bg-gray" />
+            {data?.[`${month}-${day}`] && (
+              <span className={STATUS_CLASS[data[`${month}-${day}`]]} />
             )}
           </li>
         ))}
