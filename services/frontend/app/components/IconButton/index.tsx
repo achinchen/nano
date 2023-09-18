@@ -29,7 +29,7 @@ export function IconButton({
   const classNames = [
     container,
     themeConfig,
-    rounded ? sizeRounded : 'rounded',
+    rounded ? 'rounded-50%' : sizeRounded,
     className,
   ].join(' ');
   return (

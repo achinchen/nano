@@ -9,7 +9,11 @@ type TabsProps = {
 };
 
 function Tabs({ children }: React.PropsWithChildren) {
-  return <div className="flex flex-row gap-2">{children}</div>;
+  return (
+    <div className="flex flex-row gap-1 border-1 border-zinc-200 rounded-3 border-solid bg-white pa-1">
+      {children}
+    </div>
+  );
 }
 
 function TabsWithProvider({ children, defaultValue, onChange }: TabsProps) {

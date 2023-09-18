@@ -23,10 +23,10 @@ type SizeConfig = {
   };
 };
 
-const SOLID_CLASS_NAME = 'color-light color-opacity-100';
+const SOLID_CLASS_NAME = 'color-white';
 const OUTLINE_CLASS_NAME = 'bg-white';
 const TEXT_CLASS_NAME =
-  'border-transparent bg-transparent active:bg-dark active:bg-opacity-20 hover:bg-dark hover:bg-opacity-5';
+  'border-transparent bg-transparent active:bg-zinc-900 active:bg-opacity-20 hover:bg-zinc-800 hover:bg-opacity-5';
 
 export const THEME_CONFIG: ThemeConfig = {
   primary: {
@@ -36,7 +36,7 @@ export const THEME_CONFIG: ThemeConfig = {
   },
   dark: {
     solid: `border-zinc-700 bg-zinc-700 active:bg-zinc-900 active:border-zinc-900 hover:bg-zinc-800 hover:border-zinc-800 disabled:border-zinc-200 disabled:bg-zinc-200 ${SOLID_CLASS_NAME}`,
-    outline: `border-zinc-500 color-zinc-700 active:color-zinc-900 active:border-zinc-500 active:bg-dark active:bg-opacity-20 hover:color-zinc-800 hover:border-zinc-500 hover:bg-dark hover:bg-opacity-5 disabled:border-zinc-200 disabled:color-zinc-200 ${OUTLINE_CLASS_NAME}`,
+    outline: `border-zinc-500 color-zinc-700 active:color-zinc-900 active:border-zinc-500 active:bg-zinc-900 active:bg-opacity-20 hover:color-zinc-800 hover:border-zinc-500 hover:bg-zinc-900 hover:bg-opacity-5 disabled:border-zinc-200 disabled:color-zinc-200 ${OUTLINE_CLASS_NAME}`,
     text: `color-zinc-700 active:color-zinc-900 hover:color-zinc-800 disabled:color-zinc-200 ${TEXT_CLASS_NAME}`,
   },
 };
