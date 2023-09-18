@@ -6,13 +6,13 @@ import { COLOR, ICON, CONTAINER_CLASSNAMES } from './constants';
 
 type NotificationProps = Omit<NotificationType, 'id'>;
 
-export const Notification = ({
+export function Notification({
   title,
   children,
   severity,
   onClick,
   onClose: propsOnClose,
-}: NotificationProps) => {
+}: NotificationProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const onClose = useCallback(() => {
@@ -51,4 +51,4 @@ export const Notification = ({
       </div>
     </Fragment>
   );
-};
+}

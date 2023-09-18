@@ -2,7 +2,7 @@ import { Message } from '~frontend/components/Message/Message';
 import { useMessagesContext, MessagesContextProvider } from './context';
 import { MESSAGES_ROOT_ID } from './constants';
 
-const MessagesWithContext = () => {
+function MessagesWithContext() {
   const { messages } = useMessagesContext();
   const withoutMessages = messages.length === 0;
 
@@ -17,12 +17,12 @@ const MessagesWithContext = () => {
       ))}
     </div>
   );
-};
+}
 
-export const Messages = () => {
+export function Messages() {
   return (
     <MessagesContextProvider>
       <MessagesWithContext />
     </MessagesContextProvider>
   );
-};
+}

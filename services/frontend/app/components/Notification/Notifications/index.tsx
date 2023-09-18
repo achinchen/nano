@@ -5,7 +5,7 @@ import {
 } from './context';
 import { NOTIFICATIONS_ROOT_ID } from './constants';
 
-const NotificationsWithContext = () => {
+function NotificationsWithContext() {
   const { Notifications } = useNotificationsContext();
   const withoutNotifications = Notifications.length === 0;
 
@@ -20,12 +20,12 @@ const NotificationsWithContext = () => {
       ))}
     </div>
   );
-};
+}
 
-export const Notifications = () => {
+export function Notifications() {
   return (
     <NotificationsContextProvider>
       <NotificationsWithContext />
     </NotificationsContextProvider>
   );
-};
+}
