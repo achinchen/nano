@@ -23,7 +23,7 @@ type SizeConfig = {
   };
 };
 
-const SOLID_CLASS_NAME = 'color-light color-opacity-100';
+const SOLID_CLASS_NAME = 'color-white';
 const OUTLINE_CLASS_NAME = 'bg-white';
 const TEXT_CLASS_NAME =
   'border-transparent bg-transparent active:bg-dark active:bg-opacity-20 hover:bg-dark hover:bg-opacity-5';
