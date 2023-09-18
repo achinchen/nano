@@ -14,11 +14,11 @@ type CalendarMonthProps = React.PropsWithChildren<{
 
 const LAST_ROW_START_INDEX = 35;
 
-export const CalendarMonthLoose = ({
+export function CalendarMonthLoose({
   onSelect,
   selectedDate,
   data,
-}: CalendarMonthProps) => {
+}: CalendarMonthProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
@@ -63,4 +63,4 @@ export const CalendarMonthLoose = ({
       </ol>
     </section>
   );
-};
+}

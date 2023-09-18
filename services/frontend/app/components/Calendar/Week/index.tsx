@@ -14,12 +14,12 @@ type CalendarWeekProps = React.PropsWithChildren<{
   };
 }>;
 
-export const CalendarWeek = ({
+export function CalendarWeek({
   loose,
   onSelect,
   selectedDate,
   data,
-}: CalendarWeekProps) => {
+}: CalendarWeekProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
@@ -69,4 +69,4 @@ export const CalendarWeek = ({
       </ol>
     </section>
   );
-};
+}

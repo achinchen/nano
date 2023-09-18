@@ -8,7 +8,7 @@ type DatePickerProps = React.PropsWithChildren<{
   selectedDate?: Date;
 }>;
 
-export const DatePicker = ({ onSelect, selectedDate }: DatePickerProps) => {
+export function DatePicker({ onSelect, selectedDate }: DatePickerProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
@@ -46,4 +46,4 @@ export const DatePicker = ({ onSelect, selectedDate }: DatePickerProps) => {
       </ol>
     </section>
   );
-};
+}

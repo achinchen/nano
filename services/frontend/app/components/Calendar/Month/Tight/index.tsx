@@ -13,11 +13,11 @@ type CalendarMonthProps = React.PropsWithChildren<{
   };
 }>;
 
-export const CalendarMonthTight = ({
+export function CalendarMonthTight({
   onSelect,
   selectedDate,
   data,
-}: CalendarMonthProps) => {
+}: CalendarMonthProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
@@ -58,4 +58,4 @@ export const CalendarMonthTight = ({
       </ol>
     </section>
   );
-};
+}

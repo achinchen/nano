@@ -12,13 +12,13 @@ import {
 
 type MessageProps = Omit<MessageType, 'id'>;
 
-export const Message = ({
+export function Message({
   title,
   children,
   severity,
   onClick,
   onClose: propsOnClose,
-}: MessageProps) => {
+}: MessageProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const onClose = useCallback(() => {
@@ -70,4 +70,4 @@ export const Message = ({
       </div>
     </Fragment>
   );
-};
+}
