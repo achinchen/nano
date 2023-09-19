@@ -1,0 +1,7 @@
+footer > button {
+  @apply flex-1;
+}
+
+picture > * {
+  @apply w-full h-full;
+}
