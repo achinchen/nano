@@ -7,6 +7,7 @@ export type ModalSheetProps = {
   onSnap?: (index: number) => void;
   snapPoints?: number[];
   fullScreen?: boolean;
+  disableDrag?: boolean;
   hasCloseButton?: boolean;
   hasBackdrop?: boolean;
 };
@@ -23,6 +24,7 @@ export function ModalSheet({
   snapPoints,
   opened,
   children,
+  disableDrag = false,
   hasCloseButton = false,
   fullScreen = false,
   hasBackdrop = false,
@@ -33,25 +35,32 @@ export function ModalSheet({
         isOpen={opened}
         onClose={onClose}
         snapPoints={snapPoints}
+        disableDrag={disableDrag}
         onSnap={onSnap}
         detent={fullScreen ? 'full-height' : 'content-height'}
       >
-        <Sheet.Container>
-          {hasCloseButton && (
-            <IconButton
-              icon="i-solar-close-circle-outline"
-              color="dark"
-              size="sm"
-              variant="text"
-              rounded
-              className="ml-auto"
-              onClick={onClose}
-            />
-          )}
-          <Sheet.Content>{children}</Sheet.Content>
+        <Sheet.Container
+          style={{ borderTopLeftRadius: 24, borderTopRightRadius: 24 }}
+        >
+          <Sheet.Content>
+            {hasCloseButton && (
+              <IconButton
+                icon="i-solar-close-circle-outline"
+                color="dark"
+                size="sm"
+                variant="text"
+                rounded
+                className="absolute right-3 top-3"
+                onClick={onClose}
+              />
+            )}
+            {children}
+          </Sheet.Content>
         </Sheet.Container>
         <Sheet.Backdrop className={hasBackdrop ? 'display-none' : ''} />
       </Sheet>
     </>
   );
 }
+
+export default ModalSheet;
