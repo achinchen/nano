@@ -23,14 +23,15 @@ export function Sheet({
   hasCloseButton,
   severity,
 }: React.PropsWithChildren<SheetProps>) {
-  const passiveClose = severity === 'info';
+  const passiveClose = severity !== 'info';
 
   return (
     <ModalSheet
       opened={opened}
       onClose={onClose}
       hasCloseButton={hasCloseButton}
-      disableDrag={!passiveClose}
+      disableDrag={passiveClose}
+      clickOutsideToClose={!passiveClose}
     >
       <div className="mt-4 flex flex-col items-center gap-2">
         {picture && <picture className="h-20 w-20">{picture}</picture>}

@@ -10,6 +10,7 @@ export type ModalSheetProps = {
   disableDrag?: boolean;
   hasCloseButton?: boolean;
   hasBackdrop?: boolean;
+  clickOutsideToClose?: boolean;
 };
 
 export function ModalSheetIndicator() {
@@ -24,6 +25,7 @@ export function ModalSheet({
   snapPoints,
   opened,
   children,
+  clickOutsideToClose = false,
   disableDrag = false,
   hasCloseButton = false,
   fullScreen = false,
@@ -57,7 +59,10 @@ export function ModalSheet({
             {children}
           </Sheet.Content>
         </Sheet.Container>
-        <Sheet.Backdrop className={hasBackdrop ? 'display-none' : ''} />
+        <Sheet.Backdrop
+          className={hasBackdrop ? 'display-none' : ''}
+          onTap={clickOutsideToClose ? onClose : undefined}
+        />
       </Sheet>
     </>
   );
