@@ -12,6 +12,10 @@ export default Story;
 export const Default = (args: SheetProps) => {
   const [opened, setOpened] = useState(args.opened);
 
+  const onClick = () => {
+    console.log('onClick');
+  };
+
   useEffect(() => {
     setOpened(args.opened);
   }, [args.opened]);
@@ -26,8 +30,8 @@ export const Default = (args: SheetProps) => {
         }}
         picture={<div className="rounded-4 bg-black" />}
       >
-        <Button onClick={() => {}}>Button</Button>
-        <Button onClick={() => {}}>Button</Button>
+        <Button onClick={onClick}>Button</Button>
+        <Button onClick={onClick}>Button</Button>
       </Sheet>
     </div>
   );

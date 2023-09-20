@@ -1,7 +1,7 @@
 import type { Size as IconSize } from '~frontend/components/Icon';
 export const COLORS = ['primary', 'dark'] as const;
 export const VARIANTS = ['solid', 'outline', 'text'] as const;
-export const SIZES = ['sm', 'md'] as const;
+export const SIZES = ['xs', 'sm', 'md'] as const;
 export const LOADING_ICON = 'i-svg-spinners-180-ring';
 
 export type Color = (typeof COLORS)[number];
@@ -44,6 +44,11 @@ const BASE_SIZE_CLASS_NAMES =
   'text-3 p-0.25 cursor-pointer appearance-none border border-solid outline-none transition duration-150 ease-in-out disabled:cursor-not-allowed focus:outline-none';
 
 export const SIZE_CONFIG: SizeConfig = {
+  xs: {
+    container: `min-h-6 min-w-6 ${BASE_SIZE_CLASS_NAMES}`,
+    icon: 'base',
+    rounded: 'rounded-2',
+  },
   sm: {
     container: `min-h-9 min-w-9 ${BASE_SIZE_CLASS_NAMES}`,
     icon: 'xl',
