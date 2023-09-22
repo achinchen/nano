@@ -1,21 +1,24 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Sheet, SheetProps } from '.';
+import { Sheet } from '.';
 
 describe('Sheet', () => {
-  const defaultProps: SheetProps = {
-    opened: true,
-    onClose: jest.fn(),
-    hasCloseButton: true,
-    title: 'Test Sheet',
-    description: 'This is a test sheet',
-    severity: 'info',
-  };
+  const onClose = jest.fn();
+  const children = 'Test content';
+  it('renders the children', () => {
+    render(<Sheet onClose={onClose}>{children}</Sheet>);
+    const contentElement = screen.getByText(children);
+    expect(contentElement).toBeInTheDocument();
+  });
 
-  it('calls onClose when close button is clicked', async () => {
-    render(<Sheet {...defaultProps} />);
-    const closeButton = screen.getByLabelText('icon-label');
+  it('calls the onClose function when the close button is clicked', async () => {
+    render(
+      <Sheet onClose={onClose} hasCloseButton clickOutsideToClose={false}>
+        {children}
+      </Sheet>
+    );
+    const closeButton = screen.getByRole('button');
     await userEvent.click(closeButton);
-    expect(defaultProps.onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalled();
   });
 });

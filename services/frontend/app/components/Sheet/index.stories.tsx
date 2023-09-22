@@ -1,6 +1,5 @@
 import type { Meta } from '@storybook/react';
-import { useEffect, useState } from 'react';
-import Button from '~frontend/components/Button';
+import { useState } from 'react';
 import { Sheet, SheetProps } from '.';
 
 const Story: Meta<typeof Sheet> = {
@@ -10,37 +9,18 @@ const Story: Meta<typeof Sheet> = {
 export default Story;
 
 export const Default = (args: SheetProps) => {
-  const [opened, setOpened] = useState(args.opened);
-
-  const onClick = () => {
-    console.log('onClick');
-  };
-
-  useEffect(() => {
-    setOpened(args.opened);
-  }, [args.opened]);
+  const [opened, setOpened] = useState(true);
 
   return (
     <div>
-      <Sheet
-        {...args}
-        opened={opened}
-        onClose={() => {
-          setOpened(false);
-        }}
-        picture={<div className="rounded-4 bg-black" />}
-      >
-        <Button onClick={onClick}>Button</Button>
-        <Button onClick={onClick}>Button</Button>
-      </Sheet>
+      {opened && (
+        <Sheet {...args} onClose={() => setOpened(false)}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nobis
+          possimus exercitationem, error quas mollitia fuga deleniti rem quis
+          quaerat nostrum esse dolorem excepturi doloremque obcaecati.
+          Voluptatem eos assumenda rerum?
+        </Sheet>
+      )}
     </div>
   );
-};
-
-Default.args = {
-  opened: true,
-  title: '標題測試',
-  description:
-    '內容是什麼！！！內容是什麼！！！內容是什麼！！！內容是什麼！！！',
-  severity: 'info',
 };
