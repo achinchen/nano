@@ -1,54 +1,69 @@
-import './style.module.css';
-import ModalSheet from '~frontend/components/ModalSheet';
+import ReactSheet from 'react-modal-sheet';
+import IconButton from '~frontend/components/IconButton';
 
 export type SheetProps = {
-  opened: boolean;
   onClose: () => void;
-  title: string;
-  description: string;
-  actionVertical?: boolean;
+  onSnap?: (index: number) => void;
+  snapPoints?: number[];
+  fullScreen?: boolean;
+  disableDrag?: boolean;
   hasCloseButton?: boolean;
-  severity: 'info' | 'warning' | 'error';
-  picture?: React.ReactNode | null;
+  hasBackdrop?: boolean;
+  clickOutsideToClose?: boolean;
 };
 
-export function Sheet({
-  opened,
-  onClose,
-  children,
-  title,
-  picture = null,
-  description,
-  actionVertical,
-  hasCloseButton,
-  severity,
-}: React.PropsWithChildren<SheetProps>) {
-  const passiveClose = severity !== 'info';
-
+export function SheetIndicator() {
   return (
-    <ModalSheet
-      opened={opened}
-      onClose={onClose}
-      hasCloseButton={hasCloseButton}
-      disableDrag={passiveClose}
-      clickOutsideToClose={!passiveClose}
-    >
-      <div className="mt-4 flex flex-col items-center gap-2">
-        {picture && <picture className="h-20 w-20">{picture}</picture>}
-        <header className="text-base font-bold color-zinc-700 md:text-lg">
-          {title}
-        </header>
-        <div className="mx-4 text-sm color-zinc-700 md:text-base">
-          {description}
-        </div>
-        <footer
-          className={`flex pt-3 px-4 mb-5 border-t-1 border-t-solid border-t-zinc-200 w-100% ${
-            actionVertical ? 'flex-col gap-1' : 'gap-2'
-          }`}
-        >
-          {children}
-        </footer>
-      </div>
-    </ModalSheet>
+    <span className="mx-auto my-2 inline-block h-1 w-10 rounded bg-zinc-500" />
   );
 }
+
+export function Sheet({
+  onClose,
+  onSnap,
+  snapPoints,
+  children,
+  clickOutsideToClose = true,
+  disableDrag = false,
+  hasCloseButton = true,
+  fullScreen = false,
+  hasBackdrop = false,
+}: React.PropsWithChildren<SheetProps>) {
+  return (
+    <>
+      <ReactSheet
+        isOpen
+        onClose={onClose}
+        snapPoints={snapPoints}
+        disableDrag={disableDrag}
+        onSnap={onSnap}
+        detent={fullScreen ? 'full-height' : 'content-height'}
+      >
+        <ReactSheet.Container
+          style={{ borderTopLeftRadius: 24, borderTopRightRadius: 24 }}
+        >
+          <ReactSheet.Content>
+            {hasCloseButton && (
+              <IconButton
+                icon="i-solar-close-circle-outline"
+                color="dark"
+                size="sm"
+                variant="text"
+                rounded
+                className="absolute right-3 top-3"
+                onClick={onClose}
+              />
+            )}
+            {children}
+          </ReactSheet.Content>
+        </ReactSheet.Container>
+        <ReactSheet.Backdrop
+          className={hasBackdrop ? 'display-none' : ''}
+          onTap={clickOutsideToClose ? onClose : undefined}
+        />
+      </ReactSheet>
+    </>
+  );
+}
+
+export default Sheet;
