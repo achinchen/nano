@@ -14,7 +14,7 @@ export type SheetProps = {
 
 export function SheetIndicator() {
   return (
-    <span className="mx-auto my-2 inline-block h-1 w-10 rounded bg-zinc-500" />
+    <span className="mx-auto my-1 inline-block h-1 w-10 rounded bg-zinc-500" />
   );
 }
 

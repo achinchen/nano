@@ -39,3 +39,5 @@ export function NotifyModal({
     </Modal>
   );
 }
+
+export default NotifyModal;
