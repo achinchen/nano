@@ -1,4 +1,4 @@
-import { getDateInfo } from './utils';
+import { getDateInfo } from '.';
 
 describe('getDateInfo', () => {
   it('returns an object with the month, day, and weekday of a given date', () => {
