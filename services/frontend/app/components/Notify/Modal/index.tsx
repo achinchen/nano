@@ -1,9 +1,8 @@
-import type { ModalSheetProps } from '~frontend/components/ModalSheet/types';
-import './style.module.css';
-import { getPassiveClose } from '~frontend/components/ModalSheet/utils';
-import { Sheet as UISheet } from '~frontend/components/Sheet';
+import type { NotifyProps } from '~frontend/components/Notify/types';
+import { Modal } from '~frontend/components/Modal';
+import { getPassiveClose } from '~frontend/components/Notify/utils';
 
-export function Sheet({
+export function NotifyModal({
   onClose,
   children,
   title,
@@ -12,14 +11,13 @@ export function Sheet({
   actionVertical,
   hasCloseButton,
   severity,
-}: ModalSheetProps) {
+}: React.PropsWithChildren<NotifyProps>) {
   const passiveClose = getPassiveClose(severity);
 
   return (
-    <UISheet
+    <Modal
       onClose={onClose}
       hasCloseButton={hasCloseButton}
-      disableDrag={passiveClose}
       clickOutsideToClose={!passiveClose}
     >
       <div className="mt-4 flex flex-col items-center gap-2">
@@ -38,6 +36,6 @@ export function Sheet({
           {children}
         </footer>
       </div>
-    </UISheet>
+    </Modal>
   );
 }
