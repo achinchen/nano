@@ -1,19 +1,19 @@
-import type { ModalSheetProps } from '~frontend/components/ModalSheet/types';
+import type { NotifyProps } from '~frontend/components/Notify/types';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Modal } from '.';
+import { NotifySheet } from '.';
 
-describe('Modal', () => {
-  const defaultProps: ModalSheetProps = {
+describe('NotifySheet', () => {
+  const defaultProps: NotifyProps = {
     onClose: jest.fn(),
     hasCloseButton: true,
-    title: 'Test Modal',
+    title: 'Test Sheet',
     description: 'This is a test sheet',
     severity: 'info',
   };
 
   it('calls onClose when close button is clicked', async () => {
-    render(<Modal {...defaultProps} />);
+    render(<NotifySheet {...defaultProps} />);
     const closeButton = screen.getByLabelText('icon-label');
     await userEvent.click(closeButton);
     expect(defaultProps.onClose).toHaveBeenCalled();

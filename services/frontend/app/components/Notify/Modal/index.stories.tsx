@@ -1,16 +1,16 @@
 import type { Meta } from '@storybook/react';
-import type { ModalSheetProps } from '~frontend/components/ModalSheet/types';
+import type { NotifyProps } from '~frontend/components/Notify/types';
 import { useState } from 'react';
 import Button from '~frontend/components/Button';
-import { Modal } from '.';
+import { NotifyModal } from '.';
 
-const Story: Meta<typeof Modal> = {
-  component: Modal,
-  title: 'ModalSheet-Modal',
+const Story: Meta<typeof NotifyModal> = {
+  component: NotifyModal,
+  title: 'NotifyModal',
 };
 export default Story;
 
-export const Default = (args: ModalSheetProps) => {
+export const Default = (args: NotifyProps) => {
   const [opened, setOpened] = useState(true);
 
   const onClick = () => {
@@ -20,7 +20,7 @@ export const Default = (args: ModalSheetProps) => {
   return (
     <div>
       {opened && (
-        <Modal
+        <NotifyModal
           {...args}
           onClose={() => {
             setOpened(false);
@@ -29,7 +29,7 @@ export const Default = (args: ModalSheetProps) => {
         >
           <Button onClick={onClick}>Button</Button>
           <Button onClick={onClick}>Button</Button>
-        </Modal>
+        </NotifyModal>
       )}
     </div>
   );

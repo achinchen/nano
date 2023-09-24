@@ -1,2 +1,2 @@
-import { Severity } from '~frontend/components/ModalSheet/types';
+import { Severity } from '~frontend/components/Notify/types';
 export const getPassiveClose = (severity: Severity) => severity !== 'info';
