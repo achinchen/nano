@@ -31,7 +31,7 @@ export function Input({
   maxLength,
   ...attributes
 }: InputProps) {
-  const [valid, setValid] = useState(false);
+  const [valid, setValid] = useState(true);
   const hasErrorMessage = Boolean(errorMessage);
   const isError = hasErrorMessage || !valid;
 
