@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Modal } from '.';
 
 const TITLE = 'title';
@@ -72,12 +73,12 @@ describe('interaction', () => {
   });
 
   test('trigger onClose when click backdrop', async () => {
-    await fireEvent.click(screen.getByRole('presentation'));
+    await userEvent.click(screen.getByRole('presentation'));
     expect(onClose).toHaveBeenCalled();
   });
 
   test('not trigger onClose when click dialog', async () => {
-    await fireEvent.click(screen.getByRole('dialog'));
+    await userEvent.click(screen.getByRole('dialog'));
     expect(onClose).not.toHaveBeenCalled();
   });
 });
