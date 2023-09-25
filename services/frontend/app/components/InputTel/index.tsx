@@ -2,6 +2,8 @@ import type { InputHTMLAttributes } from 'react';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
 
+const REGEX = /\d|Backspace|Enter/;
+
 export type InputTelProps = {
   value: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -34,6 +36,20 @@ export function InputTel({
 
   const iconColor = disabled ? 'color-neutral-400' : 'color-zinc-700';
 
+  const onClear = () => {
+    onChange?.({
+      target: {
+        value: '',
+      },
+    } as React.ChangeEvent<HTMLInputElement>);
+    onValueChange?.('');
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key.match(REGEX)) return;
+    event.preventDefault();
+  };
+
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event);
     onValueChange?.(event.target.value);
@@ -64,7 +80,9 @@ export function InputTel({
           onChange={onInputChange}
           placeholder={placeholder}
           type="tel"
+          pattern="\d*"
           autoComplete="tel"
+          onKeyDown={onKeyDown}
           {...attributes}
         />
         <IconButton
@@ -73,6 +91,7 @@ export function InputTel({
           icon="i-solar-close-circle-outline"
           color="dark"
           variant="text"
+          onClick={onClear}
         />
       </div>
       {isError && (
