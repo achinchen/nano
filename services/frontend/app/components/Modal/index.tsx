@@ -51,7 +51,7 @@ export function Modal({
             {title}
           </h2>
         )}
-        {children && <div className="flex-1 overflow-y-scroll">{children}</div>}
+        {children && <div className="flex-1">{children}</div>}
         {footer && (
           <div className="mt-2 flex items-center sm:mt-3">{footer}</div>
         )}

@@ -24,7 +24,7 @@ export function NotifySheet({
     >
       <div className="mt-4 flex flex-col items-center gap-2">
         {picture && <picture className="h-20 w-20">{picture}</picture>}
-        <header className="text-base font-bold color-zinc-700 md:text-lg">
+        <header className="mx-4 text-base font-bold color-zinc-700 md:text-lg">
           {title}
         </header>
         <div className="mx-4 text-sm color-zinc-700 md:text-base">

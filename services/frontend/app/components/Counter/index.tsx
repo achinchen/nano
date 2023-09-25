@@ -1,25 +1,28 @@
 import { useEffect, useMemo } from 'react';
 
 type CounterProps = {
-  length: {
-    current: number;
-    max: HTMLTextAreaElement['maxLength'];
-  };
+  value: string;
+  maxLength: HTMLTextAreaElement['maxLength'];
   setValid: (value: boolean) => void;
 };
 
-export function Counter({ length, setValid }: CounterProps) {
-  const { current, max } = length;
+export function Counter({ value = '', maxLength, setValid }: CounterProps) {
+  const current = useMemo(() => {
+    if (!value) return 0;
+    return [...value].length;
+  }, [value]);
 
   const valid = useMemo(() => {
-    return current <= max;
-  }, [current, max]);
+    return current <= maxLength;
+  }, [current, maxLength]);
 
   useEffect(() => {
     setValid(valid);
   }, [valid, setValid]);
 
-  return <span className="ml-auto color-zinc-500">{`${current}/${max}`}</span>;
+  return (
+    <span className="ml-auto color-zinc-500">{`${current}/${maxLength}`}</span>
+  );
 }
 
 export default Counter;

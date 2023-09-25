@@ -3,10 +3,8 @@ import { Counter } from '.';
 
 describe('Counter', () => {
   const defaultProps = {
-    length: {
-      current: 0,
-      max: 10,
-    },
+    maxLength: 10,
+    value: 'test',
     setValid: jest.fn(),
   };
 
@@ -14,12 +12,12 @@ describe('Counter', () => {
     const { rerender } = render(<Counter {...defaultProps} />);
     expect(defaultProps.setValid).toHaveBeenCalledWith(true);
 
-    rerender(<Counter {...defaultProps} length={{ current: 5, max: 10 }} />);
+    rerender(<Counter {...defaultProps} />);
     expect(defaultProps.setValid).toHaveBeenCalledWith(true);
   });
 
   it('sets valid to false when current is greater than max', () => {
-    render(<Counter {...defaultProps} length={{ current: 15, max: 10 }} />);
+    render(<Counter {...defaultProps} value="testtesttesttest" />);
     expect(defaultProps.setValid).toHaveBeenCalledWith(false);
   });
 });
