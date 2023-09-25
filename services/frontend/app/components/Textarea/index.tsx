@@ -9,7 +9,7 @@ import Counter from '~frontend/components/Counter';
 import { LINE_HEIGHT, PADDING_HEIGHT } from './constants';
 
 export type TextareaProps = {
-  value?: string;
+  value: string;
   placeholder?: string;
   disabled?: boolean;
   autoSize?: boolean;
@@ -47,11 +47,6 @@ export function Textarea({
     textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
   };
 
-  const length = {
-    current: value?.length || 0,
-    max: maxLength || 0,
-  };
-
   const getHeightByRows = (rows: number) =>
     `${PADDING_HEIGHT + rows * LINE_HEIGHT}px`;
   const minHeight = getHeightByRows(minRows);
@@ -73,8 +68,12 @@ export function Textarea({
         maxLength={maxLength}
         className={`
           w-full border-1 rounded-3 
-           hover:border-zinc-700 active:border-zinc-700 text-sm overflow-auto resize-y px-3 py-2 mb-1 color-zinc-700 placeholder:color-zinc-500 border-zinc-400 
-          ${disabled ? 'bg-zinc-100 cursor-not-allowed' : 'cursor-pointer'}
+           hover:border-zinc-700 active:border-zinc-700 text-sm overflow-auto resize-y px-3 py-2 mb-1 placeholder:color-zinc-500 border-zinc-400 
+          ${
+            disabled
+              ? 'bg-zinc-100 color-zinc-400 cursor-not-allowed'
+              : 'color-zinc-700 cursor-pointer'
+          }
           ${isError ? 'border-red-500' : ''}
           `}
         onChange={onTextAreaChange}
@@ -87,7 +86,9 @@ export function Textarea({
             {errorMessage}
           </div>
         )}
-        {maxLength && <Counter length={length} setValid={setValid} />}
+        {maxLength ? (
+          <Counter value={value} maxLength={maxLength} setValid={setValid} />
+        ) : null}
       </div>
     </div>
   );

@@ -44,11 +44,6 @@ export function Input({
     onValueChange?.(event.target.value);
   };
 
-  const length = {
-    current: value?.length || 0,
-    max: maxLength || 0,
-  };
-
   return (
     <div>
       <div
@@ -86,7 +81,9 @@ export function Input({
               {errorMessage}
             </div>
           )}
-          {maxLength && <Counter setValid={setValid} length={length} />}
+          {maxLength ? (
+            <Counter setValid={setValid} value={value} maxLength={maxLength} />
+          ) : null}
         </div>
       )}
     </div>
