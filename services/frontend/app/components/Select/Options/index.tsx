@@ -2,15 +2,14 @@ import type { SelectOption } from '~frontend/components/Select/types';
 import { useRef } from 'react';
 import { useProgressivelyClose } from '~frontend/components/shared/hooks/use-progressively-close';
 
-export type OptionsProps = {
+export type OptionsProps = React.PropsWithChildren<{
   value: string;
   options: SelectOption[];
   noOptionsLabel: string;
   onOptionClick: (option: SelectOption) => () => void;
   onClose: () => void;
-  children?: React.ReactNode[];
   center?: boolean;
-};
+}>;
 
 export function Options({
   value,

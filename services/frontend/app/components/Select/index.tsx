@@ -4,7 +4,7 @@ import { Input } from '~frontend/components/Input';
 import { Options } from './Options';
 import { DEFAULT_PLACEHOLDER, NO_OPTIONS_LABEL } from './constants';
 
-export type SelectProps = {
+export type SelectProps = React.PropsWithChildren<{
   value: string;
   options: SelectOption[];
   onValueChange?: (value: string) => void;
@@ -15,9 +15,8 @@ export type SelectProps = {
   suffixIcon?: string;
   noOptionsLabel?: string;
   filterable?: boolean;
-  children?: React.ReactNode[];
-  optionCenter?: boolean;
-};
+  center?: boolean;
+}>;
 
 export function Select({
   value,
@@ -30,7 +29,7 @@ export function Select({
   className = '',
   noOptionsLabel = NO_OPTIONS_LABEL,
   filterable = false,
-  optionCenter,
+  center = false,
   ...attributes
 }: SelectProps) {
   const [opened, setOpened] = useState(false);
@@ -100,8 +99,9 @@ export function Select({
           className={className}
           placeholder={placeholder}
           prefixIcon={prefixIcon}
-          suffixIcon={suffixIcon}
+          suffixIcon={center ? undefined : suffixIcon}
           onValueChange={setInputKeyword}
+          center={center}
           {...attributes}
         />
       </div>
@@ -112,7 +112,7 @@ export function Select({
           noOptionsLabel={noOptionsLabel}
           onOptionClick={onOptionClick}
           onClose={onClose}
-          center={optionCenter}
+          center={center}
         >
           {children}
         </Options>

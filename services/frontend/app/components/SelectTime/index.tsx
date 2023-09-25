@@ -25,7 +25,7 @@ export function SelectTime({
       options={options}
       value={value}
       onValueChange={onValueChange}
-      optionCenter
+      center
     />
   );
 }
