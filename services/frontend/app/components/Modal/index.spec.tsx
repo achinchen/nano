@@ -2,25 +2,16 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Modal } from '.';
 
-const TITLE = 'title';
 const CHILDREN = 'content';
-const FOOTER = <p>footer</p>;
 const onClose = jest.fn();
 
 const setup = ({
-  title = '',
   hasCloseButton = true,
 }: {
-  title?: string;
   hasCloseButton?: boolean;
 } = {}) => {
   render(
-    <Modal
-      onClose={onClose}
-      title={title}
-      hasCloseButton={hasCloseButton}
-      footer={FOOTER}
-    >
+    <Modal onClose={onClose} hasCloseButton={hasCloseButton}>
       <div>{CHILDREN}</div>
     </Modal>
   );

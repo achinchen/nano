@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Badge, BadgeProps } from '.';
+import { Badge } from '.';
 
 describe('Badge', () => {
   const childrenText = 'Test';
