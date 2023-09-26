@@ -3,12 +3,12 @@ import { DAYS } from '~frontend/components/shared/constants';
 import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/shared/utils';
 
-type DatePickerProps = React.PropsWithChildren<{
+type DateOptionsProps = {
   onSelect: (date: Date) => void;
   selectedDate?: Date;
-}>;
+};
 
-export function DatePicker({ onSelect, selectedDate }: DatePickerProps) {
+export function DateOptions({ onSelect, selectedDate }: DateOptionsProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,

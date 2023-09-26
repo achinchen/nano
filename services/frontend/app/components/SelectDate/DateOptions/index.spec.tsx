@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DAYS } from '~frontend/components/shared/constants';
 import { getMonthDays } from '~frontend/components/shared/utils';
-import { DatePicker } from '.';
+import { DateOptions } from '.';
 
-describe('DatePicker', () => {
+describe('DateOptions', () => {
   const onSelect = jest.fn();
   const selectedDate = new Date('2023-01-28, 00:00:00');
 
   it('renders the days of the week', () => {
-    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DateOptions onSelect={onSelect} selectedDate={selectedDate} />);
 
     DAYS.forEach((day) => {
       expect(screen.getByText(day)).toBeInTheDocument();
@@ -17,7 +17,7 @@ describe('DatePicker', () => {
   });
 
   it('should render the days of the month', () => {
-    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DateOptions onSelect={onSelect} selectedDate={selectedDate} />);
 
     const daysInMonth = getMonthDays(selectedDate);
 
@@ -29,7 +29,7 @@ describe('DatePicker', () => {
   });
 
   it('calls onSelect when a day is clicked', async () => {
-    render(<DatePicker onSelect={onSelect} selectedDate={selectedDate} />);
+    render(<DateOptions onSelect={onSelect} selectedDate={selectedDate} />);
 
     const dayToClick = selectedDate.getDate();
     await userEvent.click(
