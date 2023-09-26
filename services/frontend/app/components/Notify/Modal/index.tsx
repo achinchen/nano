@@ -19,6 +19,7 @@ export function NotifyModal({
       onClose={onClose}
       hasCloseButton={hasCloseButton}
       clickOutsideToClose={!passiveClose}
+      className="sm:max-w-110"
     >
       <div className="mt-4 flex flex-col items-center gap-2">
         {picture && <picture className="h-20 w-20">{picture}</picture>}

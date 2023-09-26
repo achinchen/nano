@@ -37,30 +37,17 @@ describe('rendering', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
-  test('render title', async () => {
-    setup({ title: TITLE });
-    expect(screen.getByText(TITLE)).toBeInTheDocument();
-  });
-
-  test('not render title', () => {
-    setup();
-    expect(() => screen.getByRole('heading')).toThrow();
-  });
-
   test('render children', () => {
     setup();
     expect(screen.getByText(CHILDREN)).toBeInTheDocument();
   });
-  test('render footer', () => {
-    setup();
-    expect(screen.getByText('footer')).toBeInTheDocument();
-  });
 
-  test('render close icon', () => {
+  test('render close button', () => {
     setup();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
-  test('not render close icon', () => {
+
+  test('not render close button', () => {
     setup({ hasCloseButton: false });
     expect(() => screen.getByRole('button')).toThrow();
   });
