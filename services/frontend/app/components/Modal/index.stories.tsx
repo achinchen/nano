@@ -11,13 +11,9 @@ export default Story;
 
 export const Default = {
   args: {
-    title: 'Title',
-    content: 'Content',
-    className: '',
     hideCloseIcon: false,
   },
   render: ({ ...args }) => {
-    const footer = <Button onClick={() => console.log('clicked')}>OK</Button>;
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [opened, setOpened] = useState(false);
     const openModal = () => setOpened(true);
@@ -26,8 +22,12 @@ export const Default = {
       <>
         <Button onClick={openModal}>Open Modal</Button>
         {opened && (
-          <Modal footer={footer} {...args} onClose={closeModal}>
-            {args.content}
+          <Modal {...args} onClose={closeModal}>
+            <header>title</header>
+            <main>
+              <div className="h-10 bg-zinc-300 pa-2" />
+            </main>
+            <Button onClick={() => console.log('clicked')}>OK</Button>;
           </Modal>
         )}
       </>
