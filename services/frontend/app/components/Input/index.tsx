@@ -9,6 +9,7 @@ export type InputProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onValueChange?: (value: string) => void;
   placeholder?: string;
+  center?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
   className?: string;
@@ -24,6 +25,7 @@ export function Input({
   placeholder,
   disabled = false,
   readOnly = false,
+  center = false,
   className = '',
   errorMessage = '',
   prefixIcon,
@@ -31,7 +33,7 @@ export function Input({
   maxLength,
   ...attributes
 }: InputProps) {
-  const [valid, setValid] = useState(false);
+  const [valid, setValid] = useState(true);
   const hasErrorMessage = Boolean(errorMessage);
   const isError = hasErrorMessage || !valid;
 
@@ -63,6 +65,7 @@ export function Input({
           value={value}
           className={`w-full focus:outline-none appearance-none border-none text-sm placeholder:color-zinc-500 color-zinc-700 disabled:color-zinc-400 disabled:bg-transparent 
           ${readOnly ? 'cursor-pointer' : ''}
+          ${center ? 'text-center placeholder:text-center' : ''}
           `}
           disabled={disabled}
           readOnly={readOnly}

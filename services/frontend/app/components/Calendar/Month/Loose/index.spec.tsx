@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { DAYS } from '~frontend/components/shared/constants';
-import { getMonthDays } from '~frontend/components/shared/utils';
+import { DAYS } from '~frontend/components/Calendar/constants';
+import { getMonthDays } from '~frontend/components/Calendar/utils';
 import { CalendarMonthLoose } from '.';
 
 describe('CalendarMonthLoose', () => {

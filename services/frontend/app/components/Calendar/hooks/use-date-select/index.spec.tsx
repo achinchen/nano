@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
-import { useDateSelect } from './use-date-select';
 import { DAY_STYLE } from './constants';
+import { useDateSelect } from '.';
 
 describe('useDateSelect', () => {
   jest.useFakeTimers().setSystemTime(new Date('2020-02-22'));

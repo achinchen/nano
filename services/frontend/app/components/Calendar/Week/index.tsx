@@ -1,9 +1,8 @@
 import type { Status } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
-import { DAYS } from '~frontend/components/shared/constants';
-import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
-import { getWeekDays } from '~frontend/components/shared/utils';
-import { STATUS_CLASS } from '~frontend/components/Calendar/constants';
+import { DAYS, STATUS_CLASS } from '~frontend/components/Calendar/constants';
+import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
+import { getWeekDays } from '~frontend/components/Calendar/utils';
 
 type CalendarWeekProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;

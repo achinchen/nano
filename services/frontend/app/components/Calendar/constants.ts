@@ -9,3 +9,5 @@ export const STATUS_CLASS: { [key in Status | 'default']: string } = {
   full: `bg-zinc-200 ${STATUS_BASE_CLASS}`,
   default: `bg-transparent ${STATUS_BASE_CLASS}`,
 };
+
+export const DAYS = ['日', '一', '二', '三', '四', '五', '六'];

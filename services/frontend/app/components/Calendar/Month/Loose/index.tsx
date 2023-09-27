@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { DAYS } from '~frontend/components/shared/constants';
-import { useDateSelect } from '~frontend/components/shared/hooks/use-date-select';
-import { getMonthDays } from '~frontend/components/shared/utils';
+import { DAYS } from '~frontend/components/Calendar/constants';
+import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
+import { getMonthDays } from '~frontend/components/Calendar/utils';
 import { Content } from './Content';
 
 type CalendarMonthProps = React.PropsWithChildren<{
