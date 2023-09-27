@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { DAYS } from '~frontend/components/shared/constants';
-import { getWeekDays } from '~frontend/components/shared/utils';
+import { DAYS } from '~frontend/components/Calendar/constants';
+import { getWeekDays } from '~frontend/components/Calendar/utils';
 import { CalendarWeek } from '.';
 
 describe('CalendarWeek', () => {
