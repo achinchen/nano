@@ -5,10 +5,18 @@ html, body, #root, main {
   padding: 0;
 }
 
+body {
+  @apply font-default font-500 color-zinc-700;
+}
+
 button {
   @apply appearance-none border-none bg-transparent cursor-pointer;
 }
 
 li, ol {
   @apply list-none pa-0 ma-0;
+}
+
+a {
+  @apply decoration-none color-inherit;
 }

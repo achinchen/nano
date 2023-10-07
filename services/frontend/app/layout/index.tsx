@@ -1,4 +1,5 @@
-import './styles/index.css';
+import '~frontend/styles/index.css';
+import { Global } from './global';
 
 export const metadata = {
   title: 'Welcome to frontend',
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Global />
+      </body>
     </html>
   );
 }
