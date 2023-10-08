@@ -1,9 +1,11 @@
-import { unit } from './i.json';
+import i from './i.json';
 
 export const formatDuration = (duration: number) => {
-  if (duration < 60) return `${duration}${unit.minute}`;
+  if (duration < 60) return `${duration}${i.unit.minute}`;
 
   const hour = Math.floor(duration / 60);
   const minute = duration % 60;
-  return `${hour}${unit.hour}${minute > 0 ? `${minute}${unit.minute}` : ''}`;
+  return `${hour}${i.unit.hour}${
+    minute > 0 ? `${minute}${i.unit.minute}` : ''
+  }`;
 };

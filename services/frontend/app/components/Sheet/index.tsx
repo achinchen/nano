@@ -1,3 +1,5 @@
+'use client';
+
 import ReactSheet from 'react-modal-sheet';
 import IconButton from '~frontend/components/IconButton';
 
@@ -50,7 +52,7 @@ export function Sheet({
                 size="sm"
                 variant="text"
                 rounded
-                className="absolute right-3 top-3"
+                className="absolute right-4 top-3"
                 onClick={onClose}
               />
             )}

@@ -18,7 +18,7 @@ export function ServiceCard({
   name,
   allday,
   time = '',
-  location,
+  address,
   supplier,
   status,
 }: ServiceCardProps) {
@@ -50,7 +50,7 @@ export function ServiceCard({
       </div>
       <div className="flex flex-row gap-2">
         <span className={`${TAG_CONFIG.sm} bg-primary-100 color-primary-600`}>
-          {location}
+          {address}
         </span>
         <span className={`${TAG_CONFIG.sm} bg-primary-100 color-primary-600`}>
           {supplier}
