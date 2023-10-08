@@ -1,6 +1,6 @@
-import type { ServiceCardProps } from '~frontend/features/booking/components/ServiceCards/type';
-import ServiceCards from '~frontend/features/booking/components/ServiceCards';
-import VerticalCalendar from '~frontend/features/booking/components/VerticalCalendar';
+import type { ServiceCardProps } from '~frontend/features/booking/ServiceCards/type';
+import ServiceCards from '~frontend/features/booking/ServiceCards';
+import VerticalCalendar from '~frontend/features/booking/VerticalCalendar';
 
 const services = [
   {

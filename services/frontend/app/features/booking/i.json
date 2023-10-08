@@ -1,10 +1,7 @@
 {
-  "status": {
-    "has-order": "熱門",
-    "full": "額滿"
-  },
   "unit": {
-    "attendee": "人"
-  },
-  "allday": "全天"
+    "attendee": "人",
+    "hour": "小時",
+    "minute": "分鐘"
+  }
 }

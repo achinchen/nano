@@ -1,4 +1,4 @@
-export type Status = 'unsold' | 'has-order' | 'full';
+import type { Status } from '~frontend/features/booking/components/StatusTag/type';
 
 export type ServiceCardProps = {
   name: string;
