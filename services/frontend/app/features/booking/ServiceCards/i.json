@@ -1,0 +1,10 @@
+{
+  "status": {
+    "has-order": "熱門",
+    "full": "額滿"
+  },
+  "unit": {
+    "attendee": "人"
+  },
+  "allday": "全天"
+}
