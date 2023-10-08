@@ -70,7 +70,7 @@ export function ServiceCard({
 
 export function ServiceCards({ services }: { services: ServiceCardProps[] }) {
   return (
-    <section className="ma-4 w-100 flex flex-col gap-2">
+    <section className="ma-4 flex flex-col gap-2">
       {services.map((service) => (
         <ServiceCard {...service} key={service.id} />
       ))}

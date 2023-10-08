@@ -1,5 +1,6 @@
 import type { ServiceCardProps } from '~frontend/features/booking/components/ServiceCards/type';
 import ServiceCards from '~frontend/features/booking/components/ServiceCards';
+import VerticalCalendar from '~frontend/features/booking/components/VerticalCalendar';
 
 const services = [
   {
@@ -26,5 +27,10 @@ const services = [
 ] as ServiceCardProps[];
 
 export default async function Index() {
-  return <ServiceCards services={services} />;
+  return (
+    <>
+      <VerticalCalendar />
+      <ServiceCards services={services} />
+    </>
+  );
 }
