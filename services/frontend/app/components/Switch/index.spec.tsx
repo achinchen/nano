@@ -16,9 +16,19 @@ describe('rendering', () => {
 });
 
 describe('interaction', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   test('trigger onChange', async () => {
     render(<Switch checked={mock.checked} onChange={mock.onChange} />);
     await userEvent.click(screen.getByRole('checkbox'));
     expect(mock.onChange).toHaveBeenCalled();
+  });
+
+  test('not trigger onChange when disabled', async () => {
+    render(<Switch checked={mock.checked} disabled onChange={mock.onChange} />);
+    await userEvent.click(screen.getByRole('checkbox'));
+    expect(mock.onChange).not.toHaveBeenCalled();
   });
 });
