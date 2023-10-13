@@ -22,6 +22,7 @@ export class ServiceHistory {
     public allday: boolean,
     public startAt: Date,
     public endAt: Date,
+    public queue: boolean,
     public fields: Field[],
     public note: string,
     public serviceId: number

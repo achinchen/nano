@@ -52,6 +52,9 @@ export class ServiceHistory {
   note: string;
 
   @Column()
+  queue: boolean;
+
+  @Column()
   serviceId: number;
 
   @Column()
