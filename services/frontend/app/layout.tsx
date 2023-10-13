@@ -1,5 +1,5 @@
 import '~frontend/styles/index.css';
-import { Global } from './global';
+import { Global } from './layout/global';
 
 export const metadata = {
   title: 'Nano',

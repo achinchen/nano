@@ -6,7 +6,7 @@ import { CalendarMonthTight } from '~frontend/components/Calendar/Month';
 import { CalendarWeek } from '~frontend/components/Calendar/Week';
 import { formatDate } from './utils';
 
-export function VerticalCalendar() {
+export function CalendarVertical() {
   const [mode, setMode] = useState<'week' | 'month'>('week');
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -42,4 +42,4 @@ export function VerticalCalendar() {
   );
 }
 
-export default VerticalCalendar;
+export default CalendarVertical;
