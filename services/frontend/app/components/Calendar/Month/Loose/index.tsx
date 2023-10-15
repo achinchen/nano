@@ -10,11 +10,13 @@ type CalendarMonthProps = React.PropsWithChildren<{
   data?: {
     [key: string]: string[];
   };
+  maxHeight?: boolean;
 }>;
 
 const LAST_ROW_START_INDEX = 35;
 
 export function CalendarMonthLoose({
+  maxHeight = false,
   onSelect,
   selectedDate,
   data,
@@ -42,11 +44,11 @@ export function CalendarMonthLoose({
           <li
             role="button"
             key={`${month}-${day}`}
-            className={`h-35 flex flex-col cursor-pointer items-center pa-2 border-b-px  border-b-solid ${
+            className={` flex flex-col cursor-pointer items-center pa-2 border-b-px  border-b-solid ${
               index < LAST_ROW_START_INDEX
                 ? 'border-b-zinc-200'
                 : 'border-b-transparent'
-            }`}
+            } ${maxHeight ? 'h-35' : 'h-30'}`}
             onClick={onClick(month, day)}
           >
             <span

@@ -1,14 +1,12 @@
-// 'use client';
-
 import type { ServiceDetailProps } from './type';
 import { useState } from 'react';
 import featureI from '~frontend/features/booking/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/features/booking/utils';
 import TextButton from '~frontend/components/TextButton';
-import BottomSheet from '~frontend/components/BottomSheet';
 import InfoBlock from './components/InfoBlock';
 import Separator from './components/Separator';
+import DescriptionPrompt from './components/DescriptionPrompt';
 import { formatDate } from './utils';
 import scopedI from './i.json';
 import style from './style.module.css';
@@ -72,14 +70,11 @@ export function ServiceDetail({
       </article>
       <Separator />
       {isDescriptionSheetOpen && (
-        <BottomSheet
+        <DescriptionPrompt
           title={scopedI.description}
+          description={description}
           onClose={onDescriptionSheetClose}
-        >
-          <div className="mx-4 my-2 h-112 font-normal color-zinc-600">
-            {description}
-          </div>
-        </BottomSheet>
+        />
       )}
     </section>
   );

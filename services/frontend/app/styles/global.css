@@ -1,3 +1,20 @@
+:root {
+  --at-is-mobile: false;
+}
+
+@screen sm {
+  :root {
+    --at-is-mobile: false;
+  }
+}
+
+@screen lt-sm {
+  :root {
+    --at-is-mobile: true;
+  }
+}
+
+
 html, body, #root, main {
   height: 100%;
   width: 100%;

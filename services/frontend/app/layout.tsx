@@ -1,5 +1,5 @@
 import '~frontend/styles/index.css';
-import { Global } from './layout/global';
+import { Global } from './layout/Global';
 
 export const metadata = {
   title: 'Nano',
@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="md:bg-zinc-400">
         <Header />
-        {children}
+        <main className="mx-auto h-auto max-w-5xl">{children}</main>
         <Global />
       </body>
     </html>

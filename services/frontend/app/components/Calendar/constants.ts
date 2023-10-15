@@ -1,4 +1,5 @@
 import type { Status } from './types';
+import i from '~frontend/utils/date/i.json';
 
 export const STATUSES = ['available', 'full', 'has-order'] as const;
 
@@ -10,4 +11,4 @@ export const STATUS_CLASS: { [key in Status | 'default']: string } = {
   default: `bg-transparent ${STATUS_BASE_CLASS}`,
 };
 
-export const DAYS = ['日', '一', '二', '三', '四', '五', '六'];
+export const DAYS = i.weekdays as readonly string[];

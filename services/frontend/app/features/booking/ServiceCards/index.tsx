@@ -1,5 +1,3 @@
-'use client';
-
 import type { ServiceCardProps } from './type';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -34,7 +32,7 @@ export function ServiceCard({
         <span className="text-base font-bold">{name}</span>
         <StatusTag status={status} />
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 text-sm">
         <Icon size="2xl" icon="i-solar-chair-linear" className={ICON_COLOR} />
         <span>
           {attendee}
@@ -46,7 +44,7 @@ export function ServiceCard({
           className={`ml-3 ${ICON_COLOR}`}
         />
         {duration} ·{' '}
-        <span className="color-zinc-600">{allday ? scopedI.allday : time}</span>
+        <span className="color-zinc-500">{allday ? scopedI.allday : time}</span>
       </div>
       <div className="flex flex-row gap-2">
         <span className={`${TAG_CONFIG.sm} bg-primary-100 color-primary-600`}>
@@ -62,7 +60,7 @@ export function ServiceCard({
 
 export function ServiceCards({ services }: { services: ServiceCardProps[] }) {
   return (
-    <section className="ma-4 flex flex-col gap-2">
+    <section className="ma-4 flex flex-1 flex-col gap-2">
       {services.map((service) => (
         <ServiceCard {...service} key={service.id} />
       ))}

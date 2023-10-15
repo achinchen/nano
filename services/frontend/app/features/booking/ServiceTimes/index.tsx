@@ -1,5 +1,3 @@
-'use client';
-
 import type { ServiceTimesProps } from './type';
 import Icon from '~frontend/components/Icon';
 import { ServiceTimesContextProvider, useServiceTimesContext } from './context';

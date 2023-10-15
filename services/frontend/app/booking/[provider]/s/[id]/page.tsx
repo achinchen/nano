@@ -3,6 +3,10 @@
 import type { ServiceDetailProps } from '~frontend/features/booking/ServiceDetail/type';
 import type { ServiceTimesProps } from '~frontend/features/booking/ServiceTimes/type';
 import { useParams } from 'next/navigation';
+import { BookingContextProvider } from '~frontend/features/booking/context';
+import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
+import Header from '~frontend/features/booking/Header';
+import Footer from '~frontend/features/booking/Footer';
 import ServiceDetail from '~frontend/features/booking/ServiceDetail';
 import ServiceTimes from '~frontend/features/booking/ServiceTimes';
 
@@ -178,21 +182,36 @@ const times = [
   },
 ] as ServiceTimesProps[];
 
+const provider = '阿狗狗的快樂小天地';
+
 export default function Index() {
   const { id } = useParams<{ id: string }>();
+  const serviceTimes = {
+    ...(id === '10' ? times[0] : id === '12' ? times[1] : times[2]),
+  };
 
   return (
-    <main className="ma-4 mt-1">
-      <ServiceDetail
-        {...(id === '10'
-          ? services[0]
-          : id === '12'
-          ? services[1]
-          : services[2])}
-      />
-      <ServiceTimes
-        {...(id === '10' ? times[0] : id === '12' ? times[1] : times[2])}
-      />
-    </main>
+    <BookingContextProvider>
+      <>
+        <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
+          {provider}
+        </h1>
+        <Header className="hidden md:flex" />
+        <main className="relative flex bg-white">
+          <CalendarHorizontal className="hidden md:block" />
+          <section className="flex-1 px-4 py-2 md:max-h-[calc(100vh-200px)] md:overflow-y-scroll md:py-2">
+            <ServiceDetail
+              {...(id === '10'
+                ? services[0]
+                : id === '12'
+                ? services[1]
+                : services[2])}
+            />
+            <ServiceTimes {...serviceTimes} />
+          </section>
+        </main>
+        <Footer disabled={!serviceTimes.times.length} />
+      </>
+    </BookingContextProvider>
   );
 }

@@ -1,20 +1,17 @@
-'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SheetIndicator } from '~frontend/components/Sheet';
 import { CalendarMonthTight } from '~frontend/components/Calendar/Month';
 import { CalendarWeek } from '~frontend/components/Calendar/Week';
-import { formatDate } from './utils';
 
-export function CalendarVertical() {
+export function CalendarVertical({ className = '' }: { className?: string }) {
   const [mode, setMode] = useState<'week' | 'month'>('week');
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const onDrag = () => setMode((mode) => (mode === 'month' ? 'week' : 'month'));
 
   return (
-    <section>
-      <header className="px-4 py-2.5">{formatDate(selectedDate)} </header>
+    <section className={className}>
       <motion.main
         className="flex flex-col rounded-b-4 bg-white px-4 shadow-default"
         drag="y"
