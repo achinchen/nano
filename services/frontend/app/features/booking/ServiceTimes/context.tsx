@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import type { ServiceTimesProps } from './type';
+import type { ServiceTimesProps } from './types';
 import { createContext, useContext, useState } from 'react';
 
 type InitialState = {

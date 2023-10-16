@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { MAX_LENGTH } from './constants';
-import { Content } from '.';
+import { MAX_LENGTH } from '../Status/constants';
+import { Content } from '../Status';
 
 const data = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 

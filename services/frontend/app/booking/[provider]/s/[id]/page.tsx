@@ -1,7 +1,7 @@
 'use client';
 
-import type { ServiceDetailProps } from '~frontend/features/booking/ServiceDetail/type';
-import type { ServiceTimesProps } from '~frontend/features/booking/ServiceTimes/type';
+import type { ServiceDetailProps } from '~frontend/features/booking/ServiceDetail/types';
+import type { ServiceTimesProps } from '~frontend/features/booking/ServiceTimes/types';
 import { useParams } from 'next/navigation';
 import { BookingContextProvider } from '~frontend/features/booking/context';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';

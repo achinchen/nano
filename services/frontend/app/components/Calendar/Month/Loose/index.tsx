@@ -1,16 +1,19 @@
 import { useMemo } from 'react';
+import { Status as StatusType } from '~frontend/components/Calendar/types';
 import { DAYS } from '~frontend/components/Calendar/constants';
 import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/Calendar/utils';
+import { Status } from './Status';
 import { Content } from './Content';
 
 type CalendarMonthProps = React.PropsWithChildren<{
   onSelect: (date: Date) => void;
   selectedDate?: Date;
   data?: {
-    [key: string]: string[];
+    [key: string]: string[] | StatusType;
   };
   maxHeight?: boolean;
+  type?: 'status' | 'content';
 }>;
 
 const LAST_ROW_START_INDEX = 35;
@@ -20,6 +23,7 @@ export function CalendarMonthLoose({
   onSelect,
   selectedDate,
   data,
+  type = 'status',
 }: CalendarMonthProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -57,9 +61,12 @@ export function CalendarMonthLoose({
             >
               {day}
             </span>
-            {data?.[`${month}-${day}`] && (
-              <Content data={data[`${month}-${day}`]} />
-            )}
+            {data?.[`${month}-${day}`] &&
+              (type === 'content' ? (
+                <Content data={data[`${month}-${day}`] as string[]} />
+              ) : (
+                <Status status={data[`${month}-${day}`] as StatusType} />
+              ))}
           </li>
         ))}
       </ol>

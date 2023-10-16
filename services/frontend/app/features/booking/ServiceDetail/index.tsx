@@ -1,4 +1,4 @@
-import type { ServiceDetailProps } from './type';
+import type { ServiceDetailProps } from './types';
 import { useState } from 'react';
 import featureI from '~frontend/features/booking/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';

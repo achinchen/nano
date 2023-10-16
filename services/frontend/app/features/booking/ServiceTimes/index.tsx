@@ -1,4 +1,4 @@
-import type { ServiceTimesProps } from './type';
+import type { ServiceTimesProps } from './types';
 import Icon from '~frontend/components/Icon';
 import { ServiceTimesContextProvider, useServiceTimesContext } from './context';
 import Times from './components/Times';

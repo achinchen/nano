@@ -1,4 +1,4 @@
-import type { Status } from './type';
+import type { Status } from './types';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import i from './i.json';
 

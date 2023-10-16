@@ -1,4 +1,4 @@
-import type { Status } from '~frontend/features/booking/components/StatusTag/type';
+import type { Status } from '~frontend/features/booking/components/StatusTag/types';
 
 export type Service = {
   name: string;

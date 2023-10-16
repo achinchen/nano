@@ -1,4 +1,4 @@
-import type { Service } from '~frontend/features/booking/type';
+import type { Service } from '~frontend/features/booking/types';
 
 type Time = string;
 
