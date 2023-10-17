@@ -2,7 +2,7 @@ import type { ServiceDetailProps } from './types';
 import { useState } from 'react';
 import sharedI from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
-import { formatDuration } from '~frontend/features/booking/utils';
+import { formatDuration } from '~frontend/utils/time';
 import TextButton from '~frontend/components/TextButton';
 import Separator from '~frontend/components/Separator';
 import InfoBlock from './components/InfoBlock';

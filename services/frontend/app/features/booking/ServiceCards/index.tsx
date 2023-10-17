@@ -7,7 +7,7 @@ import Icon from '~frontend/components/Icon';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import sharedI from '~frontend/shared/i.json';
-import { formatDuration } from '~frontend/features/booking/utils';
+import { formatDuration } from '~frontend/utils/time';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import scopedI from './i.json';
 

@@ -1,4 +1,4 @@
-import i from './i.json';
+import i from '~frontend/shared/i.json';
 
 export const formatDuration = (duration: number) => {
   if (duration < 60) return `${duration}${i.unit.minute}`;
