@@ -2,11 +2,26 @@
 
 import { BookingContextProvider } from '~frontend/features/booking/context';
 import ServiceCards from '~frontend/features/booking/ServiceCards';
+import { CalendarVerticalContextProvider, useCalendarVerticalContext } from '~frontend/features/booking/CalendarVertical/context';
 import CalendarVertical from '~frontend/features/booking/CalendarVertical';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
 import Header from '~frontend/features/booking/Header';
 
 const provider = '阿狗狗的快樂小天地';
+
+export function Content() {
+  const { mode } = useCalendarVerticalContext();
+
+  return (
+    <div className="bg-white md:flex-row flex flex-col">
+      <CalendarHorizontal className="hidden md:block" />
+      <CalendarVertical className="md:hidden" />
+      <section className={`overflow-y-scroll md:max-h-[calc(100vh-156px)] flex-1 ${mode === 'week' ? 'max-h-[calc(100vh-160px)]' : 'max-h-[calc(100vh-364px)]'}`}>
+        <ServiceCards />
+      </section>
+    </div>
+  )
+}
 
 export default function Index() {
   return (
@@ -16,11 +31,9 @@ export default function Index() {
           {provider}
         </h1>
         <Header />
-        <div className="bg-white md:flex">
-          <CalendarHorizontal className="hidden md:block" maxHeight />
-          <CalendarVertical className="md:hidden" />
-          <ServiceCards />
-        </div>
+        <CalendarVerticalContextProvider>
+          <Content />
+        </CalendarVerticalContextProvider>
       </>
     </BookingContextProvider>
   );

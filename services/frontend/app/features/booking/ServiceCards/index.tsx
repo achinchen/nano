@@ -10,6 +10,7 @@ import featureI from '~frontend/features/booking/i.json';
 import { formatDuration } from '~frontend/features/booking/utils';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import scopedI from './i.json';
+import style from './style.module.css';
 
 const SERVICES = [
   {
@@ -27,7 +28,7 @@ const SERVICES = [
     id: 12,
     attendee: 1,
     duration: 60,
-    name: '創業諮詢',
+    name: '創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢',
     allday: true,
     address: '台北',
     supplier: '阿狗狗',
@@ -35,6 +36,68 @@ const SERVICES = [
   },
   {
     id: 13,
+    attendee: 2,
+    duration: 30,
+    name: '美味寵物便當',
+    allday: true,
+    address: '台北',
+    supplier: '阿狗狗',
+    status: 'unsold',
+  },
+  {
+    id: 20,
+    attendee: 3,
+    duration: 240,
+    name: '小飛象造型戚風蛋糕',
+    time: '下午 2:00 - 下午 6:00',
+    allday: false,
+    address: '台中',
+    supplier: '泡泡',
+    status: 'has-order',
+  },
+  {
+    id: 22,
+    attendee: 1,
+    duration: 60,
+    name: '創業諮詢',
+    allday: true,
+    address: '台北',
+    supplier: '阿狗狗',
+    status: 'full',
+  },
+  {
+    id: 24,
+    attendee: 2,
+    duration: 30,
+    name: '美味寵物便當',
+    allday: true,
+    address: '台北',
+    supplier: '阿狗狗',
+    status: 'unsold',
+  },
+  {
+    id: 40,
+    attendee: 3,
+    duration: 240,
+    name: '小飛象造型戚風蛋糕',
+    time: '下午 2:00 - 下午 6:00',
+    allday: false,
+    address: '台中',
+    supplier: '泡泡',
+    status: 'has-order',
+  },
+  {
+    id: 42,
+    attendee: 1,
+    duration: 60,
+    name: '創業諮詢',
+    allday: true,
+    address: '台北',
+    supplier: '阿狗狗',
+    status: 'full',
+  },
+  {
+    id: 44,
     attendee: 2,
     duration: 30,
     name: '美味寵物便當',
@@ -62,10 +125,10 @@ export function ServiceCard({
   return (
     <Link
       href={`/booking/${provider}/s/${id}`}
-      className="flex flex-col gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2"
+      className="flex flex-col mb-2 gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2 hover:bg-zinc-50 active:bg-zinc-200"
     >
       <div className="inline-flex justify-between">
-        <span className="text-base font-bold">{name}</span>
+        <span className={`text-base font-bold ${style['text-overflow']}`}>{name}</span>
         <StatusTag status={status} />
       </div>
       <div className="flex items-center gap-1 text-sm">
@@ -104,7 +167,7 @@ export function ServiceCards() {
   }, [selectedDate, setServices]);
 
   return (
-    <section className="ma-4 flex flex-1 flex-col gap-2">
+    <section className="ma-4">
       {services.length ? (
         services.map((service) => <ServiceCard {...service} key={service.id} />)
       ) : (

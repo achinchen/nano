@@ -4,13 +4,14 @@ import featureI from '~frontend/features/booking/i.json';
 import Icon from '~frontend/components/Icon';
 import scopedI from './i.json';
 
+const MAX_QUEUE_LENGTH = 3;
 const CONTAINER =
   'pa-2 border-solid border-1 rounded-25 flex items-center justify-center font-bold text-sm tracking-wider';
 
 const STATUS_CONFIG = {
-  unselected: ' border-primary-300 color-primary-500 bg-white',
-  selected: 'border-primary-300 color-white bg-primary-500',
-  disabled: 'border-zinc-100 color-zinc-400 bg-zinc-100',
+  unselected: ' border-primary-300 color-primary-500 bg-white cursor-pointer',
+  selected: 'border-primary-300 color-white bg-primary-500 cursor-pointer',
+  disabled: 'border-zinc-100 color-zinc-400 bg-zinc-100 cursor-not-allowed',
 };
 
 function Time({ time, status, restAttendee }: ServiceTime) {
@@ -18,12 +19,14 @@ function Time({ time, status, restAttendee }: ServiceTime) {
 
   const index = queues.indexOf(time);
   const selected = queues.includes(time);
+  const disabled = status === 'full'
 
   const onToggle = () => {
+    if(disabled) return;
     return setQueues((queues) => {
       const selected = queues.includes(time);
       if (!queueable) return selected ? [] : [time];
-      if (!selected) return [...queues, time];
+      if (!selected && queues.length < MAX_QUEUE_LENGTH) return [...queues, time];
       return queues.filter((timeInQueue) => timeInQueue !== time);
     });
   };
@@ -33,9 +36,10 @@ function Time({ time, status, restAttendee }: ServiceTime) {
       <div
         role="checkbox"
         aria-checked={selected}
+        aria-disabled={disabled}
         onClick={onToggle}
-        className={`cursor-pointer position-relative ${CONTAINER} ${
-          status === 'full'
+        className={`position-relative ${CONTAINER} ${
+          disabled
             ? STATUS_CONFIG.disabled
             : selected
             ? STATUS_CONFIG.selected

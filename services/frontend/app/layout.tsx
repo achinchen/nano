@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 function Header() {
-  return <header className="h-10 px-4 py-1" />;
+  return <header className="min-h-10 px-4 py-1" />;
 }
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="md:bg-zinc-400">
         <Header />
-        <main className="mx-auto h-auto max-w-5xl">{children}</main>
+        <main className="content-height mx-auto max-w-5xl">{children}</main>
         <Global />
       </body>
     </html>

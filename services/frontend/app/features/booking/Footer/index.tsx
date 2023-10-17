@@ -7,7 +7,7 @@ export function Footer({ disabled = false }: { disabled?: boolean }) {
   return (
     <footer
       className={
-        'flex content-width md:justify-end border-t border-t-solid border-zinc-200 py-2 px-4 gap-2 bg-white fixed bottom-0 shadow-dialog'
+        'flex flex-1 md:justify-end border-t border-t-solid border-zinc-200 py-2 px-4 gap-2 bg-white shadow-dialog'
       }
     >
       <Button

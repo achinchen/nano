@@ -4,7 +4,6 @@ import { useBookingContext } from '~frontend/features/booking/context';
 
 type Props = {
   className?: string;
-  maxHeight?: boolean;
 };
 
 const mockServiceData = {
@@ -22,7 +21,7 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export function CalendarHorizontal({ className = '', maxHeight }: Props) {
+export function CalendarHorizontal({ className = '' }: Props) {
   const { selectedDate, setSelectedDate } = useBookingContext();
   const [serviceData, setServiceData] = useState({});
 
@@ -38,7 +37,6 @@ export function CalendarHorizontal({ className = '', maxHeight }: Props) {
         data={serviceData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
-        maxHeight={maxHeight}
         type="status"
       />
     </section>

@@ -4,6 +4,7 @@ import { useBookingContext } from '~frontend/features/booking/context';
 import { SheetIndicator } from '~frontend/components/Sheet';
 import { CalendarMonthTight } from '~frontend/components/Calendar/Month';
 import { CalendarWeek } from '~frontend/components/Calendar/Week';
+import { useCalendarVerticalContext } from './context';
 
 const mockServiceData = {
   17: 'full',
@@ -21,11 +22,9 @@ const getMockData = (month: number) => {
 };
 
 export function CalendarVertical({ className = '' }: { className?: string }) {
-  const [mode, setMode] = useState<'week' | 'month'>('week');
+  const { mode, toggleMode } = useCalendarVerticalContext();
   const { selectedDate, setSelectedDate } = useBookingContext();
   const [serviceData, setServiceData] = useState({});
-
-  const onDrag = () => setMode((mode) => (mode === 'month' ? 'week' : 'month'));
 
   useEffect(() => {
     const thisMonth = new Date().getMonth();
@@ -42,7 +41,7 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
         transition={{ duration: 0 }}
         style={{ touchAction: 'none' }}
         dragConstraints={{ top: 0, bottom: 0 }}
-        onDragStart={onDrag}
+        onDragStart={toggleMode}
       >
         {mode === 'week' && (
           <CalendarWeek

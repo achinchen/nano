@@ -46,7 +46,9 @@ const config = {
   },
   shortcuts: {
     'content-header': 'items-center w-100% font-bold md:text-xl justify-between gap-4 rounded-t-10 bg-white px-4 py-3 flex md:px-10',
-    'content-height': 'md:calc[100vh-256px]',
+    'content-height': 'md:h-[calc(100vh-156px)]',
+    'content-height-with-footer': 'h-[calc(100vh-104px)]',
+    'content-height-with-footer-base': 'md:h-[calc(100vh-222px)]',
     'content-width': 'w-100% max-w-5xl',
   }
 } as UserConfig;

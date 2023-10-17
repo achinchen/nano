@@ -197,20 +197,22 @@ export default function Index() {
           {provider}
         </h1>
         <Header className="hidden md:flex" />
-        <main className="relative flex bg-white">
-          <CalendarHorizontal className="hidden md:block" />
-          <section className="flex-1 px-4 py-2 md:max-h-[calc(100vh-200px)] md:overflow-y-scroll md:py-2">
-            <ServiceDetail
-              {...(id === '10'
-                ? services[0]
-                : id === '12'
-                ? services[1]
-                : services[2])}
-            />
-            <ServiceTimes {...serviceTimes} />
-          </section>
-        </main>
-        <Footer disabled={!serviceTimes.times.length} />
+        <div className='flex flex-col content-height-with-footer-base'>
+          <main className='relative flex bg-white'>
+            <CalendarHorizontal className="hidden md:block" />
+            <section className="px-4 py-2 md:max-h-100% content-height-with-footer overflow-y-scroll flex-1 md:py-2">
+                <ServiceDetail
+                  {...(id === '10'
+                    ? services[0]
+                    : id === '12'
+                    ? services[1]
+                    : services[2])}
+                />
+                <ServiceTimes {...serviceTimes} /> 
+            </section>
+          </main>
+          <Footer disabled={!serviceTimes.times.length} />
+        </div>
       </>
     </BookingContextProvider>
   );

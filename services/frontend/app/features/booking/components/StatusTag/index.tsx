@@ -16,7 +16,7 @@ export function StatusTag({ status, className = '' }: StatusTagProps) {
   if (status === 'unsold') return null;
   return (
     <span
-      className={`${TAG_CONFIG.base} ${STATUS_CONFIG[status]} ${className} h-6 color-light-100 ml-3`}
+      className={`${TAG_CONFIG.base} ${STATUS_CONFIG[status]} ${className} h-6 min-w-10 color-light-100 ml-3`}
     >
       {i[status]}
     </span>
