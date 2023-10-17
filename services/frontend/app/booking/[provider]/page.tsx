@@ -12,7 +12,7 @@ import Header from '~frontend/features/booking/Header';
 
 const provider = '阿狗狗的快樂小天地';
 
-export function Content() {
+function Content() {
   const { mode } = useCalendarVerticalContext();
 
   return (
