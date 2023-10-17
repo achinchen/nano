@@ -1,6 +1,6 @@
 import type { ServiceDetailProps } from './types';
 import { useState } from 'react';
-import featureI from '~frontend/features/booking/i.json';
+import sharedI from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/features/booking/utils';
 import TextButton from '~frontend/components/TextButton';
@@ -35,13 +35,13 @@ export function ServiceDetail({
       <div className="mt-2 flex gap-2">
         <InfoBlock
           icon="i-solar-alarm-linear"
-          title={scopedI.duration}
+          title={sharedI.duration}
           className="flex-1"
           content={formatDuration(duration)}
         />
         <InfoBlock
           icon="i-solar-square-academic-cap-2-outline"
-          title={scopedI.supplier}
+          title={sharedI.supplier}
           content={supplier}
           className="flex-1 border-l-2 border-r-2 border-zinc-200 border-l-solid border-r-solid px-2"
         />
@@ -49,13 +49,13 @@ export function ServiceDetail({
           icon="i-solar-chair-linear"
           title={scopedI.attendee}
           className="flex-1"
-          content={`${attendee} ${featureI.unit.attendee}`}
+          content={`${attendee} ${sharedI.unit.attendee}`}
         />
       </div>
       <InfoBlock
         icon="i-solar-map-linear"
         className="mt-3"
-        title={scopedI.location}
+        title={sharedI.location}
         content={`${location.name}(${location.address})`}
       />
       <Separator />

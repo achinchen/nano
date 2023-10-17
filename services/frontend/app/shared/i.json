@@ -1,0 +1,10 @@
+{
+  "duration": "時間長度",
+  "supplier": "服務者",
+  "location": "地點",
+  "unit": {
+    "attendee": "人",
+    "hour": "小時",
+    "minute": "分鐘"
+  }
+}

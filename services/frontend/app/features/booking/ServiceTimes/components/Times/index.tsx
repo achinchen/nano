@@ -1,6 +1,6 @@
 import type { ServiceTime } from './type';
 import { useServiceTimesContext } from '~frontend/features/booking/ServiceTimes/context';
-import featureI from '~frontend/features/booking/i.json';
+import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
 import scopedI from './i.json';
 
@@ -66,7 +66,7 @@ function Time({ time, status, restAttendee }: ServiceTime) {
           restAttendee ? 'visible' : 'invisible'
         }`}
       >
-        {scopedI.rest} {restAttendee} {featureI.unit.attendee}
+        {scopedI.rest} {restAttendee} {sharedI.unit.attendee}
       </span>
     </div>
   );

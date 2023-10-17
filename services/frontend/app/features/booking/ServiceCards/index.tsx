@@ -6,7 +6,7 @@ import { useBookingContext } from '~frontend/features/booking/context';
 import Icon from '~frontend/components/Icon';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
-import featureI from '~frontend/features/booking/i.json';
+import sharedI from '~frontend/shared/i.json';
 import { formatDuration } from '~frontend/features/booking/utils';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import scopedI from './i.json';
@@ -137,7 +137,7 @@ export function ServiceCard({
         <Icon size="2xl" icon="i-solar-chair-linear" className={ICON_COLOR} />
         <span>
           {attendee}
-          {featureI.unit.attendee}
+          {sharedI.unit.attendee}
         </span>
         <Icon
           size="2xl"
