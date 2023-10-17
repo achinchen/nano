@@ -1,10 +1,3 @@
-import {
-  CONTAINER_CLASS_UNCHECKED,
-  CONTAINER_CLASS_CHECKED,
-  BUTTON_CLASS_CHECKED,
-  BUTTON_CLASS_UNCHECKED,
-} from './constants';
-
 type SwitchProps = {
   checked: boolean;
   disabled?: boolean;

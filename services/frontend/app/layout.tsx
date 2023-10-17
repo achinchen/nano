@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="md:bg-zinc-400">
         <Header />
-        <main className="content-height mx-auto max-w-5xl">{children}</main>
+        <main className="mx-auto max-w-5xl content-height">{children}</main>
         <Global />
       </body>
     </html>

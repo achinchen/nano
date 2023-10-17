@@ -1,4 +1,4 @@
-import { dayjs } from  '~frontend/utils/date';
+import { dayjs } from '~frontend/utils/date';
 
 const DAYS_IN_CALENDAR = 42;
 

@@ -12,6 +12,8 @@ export const STATUS_CLASS: { [key in StatusType]: string } = {
 
 export const Status = ({ status }: StatusProps) => {
   return (
-    <span className={`flex mt-2px h-1 w-full rounded-3 ${STATUS_CLASS[status]}`} />
+    <span
+      className={`flex mt-2px h-1 w-full rounded-3 ${STATUS_CLASS[status]}`}
+    />
   );
 };

@@ -2,7 +2,10 @@
 
 import { BookingContextProvider } from '~frontend/features/booking/context';
 import ServiceCards from '~frontend/features/booking/ServiceCards';
-import { CalendarVerticalContextProvider, useCalendarVerticalContext } from '~frontend/features/booking/CalendarVertical/context';
+import {
+  CalendarVerticalContextProvider,
+  useCalendarVerticalContext,
+} from '~frontend/features/booking/CalendarVertical/context';
 import CalendarVertical from '~frontend/features/booking/CalendarVertical';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
 import Header from '~frontend/features/booking/Header';
@@ -13,14 +16,20 @@ export function Content() {
   const { mode } = useCalendarVerticalContext();
 
   return (
-    <div className="bg-white md:flex-row flex flex-col">
+    <div className="flex flex-col bg-white md:flex-row">
       <CalendarHorizontal className="hidden md:block" />
       <CalendarVertical className="md:hidden" />
-      <section className={`overflow-y-scroll md:max-h-[calc(100vh-156px)] flex-1 ${mode === 'week' ? 'max-h-[calc(100vh-160px)]' : 'max-h-[calc(100vh-364px)]'}`}>
+      <section
+        className={`overflow-y-scroll md:max-h-[calc(100vh-156px)] flex-1 ${
+          mode === 'week'
+            ? 'max-h-[calc(100vh-160px)]'
+            : 'max-h-[calc(100vh-364px)]'
+        }`}
+      >
         <ServiceCards />
       </section>
     </div>
-  )
+  );
 }
 
 export default function Index() {

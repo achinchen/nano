@@ -27,7 +27,7 @@ export function ServiceDetail({
 
   return (
     <section>
-      <h2 className="my-3 flex items-center justify-between text-xl font-bold">
+      <h2 className="my-3 flex justify-between text-xl font-bold">
         {name} <StatusTag status={status} />
       </h2>
       <time>{formatDate(selectedDate)}</time>

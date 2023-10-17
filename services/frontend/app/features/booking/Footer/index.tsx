@@ -2,7 +2,9 @@ import Button from '~frontend/components/Button';
 import i from './i.json';
 
 export function Footer({ disabled = false }: { disabled?: boolean }) {
-  const onClick = () => {};
+  const onClick = () => {
+    /* */
+  };
 
   return (
     <footer

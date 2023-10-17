@@ -19,14 +19,15 @@ function Time({ time, status, restAttendee }: ServiceTime) {
 
   const index = queues.indexOf(time);
   const selected = queues.includes(time);
-  const disabled = status === 'full'
+  const disabled = status === 'full';
 
   const onToggle = () => {
-    if(disabled) return;
+    if (disabled) return;
     return setQueues((queues) => {
       const selected = queues.includes(time);
       if (!queueable) return selected ? [] : [time];
-      if (!selected && queues.length < MAX_QUEUE_LENGTH) return [...queues, time];
+      if (!selected && queues.length < MAX_QUEUE_LENGTH)
+        return [...queues, time];
       return queues.filter((timeInQueue) => timeInQueue !== time);
     });
   };

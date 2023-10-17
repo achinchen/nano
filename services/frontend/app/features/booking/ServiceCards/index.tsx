@@ -125,10 +125,12 @@ export function ServiceCard({
   return (
     <Link
       href={`/booking/${provider}/s/${id}`}
-      className="flex flex-col mb-2 gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2 hover:bg-zinc-50 active:bg-zinc-200"
+      className="mb-2 flex flex-col gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2 active:bg-zinc-200 hover:bg-zinc-50"
     >
       <div className="inline-flex justify-between">
-        <span className={`text-base font-bold ${style['text-overflow']}`}>{name}</span>
+        <span className={`text-base font-bold ${style['text-overflow']}`}>
+          {name}
+        </span>
         <StatusTag status={status} />
       </div>
       <div className="flex items-center gap-1 text-sm">
