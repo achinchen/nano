@@ -29,12 +29,13 @@ export const Loose = () => {
       selectedDate={selectedDate}
       onSelect={setSelectedDate}
       data={looseData}
+      type="content"
     />
   );
 };
 
 const data = {
-  '9-20': 'available',
+  '9-20': 'unsold',
   '9-18': 'full',
   '9-17': 'has-order',
 } as {

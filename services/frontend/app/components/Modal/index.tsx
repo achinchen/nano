@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { IconButton } from '~frontend/components/IconButton';
 
 export type ModalProps = React.PropsWithChildren<{
-  onClose?: () => void;
+  onClose: () => void;
   className?: string;
   hasCloseButton?: boolean;
   clickOutsideToClose?: boolean;

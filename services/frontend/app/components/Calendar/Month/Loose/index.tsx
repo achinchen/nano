@@ -1,23 +1,29 @@
 import { useMemo } from 'react';
+import { Status as StatusType } from '~frontend/components/Calendar/types';
 import { DAYS } from '~frontend/components/Calendar/constants';
 import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/Calendar/utils';
+import { Status } from './Status';
 import { Content } from './Content';
 
-type CalendarMonthProps = React.PropsWithChildren<{
+type CalendarMonthProps = {
+  className?: string;
   onSelect: (date: Date) => void;
   selectedDate?: Date;
   data?: {
-    [key: string]: string[];
+    [key: string]: string[] | StatusType;
   };
-}>;
+  type?: 'status' | 'content';
+};
 
 const LAST_ROW_START_INDEX = 35;
 
 export function CalendarMonthLoose({
+  className = '',
   onSelect,
   selectedDate,
   data,
+  type = 'status',
 }: CalendarMonthProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -31,18 +37,18 @@ export function CalendarMonthLoose({
   };
 
   return (
-    <section className="flex flex-col">
+    <section className={`max-w-5xl min-h-xl flex flex-col h-full ${className}`}>
       <ol className="grid grid-cols-7 justify-items-center py-2 text-lg">
         {DAYS.map((DAY) => (
           <li key={DAY}>{DAY}</li>
         ))}
       </ol>
-      <ol className="grid grid-cols-7 grid-rows-6">
+      <ol className="grid grid-rows-[repeat(6,1fr)] grid-cols-7 flex-1">
         {daysInMonth.map(({ month, day, weekday }, index) => (
           <li
             role="button"
             key={`${month}-${day}`}
-            className={`h-35 flex flex-col cursor-pointer items-center pa-2 border-b-px  border-b-solid ${
+            className={`flex flex-col cursor-pointer items-center pa-2 border-b-px  border-b-solid ${
               index < LAST_ROW_START_INDEX
                 ? 'border-b-zinc-200'
                 : 'border-b-transparent'
@@ -55,9 +61,12 @@ export function CalendarMonthLoose({
             >
               {day}
             </span>
-            {data?.[`${month}-${day}`] && (
-              <Content data={data[`${month}-${day}`]} />
-            )}
+            {data?.[`${month}-${day}`] &&
+              (type === 'content' ? (
+                <Content data={data[`${month}-${day}`] as string[]} />
+              ) : (
+                <Status status={data[`${month}-${day}`] as StatusType} />
+              ))}
           </li>
         ))}
       </ol>

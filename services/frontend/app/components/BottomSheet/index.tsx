@@ -29,7 +29,7 @@ export function BottomSheet({
       <div className="flex flex-col">
         <SheetIndicator />
         {title && (
-          <header className="min-h-11 border-b-1 border-color-zinc-200 border-b-solid px-2 py-1 text-2xl font-bold color-zinc-700">
+          <header className="min-h-11 border-b-1 border-color-zinc-200 border-b-solid px-4 py-1 text-2xl font-bold color-zinc-700">
             {title}
           </header>
         )}
@@ -45,3 +45,5 @@ export function BottomSheet({
     </Sheet>
   );
 }
+
+export default BottomSheet;

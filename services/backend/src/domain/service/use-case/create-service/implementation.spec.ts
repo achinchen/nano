@@ -33,6 +33,7 @@ describe('CreateServiceUseCase', () => {
     name: '提拉米蘇蛋糕',
     attendee: 10,
     allday: false,
+    queue: false,
     startAt: new Date('2021-09-01T10:00:00'),
     endAt: new Date('2021-09-30T11:00:00'),
     duration: new Date(),

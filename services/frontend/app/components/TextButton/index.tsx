@@ -16,7 +16,7 @@ export function TextButton({
 }: TextButtonProps) {
   return (
     <button
-      className={`${THEME_CONFIG[color]} ${className}`}
+      className={`${THEME_CONFIG[color]} ${className} px-0`}
       {...attributes}
       type="button"
       onClick={onClick}

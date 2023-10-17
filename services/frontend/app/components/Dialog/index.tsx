@@ -21,7 +21,7 @@ export function Dialog({
       onClose={onClose}
       hasCloseButton={hasCloseButton}
       clickOutsideToClose={clickOutsideToClose}
-      className="max-h-88vh min-h-104 flex flex-col md:min-w-256 sm:max-w-110"
+      className="max-h-88vh min-h-104 flex flex-col md:max-w-2xl sm:max-w-110"
     >
       <header className="min-h-11 border-b-1 border-color-zinc-200 border-b-solid px-4 py-2 text-2xl font-bold color-zinc-700">
         {title}

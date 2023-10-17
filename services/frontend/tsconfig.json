@@ -16,11 +16,16 @@
         "name": "next"
       }
     ],
-    "types": ["jest", "node", "@testing-library/jest-dom"]
+    "types": [
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
+    ]
   },
   "include": [
     "../../services/frontend/dist/.next/types/**/*.ts",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "../../services/frontend/.next/types/**/*.ts"
   ],
   "references": [
     {

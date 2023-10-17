@@ -12,7 +12,7 @@ const Story: Meta<typeof CalendarWeek> = {
 export default Story;
 
 const data = {
-  '9-20': 'available',
+  '9-20': 'unsold',
   '9-18': 'full',
   '9-17': 'has-order',
 } as {

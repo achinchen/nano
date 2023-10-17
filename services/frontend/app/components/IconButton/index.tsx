@@ -10,11 +10,13 @@ type IconButtonProps = {
   rounded?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  onClick: () => void;
 } & Omit<IconProps, 'size'> &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function IconButton({
   icon,
+  onClick,
   size = 'md',
   color = 'primary',
   variant = 'solid',
@@ -33,7 +35,12 @@ export function IconButton({
     className,
   ].join(' ');
   return (
-    <button className={classNames} disabled={disabled} {...attributes}>
+    <button
+      className={classNames}
+      disabled={disabled}
+      onClick={onClick}
+      {...attributes}
+    >
       {loading ? (
         <Icon icon={LOADING_ICON} size={iconSize} className="ma-auto" />
       ) : (
