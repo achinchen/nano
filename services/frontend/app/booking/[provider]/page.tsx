@@ -20,10 +20,8 @@ function Content() {
       <CalendarHorizontal className="hidden md:block" />
       <CalendarVertical className="md:hidden" />
       <section
-        className={`overflow-y-scroll md:max-h-[calc(100vh-156px)] flex-1 ${
-          mode === 'week'
-            ? 'max-h-[calc(100vh-160px)]'
-            : 'max-h-[calc(100vh-364px)]'
+        className={`overflow-y-scroll md:h-[calc(100vh-156px)] flex-1 ${
+          mode === 'week' ? 'h-[calc(100vh-160px)]' : 'h-[calc(100vh-364px)]'
         }`}
       >
         <ServiceCards />
