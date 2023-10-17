@@ -9,7 +9,6 @@ import InfoBlock from './components/InfoBlock';
 import DescriptionPrompt from './components/DescriptionPrompt';
 import { formatDate } from './utils';
 import scopedI from './i.json';
-import style from './style.module.css';
 
 export function ServiceDetail({
   name,
@@ -61,9 +60,7 @@ export function ServiceDetail({
       <Separator />
       <article className="mt-3">
         <h3 className="font-bold">{scopedI.description}</h3>
-        <p
-          className={`mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600 ${style['text-overflow']}`}
-        >
+        <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600">
           {description}
         </p>
         <TextButton onClick={onReadMoreClick}>{scopedI.more}</TextButton>
