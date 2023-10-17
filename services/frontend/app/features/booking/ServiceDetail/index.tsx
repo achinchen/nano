@@ -34,7 +34,7 @@ export function ServiceDetail({
       <div className="mt-2 flex gap-2">
         <InfoBlock
           icon="i-solar-alarm-linear"
-          title={sharedI.duration}
+          title={scopedI.duration}
           className="flex-1"
           content={formatDuration(duration)}
         />
