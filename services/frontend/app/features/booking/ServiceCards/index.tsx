@@ -6,11 +6,10 @@ import { useBookingContext } from '~frontend/features/booking/context';
 import Icon from '~frontend/components/Icon';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
-import featureI from '~frontend/features/booking/i.json';
-import { formatDuration } from '~frontend/features/booking/utils';
+import sharedI from '~frontend/shared/i.json';
+import { formatDuration } from '~frontend/utils/time';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import scopedI from './i.json';
-import style from './style.module.css';
 
 const SERVICES = [
   {
@@ -128,16 +127,14 @@ export function ServiceCard({
       className="mb-2 flex flex-col gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2 active:bg-zinc-200 hover:bg-zinc-50"
     >
       <div className="inline-flex justify-between">
-        <span className={`text-base font-bold ${style['text-overflow']}`}>
-          {name}
-        </span>
+        <span className="line-clamp-2 text-base font-bold">{name}</span>
         <StatusTag status={status} />
       </div>
       <div className="flex items-center gap-1 text-sm">
         <Icon size="2xl" icon="i-solar-chair-linear" className={ICON_COLOR} />
         <span>
           {attendee}
-          {featureI.unit.attendee}
+          {sharedI.unit.attendee}
         </span>
         <Icon
           size="2xl"
