@@ -49,7 +49,10 @@ const config = {
     'content-height': 'md:h-[calc(100vh-156px)]',
     'content-height-with-footer': 'h-[calc(100vh-104px)]',
     'content-height-with-footer-base': 'md:h-[calc(100vh-222px)]',
+    'content-height-with-footer-sole': 'h-[calc(100vh-170px)]',
+    'content-height-with-footer-base-sole': 'md:h-[calc(100vh-227px)]',
     'content-width': 'w-100% max-w-5xl',
+    'content-footer': 'flex flex-1 md:justify-end border-t border-t-solid border-zinc-200 py-2 px-4 gap-2 bg-white shadow-dialog',
   }
 } as UserConfig;
 
