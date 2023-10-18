@@ -1,16 +1,10 @@
 :root {
-  --at-is-mobile: false;
+  --at-is-mobile: true;
 }
 
-@screen sm {
+@screen md {
   :root {
     --at-is-mobile: false;
-  }
-}
-
-@screen lt-sm {
-  :root {
-    --at-is-mobile: true;
   }
 }
 

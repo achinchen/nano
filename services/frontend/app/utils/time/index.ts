@@ -4,13 +4,15 @@ import i from '~frontend/shared/i.json';
 
 locale('zh-tw', zhTW);
 
-export const formatDuration = (duration: number) => {
-  if (duration < 60) return `${duration}${i.unit.minute}`;
+const HOUR = 60;
 
-  const hour = Math.floor(duration / 60);
-  const minute = duration % 60;
-  return `${hour}${i.unit.hour}${
-    minute > 0 ? `${minute}${i.unit.minute}` : ''
+export const formatDuration = (duration: number) => {
+  if (duration < HOUR) return `${duration} ${i.unit.minute}`;
+
+  const hour = Math.floor(duration / HOUR);
+  const minute = duration % HOUR;
+  return `${hour} ${i.unit.hour}${
+    minute > 0 ? `${minute} ${i.unit.minute}` : ''
   }`;
 };
 
