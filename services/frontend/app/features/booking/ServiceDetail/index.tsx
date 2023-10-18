@@ -5,9 +5,9 @@ import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/utils/time';
 import TextButton from '~frontend/components/TextButton';
 import Separator from '~frontend/components/Separator';
+import { formateDate } from '~frontend/utils/date';
 import InfoBlock from './components/InfoBlock';
 import DescriptionPrompt from './components/DescriptionPrompt';
-import { formatDate } from './utils';
 import scopedI from './i.json';
 
 export function ServiceDetail({
@@ -29,7 +29,7 @@ export function ServiceDetail({
       <h2 className="my-3 flex justify-between text-xl font-bold">
         {name} <StatusTag status={status} />
       </h2>
-      <time>{formatDate(selectedDate)}</time>
+      <time>{formateDate(selectedDate)}</time>
       <Separator />
       <div className="mt-2 flex gap-2">
         <InfoBlock

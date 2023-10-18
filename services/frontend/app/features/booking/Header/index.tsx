@@ -2,7 +2,7 @@ import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useBookingContext } from '~frontend/features/booking/context';
 import {
-  formatDate,
+  formateDate,
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
@@ -23,7 +23,7 @@ export function Header({ className = '' }: { className?: string }) {
 
   return (
     <header className={`content-header ${className}`}>
-      <time className="tracking-wider">{formatDate(selectedDate)}</time>
+      <time>{formateDate(selectedDate)}</time>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton
           icon="i-solar-alt-arrow-left-linear"
