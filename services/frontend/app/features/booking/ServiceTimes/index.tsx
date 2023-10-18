@@ -14,7 +14,7 @@ function ServiceTimes() {
       {times.length ? (
         <>
           {queueable && (
-            <div className="my-1 flex items-center gap-2 rounded-5 bg-orange-100 pa-2 text-sm color-orange-500">
+            <div className="my-1 flex gap-2 rounded-5 bg-orange-100 pa-2 text-sm color-orange-500">
               <Icon
                 icon="i-solar-info-circle-bold"
                 size="2xl"

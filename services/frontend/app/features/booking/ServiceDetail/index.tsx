@@ -63,7 +63,9 @@ export function ServiceDetail({
         <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600">
           {description}
         </p>
-        <TextButton onClick={onReadMoreClick}>{scopedI.more}</TextButton>
+        <TextButton onClick={onReadMoreClick} className="text-sm md:text-base">
+          {scopedI.more}
+        </TextButton>
       </article>
       <Separator />
       {isDescriptionSheetOpen && (

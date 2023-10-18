@@ -23,7 +23,7 @@ export function Header({ className = '' }: { className?: string }) {
 
   return (
     <header className={`content-header ${className}`}>
-      <time>{formateDate(selectedDate)}</time>
+      <time onClick={onTodayClick}>{formateDate(selectedDate)}</time>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton
           icon="i-solar-alt-arrow-left-linear"

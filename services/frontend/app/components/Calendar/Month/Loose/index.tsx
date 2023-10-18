@@ -37,7 +37,7 @@ export function CalendarMonthLoose({
   };
 
   return (
-    <section className={`max-w-5xl min-h-xl flex flex-col h-full ${className}`}>
+    <section className={`max-w-5xl min-w-xl flex flex-col h-full ${className}`}>
       <ol className="grid grid-cols-7 justify-items-center py-2 text-lg">
         {DAYS.map((DAY) => (
           <li key={DAY}>{DAY}</li>
