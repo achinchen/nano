@@ -55,3 +55,5 @@ export const createEventEmitter = (serviceName: ServiceName): IEventEmitter => {
 
   return { ...helper, subscribe, emit, unsubscribe };
 };
+
+export const eventEmitter = createEventEmitter('web');

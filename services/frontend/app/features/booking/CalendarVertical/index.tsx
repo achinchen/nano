@@ -42,6 +42,7 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
         style={{ touchAction: 'none' }}
         dragConstraints={{ top: 0, bottom: 0 }}
         onDragStart={toggleMode}
+        // onScroll={onChange}
       >
         {mode === 'week' && (
           <CalendarWeek

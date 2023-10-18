@@ -10,6 +10,8 @@ extend(localizedFormat);
 
 export { dayjs };
 
+export const getDateString = (date: Date) => date.toISOString().slice(0, 10);
+
 export const getMMDD = (date: Date) => {
   return `${dayjs(date).format('MMMDD')}${i.day}`;
 };
