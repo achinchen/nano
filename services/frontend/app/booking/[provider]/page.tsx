@@ -1,6 +1,11 @@
 'use client';
 
-import { BookingContextProvider } from '~frontend/features/booking/context';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import {
+  BookingContextProvider,
+  useBookingContext,
+} from '~frontend/features/booking/context';
 import ServiceCards from '~frontend/features/booking/ServiceCards';
 import {
   CalendarVerticalContextProvider,
@@ -14,6 +19,13 @@ const provider = '阿狗狗的快樂小天地';
 
 function Content() {
   const { mode } = useCalendarVerticalContext();
+  const { setSelectedDate } = useBookingContext();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const date = searchParams.get('date');
+    if (!date) return;
+  }, [setSelectedDate, searchParams]);
 
   return (
     <div className="flex flex-col bg-white md:flex-row">
