@@ -13,7 +13,7 @@ export default function Index() {
         {provider}
       </h1>
       <Header />
-      <main className="content-height-with-footer-sole content-height-with-footer-base-sole overflow-y-scroll bg-white pa-2">
+      <main className="max-h-[calc(100vh-168px)] overflow-y-scroll bg-white pa-2 md:h-[calc(100vh-226px)]">
         <OrderCards className="mx-4 my-2 max-w-4xl flex-1 md:mx-auto md:mb-4" />
       </main>
       <Footer />

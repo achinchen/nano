@@ -7,7 +7,7 @@ export function Footer({ disabled = false }: { disabled?: boolean }) {
   };
 
   return (
-    <footer className="content-footer">
+    <footer className="footer">
       <Button
         color="primary"
         className="flex-1 md:flex-none"
