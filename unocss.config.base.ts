@@ -46,9 +46,10 @@ const config = {
   },
   shortcuts: {
     'content-header': 'items-center w-100% font-bold md:text-xl justify-between gap-4 rounded-t-10 bg-white px-4 py-3 flex md:px-10',
+    'content-height': 'md:h-[calc(100vh-156px)]',
+    'content-height-with-footer': 'h-[calc(100vh-104px)]',
+    'content-height-with-footer-base': 'md:h-[calc(100vh-222px)]',
     'content-width': 'w-100% max-w-5xl',
-    'content-height': 'max-h-[calc(100vh-156px)] overflow-y-scroll',
-    footer: 'fixed bottom-0 w-100% max-w-5xl flex flex-1 md:justify-end border-t border-t-solid border-zinc-200 py-2 px-4 gap-2 bg-white shadow-dialog',
   }
 } as UserConfig;
 
