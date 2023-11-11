@@ -14,7 +14,6 @@ import {
 import CalendarVertical from '~frontend/features/booking/CalendarVertical';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
 import Header from '~frontend/features/booking/Header';
-import { getIsMobile } from '~frontend/utils/device';
 
 const provider = '阿狗狗的快樂小天地';
 
@@ -28,23 +27,15 @@ function Content() {
     if (!date) return;
   }, [setSelectedDate, searchParams]);
 
-  return getIsMobile() ? (
-    <div className="flex flex-col">
-      <CalendarVertical />
+  return (
+    <div className="flex flex-col bg-white md:flex-row">
+      <CalendarHorizontal className="hidden md:block" />
+      <CalendarVertical className="md:hidden" />
       <section
-        className={`overflow-y-scroll flex-1 ${
-          mode === 'week'
-            ? 'max-h-[calc(100vh-160px)]'
-            : 'max-h-[calc(100vh-364px)]'
+        className={`overflow-y-scroll md:h-[calc(100vh-156px)] flex-1 ${
+          mode === 'week' ? 'h-[calc(100vh-160px)]' : 'h-[calc(100vh-364px)]'
         }`}
       >
-        <ServiceCards />
-      </section>
-    </div>
-  ) : (
-    <div className="flex flex-row bg-white">
-      <CalendarHorizontal />
-      <section className="h-[calc(100vh-156px)] flex-1 overflow-y-scroll">
         <ServiceCards />
       </section>
     </div>
