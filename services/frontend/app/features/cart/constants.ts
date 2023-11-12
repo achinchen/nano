@@ -1,5 +1,5 @@
 export enum Step {
   cart,
-  form,
+  info,
   preview,
 }

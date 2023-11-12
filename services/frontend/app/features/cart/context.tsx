@@ -1,21 +1,18 @@
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from 'react';
-import { Step } from '~frontend/features/cart/types';
+import { createContext, useContext, useState } from 'react';
+import { Step } from '~frontend/features/cart/constants';
 
 export type InitialState = {
   currentStep: Step;
-  setCurrentStep: Dispatch<SetStateAction<Step>>;
+  toPreviousStep: () => void;
+  toNextStep: () => void;
 };
 
 export const CartContext = createContext<InitialState>({
   currentStep: Step.cart,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setCurrentStep: () => {},
+  toPreviousStep: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toNextStep: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -27,13 +24,16 @@ export const CartContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [currentStep, setCurrentStep] = useState(Step.cart);
+  const [currentStep, setCurrentStep] = useState(Step.info);
+  const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
+  const toNextStep = () => setCurrentStep((prevStep) => prevStep + 1);
 
   return (
     <CartContext.Provider
       value={{
         currentStep,
-        setCurrentStep,
+        toNextStep,
+        toPreviousStep,
       }}
     >
       {children}
