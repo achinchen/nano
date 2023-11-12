@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="md:bg-zinc-400">
+      <body className="max-h-100vh overflow-hidden md:bg-zinc-400">
         <Header />
-        <main className="mx-auto max-w-5xl content-height">{children}</main>
+        <main className="mx-auto max-w-5xl">{children}</main>
         <Global />
       </body>
     </html>

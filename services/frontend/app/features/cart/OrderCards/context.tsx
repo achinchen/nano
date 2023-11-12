@@ -1,5 +1,6 @@
+import type { SetStateAction } from 'react';
 import type { ServiceOrder } from './types';
-import { createContext, useContext, useState } from 'react';
+import { Dispatch, createContext, useContext, useState } from 'react';
 import { isExpiredServices } from './utils';
 
 const mockServices = [

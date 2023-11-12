@@ -38,6 +38,14 @@ function OrderCard(service: ServiceOrder) {
     });
   };
 
+  const onUpdateTimes = (times: ServiceOrder['times']) => {
+    if (times.length === 0) return onRemove(id);
+    onUpdate({
+      ...service,
+      times,
+    });
+  };
+
   return (
     <section
       className={`relative mt-4 border-px border-zinc-200 rounded-2 border-solid pa-2 overflow-hidden ${
@@ -80,7 +88,12 @@ function OrderCard(service: ServiceOrder) {
       ) : (
         <>
           <h3 className="mb-1">{scopedI.times}</h3>
-          <TimeCards times={times} duration={duration} queue={queue} />
+          <TimeCards
+            times={times}
+            duration={duration}
+            queue={queue}
+            onUpdate={onUpdateTimes}
+          />
           <Separator />
           <footer className="flex items-center justify-between">
             <span className="font-bold">{scopedI.attendee}</span>

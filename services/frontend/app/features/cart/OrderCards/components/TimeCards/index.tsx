@@ -1,7 +1,9 @@
+import type { Index } from './hooks/sortable';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
 import { getMMDD } from '~frontend/utils/date';
 import { getPeriodTime } from '~frontend/utils/time';
+import { SortableContainer, useSortableItem } from './hooks/sortable';
 import i from './i.json';
 
 type Time = string;
@@ -10,6 +12,7 @@ type Props = {
   times: Time[];
   duration: number;
   queue: boolean;
+  onUpdate: (times: Time[]) => void;
 };
 
 function TimeCard({
@@ -17,19 +20,16 @@ function TimeCard({
   queue,
   duration,
   order,
+  onRemove,
 }: {
   order: number;
   time: Time;
-  duration: number;
-  queue: boolean;
-}) {
+  onRemove: () => void;
+} & Pick<Props, 'duration' | 'queue'>) {
   const date = new Date(time);
   const dateString = getMMDD(date);
   const timeString = getPeriodTime(time, duration);
-
-  const onRemove = () => {
-    console.log('remove');
-  };
+  const { setNodeRef, activatorProps, style } = useSortableItem({ id: time });
 
   return (
     <div className="flex items-start gap-2">
@@ -39,18 +39,19 @@ function TimeCard({
           {order}
         </span>
       )}
-      <div className="flex flex-1 flex-col">
-        <div className="flex gap-2 border-px border-zinc-400 rounded-3 border-solid px-3 py-2">
+      <div className="flex flex-1 flex-col" ref={setNodeRef} style={style}>
+        <div className="flex gap-2 border-px border-zinc-400 rounded-3 border-solid bg-white px-3 py-2">
           {queue && (
             <Icon
               className="mt-0.5"
               icon="i-solar-hamburger-menu-linear"
               size="xl"
+              {...activatorProps}
             />
           )}
-          <span className="flex flex-col tracking-wider md:flex-row">
+          <span className="flex flex-col text-sm tracking-wider md:flex-row">
             <span>{dateString}</span>
-            <span>{timeString}</span>
+            <span className="color-zinc-500">{timeString}</span>
           </span>
         </div>
         <span className="h-4 text-sm color-red-500"></span>
@@ -66,19 +67,35 @@ function TimeCard({
   );
 }
 
-export function TimeCards({ times, duration, queue }: Props) {
+export function TimeCards({ times, duration, queue, onUpdate }: Props) {
+  const onSwitch = (from: Index, to: Index) => {
+    [times[from], times[to]] = [times[to], times[from]];
+    onUpdate([...times]);
+  };
+
+  const onRemove = (index: number) => () => {
+    times.splice(index, 1);
+    onUpdate([...times]);
+  };
+
   return (
-    <section>
-      {times.map((time, index) => (
-        <TimeCard
-          // eslint-disable-next-line react/no-array-index-key
-          key={index + 1}
-          order={index + 1}
-          time={time}
-          duration={duration}
-          queue={queue}
-        />
-      ))}
+    <section className="relative">
+      {SortableContainer<Time>({
+        onSwitch,
+        items: times.map((time) => ({ id: time, data: time })),
+        renderSortableItem: (data: Time, index) => {
+          return (
+            <TimeCard
+              time={data}
+              queue={queue}
+              key={index + 1}
+              duration={duration}
+              order={index + 1}
+              onRemove={onRemove(index)}
+            />
+          );
+        },
+      })}
     </section>
   );
 }
