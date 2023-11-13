@@ -1,4 +1,4 @@
-import type { ServiceOrder } from './types';
+import type { ServiceOrder } from '~frontend/features/cart/types';
 import sharedI from '~frontend/shared/i.json';
 import { formatDuration } from '~frontend/utils/time';
 import IconButton from '~frontend/components/IconButton';
@@ -87,7 +87,7 @@ function OrderCard(service: ServiceOrder) {
         </span>
       ) : (
         <>
-          <h3 className="mb-1">{scopedI.times}</h3>
+          <h3 className="mb-1">{sharedI.times}</h3>
           <TimeCards
             times={times}
             duration={duration}

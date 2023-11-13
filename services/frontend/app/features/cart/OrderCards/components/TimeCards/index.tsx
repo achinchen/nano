@@ -1,10 +1,10 @@
 import type { Index } from './hooks/sortable';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
-import { getMMDD } from '~frontend/utils/date';
+import { getLocaleMMDD } from '~frontend/utils/date';
 import { getPeriodTime } from '~frontend/utils/time';
+import sharedI from '~frontend/shared/i.json';
 import { SortableContainer, useSortableItem } from './hooks/sortable';
-import i from './i.json';
 
 type Time = string;
 
@@ -27,7 +27,7 @@ function TimeCard({
   onRemove: () => void;
 } & Pick<Props, 'duration' | 'queue'>) {
   const date = new Date(time);
-  const dateString = getMMDD(date);
+  const dateString = getLocaleMMDD(date);
   const timeString = getPeriodTime(time, duration);
   const { setNodeRef, activatorProps, style } = useSortableItem({ id: time });
 
@@ -35,7 +35,7 @@ function TimeCard({
     <div className="flex items-start gap-2">
       {queue && (
         <span className="my-2 font-normal">
-          {i.order}
+          {sharedI.order}
           {order}
         </span>
       )}

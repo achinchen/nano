@@ -1,9 +1,11 @@
 import Button from '~frontend/components/Button';
 import { useCartContext } from '~frontend/features/cart/context';
+import { Step } from '~frontend/features/cart/constants';
 import i from './i.json';
 
-export function Footer({ className = '' }: { className?: string }) {
-  const { toNextStep } = useCartContext();
+export function Footer() {
+  const { currentStep, toNextStep } = useCartContext();
+  const wording = currentStep === Step.preview ? i.submit : i.book;
 
   return (
     <footer className="footer">
@@ -14,7 +16,7 @@ export function Footer({ className = '' }: { className?: string }) {
         size="md"
         onClick={toNextStep}
       >
-        {i.book}
+        {wording}
       </Button>
     </footer>
   );

@@ -30,7 +30,7 @@ export const CartContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [currentStep, setCurrentStep] = useState(Step.info);
+  const [currentStep, setCurrentStep] = useState(Step.preview);
   const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
   const toNextStep = () => {
     if (currentStep === Step.cart) eventEmitter.emit(EVENT.order);

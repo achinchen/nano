@@ -4,6 +4,7 @@ import Header from '~frontend/features/cart/Header';
 import Footer from '~frontend/features/cart/Footer';
 import OrderCards from '~frontend/features/cart/OrderCards';
 import InfoForm from '~frontend/features/cart/InfoForm';
+import PreviewOrders from '~frontend/features/cart/PreviewOrders';
 import {
   CartContextProvider,
   useCartContext,
@@ -27,6 +28,9 @@ function Content() {
         )}
         {currentStep === Step.info && (
           <InfoForm className="mx-4 my-2 max-w-4xl flex-1 md:mx-auto md:mb-4" />
+        )}
+        {currentStep === Step.preview && (
+          <PreviewOrders className="mx-4 my-2 max-w-4xl flex-1 md:mx-auto md:mb-4" />
         )}
       </main>
       <Footer />

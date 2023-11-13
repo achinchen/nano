@@ -1,4 +1,4 @@
-import type { ServiceOrder } from './types';
+import type { ServiceOrder } from '~frontend/features/cart/types';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { EVENT } from '~frontend/features/cart/context';
 import { eventEmitter } from '~frontend/utils/event';
