@@ -1,11 +1,13 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import StepProgress from '~frontend/components/StepProgress';
-import { useCartContext } from '~frontend/features/cart/context';
+import { EVENT, useCartContext } from '~frontend/features/cart/context';
 import { Step } from '~frontend/features/cart/constants';
 import Input from '~frontend/components/Input';
 import InputTel from '~frontend/components/InputTel';
 import Textarea from '~frontend/components/Textarea';
 import { isPhone } from '~frontend/utils/validator/phone';
+import { eventEmitter } from '~frontend/utils/event';
+import { setInfo } from '~frontend/features/cart/utils';
 import i from './i.json';
 
 const stepsLength = Object.keys(Step).filter((step) =>
@@ -55,6 +57,12 @@ export default function InfoForm({ className }: { className?: string }) {
   };
 
   const onNoteChange = (value: string) => dispatch({ note: value });
+
+  useEffect(() => {
+    const cb = () => setInfo(form);
+    eventEmitter.subscribe(EVENT.info, cb);
+    return eventEmitter.unsubscribe(EVENT.info, cb);
+  }, [form]);
 
   return (
     <section className={className}>

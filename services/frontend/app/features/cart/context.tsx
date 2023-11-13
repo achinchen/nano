@@ -1,10 +1,16 @@
 import { createContext, useContext, useState } from 'react';
 import { Step } from '~frontend/features/cart/constants';
+import { eventEmitter } from '~frontend/utils/event';
 
 export type InitialState = {
   currentStep: Step;
   toPreviousStep: () => void;
   toNextStep: () => void;
+};
+
+export const EVENT = {
+  order: 'cart-order-finish',
+  info: 'cart-info-finish',
 };
 
 export const CartContext = createContext<InitialState>({
@@ -26,7 +32,11 @@ export const CartContextProvider = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(Step.info);
   const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
-  const toNextStep = () => setCurrentStep((prevStep) => prevStep + 1);
+  const toNextStep = () => {
+    if (currentStep === Step.cart) eventEmitter.emit(EVENT.order);
+    if (currentStep === Step.info) eventEmitter.emit(EVENT.info);
+    setCurrentStep((prevStep) => prevStep + 1);
+  };
 
   return (
     <CartContext.Provider
