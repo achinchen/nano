@@ -24,7 +24,7 @@ export const getMMDD = (date: Date) => {
 export const formateDate = (date: Date) => {
   const target = dayjs(date);
   const shouldShowYear = target.year() !== dayjs().year();
-  if (shouldShowYear) return target.format('YYYY/MM/DD dddd');
+  if (shouldShowYear) return target.format('LL dddd');
   return target.format('LL dddd').slice(5);
 };
 
