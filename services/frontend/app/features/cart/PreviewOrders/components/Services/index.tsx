@@ -6,6 +6,8 @@ import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import { getMMDD } from '~frontend/utils/date';
 import { getPeriodTime } from '~frontend/utils/time';
 import sharedI from '~frontend/shared/i.json';
+import { SECTION_CLASSNAMES } from '~frontend/features/cart/PreviewOrders/constants';
+import Field from '~frontend/features/cart/PreviewOrders/components/Field';
 import scopedI from './i.json';
 
 const StringSeparator = <span className="mx-2 inline-block">|</span>;
@@ -21,7 +23,7 @@ function ServiceCard({
 }: ServiceOrder) {
   const showOrder = queue && times.length > 1;
   return (
-    <li className="border-1 border-zinc-200 rounded-2 border-solid pa-2">
+    <li className={SECTION_CLASSNAMES}>
       <h4 className="line-clamp-2 text-lg">{name}</h4>
       <div className="text-sm font-normal">
         {address}
@@ -32,14 +34,7 @@ function ServiceCard({
       <Separator />
       <ul className="flex flex-col gap-1 text-sm">
         <li className={showOrder ? 'block' : 'flex'}>
-          <span className="w-30 flex items-center">
-            <Icon
-              icon="i-solar-calendar-linear"
-              size="2xl"
-              className="mr-2 color-primary-500"
-            />
-            {sharedI.times}
-          </span>
+          <Field icon="i-solar-calendar-linear">{sharedI.times}</Field>
           {times.map((time, index) => (
             <div key={time} className="my-1">
               {showOrder && (
@@ -59,14 +54,7 @@ function ServiceCard({
           ))}
         </li>
         <li className="flex">
-          <span className="w-30 flex items-center">
-            <Icon
-              icon="i-solar-user-linear"
-              size="2xl"
-              className="mr-2 color-primary-500"
-            />
-            {scopedI.attendee.label}
-          </span>
+          <Field icon="i-solar-user-linear">{scopedI.attendee.label}</Field>
           {attendee} {scopedI.attendee.unit}
         </li>
       </ul>
