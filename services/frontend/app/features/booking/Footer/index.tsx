@@ -7,11 +7,7 @@ export function Footer({ disabled = false }: { disabled?: boolean }) {
   };
 
   return (
-    <footer
-      className={
-        'flex flex-1 md:justify-end border-t border-t-solid border-zinc-200 py-2 px-4 gap-2 bg-white shadow-dialog'
-      }
-    >
+    <footer className="footer">
       <Button
         color="primary"
         className="flex-1 md:flex-none"
