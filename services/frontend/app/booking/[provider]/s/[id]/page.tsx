@@ -10,12 +10,13 @@ import {
   EVENT_NAME,
 } from '~frontend/features/booking/context';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
-import Header from '~frontend/features/booking/Header';
+import Header from '~frontend/features/cart/Header';
 import Footer from '~frontend/features/booking/Footer';
 import ServiceDetail from '~frontend/features/booking/ServiceDetail';
 import ServiceTimes from '~frontend/features/booking/ServiceTimes';
 import { getDateString } from '~frontend/utils/date';
 import { eventEmitter } from '~frontend/utils/event';
+import { getIsMobile } from '~frontend/utils/device';
 
 const services = [
   {
@@ -125,6 +126,26 @@ const times = [
         time: '18:30',
         status: 'full',
       },
+      {
+        time: '19:00',
+        status: 'unsold',
+      },
+      {
+        time: '19:30',
+        status: 'full',
+      },
+      {
+        time: '20:00',
+        status: 'full',
+      },
+      {
+        time: '21:20',
+        status: 'unsold',
+      },
+      {
+        time: '22:00',
+        status: 'full',
+      },
     ],
     queue: true,
   },
@@ -213,16 +234,28 @@ function Content() {
     return () => eventEmitter.unsubscribe(EVENT_NAME, onDateChange);
   }, [router, selectedDate, providerSlug]);
 
-  return (
+  return getIsMobile() ? (
     <>
-      <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
-        {provider}
-      </h1>
-      <Header className="hidden md:flex" />
-      <div className="flex flex-col content-height-with-footer-base">
+      <section className="max-h-[calc(100vh-100px)] overflow-y-scroll bg-white px-4 py-2">
+        <ServiceDetail
+          {...(id === '10'
+            ? services[0]
+            : id === '12'
+            ? services[1]
+            : services[2])}
+        />
+        <ServiceTimes {...serviceTimes} />
+      </section>
+      <Footer disabled={!serviceTimes.times.length} />
+    </>
+  ) : (
+    <>
+      <h1 className="mx-6 my-2 text-4xl color-white">{provider}</h1>
+      <Header className="flex" />
+      <div className="h-[calc(100vh-226px)] flex flex-col">
         <main className="relative flex bg-white">
-          <CalendarHorizontal className="hidden md:block" />
-          <section className="content-height-with-footer flex-1 overflow-y-scroll px-4 py-2 md:max-h-100% md:py-2">
+          <CalendarHorizontal />
+          <section className="max-h-100% flex-1 overflow-y-scroll px-4 py-2">
             <ServiceDetail
               {...(id === '10'
                 ? services[0]

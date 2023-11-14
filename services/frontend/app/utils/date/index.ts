@@ -24,13 +24,6 @@ export const formateDate = (date: Date) => {
   return target.format('LL dddd').slice(5);
 };
 
-export const formatDate = (date: Date, weekday = false) => {
-  const dateString = date.toLocaleDateString('zh-TW', {
-    dateStyle: weekday ? 'full' : 'long',
-  });
-  return dateString;
-};
-
 export const getFirstDateInPreviousMonth = (date: Date) => {
   return dayjs(date).subtract(1, 'month').set('date', 1).toDate();
 };
@@ -53,4 +46,8 @@ export const getAfter = (
   unit: ManipulateType = 'day'
 ) => {
   return dayjs(date).subtract(day, unit).toDate();
+};
+
+export const isBefore = (dateA: Date, dateB: Date) => {
+  return dateB < dateA;
 };

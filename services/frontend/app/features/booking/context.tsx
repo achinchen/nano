@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { eventEmitter } from '~frontend/utils/event';
 
-type InitialState = {
+export type InitialState = {
   selectedDate: Date;
   setSelectedDate: Dispatch<SetStateAction<Date>>;
   isToday: boolean;
