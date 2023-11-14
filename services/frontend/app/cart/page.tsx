@@ -22,7 +22,7 @@ function Content() {
         {provider}
       </h1>
       <Header />
-      <main className="max-h-[calc(100vh-168px)] overflow-y-scroll bg-white pa-2 md:h-[calc(100vh-226px)]">
+      <main className="max-h-[calc(100dvh-168px)] overflow-y-scroll bg-white pa-2 md:h-[calc(100dvh-226px)]">
         {currentStep === Step.cart && (
           <OrderCards className="mx-4 my-2 max-w-4xl flex-1 md:mx-auto md:mb-4" />
         )}

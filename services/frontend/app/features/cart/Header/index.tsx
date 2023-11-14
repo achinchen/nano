@@ -8,7 +8,7 @@ export function Header() {
   const wording = isFirstStep ? i.cart : i.form;
 
   return (
-    <header className="border-b border-b-zinc-200 border-b-solid py-4 content-header">
+    <header className="flex border-b border-b-zinc-200 border-b-solid py-4 content-header">
       <IconButton
         size="sm"
         variant="text"

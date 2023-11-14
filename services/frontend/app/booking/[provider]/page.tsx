@@ -34,8 +34,8 @@ function Content() {
       <section
         className={`overflow-y-scroll flex-1 ${
           mode === 'week'
-            ? 'max-h-[calc(100vh-160px)]'
-            : 'max-h-[calc(100vh-364px)]'
+            ? 'max-h-[calc(100dvh-160px)]'
+            : 'max-h-[calc(100dvh-364px)]'
         }`}
       >
         <ServiceCards />
@@ -44,7 +44,7 @@ function Content() {
   ) : (
     <div className="flex flex-row bg-white">
       <CalendarHorizontal />
-      <section className="h-[calc(100vh-156px)] flex-1 overflow-y-scroll">
+      <section className="h-[calc(100dvh-156px)] flex-1 overflow-y-scroll">
         <ServiceCards />
       </section>
     </div>
