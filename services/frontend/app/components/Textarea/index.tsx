@@ -80,7 +80,7 @@ export function Textarea({
         style={{ minHeight, maxHeight }}
         {...attrs}
       />
-      <div className="flex px-2 text-xs">
+      <div className="min-h-4 flex px-2 text-xs">
         {hasErrorMessage && (
           <div className="flex-auto break-words color-red-500">
             {errorMessage}
@@ -93,3 +93,5 @@ export function Textarea({
     </div>
   );
 }
+
+export default Textarea;

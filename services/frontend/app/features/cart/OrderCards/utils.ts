@@ -1,4 +1,4 @@
-import type { ServiceOrder } from './types';
+import type { ServiceOrder } from '../types';
 import { isBefore } from '~frontend/utils/date';
 
 let today: Date;

@@ -1,9 +1,9 @@
+import type { Payload } from '~frontend/types/utils';
 import type {
   Action,
   EventLog,
   EventName,
   Listener,
-  Payload,
   ServiceEventName,
   ServiceName,
   IEventEmitter,
@@ -39,7 +39,7 @@ export const createEventEmitter = (serviceName: ServiceName): IEventEmitter => {
     });
   };
 
-  const emit = (eventName: string, payload?: Payload): void => {
+  const emit = (eventName: string, payload: Payload = null): void => {
     const serviceEventName = getServiceEventName(eventName);
     const customEvent = new CustomEvent(serviceEventName, { detail: payload });
     document.dispatchEvent(customEvent);

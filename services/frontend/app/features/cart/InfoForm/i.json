@@ -1,0 +1,25 @@
+{
+  "title": "訂購人資訊",
+  "required": "此欄位必填寫",
+  "name": {
+    "label": "訂購人姓名",
+    "placeholder": "您的真實姓名"
+  },
+  "email": {
+    "label": "Email",
+    "placeholder": "example@example.com"
+  },
+  "SNSId": {
+    "label": "Instagram ID",
+    "placeholder": "您與商家聯繫的帳號"
+  },
+  "phone": {
+    "label": "聯絡電話",
+    "placeholder": "您與商家聯繫的號碼",
+    "invalid": "您的手機格式有誤"
+  },
+  "note": {
+    "label": "備註",
+    "placeholder": "有什麼需要跟商家說的嗎？"
+  }
+}

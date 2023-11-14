@@ -1,5 +1,8 @@
-import type { ServiceOrder } from './types';
-import { createContext, useContext, useState } from 'react';
+import type { ServiceOrder } from '~frontend/features/cart/types';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { EVENT } from '~frontend/features/cart/context';
+import { eventEmitter } from '~frontend/utils/event';
+import { setCart } from '~frontend/features/cart/utils';
 import { isExpiredServices } from './utils';
 
 const mockServices = [
@@ -77,6 +80,16 @@ export const OrderCardsContextProvider = ({
       return [...services];
     });
   };
+
+  useEffect(() => {
+    const cb = () => {
+      setCart(services.filter(({ expired }) => !expired));
+    };
+
+    eventEmitter.subscribe(EVENT.order, cb);
+    return eventEmitter.unsubscribe(EVENT.order, cb);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <OrderCardsContext.Provider
