@@ -1,5 +1,4 @@
 import type { Color, Variant, Size } from './constants';
-import { ButtonHTMLAttributes } from 'react';
 import { Icon, IconProps } from '~frontend/components/Icon';
 import { THEME_CONFIG, SIZE_CONFIG, LOADING_ICON } from './constants';
 
@@ -11,8 +10,8 @@ type IconButtonProps = {
   disabled?: boolean;
   loading?: boolean;
   onClick: () => void;
-} & Omit<IconProps, 'size'> &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+} & Pick<IconProps, 'icon'> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function IconButton({
   icon,
