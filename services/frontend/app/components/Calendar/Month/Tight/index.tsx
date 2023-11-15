@@ -1,3 +1,4 @@
+import type { SelectedDatePayload } from '~frontend/components/Calendar/hooks/use-date-select';
 import type { Status } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
 import { DAYS, STATUS_CLASS } from '~frontend/components/Calendar/constants';
@@ -24,9 +25,11 @@ export function CalendarMonthTight({
 
   const daysInMonth = useMemo(() => getMonthDays(selected), [selected]);
 
-  const onClick = (month: number, day: number) => () => {
-    onDateSelect(month, day);
-  };
+  const onClick =
+    ({ year, month, day }: SelectedDatePayload) =>
+    () => {
+      onDateSelect({ year, month, day });
+    };
 
   return (
     <section className="flex flex-col">
@@ -36,12 +39,12 @@ export function CalendarMonthTight({
         ))}
       </ol>
       <ol className="grid grid-cols-7 grid-rows-6 gap-1">
-        {daysInMonth.map(({ month, day, weekday }) => (
+        {daysInMonth.map(({ year, month, day, weekday }) => (
           <li
             role="button"
             key={`${month}-${day}`}
             className="relative h-9 flex flex-col cursor-pointer items-center justify-center"
-            onClick={onClick(month, day)}
+            onClick={onClick({ year, month, day })}
           >
             <span
               className={`w-7 h-7 text-base flex justify-center items-center rounded-full font-medium
