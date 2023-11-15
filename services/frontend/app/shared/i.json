@@ -1,6 +1,8 @@
 {
   "supplier": "服務者",
   "location": "地點",
+  "order": "順位",
+  "times": "時段",
   "unit": {
     "attendee": "人",
     "hour": "小時",

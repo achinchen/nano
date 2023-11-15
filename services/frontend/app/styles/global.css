@@ -24,7 +24,7 @@ button {
   @apply appearance-none border-none bg-transparent cursor-pointer;
 }
 
-li, ol {
+ul, li, ol {
   @apply list-none pa-0 ma-0;
 }
 

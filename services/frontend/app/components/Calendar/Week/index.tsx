@@ -1,3 +1,4 @@
+import type { SelectedDatePayload } from '~frontend/components/Calendar/hooks/use-date-select';
 import type { Status } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
 import { DAYS, STATUS_CLASS } from '~frontend/components/Calendar/constants';
@@ -27,9 +28,9 @@ export function CalendarWeek({
   const daysInWeek = useMemo(() => getWeekDays(selected), [selected]);
 
   const onClick =
-    (month: number, day: number) =>
+    ({ year, month, day }: SelectedDatePayload) =>
     (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-      onDateSelect(month, day);
+      onDateSelect({ year, month, day });
     };
 
   return (
@@ -45,12 +46,12 @@ export function CalendarWeek({
         ))}
       </ol>
       <ol className="grid grid-cols-7">
-        {daysInWeek.map(({ month, day, weekday }) => (
+        {daysInWeek.map(({ year, month, day, weekday }) => (
           <li
             role="button"
             key={`${month}-${day}`}
             className="relative h-10 flex flex-col cursor-pointer items-center justify-center"
-            onClick={onClick(month, day)}
+            onClick={onClick({ year, month, day })}
           >
             <span
               className={`mt-1 w-7 h-7 flex justify-center items-center rounded-full font-medium

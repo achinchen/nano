@@ -94,11 +94,9 @@ export function InputTel({
           onClick={onClear}
         />
       </div>
-      {isError && (
-        <div className="ma-1 break-words text-xs color-red-500">
-          {errorMessage}
-        </div>
-      )}
+      <div className="ma-1 min-h-4 break-words text-xs color-red-500">
+        {errorMessage}
+      </div>
     </div>
   );
 }

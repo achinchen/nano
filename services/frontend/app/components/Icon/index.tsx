@@ -6,7 +6,7 @@ export type IconProps = {
   icon: string;
   size?: Size;
   className?: string;
-};
+} & JSX.IntrinsicElements['span'];
 
 const SIZE_CONFIG: Record<Size, string> = {
   base: 'text-4',
@@ -17,13 +17,19 @@ const SIZE_CONFIG: Record<Size, string> = {
   '6xl': 'text-10',
 };
 
-export function Icon({ icon, size = 'base', className = '' }: IconProps) {
+export function Icon({
+  icon,
+  size = 'base',
+  className = '',
+  ...attributes
+}: IconProps) {
   const fontSize = SIZE_CONFIG[size];
   return (
     <span
       role="img"
       aria-label="icon-label"
       className={`inline-block vertical-middle leading-6 lg:drop-shadow ${fontSize} ${icon} ${className}`}
+      {...attributes}
     />
   );
 }

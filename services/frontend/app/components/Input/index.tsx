@@ -1,7 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 import { useState } from 'react';
 import Icon from '~frontend/components/Icon';
-import IconButton from '~frontend/components/IconButton';
 import Counter from '~frontend/components/Counter';
 
 export type InputProps = {
@@ -36,9 +35,6 @@ export function Input({
   const [valid, setValid] = useState(true);
   const hasErrorMessage = Boolean(errorMessage);
   const isError = hasErrorMessage || !valid;
-
-  const hasHint = maxLength || isError;
-
   const iconColor = disabled ? 'color-neutral-400' : 'color-zinc-700';
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,22 +69,18 @@ export function Input({
           placeholder={placeholder}
           {...attributes}
         />
-        {suffixIcon && (
-          <IconButton size="xs" icon={suffixIcon} color="dark" variant="text" />
-        )}
+        {suffixIcon && <Icon size="base" icon={suffixIcon} color="dark" />}
       </div>
-      {hasHint && (
-        <div className="ma-1 flex justify-between text-xs">
-          {isError && (
-            <div className="flex-auto break-words color-red-500">
-              {errorMessage}
-            </div>
-          )}
-          {maxLength ? (
-            <Counter setValid={setValid} value={value} maxLength={maxLength} />
-          ) : null}
-        </div>
-      )}
+      <div className="ma-1 min-h-4 flex justify-between text-xs">
+        {isError && (
+          <div className="flex-auto break-words color-red-500">
+            {errorMessage}
+          </div>
+        )}
+        {maxLength ? (
+          <Counter setValid={setValid} value={value} maxLength={maxLength} />
+        ) : null}
+      </div>
     </div>
   );
 }

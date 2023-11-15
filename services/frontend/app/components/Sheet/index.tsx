@@ -1,5 +1,3 @@
-'use client';
-
 import ReactSheet from 'react-modal-sheet';
 import IconButton from '~frontend/components/IconButton';
 

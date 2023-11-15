@@ -13,22 +13,19 @@ export { dayjs };
 
 export const getDateString = (date: Date) => date.toISOString().slice(0, 10);
 
+export const getLocaleMMDD = (date: Date) => {
+  return `${dayjs(date).format('MMDD')}${i.day}`;
+};
+
 export const getMMDD = (date: Date) => {
-  return `${dayjs(date).format('MMMDD')}${i.day}`;
+  return dayjs(date).format('MM/DD');
 };
 
 export const formateDate = (date: Date) => {
   const target = dayjs(date);
   const shouldShowYear = target.year() !== dayjs().year();
-  if (shouldShowYear) return target.format('YYYY/MM/DD dddd');
+  if (shouldShowYear) return target.format('LL dddd');
   return target.format('LL dddd').slice(5);
-};
-
-export const formatDate = (date: Date, weekday = false) => {
-  const dateString = date.toLocaleDateString('zh-TW', {
-    dateStyle: weekday ? 'full' : 'long',
-  });
-  return dateString;
 };
 
 export const getFirstDateInPreviousMonth = (date: Date) => {
@@ -53,4 +50,8 @@ export const getAfter = (
   unit: ManipulateType = 'day'
 ) => {
   return dayjs(date).subtract(day, unit).toDate();
+};
+
+export const isBefore = (dateA: Date, dateB: Date) => {
+  return dateB < dateA;
 };

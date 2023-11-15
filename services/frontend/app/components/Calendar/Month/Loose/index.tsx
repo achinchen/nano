@@ -1,5 +1,6 @@
+import type { SelectedDatePayload } from '~frontend/components/Calendar/hooks/use-date-select';
+import type { Status as StatusType } from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
-import { Status as StatusType } from '~frontend/components/Calendar/types';
 import { DAYS } from '~frontend/components/Calendar/constants';
 import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
 import { getMonthDays } from '~frontend/components/Calendar/utils';
@@ -32,9 +33,11 @@ export function CalendarMonthLoose({
 
   const daysInMonth = useMemo(() => getMonthDays(selected), [selected]);
 
-  const onClick = (month: number, day: number) => () => {
-    onDateSelect(month, day);
-  };
+  const onClick =
+    ({ year, month, day }: SelectedDatePayload) =>
+    () => {
+      onDateSelect({ year, month, day });
+    };
 
   return (
     <section className={`max-w-5xl min-w-xl flex flex-col h-full ${className}`}>
@@ -44,7 +47,7 @@ export function CalendarMonthLoose({
         ))}
       </ol>
       <ol className="grid grid-rows-[repeat(6,1fr)] grid-cols-7 flex-1">
-        {daysInMonth.map(({ month, day, weekday }, index) => (
+        {daysInMonth.map(({ year, month, day, weekday }, index) => (
           <li
             role="button"
             key={`${month}-${day}`}
@@ -53,7 +56,7 @@ export function CalendarMonthLoose({
                 ? 'border-b-zinc-200'
                 : 'border-b-transparent'
             }`}
-            onClick={onClick(month, day)}
+            onClick={onClick({ year, month, day })}
           >
             <span
               className={`w-7 h-7 flex text-lg justify-center items-center rounded-full font-medium duration-100

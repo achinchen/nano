@@ -9,6 +9,12 @@ type Parameters = {
   selectedDate?: Date;
 };
 
+export type SelectedDatePayload = {
+  year: number;
+  month: number;
+  day: number;
+};
+
 export const useDateSelect = ({ selectedDate, onSelect }: Parameters) => {
   const today = useMemo(() => new Date(), []);
   const selected = useMemo(() => selectedDate ?? today, [today, selectedDate]);
@@ -35,8 +41,8 @@ export const useDateSelect = ({ selectedDate, onSelect }: Parameters) => {
     [selectedMonth, selectedDay, todayMonth, todayDay]
   );
 
-  const onDateSelect = (month: number, day: number) => {
-    onSelect(new Date(selected.getFullYear(), month - 1, day, 0, 0, 0, 0));
+  const onDateSelect = ({ year, month, day }: SelectedDatePayload) => {
+    onSelect(new Date(year, month - 1, day, 0, 0, 0, 0));
   };
 
   return {
