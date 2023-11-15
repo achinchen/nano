@@ -20,6 +20,7 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@newrelic/native-metrics": "^10.0.0",
+    "axios": "^1.6.0",
     "@types/validator": "^13.11.6",
     "cookie-parser": "^1.4.6",
     "dayjs": "^1.11.9",
