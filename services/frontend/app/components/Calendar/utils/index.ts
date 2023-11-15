@@ -10,6 +10,7 @@ export const getMonthDays = (date: Date) => {
 
   return Array.from({ length: DAYS_IN_CALENDAR }, () => {
     const result = {
+      year: day.year(),
       month: day.month() + 1,
       day: day.date(),
       weekday: day.weekday(),
@@ -29,6 +30,7 @@ export const getWeekDays = (date: Date) => {
 
   return Array.from({ length: WEEKDAY }, () => {
     const result = {
+      year: day.year(),
       month: day.month() + 1,
       day: day.date(),
       weekday: day.weekday(),
