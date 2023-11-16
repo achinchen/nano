@@ -46,6 +46,7 @@ export function InputTel({
   };
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(event.key, event.key.match(REGEX));
     if (event.key.match(REGEX)) return;
     event.preventDefault();
   };
@@ -82,7 +83,7 @@ export function InputTel({
           type="tel"
           pattern="\d*"
           autoComplete="tel"
-          onKeyDown={onKeyDown}
+          onKeyDownCapture={onKeyDown}
           {...attributes}
         />
         <IconButton
