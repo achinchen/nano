@@ -4,7 +4,7 @@ import { Step } from '~frontend/features/cart/constants';
 import i from './i.json';
 
 export function Footer() {
-  const { currentStep, toNextStep } = useCartContext();
+  const { currentStep, toNextStep, disabled } = useCartContext();
   const wording = currentStep === Step.preview ? i.submit : i.book;
 
   return (
@@ -15,6 +15,7 @@ export function Footer() {
         variant="solid"
         size="md"
         onClick={toNextStep}
+        disabled={disabled}
       >
         {wording}
       </Button>

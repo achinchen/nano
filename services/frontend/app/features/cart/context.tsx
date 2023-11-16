@@ -6,6 +6,8 @@ export type InitialState = {
   currentStep: Step;
   toPreviousStep: () => void;
   toNextStep: () => void;
+  disabled: boolean;
+  setDisabled: (disabled: boolean) => void;
 };
 
 export const EVENT = {
@@ -19,6 +21,9 @@ export const CartContext = createContext<InitialState>({
   toPreviousStep: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   toNextStep: () => {},
+  disabled: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setDisabled: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -31,6 +36,8 @@ export const CartContextProvider = ({
   children: JSX.Element;
 }) => {
   const [currentStep, setCurrentStep] = useState(Step.cart);
+  const [disabled, setDisabled] = useState(false);
+
   const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
   const toNextStep = () => {
     if (currentStep === Step.cart) eventEmitter.emit(EVENT.order);
@@ -44,6 +51,8 @@ export const CartContextProvider = ({
         currentStep,
         toNextStep,
         toPreviousStep,
+        disabled,
+        setDisabled,
       }}
     >
       {children}
