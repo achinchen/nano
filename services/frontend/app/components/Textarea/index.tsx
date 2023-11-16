@@ -67,7 +67,7 @@ export function Textarea({
         placeholder={placeholder}
         maxLength={maxLength}
         className={`
-          w-full border-1 rounded-3 
+          w-full border-1 rounded-3 outline-none
            hover:border-zinc-700 active:border-zinc-700 text-sm overflow-auto resize-y px-3 py-2 mb-1 placeholder:color-zinc-500 border-zinc-400 
           ${
             disabled
