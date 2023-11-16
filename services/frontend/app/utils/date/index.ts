@@ -14,7 +14,7 @@ export { dayjs };
 export const getDateString = (date: Date) => date.toISOString().slice(0, 10);
 
 export const getLocaleMMDD = (date: Date) => {
-  return `${dayjs(date).format('MMDD')}${i.day}`;
+  return `${dayjs(date).format('MMMDD')}${i.day}`;
 };
 
 export const getMMDD = (date: Date) => {

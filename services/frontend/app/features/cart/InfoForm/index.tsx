@@ -32,14 +32,15 @@ const reducer = (state: Form, newState: Partial<Form>) => {
 const labelClassName = 'text-base font-normal flex flex-col gap-2';
 
 export default function InfoForm({ className }: { className?: string }) {
-  const { currentStep, toPreviousStep } = useCartContext();
+  const { currentStep, toPreviousStep, setDisabled } = useCartContext();
   const [form, dispatch] = useReducer(reducer, { ...defaultForm });
   const [errors, dispatchError] = useReducer(reducer, { ...defaultForm });
 
   const checkRequired = (key: string, value: string) => {
-    if (value.trim()) return;
-    dispatchError({ [key]: i.required });
+    const isEmpty = value.trim().length === 0;
+    dispatchError({ [key]: isEmpty ? i.required : '' });
   };
+
   const onNameChange = (value: string) => {
     dispatch({ name: value });
     checkRequired('name', value);
@@ -63,6 +64,10 @@ export default function InfoForm({ className }: { className?: string }) {
     eventEmitter.subscribe(EVENT.info, cb);
     return eventEmitter.unsubscribe(EVENT.info, cb);
   }, [form]);
+
+  useEffect(() => {
+    setDisabled(Object.values(errors).some(Boolean));
+  }, [setDisabled, errors]);
 
   return (
     <section className={className}>
@@ -90,6 +95,8 @@ export default function InfoForm({ className }: { className?: string }) {
           <Input
             value={form.email}
             placeholder={i.email.placeholder}
+            autoComplete="email"
+            type="email"
             readOnly
             disabled
           />

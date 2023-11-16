@@ -17,7 +17,6 @@ import {
 import {
   useSortable,
   SortableContext,
-  arrayMove,
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
@@ -29,12 +28,14 @@ type Props<T> = {
   items: { id: UniqueIdentifier; data: T }[];
   onSwitch: (from: Index, to: Index) => void;
   renderSortableItem: (data: T, index: number) => JSX.Element;
+  renderActiveItem?: (data: T, index: number) => JSX.Element;
 };
 
 export function SortableContainer<T>({
   items,
   onSwitch,
   renderSortableItem,
+  renderActiveItem,
 }: Props<T>) {
   const [active, setActive] = useState<Active | null>(null);
   const activeIndex = useMemo(
@@ -84,7 +85,10 @@ export function SortableContainer<T>({
         }}
       >
         {activeIndex !== -1
-          ? renderSortableItem(items[activeIndex].data, -1 * activeIndex)
+          ? (renderActiveItem || renderSortableItem)(
+              items[activeIndex].data,
+              -1 * activeIndex
+            )
           : null}
       </DragOverlay>
     </DndContext>

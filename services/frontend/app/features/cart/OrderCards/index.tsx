@@ -55,7 +55,7 @@ function OrderCard(service: ServiceOrder) {
       }`}
     >
       <header className="flex items-start justify-between">
-        <h2 className="line-clamp-2 text-xl font-bold">{name}</h2>
+        <h2 className="line-clamp-2 text-lg font-bold">{name}</h2>
         <IconButton
           className="relative z-1 w-9"
           icon="i-solar-close-circle-outline"
@@ -99,19 +99,19 @@ function OrderCard(service: ServiceOrder) {
             <span className="font-bold">{scopedI.attendee}</span>
             <div className="flex items-center justify-between gap-4">
               <IconButton
-                icon="i-solar-add-circle-linear"
-                variant="text"
-                color="dark"
-                size="md"
-                onClick={onIncrease}
-              />
-              <span className="text-lg">{attendee}</span>
-              <IconButton
                 icon="i-solar-minus-circle-linear"
                 variant="text"
                 color="dark"
                 size="md"
                 onClick={onDecrease}
+              />
+              <span className="text-lg">{attendee}</span>
+              <IconButton
+                icon="i-solar-add-circle-linear"
+                variant="text"
+                color="dark"
+                size="md"
+                onClick={onIncrease}
               />
             </div>
           </footer>
