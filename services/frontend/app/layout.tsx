@@ -1,14 +1,11 @@
 import '~frontend/styles/index.css';
-import { Global } from './layout/Global';
+import { Global } from './layout/global';
+import Header from './layout/Header';
 
 export const metadata = {
   title: 'Nano',
   description: 'the fantastic application',
 };
-
-function Header() {
-  return <header className="min-h-10 px-4 py-1" />;
-}
 
 export default function RootLayout({
   children,

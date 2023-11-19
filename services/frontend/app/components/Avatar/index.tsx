@@ -1,3 +1,4 @@
+import Img from 'next/image';
 export const SIZES = ['sm', 'base', 'lg'] as const;
 
 export type Size = (typeof SIZES)[number];
@@ -19,7 +20,7 @@ export function Avatar({ size = 'base', className = '', src }: AvatarProps) {
     <picture
       className={`inline-flex rounded-50% overflow-hidden ${SIZE_CONFIG[size]} ${className}`}
     >
-      <img className="flex-1" src={src} alt="avatar" />
+      <Img className="h-100% w-100% flex-1" src={src} alt="avatar" />
     </picture>
   );
 }
