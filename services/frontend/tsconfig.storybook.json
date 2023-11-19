@@ -4,23 +4,13 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "files": [
-    "../../node_modules/@nx/react/typings/image.d.ts"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ],
+  "files": ["../../node_modules/@nx/react/typings/image.d.ts"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "include": [
-    "app/components/**/*.ts",
-    "app/components/**/*.js",
-    "app/components/**/*.tsx",
-    "app/components/**/*.jsx",
-    "app/components/**/*.stories.ts",
-    "app/components/**/*.stories.js",
-    "app/components/**/*.stories.jsx",
-    "app/components/**/*.stories.tsx",
-    "app/components/**/*.stories.mdx",
+    "src/components/**/*.ts",
+    "src/components/**/*.tsx",
+    "src/components/**/*.stories.ts",
+    "src/components/**/*.stories.tsx",
     ".storybook/*.js",
     ".storybook/*.ts"
   ]

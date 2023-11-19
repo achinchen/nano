@@ -1,20 +1,11 @@
 {
   "name": "frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "services/frontend",
+  "sourceRoot": "services/frontend/src",
   "projectType": "application",
   "targets": {
-    "build:css": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "unocss 'services/frontend/app/**/*.{ts,tsx}' -o 'services/frontend/app/styles/uno.css' -c 'services/frontend/unocss.config.ts' -m"
-        ],
-        "forwardAllArgs": true
-      }
-    },
-    "build:next": {
-      "executor": "@nx/next:build",
+    "build": {
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
@@ -22,26 +13,10 @@
       },
       "configurations": {
         "development": {
-          "outputPath": "services/frontend"
-        },
-        "production": {}
-      }
-    },
-    "serve:next": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "frontend:build",
-        "dev": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "frontend:build:next:development",
-          "dev": true
+          "mode": "development"
         },
         "production": {
-          "buildTarget": "frontend:build:next:production",
-          "dev": false
+          "mode": "production"
         }
       }
     },
@@ -49,41 +24,39 @@
       "executor": "nx:run-commands",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "commands": [
-          "nx run frontend:build:css --watch",
-          "nx run frontend:serve:next:development"
-        ],
-        "parallel": true
-      }
-    },
-    "build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "commands": [
-          "nx run frontend:build:css",
-          "nx run frontend:build:next:production"
-        ],
+        "commands": ["nx run frontend:serve:development"],
         "parallel": false
       }
     },
-    "export": {
-      "executor": "@nx/next:export",
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "frontend:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/{projectRoot}/coverage"],
-      "options": {
-        "jestConfig": "services/frontend/jest.config.ts",
-        "passWithNoTests": true
+        "buildTarget": "frontend:build"
       },
       "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
+        "development": {
+          "buildTarget": "frontend:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "frontend:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "frontend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "frontend:build:development"
+        },
+        "production": {
+          "buildTarget": "frontend:build:production"
         }
       }
     },
@@ -98,7 +71,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "unocss 'services/frontend/app/components/**/*.{ts,tsx,mdx}' -o 'services/frontend/.storybook/styles/uno.css' -c 'services/frontend/unocss.config.ts'"
+          "unocss 'services/frontend/src/components/**/*.{ts,tsx,mdx}' -o 'services/frontend/.storybook/styles/uno.css' -c 'services/frontend/unocss.config.ts'"
         ],
         "forwardAllArgs": true
       }
@@ -106,7 +79,6 @@
     "dev:storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
-        "host": "0.0.0.0",
         "port": 4400,
         "configDir": "services/frontend/.storybook"
       },
@@ -119,7 +91,10 @@
     "storybook": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["nx build:storybook:css frontend --watch", "nx dev:storybook frontend"],
+        "commands": [
+          "nx build:storybook:css frontend --watch",
+          "nx dev:storybook frontend"
+        ],
         "parallel": true
       }
     },
@@ -127,32 +102,32 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "outputDir": "storybook/frontend/dist",
+        "outputDir": "dist/storybook/frontend",
         "configDir": "services/frontend/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
         }
-      },
-      "dependsOn": ["build:storybook:css"]
-    },
-    "test:storybook": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "test-storybook -c services/frontend/.storybook --url=http://localhost:4400"
       }
     },
     "static:storybook": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "frontend:build:storybook",
-        "staticFilePath": "storybook/frontend/dist"
+        "buildTarget": "frontend:build-storybook",
+        "staticFilePath": "dist/storybook/frontend"
       },
       "configurations": {
         "ci": {
-          "buildTarget": "frontend:build:storybook:ci"
+          "buildTarget": "frontend:build-storybook:ci"
         }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "services/frontend/jest.config.ts"
       }
     }
   },

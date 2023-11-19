@@ -1,32 +1,19 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "allowJs": true,
-    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": [
-      "jest",
-      "node",
-      "@testing-library/jest-dom"
-    ]
+    "types": ["vite/client"]
   },
-  "include": [
-    "../../services/frontend/dist/.next/types/**/*.ts",
-    "next-env.d.ts",
-    "../../services/frontend/.next/types/**/*.ts"
-  ],
+  "files": [],
+  "include": [],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -37,5 +24,6 @@
     {
       "path": "./tsconfig.storybook.json"
     }
-  ]
+  ],
+  "extends": "../../tsconfig.base.json"
 }

@@ -1,18 +1,14 @@
 {
   "extends": "./tsconfig.json",
-  "composite": true,
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["jest", "node", "@testing-library/jest-dom"],
-    "jsx": "react-jsx"
+    "types": ["jest", "node", "jest-dom", "@testing-library/jest-dom"]
   },
   "include": [
     "jest.config.ts",
-    "app/**/*.test.ts",
-    "app/**/*.spec.ts",
-    "app/**/*.test.tsx",
-    "app/**/*.spec.tsx",
-    "app/**/*.d.ts"
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
   ]
 }

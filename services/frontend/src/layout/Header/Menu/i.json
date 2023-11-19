@@ -1,0 +1,16 @@
+{
+  "studio": {
+    "title": "工作室",
+    "profile": "檢視工作室",
+    "takeleave": "休假"
+  },
+  "orders": {
+    "title": "訂單",
+    "mine": "我的訂單"
+  },
+  "account": {
+    "title": "帳號",
+    "setting": "個人檔案"
+  },
+  "logout": "登出"
+}
