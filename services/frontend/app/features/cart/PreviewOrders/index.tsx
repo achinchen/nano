@@ -15,14 +15,16 @@ function PreviewOrders({ className = '' }: { className?: string }) {
 
   return (
     <section className={className}>
-      <header className="mb-6 mt-3 flex flex-col items-center">
-        <StepProgress
-          steps={stepsLength}
-          currentStep={currentStep}
-          value={10}
-          onBack={toPreviousStep}
-        />
-        <h3 className="text-base">{i.title}</h3>
+      <header className="mb-6 mt-3 flex">
+        <div className="mx-auto inline-flex flex-col">
+          <StepProgress
+            steps={stepsLength}
+            currentStep={currentStep}
+            value={10}
+            onBack={toPreviousStep}
+          />
+          <h3 className="translate-x-4px text-right text-base">{i.title}</h3>
+        </div>
       </header>
       <Services />
       <Info />
