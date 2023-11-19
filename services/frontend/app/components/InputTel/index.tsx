@@ -2,7 +2,7 @@ import type { InputHTMLAttributes } from 'react';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
 
-const REGEX = /\d|Backspace|Enter/;
+const REGEX = /^Digit|Backspace|Enter/;
 
 export type InputTelProps = {
   value: string;
@@ -46,14 +46,14 @@ export function InputTel({
   };
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(event.key, event.key.match(REGEX));
-    if (event.key.match(REGEX)) return;
+    if (event.code.match(REGEX)) return;
     event.preventDefault();
   };
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.replace(/\D/g, '');
     onChange?.(event);
-    onValueChange?.(event.target.value);
+    onValueChange?.(value);
   };
 
   return (
@@ -83,7 +83,7 @@ export function InputTel({
           type="tel"
           pattern="\d*"
           autoComplete="tel"
-          onKeyDownCapture={onKeyDown}
+          onKeyDown={onKeyDown}
           {...attributes}
         />
         <IconButton
