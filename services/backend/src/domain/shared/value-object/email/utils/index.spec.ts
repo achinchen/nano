@@ -3,9 +3,11 @@ import { isEmail } from './index';
 
 jest.mock('validator/lib/isEmail');
 
+const mockValidatorIsEmail = validatorIsEmail as jest.Mock;
+
 describe('isEmail', () => {
   beforeEach(() => {
-    validatorIsEmail.mockReset();
+    mockValidatorIsEmail.mockReset();
   });
 
   test.each([
@@ -13,7 +15,7 @@ describe('isEmail', () => {
     ['invalid-email', false],
     ['another@example.com', true],
   ])('should return %p for email: %p', (email, expectedResult) => {
-    validatorIsEmail.mockReturnValue(expectedResult);
+    mockValidatorIsEmail.mockReturnValue(expectedResult);
 
     const result = isEmail(email);
 
