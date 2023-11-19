@@ -4,9 +4,11 @@ import { isPhone } from '.';
 
 jest.mock('validator/lib/isMobilePhone');
 
+const mockValidator = validator as jest.Mock;
+
 describe('isPhone function', () => {
   beforeEach(() => {
-    validator.mockClear();
+    mockValidator.mockClear();
   });
 
   test.each([
@@ -18,7 +20,7 @@ describe('isPhone function', () => {
   ])(
     'should return %p when the validator function returns %p',
     (phoneNumber, expected) => {
-      validator.mockReturnValue(expected);
+      mockValidator.mockReturnValue(expected);
 
       const result = isPhone(phoneNumber);
       expect(result).toBe(expected);
