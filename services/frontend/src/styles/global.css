@@ -1,0 +1,50 @@
+:root {
+  --at-is-mobile: true;
+}
+
+@screen md {
+  :root {
+    --at-is-mobile: false;
+  }
+}
+
+html,
+body,
+#root,
+main {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @apply font-default font-500 color-zinc-700 max-h-100dvh overflow-hidden md:bg-zinc-400;
+}
+
+button {
+  @apply appearance-none border-none bg-transparent cursor-pointer;
+}
+
+ul,
+li,
+ol {
+  @apply list-none pa-0 ma-0;
+}
+
+a {
+  @apply decoration-none color-inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-700 ma-0;
+}
+
+main {
+  @apply w-unset;
+}
