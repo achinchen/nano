@@ -5,14 +5,14 @@ import {
   PROVIDER_NAVIGATION,
   CONSUMER_NAVIGATION,
 } from '~frontend/layout/Header/Menu/constants';
-
-const isProvider = true;
+import { useHeaderContext } from '~frontend/layout/Header/context';
 
 type Props = {
   onClose: () => void;
 };
 
 export default function RightTop({ onClose }: Props) {
+  const { isProvider } = useHeaderContext();
   const navigation = isProvider ? PROVIDER_NAVIGATION : CONSUMER_NAVIGATION;
   const onMenuClick = (event: React.MouseEvent) => {
     event.stopPropagation();

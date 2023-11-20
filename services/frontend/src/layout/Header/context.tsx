@@ -33,7 +33,7 @@ export const HeaderContextProvider = ({
 }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
-  const [isProvider, setIsProvider] = useState(false);
+  const [isProvider, setIsProvider] = useState(true);
 
   return (
     <HeaderContext.Provider
