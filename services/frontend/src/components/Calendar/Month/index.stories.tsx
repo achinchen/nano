@@ -11,14 +11,40 @@ const Story: Meta<typeof CalendarMonthLoose> = {
 export default Story;
 
 const looseData = {
-  '9-20': ['提拉米蘇蛋糕課', '情人節手作'],
-  '9-30': ['創業諮詢課程非常長'],
-  '9-17': [
-    '提拉米蘇蛋糕課',
-    '情人節手作',
-    '3天寫程式就上手不可能',
-    '精油課程妳看不見',
+  17: [{ name: '提拉米蘇蛋糕課', id: 1 }],
+  20: [
+    {
+      name: '提拉米蘇蛋糕課',
+      id: 2,
+    },
+    {
+      name: '情人節手作',
+      id: 2,
+    },
+    {
+      name: '3天寫程式就上手不可能',
+      id: 3,
+    },
+    {
+      name: '精油課程妳看不見',
+      id: 12,
+    },
   ],
+  30: [
+    {
+      name: '提拉米蘇蛋糕課',
+      id: 30,
+    },
+  ],
+};
+
+const getMockData = (month: number) => {
+  return Object.entries(looseData).reduce((data, [date, value]) => {
+    return {
+      ...data,
+      [`${month}-${date}`]: value,
+    };
+  }, {});
 };
 
 export const Loose = () => {
@@ -28,7 +54,7 @@ export const Loose = () => {
     <CalendarMonthLoose
       selectedDate={selectedDate}
       onSelect={setSelectedDate}
-      data={looseData}
+      data={getMockData(new Date().getMonth() + 1)}
       type="content"
     />
   );

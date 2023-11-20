@@ -1,5 +1,8 @@
 import type { SelectedDatePayload } from '~frontend/components/Calendar/hooks/use-date-select';
-import type { Status as StatusType } from '~frontend/components/Calendar/types';
+import type {
+  Status as StatusType,
+  Content as ContentType,
+} from '~frontend/components/Calendar/types';
 import { useMemo } from 'react';
 import { DAYS } from '~frontend/components/Calendar/constants';
 import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
@@ -12,7 +15,7 @@ type CalendarMonthProps = {
   onSelect: (date: Date) => void;
   selectedDate?: Date;
   data?: {
-    [key: string]: string[] | StatusType;
+    [key: string]: ContentType[] | StatusType;
   };
   type?: 'status' | 'content';
 };
@@ -66,7 +69,10 @@ export default function CalendarMonthLoose({
             </span>
             {data?.[`${month}-${day}`] &&
               (type === 'content' ? (
-                <Content data={data[`${month}-${day}`] as string[]} />
+                <Content
+                  data={data[`${month}-${day}`] as ContentType[]}
+                  date={`${month}-${day}`}
+                />
               ) : (
                 <Status status={data[`${month}-${day}`] as StatusType} />
               ))}
