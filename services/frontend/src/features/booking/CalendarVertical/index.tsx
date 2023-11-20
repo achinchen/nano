@@ -9,9 +9,9 @@ import {
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
+import { usePan, Direction } from '~frontend/components/shared/hooks/use-pan';
 import { getNextWeek, getPreviousWeek } from './utils';
 import { useCalendarVerticalContext } from './context';
-import { usePan, Direction } from './hooks/use-pan';
 
 const mockServiceData = {
   17: 'full',

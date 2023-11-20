@@ -2,9 +2,9 @@ import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useBookingContext } from '~frontend/features/booking/context';
 import {
-  formateDate,
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
+  getLocaleYYYYMMDD,
 } from '~frontend/utils/date';
 import i from './i.json';
 
@@ -23,7 +23,7 @@ export function Header({ className = '' }: { className?: string }) {
 
   return (
     <header className={`content-header ${className}`}>
-      <time onClick={onTodayClick}>{formateDate(selectedDate)}</time>
+      <time onClick={onTodayClick}>{getLocaleYYYYMMDD(selectedDate)}</time>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton
           icon="i-solar-alt-arrow-left-linear"
