@@ -1,4 +1,5 @@
 {
+  "service": "服務",
   "supplier": "服務者",
   "location": "地點",
   "order": "順位",
@@ -7,5 +8,6 @@
     "attendee": "人",
     "hour": "小時",
     "minute": "分鐘"
-  }
+  },
+  "allday": "全天候"
 }

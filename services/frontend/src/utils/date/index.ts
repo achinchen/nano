@@ -23,7 +23,7 @@ export const getMMDD = (date: Date) => {
 
 export const getLocaleYYYYMMDD = (date: Date) => {
   return dayjs(date).format('LL');
-}
+};
 
 export const formateDate = (date: Date) => {
   const target = dayjs(date);
