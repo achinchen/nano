@@ -5,14 +5,15 @@ import {
   PROVIDER_NAVIGATION,
   CONSUMER_NAVIGATION,
 } from '~frontend/layout/Header/Menu/constants';
-
-const isProvider = true;
-const onClick = () => {
-  /* */
-};
+import { useHeaderContext } from '~frontend/layout/Header/context';
 
 export default function FullScreenMenu() {
+  const { isProvider, setMenuOpen } = useHeaderContext();
   const navigation = isProvider ? PROVIDER_NAVIGATION : CONSUMER_NAVIGATION;
+
+  const onClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav className="fixed left-0 right-0 top-11 h-100vh w-100vw bg-zinc-50 px-4">
@@ -26,6 +27,7 @@ export default function FullScreenMenu() {
                   <Link
                     to={href}
                     className="h-14 flex items-center gap-4 color-zinc-700"
+                    onClick={onClick}
                   >
                     <Icon icon={icon} size="2xl" className="h-8 w-8" />
                     <span className="h-100% flex flex-1 items-center justify-between border-b-1 border-b-zinc-200 border-b-solid">
