@@ -88,7 +88,7 @@ function OrderCard(service: ServiceOrder) {
         </span>
       ) : (
         <>
-          <h3 className="mb-1">{sharedI.times}</h3>
+          <h3 className="mb-1 text-base">{sharedI.times}</h3>
           <TimeCards
             times={times}
             duration={duration}

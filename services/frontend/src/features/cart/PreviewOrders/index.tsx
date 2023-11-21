@@ -19,8 +19,7 @@ function PreviewOrders({ className = '' }: { className?: string }) {
         <div className="mx-auto inline-flex flex-col">
           <StepProgress
             steps={stepsLength}
-            currentStep={currentStep}
-            value={10}
+            currentStep={currentStep + 1}
             onBack={toPreviousStep}
           />
           <h3 className="translate-x-4px text-right text-base">{i.title}</h3>
