@@ -83,7 +83,16 @@ const ORDERS = [
     startAt: '2023-12-19T13:00',
   },
   {
-    duration: 120,
+    duration: 30,
+    name: '客製蛋糕',
+    description: '客製蛋糕的敘述就好似這樣',
+    currentAttendee: 2,
+    serviceId: 21,
+    attendee: 2,
+    startAt: '2023-12-19T12:00',
+  },
+  {
+    duration: 45,
     currentAttendee: 2,
     serviceId: 20,
     attendee: 2,
@@ -108,14 +117,17 @@ const getMockData = (month: number) => {
 const SCALE_SIZE = {
   XS: {
     TITLE: 'text-10px',
+    TAG: 'top-2px',
     DESCRIPTION: 'text-8px',
   },
   SM: {
     TITLE: 'text-12px',
+    TAG: 'top-2',
     DESCRIPTION: 'text-10px',
   },
   MD: {
     TITLE: 'text-base',
+    TAG: 'top-2',
     DESCRIPTION: 'text-sm',
   },
 };
@@ -199,9 +211,9 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
                 serviceId,
               }) => {
                 const scale =
-                  duration < 25
+                  duration < 35
                     ? SCALE_SIZE.XS
-                    : duration < 60
+                    : duration < 40
                     ? SCALE_SIZE.SM
                     : SCALE_SIZE.MD;
 
@@ -219,7 +231,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
                     }}
                   >
                     <div
-                      className={`relative py-2px pl-2 border-l-8 border-l-solid h-100% ${
+                      className={`relative flex flex-col gap--1 pl-2 border-l-8 border-l-solid h-100% ${
                         getServiceColorById(serviceId).BORDER.LEFT
                       }`}
                     >
@@ -227,12 +239,12 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
                         {getPeriodTime(startAt, duration)}
                       </time>
                       <span
-                        className={`absolute right-0 top-0 flex items-center rounded-2 bg-primary-200 px-1 text-1em color-primary-500`}
+                        className={`absolute right-0 flex items-center rounded-2 bg-primary-200 px-1 text-1em color-primary-500 ${scale.TAG}`}
                       >
                         {currentAttendee}/{attendee}
                       </span>
                       <h5
-                        className={`line-clamp-2 text-sm font-normal color-zinc-600 ${scale.DESCRIPTION}`}
+                        className={`line-clamp-2 font-normal color-zinc-600 ${scale.DESCRIPTION}`}
                       >
                         {name}
                       </h5>
