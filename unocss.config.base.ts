@@ -54,6 +54,12 @@ const config = {
         600: '#08A2A5',
         800: '#06898B',
       },
+      functional: {
+        error: '#D94735',
+        warning: '#FE7210',
+        info: '#0861DE',
+        success: '#01A652',
+      }
     },
     breakpoints: {
       sm: '320px',
