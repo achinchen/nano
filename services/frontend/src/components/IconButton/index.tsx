@@ -10,7 +10,7 @@ type IconButtonProps = {
   rounded?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  onClick: () => void;
+  onClick: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 } & Pick<IconProps, 'icon'> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 

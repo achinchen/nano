@@ -16,6 +16,7 @@ export type SelectProps = React.PropsWithChildren<{
   noOptionsLabel?: string;
   filterable?: boolean;
   center?: boolean;
+  clearable?: boolean;
 }>;
 
 export default function Select({
@@ -30,6 +31,7 @@ export default function Select({
   noOptionsLabel = NO_OPTIONS_LABEL,
   filterable = false,
   center = false,
+  clearable = false,
   ...attributes
 }: SelectProps) {
   const [opened, setOpened] = useState(false);
@@ -49,6 +51,8 @@ export default function Select({
       ? 'i-solar-alt-arrow-up-linear'
       : 'i-solar-alt-arrow-down-linear';
   }, [opened]);
+
+  const shouldOpen = clearable ? opened && Boolean(value) : opened;
 
   const inputValue = useMemo(() => {
     return inputKeyword ?? (selectedOption?.label || '');
@@ -99,13 +103,14 @@ export default function Select({
           className={className}
           placeholder={placeholder}
           prefixIcon={prefixIcon}
-          suffixIcon={center ? undefined : suffixIcon}
+          suffixIcon={suffixIcon}
           onValueChange={setInputKeyword}
           center={center}
+          clearable={opened || clearable}
           {...attributes}
         />
       </div>
-      {opened && (
+      {shouldOpen && (
         <Options
           value={value}
           options={filteredOptions}

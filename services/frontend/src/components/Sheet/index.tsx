@@ -44,7 +44,7 @@ export default function Sheet({
         <ReactSheet.Content>
           {hasCloseButton && (
             <IconButton
-              icon="i-solar-close-circle-outline"
+              icon="i-custom-close"
               color="dark"
               size="sm"
               variant="text"
