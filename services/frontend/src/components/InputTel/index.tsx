@@ -89,7 +89,7 @@ export default function InputTel({
         <IconButton
           className={clearable ? 'visible' : 'invisible'}
           size="xs"
-          icon="i-solar-close-circle-outline"
+          icon="i-custom-close"
           color="dark"
           variant="text"
           onClick={onClear}

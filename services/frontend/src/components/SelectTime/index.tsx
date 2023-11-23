@@ -26,6 +26,7 @@ export default function SelectTime({
       value={value}
       onValueChange={onValueChange}
       center
+      clearable
     />
   );
 }

@@ -59,7 +59,7 @@ export default function Message({
           </p>
         </div>
         <IconButton
-          icon="i-solar-close-circle-outline"
+          icon="i-custom-close"
           color="dark"
           size="sm"
           variant="text"

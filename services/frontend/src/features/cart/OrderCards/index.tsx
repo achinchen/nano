@@ -58,9 +58,10 @@ function OrderCard(service: ServiceOrder) {
         <h2 className="line-clamp-2 text-lg font-bold">{name}</h2>
         <IconButton
           className="relative z-1 w-9"
-          icon="i-solar-close-circle-outline"
+          icon="i-custom-close"
           color="dark"
           variant="text"
+          rounded
           size="sm"
           onClick={onRemoveClick}
         />
@@ -99,18 +100,20 @@ function OrderCard(service: ServiceOrder) {
             <span className="font-bold">{scopedI.attendee}</span>
             <div className="flex items-center justify-between gap-4">
               <IconButton
-                icon="i-solar-minus-circle-linear"
-                variant="text"
+                icon="i-custom-minus"
+                variant="outline"
+                rounded
                 color="dark"
-                size="md"
+                size="sm"
                 onClick={onDecrease}
               />
               <span className="text-lg">{attendee}</span>
               <IconButton
-                icon="i-solar-add-circle-linear"
-                variant="text"
+                icon="i-custom-add"
+                variant="outline"
+                rounded
                 color="dark"
-                size="md"
+                size="sm"
                 onClick={onIncrease}
               />
             </div>

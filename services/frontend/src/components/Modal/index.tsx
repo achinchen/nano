@@ -34,7 +34,7 @@ export function Modal({
         {hasCloseButton && (
           <IconButton
             className="absolute right-3 top-3 sm:right-2 sm:top-2"
-            icon="i-solar-close-circle-outline"
+            icon="i-custom-close"
             size="sm"
             color="dark"
             variant="text"
