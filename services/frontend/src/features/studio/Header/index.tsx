@@ -56,11 +56,7 @@ export function Header() {
           </Fragment>
         )}
         <IconButton
-          icon={
-            isListMode
-              ? 'i-solar-slider-horizontal-bold'
-              : 'i-solar-slider-horizontal-linear'
-          }
+          icon={isListMode ? 'i-custom-slider-bold' : 'i-custom-slider-outline'}
           color="dark"
           size="sm"
           variant="outline"
