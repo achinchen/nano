@@ -4,6 +4,7 @@ import { useStudioContext } from '~frontend/features/studio/context';
 import sharedI from '~frontend/shared/i.json';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
+import takeLeaveImage from '~frontend/assets/takeleave.svg';
 import {
   getTimeOptions,
   getHeightByDuration,
@@ -104,6 +105,18 @@ const ORDERS = [
 
 const TIME = 'w-14 md:w-17 text-xs color-zinc-500 font-normal text-right';
 const studioOpeningHours = ['09:00', '21:00'];
+
+const TAKE_LEAVES = [
+  {
+    duration: 40,
+    name: '創業諮詢',
+    description: '創業諮詢的敘述就好似這樣',
+    startAt: '2023-12-19T19:00',
+  },
+];
+
+const TIME_BLOCK_CLASSNAME =
+  'absolute mt-9px w-100% flex flex-col overflow-hidden border-1 border-zinc-200 rounded-2 border-solid bg-light-100';
 
 const getMockData = (month: number) => {
   return Object.entries(mockServiceData).reduce((data, [date, value]) => {
@@ -219,7 +232,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
 
                 return (
                   <li
-                    className="absolute mt-9px w-100% flex flex-col overflow-hidden border-1 border-zinc-200 rounded-2 border-solid bg-light-100 pr-2 active:bg-zinc-100 hover:bg-zinc-50"
+                    className={`${TIME_BLOCK_CLASSNAME} pr-2 active:bg-zinc-100 hover:bg-zinc-50`}
                     key={`order-cards-${serviceId}-${name}-${startAt}`}
                     style={{
                       height: `${getHeightByDuration(duration, loose)}px`,
@@ -253,6 +266,23 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
                 );
               }
             )}
+            {TAKE_LEAVES.map(({ startAt, duration }, index) => (
+              <li
+                className={TIME_BLOCK_CLASSNAME}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`order-cards-${startAt}-${index}`}
+                style={{
+                  height: `${getHeightByDuration(duration, loose)}px`,
+                  top: getTopByTimeAndOpenTime(
+                    startAt,
+                    studioOpeningHours[0],
+                    loose
+                  ),
+                }}
+              >
+                <img src={takeLeaveImage} alt="take leave" />
+              </li>
+            ))}
           </ul>
         </main>
       </section>
