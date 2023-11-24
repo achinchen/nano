@@ -1,10 +1,28 @@
+import { Fragment } from 'react';
+import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { Content as ContentType } from '~frontend/components/Calendar/types';
 import { MAX_LENGTH } from './constants';
+import i from './i.json';
 
 type ContentProps = {
-  data: string[];
+  data: ContentType[];
+  date: string;
 };
 
-export default function Content({ data }: ContentProps) {
+function Tags({ items, date }: { items: ContentType[]; date: string }) {
+  return (
+    <Fragment>
+      {items.map(({ id }) => (
+        <span
+          key={`${id}-tag-${date}`}
+          className={`flex-1 rounded-3 ${getServiceColorById(id).BG}`}
+        />
+      ))}
+    </Fragment>
+  );
+}
+
+export default function Content({ data, date }: ContentProps) {
   const { length: dataLength } = data;
   const showMore = dataLength > MAX_LENGTH;
   const items = showMore ? data.slice(0, MAX_LENGTH) : data;
@@ -13,21 +31,21 @@ export default function Content({ data }: ContentProps) {
   return (
     <ul className="mt-1 w-100% flex flex-col gap-1 p-0">
       <li className="h-1 flex flex-row gap-1">
-        {dataLength && <span className="flex-1 rounded-3 bg-red-400" />}
-        {dataLength > 1 && <span className="flex-1 rounded-3 bg-yellow-400" />}
-        {dataLength > 2 && <span className="flex-1 rounded-3 bg-blue-500" />}
+        <Tags items={items} date={date} />
       </li>
-      {items.map((name, index) => (
+      {items.map(({ name, id }) => (
         <li
-          key={`${name}-${index + 1}`}
-          className="truncate rounded-1 bg-red-100 px-2 text-xs font-medium text-red-800"
+          key={`${date}-${name}-${id}`}
+          className={`truncate rounded-1 px-2 text-xs font-medium ${
+            getServiceColorById(id).LABEL
+          }`}
         >
           {name}
         </li>
       ))}
       {showMore && (
         <li className="truncate px-2 text-xs font-medium">
-          還有 {moreItemLength} 項服務
+          {i.rest} {moreItemLength} {i.service}
         </li>
       )}
     </ul>

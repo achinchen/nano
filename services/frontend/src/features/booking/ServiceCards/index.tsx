@@ -141,7 +141,7 @@ export function ServiceCard({
           className={`ml-3 ${ICON_COLOR}`}
         />
         {duration} ·{' '}
-        <span className="color-zinc-500">{allday ? scopedI.allday : time}</span>
+        <span className="color-zinc-500">{allday ? sharedI.allday : time}</span>
       </div>
       <div className="flex flex-row gap-2">
         <span className={`${TAG_CONFIG.sm} bg-primary-100 color-primary-600`}>

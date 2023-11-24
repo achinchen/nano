@@ -1,4 +1,4 @@
-import type { Value, ContextState } from '../types';
+import type { Value, ContextState } from '~frontend/components/Tabs/types';
 import { Children } from 'react';
 import { TabsContextProvider } from '~frontend/components/Tabs/context';
 

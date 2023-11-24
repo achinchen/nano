@@ -11,7 +11,7 @@ export const formatDuration = (duration: number) => {
 
   const hour = Math.floor(duration / HOUR);
   const minute = duration % HOUR;
-  return `${hour} ${i.unit.hour}${
+  return `${hour} ${i.unit.hour} ${
     minute > 0 ? `${minute} ${i.unit.minute}` : ''
   }`;
 };

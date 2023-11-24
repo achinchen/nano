@@ -8,7 +8,7 @@ import {
   EVENT_NAME,
 } from '~frontend/features/booking/context';
 import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
-import Header from '~frontend/features/cart/Header';
+import Header from '~frontend/features/booking/Header';
 import Footer from '~frontend/features/booking/Footer';
 import ServiceDetail from '~frontend/features/booking/ServiceDetail';
 import ServiceTimes from '~frontend/features/booking/ServiceTimes';

@@ -1,7 +1,7 @@
 import type { PanInfo } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useBookingContext } from '~frontend/features/booking/context';
+import { useStudioContext } from '~frontend/features/studio/context';
 import { SheetIndicator } from '~frontend/components/Sheet';
 import CalendarMonthTight from '~frontend/components/Calendar/Month/Tight';
 import CalendarWeek from '~frontend/components/Calendar/Week';
@@ -14,9 +14,31 @@ import { getNextWeek, getPreviousWeek } from './utils';
 import { useCalendarVerticalContext } from './context';
 
 const mockServiceData = {
-  17: 'full',
-  20: 'unsold',
-  30: 'has-order',
+  17: [{ name: '提拉米蘇蛋糕課', id: 1 }],
+  20: [
+    {
+      name: '提拉米蘇蛋糕課',
+      id: 2,
+    },
+    {
+      name: '情人節手作',
+      id: 2,
+    },
+    {
+      name: '3天寫程式就上手不可能',
+      id: 3,
+    },
+    {
+      name: '精油課程妳看不見',
+      id: 12,
+    },
+  ],
+  30: [
+    {
+      name: '提拉米蘇蛋糕課',
+      id: 30,
+    },
+  ],
 };
 
 const getMockData = (month: number) => {
@@ -31,7 +53,7 @@ const getMockData = (month: number) => {
 export function CalendarVertical({ className = '' }: { className?: string }) {
   const { mode, toggleMode } = useCalendarVerticalContext();
   const { pan, onStart, onEnd } = usePan();
-  const { selectedDate, setSelectedDate } = useBookingContext();
+  const { selectedDate, setSelectedDate } = useStudioContext();
   const [serviceData, setServiceData] = useState({});
   const isWeek = mode === 'week';
 

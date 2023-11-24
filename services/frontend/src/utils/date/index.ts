@@ -21,6 +21,10 @@ export const getMMDD = (date: Date) => {
   return dayjs(date).format('MM/DD');
 };
 
+export const getLocaleYYYYMMDD = (date: Date) => {
+  return dayjs(date).format('LL');
+};
+
 export const formateDate = (date: Date) => {
   const target = dayjs(date);
   const shouldShowYear = target.year() !== dayjs().year();
