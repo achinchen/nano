@@ -24,3 +24,6 @@ export const FULL_TIME_OPTIONS = [
   '下午11點',
   '下午12點',
 ];
+
+export const FULL_BLOCK_CLASS_NAMES =
+  'absolute mt-9px w-100% flex flex-col overflow-hidden border-1 border-zinc-200 rounded-2 border-solid bg-light-100';
