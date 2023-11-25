@@ -15,7 +15,7 @@ function Tags({ items, date }: { items: ContentType[]; date: string }) {
       {items.map(({ id }) => (
         <span
           key={`${id}-tag-${date}`}
-          className={`flex-1 rounded-3 ${getServiceColorById(id).BG}`}
+          className={`flex-1 rounded-3 ${getServiceColorById(id).BG.DEFAULT}`}
         />
       ))}
     </Fragment>

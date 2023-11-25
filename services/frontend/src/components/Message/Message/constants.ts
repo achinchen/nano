@@ -13,8 +13,8 @@ export const CONTAINER_CLASSNAMES =
 export const COLOR: { [key in MessageSeverity]: string } = {
   success: 'bg-primary-100 color-functional-success',
   error: 'bg-red-50  color-functional-error',
-  warning: 'bg-orange-50  color-functional-warning',
-  info: 'bg-sky-100  color-functional-info',
+  warning: 'bg-yellow-50  color-functional-warning',
+  info: 'bg-clay-100  color-functional-info',
 };
 
 export const ICON: { [key in MessageSeverity]: string } = {
