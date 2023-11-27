@@ -33,7 +33,7 @@ export function usePan() {
   };
 
   const onHorizontal = (x: PanInfo['x']) => {
-    const direction = x > 0 ? Direction.left : Direction.right;
+    const direction = x < 0 ? Direction.left : Direction.right;
     return Math.abs(x) >= THRESHOLD && direction;
   };
 

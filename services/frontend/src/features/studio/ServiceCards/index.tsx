@@ -59,7 +59,11 @@ export default function ServiceCards() {
                 <h5 className="line-clamp-2 text-base">{name}</h5>
                 <span className={`flex items-start text-sm ${COLOR_SET.TEXT}`}>
                   <span className="flex items-center">
-                    <Icon size="2xl" icon="i-solar-chair-linear" />
+                    <Icon
+                      size="2xl"
+                      icon="i-solar-chair-linear"
+                      className="flex-shrink-0"
+                    />
                     <span className="ml-1 flex-shrink-0 color-zinc-700">
                       {currentAttendee}
                       {sharedI.unit.attendee}
@@ -68,7 +72,7 @@ export default function ServiceCards() {
                   <Icon
                     size="2xl"
                     icon="i-solar-alarm-linear"
-                    className="ml-3 mr-1"
+                    className="ml-3 mr-1 flex-shrink-0"
                   />
                   <span className="whitespace-pre">
                     <span className="mx-1 color-zinc-700">

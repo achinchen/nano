@@ -3,6 +3,8 @@ import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
 import {
+  getNextWeek,
+  getPreviousWeek,
   getLocaleYYYYMMDD,
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
@@ -14,13 +16,19 @@ export function Header() {
   const { selectedDate, setSelectedDate, isListMode, setListMode } =
     useStudioContext();
   const onNextClick = () => {
-    setSelectedDate((selectedDate) => getFirstDateInNextMonth(selectedDate));
+    setSelectedDate((selectedDate) => {
+      return isListMode
+        ? getNextWeek(selectedDate)
+        : getFirstDateInNextMonth(selectedDate);
+    });
   };
 
   const onPreviousClick = () => {
-    setSelectedDate((selectedDate) =>
-      getFirstDateInPreviousMonth(selectedDate)
-    );
+    setSelectedDate((selectedDate) => {
+      return isListMode
+        ? getPreviousWeek(selectedDate)
+        : getFirstDateInPreviousMonth(selectedDate);
+    });
   };
   const onTodayClick = () => setSelectedDate(new Date());
   const onToggleListMode = () => setListMode((isListMode) => !isListMode);
@@ -56,10 +64,10 @@ export function Header() {
           </Fragment>
         )}
         <IconButton
-          icon={isListMode ? 'i-custom-slider-bold' : 'i-custom-slider-outline'}
+          icon="i-custom-slider-bold"
           color="dark"
           size="sm"
-          variant="outline"
+          variant={isListMode ? 'solid' : 'outline'}
           onClick={onToggleListMode}
         />
       </aside>

@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
 import {
@@ -10,6 +11,7 @@ import { getSizeByDuration } from './utils';
 
 const ORDERS = [
   {
+    id: 101,
     duration: 15,
     name: '創業諮詢',
     description: '創業諮詢的敘述就好似這樣',
@@ -19,6 +21,7 @@ const ORDERS = [
     startAt: '2023-12-19T10:00',
   },
   {
+    id: 102,
     duration: 90,
     name: '客製蛋糕',
     description: '客製蛋糕的敘述就好似這樣',
@@ -28,6 +31,7 @@ const ORDERS = [
     startAt: '2023-12-19T13:00',
   },
   {
+    id: 103,
     duration: 30,
     name: '客製蛋糕',
     description: '客製蛋糕的敘述就好似這樣',
@@ -37,6 +41,7 @@ const ORDERS = [
     startAt: '2023-12-19T12:00',
   },
   {
+    id: 104,
     duration: 45,
     currentAttendee: 2,
     serviceId: 20,
@@ -58,7 +63,7 @@ export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
           const { BORDER, BG } = getServiceColorById(serviceId);
           return (
             <li
-              className={`${FULL_BLOCK_CLASS_NAMES} ${BG.ACTIVE} pr-2 hover:bg-zinc-50`}
+              className={`${FULL_BLOCK_CLASS_NAMES} pr-2`}
               key={`order-cards-${serviceId}-${name}-${startAt}`}
               style={{
                 height: `${getHeightByDuration(duration, loose)}px`,
@@ -69,8 +74,9 @@ export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
                 ),
               }}
             >
-              <div
-                className={`relative flex flex-col gap--1 pl-2 border-l-8 border-l-solid h-100% ${BORDER.LEFT}`}
+              <Link
+                to={`/studio/s/${serviceId}/${startAt}`}
+                className={`${BG.ACTIVE} hover:bg-zinc-50 relative flex flex-col gap--1 pl-2 border-l-8 border-l-solid h-100% ${BORDER.LEFT}`}
               >
                 <time className={size.TITLE}>
                   {getPeriodTime(startAt, duration)}
@@ -85,7 +91,7 @@ export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
                 >
                   {name}
                 </h5>
-              </div>
+              </Link>
             </li>
           );
         }
