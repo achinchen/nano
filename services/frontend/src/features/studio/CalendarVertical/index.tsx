@@ -6,11 +6,12 @@ import { SheetIndicator } from '~frontend/components/Sheet';
 import CalendarMonthTight from '~frontend/components/Calendar/Month/Tight';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import {
+  getNextWeek,
+  getPreviousWeek,
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
 import { usePan, Direction } from '~frontend/components/shared/hooks/use-pan';
-import { getNextWeek, getPreviousWeek } from './utils';
 import { useCalendarVerticalContext } from './context';
 
 const mockServiceData = {

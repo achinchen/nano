@@ -5,6 +5,7 @@ import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';
+import ScrollableCalendarWeek from './components/ScrollableCalendarWeek';
 import { getTimeOptions } from './utils';
 
 const mockServiceData = {
@@ -84,7 +85,8 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
     return Object.entries(serviceData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: string }[])[0].status,
+        [date]: (services as { status: 'unsold' | 'full' | 'has-order' }[])[0]
+          .status,
       }),
       {}
     );
@@ -98,12 +100,16 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
 
   return (
     <section className="border-t-1 border-t-zinc-200 border-t-solid pt-2 md:w-160 md:border-none md:bg-zinc-50 md:pl-6 md:pt-6">
-      <CalendarWeek
-        onSelect={setSelectedDate}
-        selectedDate={selectedDate}
-        data={serviceStatusData}
-        loose={loose}
-      />
+      {loose ? (
+        <CalendarWeek
+          onSelect={setSelectedDate}
+          selectedDate={selectedDate}
+          data={serviceStatusData}
+          loose={loose}
+        />
+      ) : (
+        <ScrollableCalendarWeek data={serviceStatusData} />
+      )}
       <section className="mt-2 bg-zinc-50">
         <ServiceNav />
         <main className="relative mt-2 h-[calc(100dvh-236px)] overflow-y-scroll md:h-[calc(100dvh-330px)]">

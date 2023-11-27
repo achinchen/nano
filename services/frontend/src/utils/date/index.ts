@@ -40,12 +40,16 @@ export const getFirstDateInNextMonth = (date: Date) => {
   return dayjs(date).add(1, 'month').set('date', 1).toDate();
 };
 
+export const getPreviousWeek = (date: Date) =>
+  dayjs(date).subtract(7, 'day').toDate();
+export const getNextWeek = (date: Date) => dayjs(date).add(7, 'day').toDate();
+
 export const getBefore = (
   date: Date,
   day: number,
   unit: ManipulateType = 'day'
 ) => {
-  return dayjs(date).add(day, unit).toDate();
+  return dayjs(date).subtract(day, unit).toDate();
 };
 
 export const getAfter = (
@@ -53,7 +57,7 @@ export const getAfter = (
   day: number,
   unit: ManipulateType = 'day'
 ) => {
-  return dayjs(date).subtract(day, unit).toDate();
+  return dayjs(date).add(day, unit).toDate();
 };
 
 export const isBefore = (dateA: Date, dateB: Date) => {
