@@ -4,7 +4,6 @@ import {
   StudioContextProvider,
   useStudioContext,
 } from '~frontend/features/studio/context';
-import ServiceCards from '~frontend/features/studio/ServiceCards';
 import {
   CalendarVerticalContextProvider,
   useCalendarVerticalContext,
@@ -12,16 +11,15 @@ import {
 import CalendarVertical from '~frontend/features/studio/CalendarVertical';
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
-import ContentTabs from '~frontend/features/studio/ContentTabs';
+import HomeContent from '~frontend/features/studio/HomeContent';
 import Header from '~frontend/features/studio/Header';
 import { getIsMobile } from '~frontend/utils/device';
-import OrderCards from '~frontend/features/studio/OrderCards';
 
 const provider = '阿狗狗的快樂小天地';
 
 function Content() {
   const { mode } = useCalendarVerticalContext();
-  const { setSelectedDate, currentContent, isListMode } = useStudioContext();
+  const { setSelectedDate, isListMode } = useStudioContext();
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
@@ -43,9 +41,7 @@ function Content() {
                 : 'max-h-[calc(100dvh-364px)]'
             }`}
           >
-            <ContentTabs />
-            {currentContent === 'order' && <OrderCards />}
-            {currentContent === 'service' && <ServiceCards />}
+            <HomeContent />
           </section>
         </Fragment>
       )}
@@ -54,9 +50,7 @@ function Content() {
     <div className="flex flex-row bg-white">
       {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
       <section className="h-[calc(100dvh-156px)] flex-1 overflow-y-scroll border-l-1 border-l-zinc-200 border-l-solid pa-4">
-        <ContentTabs />
-        {currentContent === 'order' && <OrderCards />}
-        {currentContent === 'service' && <ServiceCards />}
+        <HomeContent />
       </section>
     </div>
   );
