@@ -2,7 +2,7 @@ import i from './i.json';
 
 export const NAVIGATION = [
   {
-    href: '/services',
+    href: '/studio/services',
     icon: 'i-solar-notes-minimalistic-bold',
     label: i.services,
   },

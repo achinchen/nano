@@ -1,11 +1,17 @@
-import type { Content } from '~frontend/features/studio/types';
+import type { Content } from '~frontend/features/studio/HomeContent/types';
 import type { Value } from '~frontend/components/Tabs/types';
 import { Tabs, Tab } from '~frontend/components/Tabs';
-import { useStudioContext } from '~frontend/features/studio/context';
 import { CONTENT_ITEMS } from './constants';
 
-export default function ContentTabs() {
-  const { currentContent, setCurrentContent } = useStudioContext();
+type Props = {
+  currentContent: Content;
+  setCurrentContent: (content: Content) => void;
+};
+
+export default function ContentTabs({
+  currentContent,
+  setCurrentContent,
+}: Props) {
   const onChange = (value?: Value) => setCurrentContent(value as Content);
 
   return (

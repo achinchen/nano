@@ -1,4 +1,3 @@
-import type { Content } from './types';
 import {
   Dispatch,
   SetStateAction,
@@ -8,7 +7,6 @@ import {
   useMemo,
 } from 'react';
 import { eventEmitter } from '~frontend/utils/event';
-import { CONTENT } from './constants';
 
 export type InitialState = {
   selectedDate: Date;
@@ -16,8 +14,6 @@ export type InitialState = {
   isToday: boolean;
   isListMode: boolean;
   setListMode: Dispatch<SetStateAction<boolean>>;
-  currentContent: Content;
-  setCurrentContent: Dispatch<SetStateAction<Content>>;
 };
 
 export const EVENT_NAME = 'studio-date-change';
@@ -40,9 +36,6 @@ export const StudioContext = createContext<InitialState>({
   isListMode: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setListMode: () => {},
-  currentContent: CONTENT.SERVICE,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setCurrentContent: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -56,9 +49,6 @@ export const StudioContextProvider = ({
 }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isListMode, setListMode] = useState(true);
-  const [currentContent, setCurrentContent] = useState<Content>(
-    CONTENT.SERVICE
-  );
 
   const isToday = useMemo(() => getIsToday(selectedDate), [selectedDate]);
 
@@ -75,8 +65,6 @@ export const StudioContextProvider = ({
         setSelectedDate: setSelectedDateWithEvent,
         isListMode,
         setListMode,
-        currentContent,
-        setCurrentContent,
       }}
     >
       {children}

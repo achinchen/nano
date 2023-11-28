@@ -1,20 +1,20 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
 import {
   getNextWeek,
   getPreviousWeek,
-  getLocaleYYYYMMDD,
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
 import { getIsMobile } from '~frontend/utils/device';
+import sharedI from '~frontend/shared/i.json';
 import i from './i.json';
 
-export function Header() {
-  const { selectedDate, setSelectedDate, isListMode, setListMode } =
-    useStudioContext();
+export default function ServicesHeader() {
+  const { setSelectedDate, isListMode, setListMode } = useStudioContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
       return isListMode
@@ -33,9 +33,13 @@ export function Header() {
   const onTodayClick = () => setSelectedDate(new Date());
   const onToggleListMode = () => setListMode((isListMode) => !isListMode);
 
+  const onCreateClick = () => {
+    /** */
+  };
+
   return (
     <header className="content-header">
-      <time onClick={onTodayClick}>{getLocaleYYYYMMDD(selectedDate)}</time>
+      <h2>{i.list}</h2>
       <aside className="flex items-center justify-between gap-2">
         {!getIsMobile() && (
           <Fragment>
@@ -52,7 +56,7 @@ export function Header() {
               size="sm"
               onClick={onTodayClick}
             >
-              {i.today}
+              {sharedI.today}
             </Button>
             <IconButton
               icon="i-solar-alt-arrow-right-linear"
@@ -61,18 +65,27 @@ export function Header() {
               variant="outline"
               onClick={onNextClick}
             />
+            <IconButton
+              icon="i-custom-slider-bold"
+              color="dark"
+              size="sm"
+              variant={isListMode ? 'solid' : 'outline'}
+              onClick={onToggleListMode}
+            />
           </Fragment>
         )}
-        <IconButton
-          icon="i-custom-slider-bold"
-          color="dark"
-          size="sm"
-          variant={isListMode ? 'solid' : 'outline'}
-          onClick={onToggleListMode}
-        />
+        <Link to="/studio/service/create">
+          <Button
+            color="dark"
+            variant="outline"
+            size="sm"
+            prefixIcon="i-solar-add-circle-bold"
+            onClick={onCreateClick}
+          >
+            {i.create}
+          </Button>
+        </Link>
       </aside>
     </header>
   );
 }
-
-export default Header;

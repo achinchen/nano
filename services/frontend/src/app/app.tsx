@@ -4,6 +4,7 @@ import Booking from '~frontend/pages/booking/provider';
 import BookingService from '~frontend/pages/booking/provider/service';
 import Cart from '~frontend/pages/cart';
 import Studio from '~frontend/pages/studio';
+import StudioServices from '~frontend/pages/studio/service';
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
           <Route path="/booking/:provider/s/:id" element={<BookingService />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/studio" element={<Studio />} />
+          <Route path="/studio/services" element={<StudioServices />} />
         </Routes>
       </Layout>
     </BrowserRouter>
