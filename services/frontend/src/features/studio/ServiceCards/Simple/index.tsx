@@ -33,7 +33,7 @@ const SERVICES = [
   },
 ];
 
-export default function ServiceCards() {
+export default function ServiceSimpleCards() {
   const [services] = useState(SERVICES);
 
   return (
@@ -49,7 +49,7 @@ export default function ServiceCards() {
           const needWrap = `${formattedDuration}${time}`.length > 20;
           return (
             <Link
-              to={`/studio/s/${serviceId}`}
+              to={`/studio/services/${serviceId}?date=${startAt}`}
               className="flex flex-col overflow-hidden border-1 border-zinc-200 rounded-2 border-solid bg-light-100 pr-2 active:bg-zinc-100 hover:bg-zinc-50"
               key={`service-cards-${serviceId}-${name}-${startAt}`}
             >

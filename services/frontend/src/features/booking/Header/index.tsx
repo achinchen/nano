@@ -6,7 +6,7 @@ import {
   getFirstDateInPreviousMonth,
   getLocaleYYYYMMDD,
 } from '~frontend/utils/date';
-import i from './i.json';
+import i from '~frontend/shared/i.json';
 
 export function Header({ className = '' }: { className?: string }) {
   const { selectedDate, setSelectedDate } = useBookingContext();

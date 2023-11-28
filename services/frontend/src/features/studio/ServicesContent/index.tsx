@@ -1,13 +1,12 @@
 import type { Content } from './types';
 import { Fragment, useState } from 'react';
-import ServiceSimpleCards from '~frontend/features/studio/ServiceCards/Simple';
-import ContentTabs from '~frontend/features/studio/HomeContent/ContentTabs';
-import OrderCards from '~frontend/features/studio/OrderCards';
+import ServiceCards from '~frontend/features/studio/ServiceCards/Default';
+import ContentTabs from '~frontend/features/studio/ServicesContent/ContentTabs';
 import { CONTENT } from './constants';
 
 export default function HomePage() {
   const [currentContent, setCurrentContent] = useState<Content>(
-    CONTENT.SERVICE
+    CONTENT.IN_PROGRESS
   );
   return (
     <Fragment>
@@ -15,8 +14,8 @@ export default function HomePage() {
         currentContent={currentContent}
         setCurrentContent={setCurrentContent}
       />
-      {currentContent === CONTENT.ORDER && <OrderCards />}
-      {currentContent === CONTENT.SERVICE && <ServiceSimpleCards />}
+      {currentContent === CONTENT.IN_PROGRESS && <ServiceCards />}
+      {currentContent === CONTENT.END && <ServiceCards end />}
     </Fragment>
   );
 }
