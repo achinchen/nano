@@ -21,6 +21,10 @@ export const getMMDD = (date: Date) => {
   return dayjs(date).format('MM/DD');
 };
 
+export const getYYYYMMDD = (date: Date) => {
+  return dayjs(date).format('YYYY/MM/DD');
+};
+
 export const getLocaleYYYYMMDD = (date: Date) => {
   return dayjs(date).format('LL');
 };

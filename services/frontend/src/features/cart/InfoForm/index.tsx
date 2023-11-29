@@ -8,7 +8,12 @@ import Textarea from '~frontend/components/Textarea';
 import { isPhone } from '~frontend/utils/validator/phone';
 import { eventEmitter } from '~frontend/utils/event';
 import { setInfo } from '~frontend/features/cart/utils';
-import i from './i.json';
+import sharedI from '~frontend/shared/i.json';
+import scopedI from './i.json';
+
+const {
+  info: { title, field: fieldI },
+} = sharedI;
 
 const stepsLength = Object.keys(Step).filter((step) =>
   isNaN(Number(step))
@@ -38,7 +43,7 @@ export default function InfoForm({ className }: { className?: string }) {
 
   const checkRequired = (key: string, value: string) => {
     const isEmpty = value.trim().length === 0;
-    dispatchError({ [key]: isEmpty ? i.required : '' });
+    dispatchError({ [key]: isEmpty ? scopedI.required : '' });
   };
 
   const onNameChange = (value: string) => {
@@ -48,7 +53,7 @@ export default function InfoForm({ className }: { className?: string }) {
 
   const onPhoneChange = (value: string) => {
     dispatch({ phone: value });
-    if (!isPhone(value)) dispatchError({ phone: i.phone.invalid });
+    if (!isPhone(value)) dispatchError({ phone: scopedI.phone.invalid });
     checkRequired('phone', value);
   };
 
@@ -77,24 +82,24 @@ export default function InfoForm({ className }: { className?: string }) {
           currentStep={currentStep + 1}
           onBack={toPreviousStep}
         />
-        <h3 className="text-base">{i.title}</h3>
+        <h3 className="text-base">{title}</h3>
       </header>
       <form className="mb-6 flex flex-col gap-2">
         <label className={labelClassName}>
-          {i.name.label}
+          {fieldI.name}
           <Input
             value={form.name}
             onValueChange={onNameChange}
-            placeholder={i.name.placeholder}
+            placeholder={scopedI.name.placeholder}
             errorMessage={errors.name}
             maxLength={200}
           />
         </label>
         <label className={labelClassName}>
-          {i.email.label}
+          {fieldI.email}
           <Input
             value={form.email}
-            placeholder={i.email.placeholder}
+            placeholder={scopedI.email.placeholder}
             autoComplete="email"
             type="email"
             readOnly
@@ -102,26 +107,26 @@ export default function InfoForm({ className }: { className?: string }) {
           />
         </label>
         <label className={labelClassName}>
-          {i.phone.label}
+          {fieldI.phone}
           <InputTel
             value={form.phone}
-            placeholder={i.phone.placeholder}
+            placeholder={scopedI.phone.placeholder}
             onValueChange={onPhoneChange}
           />
         </label>
         <label className={labelClassName}>
-          {i.SNSId.label}
+          {fieldI.SNSId}
           <Input
             value={form.SNSId}
-            placeholder={i.SNSId.placeholder}
+            placeholder={scopedI.SNSId.placeholder}
             onValueChange={onSNSIdChange}
           />
         </label>
         <label className={labelClassName}>
-          {i.note.label}
+          {scopedI.note.label}
           <Textarea
             value={form.note}
-            placeholder={i.note.placeholder}
+            placeholder={scopedI.note.placeholder}
             onValueChange={onNoteChange}
             maxLength={200}
           />

@@ -1,3 +1,5 @@
 export default function Separator() {
-  return <hr className="border-1 border-zinc-200 border-solid" />;
+  return (
+    <hr className="my-4 border-t-px border-t-zinc-200 border-none border-t-solid" />
+  );
 }

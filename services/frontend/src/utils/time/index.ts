@@ -16,8 +16,17 @@ export const formatDuration = (duration: number) => {
   }`;
 };
 
+const SEPARATOR = ' - ';
+
 export const getPeriodTime = (datetime: Date | string, duration: number) => {
   const start = dayjs(datetime);
   const end = dayjs(datetime).add(duration, 'minute');
-  return `${start.format('A HH:mm')} - ${end.format('A HH:mm')}`;
+  return `${start.format('A HH:mm')}${SEPARATOR}${end.format(
+    'A HH:mm'
+  )}`.replace('早上', '上午');
+};
+
+export const getPeriodTimes = (datetime: Date | string, duration: number) => {
+  const timePeriod = getPeriodTime(datetime, duration);
+  return timePeriod.split(SEPARATOR);
 };

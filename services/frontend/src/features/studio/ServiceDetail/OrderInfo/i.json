@@ -1,0 +1,8 @@
+{
+  "title": "訂購資訊",
+  "queue": {
+    "title": "心願順序",
+    "description": "買家可以在這個服務中選擇三個心願順序"
+  },
+  "required": "必填"
+}
