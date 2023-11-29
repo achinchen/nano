@@ -1,6 +1,6 @@
 import type { ServiceDetailProps } from './types';
 import { useState } from 'react';
-import sharedI from '~frontend/shared/i.json';
+import i from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/utils/time';
 import TextButton from '~frontend/components/TextButton';
@@ -8,7 +8,6 @@ import Separator from '~frontend/components/Separator';
 import { formateDate } from '~frontend/utils/date';
 import InfoBlock from './components/InfoBlock';
 import DescriptionPrompt from './components/DescriptionPrompt';
-import scopedI from './i.json';
 
 export function ServiceDetail({
   name,
@@ -34,43 +33,43 @@ export function ServiceDetail({
       <div className="mt-2 flex gap-2">
         <InfoBlock
           icon="i-solar-alarm-linear"
-          title={scopedI.duration}
+          title={i.duration}
           className="flex-1"
           content={formatDuration(duration)}
         />
         <InfoBlock
           icon="i-solar-square-academic-cap-2-outline"
-          title={sharedI.supplier}
+          title={i.supplier}
           content={supplier}
-          className="flex-1 border-l-2 border-r-2 border-zinc-200 border-l-solid border-r-solid px-2"
+          className="flex-1 border-x-px border-zinc-200 border-x-solid px-2"
         />
         <InfoBlock
           icon="i-solar-chair-linear"
-          title={scopedI.attendee}
+          title={i.attendee}
           className="flex-1"
-          content={`${attendee} ${sharedI.unit.attendee}`}
+          content={`${attendee} ${i.unit.attendee}`}
         />
       </div>
       <InfoBlock
         icon="i-solar-map-linear"
         className="mt-3"
-        title={sharedI.location}
+        title={i.location}
         content={`${location.name}(${location.address})`}
       />
       <Separator />
       <article className="mt-3">
-        <h3 className="font-bold">{scopedI.description}</h3>
+        <h3 className="font-bold">{i.description}</h3>
         <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600">
           {description}
         </p>
         <TextButton onClick={onReadMoreClick} className="text-sm md:text-base">
-          {scopedI.more}
+          {i.more}
         </TextButton>
       </article>
       <Separator />
       {isDescriptionSheetOpen && (
         <DescriptionPrompt
-          title={scopedI.description}
+          title={i.description}
           description={description}
           onClose={onDescriptionSheetClose}
         />

@@ -10,5 +10,19 @@
     "minute": "分鐘"
   },
   "allday": "全天候",
-  "today": "今日"
+  "today": "今日",
+  "more": "閱讀更多",
+  "attendee": "提供名額",
+  "duration": "時間長度",
+  "description": "服務介紹",
+  "info": {
+    "title": "訂購人資訊",
+    "field": {
+      "name": "訂購人姓名",
+      "email": "Email",
+      "phone": "聯絡電話",
+      "SNSId": "社群帳號",
+      "note": "備註訊息"
+    }
+  } 
 }
