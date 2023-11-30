@@ -10,12 +10,16 @@ export default function HomePage() {
   );
   return (
     <Fragment>
-      <ContentTabs
-        currentContent={currentContent}
-        setCurrentContent={setCurrentContent}
-      />
-      {currentContent === CONTENT.IN_PROGRESS && <ServiceCards />}
-      {currentContent === CONTENT.END && <ServiceCards end />}
+      <header className="pa-4">
+        <ContentTabs
+          currentContent={currentContent}
+          setCurrentContent={setCurrentContent}
+        />
+      </header>
+      <section className="h-[calc(100dvh-188px)] overflow-y-scroll px-4 pb-4 md:h-[calc(100dvh-192px)]">
+        {currentContent === CONTENT.IN_PROGRESS && <ServiceCards />}
+        {currentContent === CONTENT.END && <ServiceCards end />}
+      </section>
     </Fragment>
   );
 }

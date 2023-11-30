@@ -20,10 +20,8 @@ export default function HomeContent() {
         setCurrentContent={setCurrentContent}
       />
       <section
-        className={`overflow-y-scroll px-4 ${
-          mode === 'week'
-            ? 'max-h-[calc(100dvh-276px)]'
-            : 'max-h-[calc(100dvh-476px)]'
+        className={`overflow-y-scroll px-4 pb-4 md:h-[calc(100dvh-184px)] ${
+          mode === 'week' ? 'h-[calc(100dvh-276px)]' : 'h-[calc(100dvh-472px)]'
         }`}
       >
         {currentContent === CONTENT.ORDER && <OrderCards />}

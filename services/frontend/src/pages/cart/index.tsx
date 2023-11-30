@@ -9,18 +9,13 @@ import {
 } from '~frontend/features/cart/context';
 import { Step } from '~frontend/features/cart/constants';
 
-const provider = '阿狗狗的快樂小天地';
-
 function Content() {
   const { currentStep } = useCartContext();
 
   return (
-    <div>
-      <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
-        {provider}
-      </h1>
+    <>
       <Header />
-      <main className="max-h-[calc(100dvh-168px)] overflow-y-scroll bg-white pa-2 md:h-[calc(100dvh-226px)]">
+      <main className="max-h-[calc(100dvh-188px)] overflow-y-scroll bg-white pa-2 md:h-[calc(100dvh-188px)]">
         {currentStep === Step.cart && (
           <OrderCards className="mx-4 my-2 max-w-4xl flex-1 md:mx-auto md:mb-4" />
         )}
@@ -32,7 +27,7 @@ function Content() {
         )}
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

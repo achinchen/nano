@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { Fragment } from 'react';
+import Icon from '~frontend/components/Icon';
 import Studio from '~frontend/assets/example-studio.png';
 import ProviderNavigationDrawer from './ProviderNavigation/Drawer';
 import ProviderNavigation from './ProviderNavigation';
@@ -11,33 +13,33 @@ import { HeaderContextProvider, useHeaderContext } from './context';
 export function Header() {
   const { isProvider, isLogin, isMenuOpen } = useHeaderContext();
   return (
-    <header className="min-h-10 flex justify-between bg-zinc-50 px-4 py-1">
-      <div className="flex">
-        {isMenuOpen && <MenuBackButton />}
-        {isProvider ? (
-          !isMenuOpen && <ProviderNavigationDrawer />
+    <header className="mx-auto max-w-7xl min-h-11 flex justify-between px-4 py-2 md:px-10 md:color-zinc-50">
+      <div className="flex items-center gap-1 md:gap-4">
+        {isMenuOpen ? (
+          <MenuBackButton />
         ) : (
-          <img alt="studio logo" src={Studio} width={36} height={36} />
+          isProvider && <ProviderNavigationDrawer />
         )}
+        <img
+          alt="studio logo"
+          src={Studio}
+          width={36}
+          height={36}
+          className={isProvider ? 'hidden md:block' : ''}
+        />
+        {isProvider && <ProviderNavigation />}
         <Link to="/booking/QQ" className="flex items-center">
           <h1 className="ml-1 text-sm">Studio Name</h1>
         </Link>
-        {isProvider && <ProviderNavigation />}
       </div>
-      <div className="flex gap-1 md:gap-4">
-        {isProvider ? (
-          <IconLink {...SIDE_MENU.TAKE_LEAVE} />
-        ) : (
-          <IconLink {...SIDE_MENU.CART} />
-        )}
+      <div className="flex items-baseline gap-1 md:gap-4">
+        <IconLink {...SIDE_MENU.CART} />
         {isLogin ? (
           <Menu />
         ) : (
-          <IconLink
-            href="/login"
-            icon="i-solar-user-circle-bold"
-            className="color-blue"
-          />
+          <Link to="/login" className="flex items-center color-blue">
+            <Icon icon="i-solar-user-circle-bold" size="4xl" />
+          </Link>
         )}
       </div>
     </header>

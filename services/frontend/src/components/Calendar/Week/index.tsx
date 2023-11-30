@@ -51,7 +51,7 @@ export default function CalendarWeek({
             role="button"
             key={`${month}-${day}`}
             className={`relative flex flex-col cursor-pointer items-center justify-center ${
-              loose ? 'h-10' : 'h-9'
+              loose ? 'h-10 mb-2' : 'h-9'
             }`}
             onClick={onClick({ year, month, day })}
           >

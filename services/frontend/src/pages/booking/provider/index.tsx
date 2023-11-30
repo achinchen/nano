@@ -14,8 +14,6 @@ import CalendarHorizontal from '~frontend/features/booking/CalendarHorizontal';
 import Header from '~frontend/features/booking/Header';
 import { getIsMobile } from '~frontend/utils/device';
 
-const provider = '阿狗狗的快樂小天地';
-
 function Content() {
   const { mode } = useCalendarVerticalContext();
   const { setSelectedDate } = useBookingContext();
@@ -32,8 +30,8 @@ function Content() {
       <section
         className={`overflow-y-scroll flex-1 ${
           mode === 'week'
-            ? 'max-h-[calc(100dvh-180px)]'
-            : 'max-h-[calc(100dvh-384px)]'
+            ? 'max-h-[calc(100dvh-188px)]'
+            : 'max-h-[calc(100dvh-388px)]'
         }`}
       >
         <ServiceCards />
@@ -42,7 +40,7 @@ function Content() {
   ) : (
     <div className="flex flex-row bg-white">
       <CalendarHorizontal />
-      <section className="h-[calc(100dvh-156px)] flex-1 overflow-y-scroll">
+      <section className="h-[calc(100dvh-116px)] flex-1 overflow-y-scroll">
         <ServiceCards />
       </section>
     </div>
@@ -53,9 +51,6 @@ export default function Index() {
   return (
     <BookingContextProvider>
       <>
-        <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
-          {provider}
-        </h1>
         <Header />
         <CalendarVerticalContextProvider>
           <Content />

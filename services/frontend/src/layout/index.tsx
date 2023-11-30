@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Fragment>
       <Header />
-      <main className="mx-auto max-w-5xl">{children}</main>
+      <main className="mx-auto max-w-5xl md:mb-4">{children}</main>
       <Global />
     </Fragment>
   );

@@ -67,11 +67,6 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
     onStart({ x, y });
   };
 
-  const onVertical = (direction: Direction) => {
-    if (direction === Direction.up && !isWeek) toggleMode();
-    if (direction === Direction.down && isWeek) toggleMode();
-  };
-
   const onHorizontal = (direction: Direction) => {
     let cb;
 
@@ -89,8 +84,8 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
   ) => {
     const y = pan.y - offsetY;
     const x = pan.x - offsetX;
-    const { direction, isVertical } = onEnd({ x, y });
-    isVertical ? onVertical(direction) : onHorizontal(direction);
+    const { direction } = onEnd({ x, y });
+    onHorizontal(direction);
   };
 
   useEffect(() => {
@@ -122,7 +117,7 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
             data={serviceData}
           />
         )}
-        <SheetIndicator />
+        <SheetIndicator onClick={toggleMode} />
       </motion.main>
     </section>
   );

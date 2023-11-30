@@ -37,6 +37,37 @@ const SERVICES = [
     name: '小飛象戚風蛋糕',
     startAt: '2023-12-19T15:00',
   },
+  {
+    duration: 90,
+    name: '創業諮詢',
+    description:
+      '這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話。',
+    currentAttendee: 4,
+    allday: false,
+    serviceId: 7,
+    startAt: '2023-12-29T10:00',
+  },
+  {
+    duration: 90,
+    name: '客製蛋糕',
+    description:
+      '這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話。',
+    currentAttendee: 1,
+    serviceId: 21,
+    allday: true,
+    startAt: '2023-12-29T13:00',
+  },
+  {
+    duration: 120,
+    currentAttendee: 2,
+    description:
+      '這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話。',
+    serviceId: 20,
+    allday: true,
+    address: '台北',
+    name: '小飛象戚風蛋糕',
+    startAt: '2023-12-29T15:00',
+  },
 ];
 
 type Props = {
@@ -47,7 +78,7 @@ export default function ServiceDefaultCards({ end }: Props) {
   const [services] = useState(SERVICES);
 
   return (
-    <section className="mt-2 flex flex-col gap-2">
+    <section className="flex flex-col gap-2">
       {services.map(
         ({
           startAt,

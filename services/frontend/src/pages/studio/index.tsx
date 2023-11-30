@@ -12,8 +12,6 @@ import HomeHeader from '~frontend/features/studio/HomeHeader';
 import { getIsMobile } from '~frontend/utils/device';
 import { CalendarVerticalContextProvider } from '~frontend/features/studio/CalendarVertical/context';
 
-const provider = '阿狗狗的快樂小天地';
-
 function Content() {
   const { setSelectedDate, isListMode } = useStudioContext();
   const [searchParams] = useSearchParams();
@@ -37,7 +35,7 @@ function Content() {
   ) : (
     <div className="flex flex-row bg-white">
       {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
-      <section className="h-[calc(100dvh-156px)] flex-1 overflow-y-scroll border-l-1 border-l-zinc-200 border-l-solid pa-4">
+      <section className="flex-1 border-l-1 border-l-zinc-200 border-l-solid">
         <HomeContent />
       </section>
     </div>
@@ -47,17 +45,12 @@ function Content() {
 export default function Index() {
   return (
     <StudioContextProvider>
-      <>
-        <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
-          {provider}
-        </h1>
-        <CalendarVerticalContextProvider>
-          <Fragment>
-            <HomeHeader />
-            <Content />
-          </Fragment>
-        </CalendarVerticalContextProvider>
-      </>
+      <CalendarVerticalContextProvider>
+        <Fragment>
+          <HomeHeader />
+          <Content />
+        </Fragment>
+      </CalendarVerticalContextProvider>
     </StudioContextProvider>
   );
 }

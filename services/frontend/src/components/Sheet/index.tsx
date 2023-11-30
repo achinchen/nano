@@ -12,9 +12,12 @@ export type SheetProps = {
   clickOutsideToClose?: boolean;
 };
 
-export function SheetIndicator() {
+export function SheetIndicator({ onClick }: { onClick?: () => void }) {
   return (
-    <span className="mx-auto my-1 inline-block h-1 w-10 rounded bg-zinc-500" />
+    <span
+      className="mx-auto my-1 inline-block h-1 w-10 rounded bg-zinc-500"
+      onClick={onClick}
+    />
   );
 }
 

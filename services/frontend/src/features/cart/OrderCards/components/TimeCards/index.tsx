@@ -49,7 +49,7 @@ function TimeCard({
               {...activatorProps}
             />
           )}
-          <span className="flex flex-col text-base tracking-wider md:flex-row">
+          <span className="flex flex-col select-none text-base tracking-wider md:flex-row">
             <span>{dateString}</span>
             <span className="ml-2 color-zinc-500">{timeString}</span>
           </span>

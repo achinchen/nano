@@ -232,7 +232,7 @@ function Content() {
 
   return getIsMobile() ? (
     <>
-      <section className="max-h-[calc(100dvh-100px)] overflow-y-scroll bg-white px-4 py-2">
+      <section className="max-h-[calc(100dvh-120px)] overflow-y-scroll bg-white px-4 py-2">
         <ServiceDetail
           {...(id === '10'
             ? services[0]
@@ -246,9 +246,8 @@ function Content() {
     </>
   ) : (
     <>
-      <h1 className="mx-6 my-2 text-4xl color-white">{provider}</h1>
       <Header />
-      <div className="h-[calc(100dvh-226px)] flex flex-col">
+      <div className="h-[calc(100dvh-180px)] flex flex-col">
         <main className="relative flex bg-white">
           <CalendarHorizontal />
           <section className="max-h-100% flex-1 overflow-y-scroll px-4 py-2">
