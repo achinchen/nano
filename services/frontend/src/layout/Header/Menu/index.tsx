@@ -11,7 +11,7 @@ export function Menu() {
 
   return (
     <div className="relative z-2">
-      <button onClick={toggle}>
+      <button onClick={toggle} className="pa-0">
         <Avatar src={Avocado} />
       </button>
       {isMenuOpen ? (

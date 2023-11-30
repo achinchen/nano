@@ -11,7 +11,7 @@ export default function CloseButton() {
       color="dark"
       onClick={onClick}
       icon="i-solar-alt-arrow-left-linear"
-      className={isMenuOpen ? 'block md:hidden' : 'hidden'}
+      className={isMenuOpen ? 'block md:hidden ml--2' : 'hidden'}
       size="sm"
     />
   );

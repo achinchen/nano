@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
 import { NAVIGATION } from './constants';
+
 export default function Navigation() {
   return (
     <nav className="mr-4 hidden gap-4 md:flex">

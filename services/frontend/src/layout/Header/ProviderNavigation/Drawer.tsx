@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BottomSheet from '~frontend/components/BottomSheet';
 import Icon from '~frontend/components/Icon';
-import IconButton from '~frontend/components/IconButton';
 import { NAVIGATION } from './constants';
 
 export default function Drawer() {
@@ -11,13 +10,9 @@ export default function Drawer() {
 
   return (
     <div className="block md:hidden">
-      <IconButton
-        variant="text"
-        color="dark"
-        onClick={toggle}
-        icon="i-solar-hamburger-menu-linear"
-        size="sm"
-      />
+      <button onClick={toggle} className="pa-0">
+        <Icon icon="i-solar-hamburger-menu-linear" size="3xl" />
+      </button>
       {isOpen && (
         <BottomSheet onClose={toggle} hasCloseButton={false}>
           <ul className="mx-4 mb-6 mt-2">

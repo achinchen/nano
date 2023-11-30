@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { createContext, useContext, useState } from 'react';
 
 export type InitialState = {
@@ -31,9 +32,14 @@ export const HeaderContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
+  const [searchParams] = useSearchParams();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
-  const [isProvider, setIsProvider] = useState(true);
+  const [isLogin, setIsLogin] = useState(
+    !(searchParams.get('guest') === 'true')
+  );
+  const [isProvider, setIsProvider] = useState(
+    searchParams.get('provider') === 'true'
+  );
 
   return (
     <HeaderContext.Provider

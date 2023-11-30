@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-export const SIZES = ['base', 'xl', '2xl', '3xl', '5xl', '6xl'] as const;
+export const SIZES = ['base', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const;
 
 export type Size = (typeof SIZES)[number];
 
@@ -15,6 +15,7 @@ const SIZE_CONFIG: Record<Size, string> = {
   xl: 'text-5',
   '2xl': 'text-6',
   '3xl': 'text-7',
+  '4xl': 'text-8',
   '5xl': 'text-9',
   '6xl': 'text-10',
 };
