@@ -48,7 +48,7 @@ export const StudioContextProvider = ({
   children: JSX.Element;
 }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [isListMode, setListMode] = useState(true);
+  const [isListMode, setListMode] = useState(false);
 
   const isToday = useMemo(() => getIsToday(selectedDate), [selectedDate]);
 

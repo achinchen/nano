@@ -112,7 +112,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
       )}
       <section className="mt-2 bg-zinc-50 md:mt-0">
         <ServiceNav />
-        <main className="relative mt-2 h-[calc(100dvh-236px)] overflow-y-scroll md:h-[calc(100dvh-330px)]">
+        <main className="md: relative mt-2 h-[calc(100dvh-264px)] overflow-y-scroll">
           <ul className="flex flex-col">
             {timeOptions.map((time) => (
               <li key={time} className="h-12 flex gap-1px md:h-15">

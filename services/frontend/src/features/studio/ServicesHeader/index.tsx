@@ -9,11 +9,10 @@ import {
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
-import { getIsMobile } from '~frontend/utils/device';
 import sharedI from '~frontend/shared/i.json';
 import i from './i.json';
 
-export default function ServicesHeader() {
+export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
   const { setSelectedDate, isListMode, setListMode } = useStudioContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
@@ -32,44 +31,57 @@ export default function ServicesHeader() {
   };
   const onTodayClick = () => setSelectedDate(new Date());
   const onToggleListMode = () => setListMode((isListMode) => !isListMode);
+  const onCreateClick = () => {
+    /** */
+  };
 
   return (
-    <header className="content-header">
+    <header className={`content-header ${smHidden ? 'hidden md:flex' : ''}`}>
       <h2>{i.list}</h2>
       <aside className="flex items-center justify-between gap-2">
-        {!getIsMobile() && (
-          <Fragment>
-            <IconButton
-              icon="i-solar-alt-arrow-left-linear"
-              color="dark"
-              variant="outline"
-              size="sm"
-              onClick={onPreviousClick}
-            />
-            <Button
-              color="dark"
-              variant="outline"
-              size="sm"
-              onClick={onTodayClick}
-            >
-              {sharedI.today}
-            </Button>
-            <IconButton
-              icon="i-solar-alt-arrow-right-linear"
-              color="dark"
-              size="sm"
-              variant="outline"
-              onClick={onNextClick}
-            />
-            <IconButton
-              icon="i-custom-slider-bold"
-              color="dark"
-              size="sm"
-              variant={isListMode ? 'solid' : 'outline'}
-              onClick={onToggleListMode}
-            />
-          </Fragment>
-        )}
+        <div className="hidden md:block">
+          <IconButton
+            icon="i-solar-alt-arrow-left-linear"
+            color="dark"
+            variant="outline"
+            size="sm"
+            onClick={onPreviousClick}
+          />
+          <Button
+            color="dark"
+            variant="outline"
+            size="sm"
+            onClick={onTodayClick}
+          >
+            {sharedI.today}
+          </Button>
+          <IconButton
+            icon="i-solar-alt-arrow-right-linear"
+            color="dark"
+            size="sm"
+            variant="outline"
+            onClick={onNextClick}
+          />
+          <IconButton
+            icon="i-custom-slider-bold"
+            color="dark"
+            size="sm"
+            variant={isListMode ? 'solid' : 'outline'}
+            onClick={onToggleListMode}
+          />
+        </div>
+
+        <Link to="/studio/service/create">
+          <Button
+            color="dark"
+            variant="outline"
+            size="sm"
+            prefixIcon="i-solar-add-circle-bold"
+            onClick={onCreateClick}
+          >
+            {i.create}
+          </Button>
+        </Link>
       </aside>
     </header>
   );

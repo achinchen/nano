@@ -8,9 +8,6 @@ import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
 import ServiceDetail from '~frontend/features/studio/ServiceDetail';
 import ServicesHeader from '~frontend/features/studio/ServicesHeader';
-import { getIsMobile } from '~frontend/utils/device';
-
-const provider = '阿狗狗的快樂小天地';
 
 function Content() {
   const { setSelectedDate, isListMode } = useStudioContext();
@@ -21,16 +18,12 @@ function Content() {
     if (!date) return;
   }, [setSelectedDate, searchParams]);
 
-  return getIsMobile() ? (
-    <div className="flex flex-col">
-      <section className="max-h-[calc(100dvh-100px)] flex-1 overflow-y-scroll pa-4">
-        <ServiceDetail />
+  return (
+    <div className="flex flex-col md:flex-row md:bg-white">
+      <section className="hidden md:block">
+        {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
       </section>
-    </div>
-  ) : (
-    <div className="flex flex-row bg-white">
-      {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
-      <section className="h-[calc(100dvh-156px)] flex-1 overflow-y-scroll border-l-1 border-l-zinc-200 border-l-solid pa-4">
+      <section className="max-h-[calc(100dvh-52px)] flex-1 overflow-y-scroll pa-4 md:max-h-[calc(100dvh-112px)] md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
         <ServiceDetail />
       </section>
     </div>
@@ -40,15 +33,10 @@ function Content() {
 export default function Index() {
   return (
     <StudioContextProvider>
-      <>
-        <h1 className="mx-6 my-2 hidden text-4xl color-white md:block">
-          {provider}
-        </h1>
-        <Fragment>
-          <ServicesHeader />
-          <Content />
-        </Fragment>
-      </>
+      <Fragment>
+        <ServicesHeader smHidden />
+        <Content />
+      </Fragment>
     </StudioContextProvider>
   );
 }
