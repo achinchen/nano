@@ -33,7 +33,7 @@ export default function CalendarMonthTight({
 
   return (
     <section className="flex flex-col">
-      <ol className="grid grid-cols-7 justify-items-center pb-1 pt-2 text-sm">
+      <ol className="grid grid-cols-7 justify-items-center py-2 text-sm">
         {DAYS.map((DAY) => (
           <li key={DAY}>{DAY}</li>
         ))}

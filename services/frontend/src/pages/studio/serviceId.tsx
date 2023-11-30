@@ -23,9 +23,7 @@ function Content() {
 
   return getIsMobile() ? (
     <div className="flex flex-col">
-      <section
-        className={`overflow-y-scroll flex-1 pa-4 max-h-[calc(100dvh-100px)]`}
-      >
+      <section className="max-h-[calc(100dvh-100px)] flex-1 overflow-y-scroll pa-4">
         <ServiceDetail />
       </section>
     </div>

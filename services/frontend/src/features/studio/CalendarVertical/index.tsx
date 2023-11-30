@@ -15,27 +15,32 @@ import { usePan, Direction } from '~frontend/components/shared/hooks/use-pan';
 import { useCalendarVerticalContext } from './context';
 
 const mockServiceData = {
-  17: [{ name: '提拉米蘇蛋糕課', id: 1 }],
+  17: [{ status: 'has-order', name: '提拉米蘇蛋糕課', id: 1 }],
   20: [
     {
+      status: 'full',
       name: '提拉米蘇蛋糕課',
       id: 2,
     },
     {
+      status: 'unsold',
       name: '情人節手作',
       id: 2,
     },
     {
+      status: 'has-order',
       name: '3天寫程式就上手不可能',
       id: 3,
     },
     {
+      status: 'has-order',
       name: '精油課程妳看不見',
       id: 12,
     },
   ],
   30: [
     {
+      status: 'has-order',
       name: '提拉米蘇蛋糕課',
       id: 30,
     },
@@ -46,7 +51,7 @@ const getMockData = (month: number) => {
   return Object.entries(mockServiceData).reduce((data, [date, value]) => {
     return {
       ...data,
-      [`${month}-${date}`]: value,
+      [`${month}-${date}`]: value[0].status,
     };
   }, {});
 };
@@ -97,7 +102,7 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
   return (
     <section className={className}>
       <motion.main
-        className="flex flex-col rounded-b-4 bg-white px-4 shadow-default"
+        className="flex flex-col rounded-b-4 bg-white pt-2 shadow-default"
         layout
         transition={{ duration: 0 }}
         style={{ touchAction: 'none' }}

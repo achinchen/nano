@@ -15,10 +15,12 @@ export default function ContentTabs({
   const onChange = (value?: Value) => setCurrentContent(value as Content);
 
   return (
-    <Tabs defaultValue={currentContent} onChange={onChange}>
-      {CONTENT_ITEMS.map(({ value, icon, label }) => (
-        <Tab key={value} value={value} icon={icon} label={label} />
-      ))}
-    </Tabs>
+    <header className="px-4 pb-2 pt-4">
+      <Tabs defaultValue={currentContent} onChange={onChange}>
+        {CONTENT_ITEMS.map(({ value, icon, label }) => (
+          <Tab key={value} value={value} icon={icon} label={label} />
+        ))}
+      </Tabs>
+    </header>
   );
 }

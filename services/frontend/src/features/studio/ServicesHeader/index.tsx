@@ -33,10 +33,6 @@ export default function ServicesHeader() {
   const onTodayClick = () => setSelectedDate(new Date());
   const onToggleListMode = () => setListMode((isListMode) => !isListMode);
 
-  const onCreateClick = () => {
-    /** */
-  };
-
   return (
     <header className="content-header">
       <h2>{i.list}</h2>
@@ -74,17 +70,6 @@ export default function ServicesHeader() {
             />
           </Fragment>
         )}
-        <Link to="/studio/service/create">
-          <Button
-            color="dark"
-            variant="outline"
-            size="sm"
-            prefixIcon="i-solar-add-circle-bold"
-            onClick={onCreateClick}
-          >
-            {i.create}
-          </Button>
-        </Link>
       </aside>
     </header>
   );
