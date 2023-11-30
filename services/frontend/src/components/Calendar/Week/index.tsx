@@ -35,7 +35,7 @@ export default function CalendarWeek({
 
   return (
     <section className="flex flex-col">
-      <ol className="grid grid-cols-7 justify-items-center">
+      <ol className="grid grid-cols-7 justify-items-center py-2">
         {DAYS.map((DAY) => (
           <li
             key={DAY}
@@ -50,7 +50,9 @@ export default function CalendarWeek({
           <li
             role="button"
             key={`${month}-${day}`}
-            className="relative h-10 flex flex-col cursor-pointer items-center justify-center"
+            className={`relative flex flex-col cursor-pointer items-center justify-center ${
+              loose ? 'h-10' : 'h-9'
+            }`}
             onClick={onClick({ year, month, day })}
           >
             <span

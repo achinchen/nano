@@ -99,7 +99,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
   }, [selectedDate, setSelectedDate]);
 
   return (
-    <section className="border-t-1 border-t-zinc-200 border-t-solid pt-2 md:w-160 md:border-none md:bg-zinc-50 md:pl-6 md:pt-6">
+    <section className="border-t-1 border-t-zinc-200 border-t-solid pt-2 md:w-160 md:border-none md:bg-zinc-50 md:pt-0">
       {loose ? (
         <CalendarWeek
           onSelect={setSelectedDate}
@@ -110,7 +110,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
       ) : (
         <ScrollableCalendarWeek data={serviceStatusData} />
       )}
-      <section className="mt-2 bg-zinc-50">
+      <section className="mt-2 bg-zinc-50 md:mt-0">
         <ServiceNav />
         <main className="relative mt-2 h-[calc(100dvh-236px)] overflow-y-scroll md:h-[calc(100dvh-330px)]">
           <ul className="flex flex-col">

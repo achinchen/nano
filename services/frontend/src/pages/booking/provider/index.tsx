@@ -32,8 +32,8 @@ function Content() {
       <section
         className={`overflow-y-scroll flex-1 ${
           mode === 'week'
-            ? 'max-h-[calc(100dvh-160px)]'
-            : 'max-h-[calc(100dvh-364px)]'
+            ? 'max-h-[calc(100dvh-180px)]'
+            : 'max-h-[calc(100dvh-384px)]'
         }`}
       >
         <ServiceCards />

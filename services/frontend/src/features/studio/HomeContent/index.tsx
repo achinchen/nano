@@ -1,22 +1,34 @@
 import type { Content } from './types';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import ServiceSimpleCards from '~frontend/features/studio/ServiceCards/Simple';
 import ContentTabs from '~frontend/features/studio/HomeContent/ContentTabs';
 import OrderCards from '~frontend/features/studio/OrderCards';
+import { useCalendarVerticalContext } from '~frontend/features/studio/CalendarVertical/context';
 import { CONTENT } from './constants';
 
-export default function HomePage() {
+export default function HomeContent() {
   const [currentContent, setCurrentContent] = useState<Content>(
     CONTENT.SERVICE
   );
+
+  const { mode } = useCalendarVerticalContext();
+
   return (
-    <Fragment>
+    <main className="flex-1">
       <ContentTabs
         currentContent={currentContent}
         setCurrentContent={setCurrentContent}
       />
-      {currentContent === CONTENT.ORDER && <OrderCards />}
-      {currentContent === CONTENT.SERVICE && <ServiceSimpleCards />}
-    </Fragment>
+      <section
+        className={`overflow-y-scroll px-4 ${
+          mode === 'week'
+            ? 'max-h-[calc(100dvh-276px)]'
+            : 'max-h-[calc(100dvh-476px)]'
+        }`}
+      >
+        {currentContent === CONTENT.ORDER && <OrderCards />}
+        {currentContent === CONTENT.SERVICE && <ServiceSimpleCards />}
+      </section>
+    </main>
   );
 }

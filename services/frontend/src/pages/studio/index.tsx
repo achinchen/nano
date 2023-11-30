@@ -4,21 +4,17 @@ import {
   StudioContextProvider,
   useStudioContext,
 } from '~frontend/features/studio/context';
-import {
-  CalendarVerticalContextProvider,
-  useCalendarVerticalContext,
-} from '~frontend/features/studio/CalendarVertical/context';
 import CalendarVertical from '~frontend/features/studio/CalendarVertical';
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
 import HomeContent from '~frontend/features/studio/HomeContent';
 import HomeHeader from '~frontend/features/studio/HomeHeader';
 import { getIsMobile } from '~frontend/utils/device';
+import { CalendarVerticalContextProvider } from '~frontend/features/studio/CalendarVertical/context';
 
 const provider = '阿狗狗的快樂小天地';
 
 function Content() {
-  const { mode } = useCalendarVerticalContext();
   const { setSelectedDate, isListMode } = useStudioContext();
   const [searchParams] = useSearchParams();
 
@@ -34,15 +30,7 @@ function Content() {
       ) : (
         <Fragment>
           <CalendarVertical />
-          <section
-            className={`overflow-y-scroll flex-1 pa-4 ${
-              mode === 'week'
-                ? 'max-h-[calc(100dvh-160px)]'
-                : 'max-h-[calc(100dvh-364px)]'
-            }`}
-          >
-            <HomeContent />
-          </section>
+          <HomeContent />
         </Fragment>
       )}
     </div>
