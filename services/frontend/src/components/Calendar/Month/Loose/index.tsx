@@ -18,6 +18,7 @@ type CalendarMonthProps = {
     [key: string]: ContentType[] | StatusType;
   };
   type?: 'status' | 'content';
+  variant?: 'name' | 'tag' | 'all';
 };
 
 const LAST_ROW_START_INDEX = 35;
@@ -28,6 +29,7 @@ export default function CalendarMonthLoose({
   selectedDate,
   data,
   type = 'status',
+  variant,
 }: CalendarMonthProps) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
@@ -68,13 +70,14 @@ export default function CalendarMonthLoose({
               {day}
             </span>
             {data?.[`${month}-${day}`] &&
-              (type === 'content' ? (
+              (type === 'status' ? (
+                <Status status={data[`${month}-${day}`] as StatusType} />
+              ) : (
                 <Content
                   data={data[`${month}-${day}`] as ContentType[]}
                   date={`${month}-${day}`}
+                  variant={variant}
                 />
-              ) : (
-                <Status status={data[`${month}-${day}`] as StatusType} />
               ))}
           </li>
         ))}
