@@ -10,7 +10,7 @@ export default function Drawer() {
 
   return (
     <div className="block md:hidden">
-      <button onClick={toggle} className="pa-0">
+      <button onClick={toggle} className="pa-0 color-zinc-700">
         <Icon icon="i-solar-hamburger-menu-linear" size="3xl" />
       </button>
       {isOpen && (
