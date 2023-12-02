@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Fragment } from 'react';
 import Icon from '~frontend/components/Icon';
 import Studio from '~frontend/assets/example-studio.png';
 import ProviderNavigationDrawer from './ProviderNavigation/Drawer';
@@ -28,7 +27,10 @@ export function Header() {
           className={isProvider ? 'hidden md:block' : ''}
         />
         {isProvider && <ProviderNavigation />}
-        <Link to="/booking/QQ" className="flex items-center">
+        <Link
+          to="/booking/QQ"
+          className={`flex items-center ${isProvider ? 'md:hidden' : ''}`}
+        >
           <h1 className="ml-1 text-sm">Studio Name</h1>
         </Link>
       </div>
