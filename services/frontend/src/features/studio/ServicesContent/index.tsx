@@ -16,7 +16,7 @@ export default function ServicesContent() {
           setCurrentContent={setCurrentContent}
         />
       </header>
-      <section className="h-[calc(100dvh-188px)] overflow-y-scroll px-4 pb-4 md:h-[calc(100dvh-192px)]">
+      <section className="h-[calc(100dvh-188px)] overflow-y-scroll px-4 pb-4">
         {currentContent === CONTENT.IN_PROGRESS && <ServiceCards />}
         {currentContent === CONTENT.END && <ServiceCards end />}
       </section>

@@ -23,7 +23,7 @@ function Content() {
       <section className="hidden md:block">
         {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
       </section>
-      <section className="flex-1 md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
+      <section className="h-[calc(100dvh-52px)] flex-1 overflow-y-scroll md:h-[calc(100dvh-112px)] md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
         <OrdersContent />
       </section>
     </div>
