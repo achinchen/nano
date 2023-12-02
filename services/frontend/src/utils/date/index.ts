@@ -1,13 +1,17 @@
 import type { ManipulateType } from 'dayjs';
 import zhTW from 'dayjs/locale/zh-tw';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-import weekday from 'dayjs/plugin/weekday';
+import localizedFormatPlugin from 'dayjs/plugin/localizedFormat';
+import weekdayPlugin from 'dayjs/plugin/weekday';
+import isTodayPlugin from 'dayjs/plugin/isToday';
+import isTomorrowPlugin from 'dayjs/plugin/isTomorrow';
 import dayjs, { extend, locale } from 'dayjs';
 import i from './i.json';
 
 locale('zh-tw', zhTW);
-extend(weekday);
-extend(localizedFormat);
+extend(weekdayPlugin);
+extend(localizedFormatPlugin);
+extend(isTodayPlugin);
+extend(isTomorrowPlugin);
 
 export { dayjs };
 
@@ -67,3 +71,11 @@ export const getAfter = (
 export const isBefore = (dateA: Date, dateB: Date) => {
   return dateB < dateA;
 };
+
+export const isTomorrow = (date: Date) => {
+  return dayjs(date).isTomorrow();
+};
+
+export function isToday(date: Date) {
+  return dayjs(date).isToday();
+}

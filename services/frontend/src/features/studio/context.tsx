@@ -7,6 +7,7 @@ import {
   useMemo,
 } from 'react';
 import { eventEmitter } from '~frontend/utils/event';
+import { isToday as getIsToday } from '~frontend/utils/date';
 
 export type InitialState = {
   selectedDate: Date;
@@ -17,16 +18,6 @@ export type InitialState = {
 };
 
 export const EVENT_NAME = 'studio-date-change';
-
-function getIsToday(selectedDate: Date) {
-  const today = new Date();
-  const isToday =
-    today.getFullYear() === selectedDate.getFullYear() &&
-    today.getMonth() === selectedDate.getMonth() &&
-    today.getDate() === selectedDate.getDate();
-
-  return isToday;
-}
 
 export const StudioContext = createContext<InitialState>({
   selectedDate: new Date(),

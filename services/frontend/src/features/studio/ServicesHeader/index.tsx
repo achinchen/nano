@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
@@ -11,6 +10,8 @@ import {
 } from '~frontend/utils/date';
 import sharedI from '~frontend/shared/i.json';
 import i from './i.json';
+
+const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
   const { setSelectedDate, isListMode, setListMode } = useStudioContext();
@@ -36,10 +37,12 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
   };
 
   return (
-    <header className={`content-header ${smHidden ? 'hidden md:flex' : ''}`}>
+    <header
+      className={`content-header ${smHidden ? 'hidden md:flex' : 'flex'}`}
+    >
       <h2>{i.list}</h2>
-      <aside className="flex items-center justify-between gap-2">
-        <div className="hidden md:block">
+      <aside className={`${CONTAINER_CLASSES} flex`}>
+        <div className={`${CONTAINER_CLASSES} hidden md:flex`}>
           <IconButton
             icon="i-solar-alt-arrow-left-linear"
             color="dark"
@@ -70,7 +73,6 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
             onClick={onToggleListMode}
           />
         </div>
-
         <Link to="/studio/service/create">
           <Button
             color="dark"

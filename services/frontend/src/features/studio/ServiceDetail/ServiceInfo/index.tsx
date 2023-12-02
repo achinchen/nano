@@ -1,16 +1,17 @@
 import { Fragment, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import sharedI from '~frontend/shared/i.json';
+import featureI from '~frontend/features/studio/i.json';
 import StatusTag from '~frontend/features/studio/components/StatusTag';
-import { formatDuration, getPeriodTimes } from '~frontend/utils/time';
+import { getPeriodTimes } from '~frontend/utils/time';
 import Icon from '~frontend/components/Icon';
 import TextButton from '~frontend/components/TextButton';
 import Separator from '~frontend/components/Separator';
-import { getMMDD, getYYYYMMDD } from '~frontend/utils/date';
+import { formateDate } from '~frontend/features/studio/utils';
+import EmphasizeBlock from '~frontend/features/studio/components/EmphasizeBlock';
+import ServiceInfoBlocks from '~frontend/features/studio/components/InfoBlocks';
 import i from './i.json';
-import InfoBlock from './components/InfoBlock';
 import DescriptionPrompt from './components/DescriptionPrompt';
-import EmphasizeBlock from './components/EmphasizeBlock';
 
 const service = {
   duration: 90,
@@ -28,13 +29,6 @@ const service = {
     name: '台中',
     address: '407台中市西屯區臺灣大道三段251號',
   },
-};
-
-const formateDate = (date: string) => {
-  const today = new Date();
-  const target = new Date(date);
-  const isThisYear = today.getFullYear() === target.getFullYear();
-  return isThisYear ? getMMDD(target) : getYYYYMMDD(target);
 };
 
 const {
@@ -81,7 +75,7 @@ export default function ServiceInfo() {
         />
         <span className="font-normal">{i.time}</span>
         <EmphasizeBlock>{startTime}</EmphasizeBlock>
-        {i.to}
+        {featureI.to}
         <EmphasizeBlock>{endTime}</EmphasizeBlock>
       </div>
       <Separator />
@@ -95,31 +89,11 @@ export default function ServiceInfo() {
         </TextButton>
       </article>
       <Separator />
-      <div className="mt-2 flex gap-2">
-        <InfoBlock
-          icon="i-solar-alarm-linear"
-          title={sharedI.duration}
-          className="flex-1"
-          content={formatDuration(duration)}
-        />
-        <InfoBlock
-          icon="i-solar-square-academic-cap-2-outline"
-          title={sharedI.supplier}
-          content={supplier}
-          className="flex-1 border-x-px border-zinc-200 border-x-solid px-2"
-        />
-        <InfoBlock
-          icon="i-solar-chair-linear"
-          title={sharedI.attendee}
-          className="flex-1"
-          content={`${attendee} ${sharedI.unit.attendee}`}
-        />
-      </div>
-      <InfoBlock
-        icon="i-solar-map-linear"
-        className="mt-3"
-        title={sharedI.location}
-        content={`${location.name}(${location.address})`}
+      <ServiceInfoBlocks
+        attendee={attendee}
+        duration={duration}
+        location={location}
+        supplier={supplier}
       />
       {isDescriptionSheetOpen && (
         <DescriptionPrompt
