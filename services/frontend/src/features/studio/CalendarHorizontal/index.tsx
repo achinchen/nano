@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CalendarMonthLoose from '~frontend/components/Calendar/Month/Loose';
 import { useStudioContext } from '~frontend/features/studio/context';
 
 type Props = {
   className?: string;
+  type?: 'order' | 'service' | 'all';
 };
 
 const mockServiceData = {
@@ -43,9 +44,22 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export function CalendarHorizontal({ className = '' }: Props) {
+export default function CalendarHorizontal({
+  className = '',
+  type = 'all',
+}: Props) {
   const { selectedDate, setSelectedDate } = useStudioContext();
   const [serviceData, setServiceData] = useState({});
+  const variant = useMemo(() => {
+    switch (type) {
+      case 'order':
+        return 'name';
+      case 'service':
+        return 'tag';
+      default:
+        return 'all';
+    }
+  }, [type]);
 
   useEffect(() => {
     const thisMonth = new Date().getMonth();
@@ -54,15 +68,14 @@ export function CalendarHorizontal({ className = '' }: Props) {
   }, [selectedDate, setSelectedDate]);
 
   return (
-    <section className={`w-160 bg-zinc-50 ${className}`}>
+    <section className={`w-160 bg-zinc-50 h-full ${className}`}>
       <CalendarMonthLoose
         data={serviceData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
         type="content"
+        variant={variant}
       />
     </section>
   );
 }
-
-export default CalendarHorizontal;

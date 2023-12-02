@@ -4,9 +4,10 @@ import { Content as ContentType } from '~frontend/components/Calendar/types';
 import { MAX_LENGTH } from './constants';
 import i from './i.json';
 
-type ContentProps = {
+type Props = {
   data: ContentType[];
   date: string;
+  variant?: 'name' | 'tag' | 'all';
 };
 
 function Tags({ items, date }: { items: ContentType[]; date: string }) {
@@ -22,7 +23,7 @@ function Tags({ items, date }: { items: ContentType[]; date: string }) {
   );
 }
 
-export default function Content({ data, date }: ContentProps) {
+export default function Content({ data, date, variant }: Props) {
   const { length: dataLength } = data;
   const showMore = dataLength > MAX_LENGTH;
   const items = showMore ? data.slice(0, MAX_LENGTH) : data;
@@ -30,23 +31,29 @@ export default function Content({ data, date }: ContentProps) {
 
   return (
     <ul className="mt-1 w-100% flex flex-col gap-1 p-0">
-      <li className="h-1 flex flex-row gap-1">
-        <Tags items={items} date={date} />
-      </li>
-      {items.map(({ name, id }) => (
-        <li
-          key={`${date}-${name}-${id}`}
-          className={`truncate rounded-1 px-2 text-xs font-medium ${
-            getServiceColorById(id).LABEL
-          }`}
-        >
-          {name}
+      {variant !== 'name' && (
+        <li className="h-1 flex flex-row gap-1">
+          <Tags items={items} date={date} />
         </li>
-      ))}
-      {showMore && (
-        <li className="truncate px-2 text-xs font-medium">
-          {i.rest} {moreItemLength} {i.service}
-        </li>
+      )}
+      {variant !== 'tag' && (
+        <Fragment>
+          {items.map(({ name, id }) => (
+            <li
+              key={`${date}-${name}-${id}`}
+              className={`truncate rounded-1 px-2 text-xs font-medium ${
+                getServiceColorById(id).LABEL
+              }`}
+            >
+              {name}
+            </li>
+          ))}
+          {showMore && (
+            <li className="truncate px-2 text-xs font-medium">
+              {i.rest} {moreItemLength} {i.service}
+            </li>
+          )}
+        </Fragment>
       )}
     </ul>
   );

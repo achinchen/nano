@@ -13,7 +13,7 @@ type InfoBlockProps = {
 function InfoBlock({ icon, title, content, className = '' }: InfoBlockProps) {
   return (
     <span className={`flex flex-col md:gap-1 ${className}`}>
-      <span className="inline-flex items-center gap-1 color-primary-500">
+      <span className="inline-flex items-center gap-1 text-sm color-primary-500">
         <Icon size="2xl" icon={icon} />
         {title}
       </span>
