@@ -21,7 +21,7 @@ const NAVIGATION = {
     items: [
       {
         href: '/orders',
-        icon: 'i-solar-bag-bold',
+        icon: 'i-solar-cart-bold',
         label: i.orders.mine,
       },
     ],
