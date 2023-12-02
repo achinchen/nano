@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { TAG_CONFIG } from '~frontend/components/Tag/constants';
+import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
 
@@ -51,11 +51,10 @@ export default function OrderCards() {
             >
               <span className="flex justify-between gap-1">
                 <time>{getPeriodTime(startAt, duration)}</time>
-                <span
-                  className={`${TAG_CONFIG.sm} flex items-center bg-primary-200 color-primary-500`}
-                >
-                  {currentAttendee} / {attendee}
-                </span>
+                <AttendeeTag
+                  currentAttendee={currentAttendee}
+                  attendee={attendee}
+                />
               </span>
               <h5 className="line-clamp-2 text-sm font-normal color-zinc-600">
                 {name}

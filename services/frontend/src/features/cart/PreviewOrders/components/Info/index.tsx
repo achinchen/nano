@@ -27,7 +27,7 @@ export function Info() {
             {info.phone}
           </li>
           <li className="flex items-center">
-            <Field icon="i-solar-camera-square-linear">{i.field.SNSId}</Field>
+            <Field icon="i-custom-sns-instagram">{i.field.SNSId}</Field>
             {info.SNSId}
           </li>
         </ul>

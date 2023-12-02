@@ -14,7 +14,7 @@ function Field({ children }: React.PropsWithChildren) {
   );
 }
 
-export default function OrderInfo() {
+export default function OrderFields({ queue }: { queue: boolean }) {
   const [open, setOpen] = useState(true);
   const onToggle = () => setOpen((open) => !open);
 
@@ -35,19 +35,20 @@ export default function OrderInfo() {
           onClick={onToggle}
         />
       </h3>
-      <section className={`${open ? '' : 'hidden'} my-4`}>
-        <div className="flex items-start gap-2">
-          <Icon
-            icon="i-solar-check-circle-bold"
-            size="base"
-            className="mx-2 mt-0.5 flex-shrink-0"
-          />
-          <span className="flex flex-col text-sm">
-            {i.queue.title}
-            <span className="font-normal">{i.queue.description}</span>
-          </span>
-        </div>
-        <Separator />
+      <section className={`${open ? '' : 'hidden'} transition-200 my-4`}>
+        {queue && (
+          <div className="flex items-start gap-2">
+            <Icon
+              icon="i-solar-check-circle-bold"
+              size="base"
+              className="mx-2 mt-0.5 flex-shrink-0"
+            />
+            <span className="flex flex-col text-sm">
+              {i.queue.title}
+              <span className="font-normal">{i.queue.description}</span>
+            </span>
+          </div>
+        )}
         <div>
           <h4 className="h-9 flex items-center text-base">
             {sharedI.info.title}

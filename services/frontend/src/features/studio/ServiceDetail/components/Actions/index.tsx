@@ -5,7 +5,7 @@ import i from './i.json';
 const CLASSNAMES =
   'text-lg flex justify-between items-center py-3 pl-0 pr-2 border-b-px border-b-solid border-b-zinc-200';
 
-export default function ServiceAction() {
+export default function Actions() {
   const { id } = useParams<{ id?: string }>();
   const end = Number(id) % 2 === 0;
 
