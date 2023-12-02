@@ -36,16 +36,21 @@ export default function OrderLinks({ orders, attendee, end }: Props) {
           </Link>
         ))}
         {restCount > 0 &&
-          Array(restCount).fill(
-            <div className={`${ITEM_CLASSNAME} color-zinc-400`}>
-              <Icon
-                icon="i-solar-user-circle-bold"
-                size="4xl"
-                className="color-blue"
-              />
-              {!end && i.rest}
-            </div>
-          )}
+          Array(restCount)
+            .fill(0)
+            .map((_, index) => (
+              <div
+                className={`${ITEM_CLASSNAME} color-zinc-400`}
+                key={`empty-${index + 1}`}
+              >
+                <Icon
+                  icon="i-solar-user-circle-bold"
+                  size="4xl"
+                  className="color-blue"
+                />
+                {!end && i.rest}
+              </div>
+            ))}
       </section>
     </Fragment>
   );

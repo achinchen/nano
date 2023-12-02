@@ -1,6 +1,6 @@
 import type { Content } from './types';
 import { Fragment, useState } from 'react';
-import OrderCards from './components/OrderCardWithDate';
+import OrderCards from '~frontend/features/studio/OrderCards';
 import ContentTabs from './components/ContentTabs';
 import { CONTENT } from './constants';
 

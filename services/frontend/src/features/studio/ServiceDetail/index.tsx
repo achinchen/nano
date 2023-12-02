@@ -1,6 +1,6 @@
 import OrderFields from '~frontend/features/studio/components/OrderFields';
-import ServiceInfo from './ServiceInfo';
-import ServiceAction from './ServiceAction';
+import ServiceInfo from './components/ServiceInfo';
+import Actions from './components/Actions';
 
 export function ServiceDetail() {
   return (
@@ -8,7 +8,7 @@ export function ServiceDetail() {
       <ServiceInfo />
       <OrderFields queue />
       <div className="mx--4 h-2 bg-zinc-200" />
-      <ServiceAction />
+      <Actions />
     </section>
   );
 }

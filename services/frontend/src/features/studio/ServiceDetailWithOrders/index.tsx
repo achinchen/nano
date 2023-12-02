@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { Fragment } from 'react';
-import ServiceInfo from './ServiceInfo';
-import OrderLinks from './OrderLinks';
-import ServiceAction from './ServiceAction';
+import ServiceInfo from './components/ServiceInfo';
+import OrderLinks from './components/OrderLinks';
+import Actions from './components/Actions';
 
 const orders = [
   {
@@ -26,7 +26,7 @@ export default function ServiceDetailWithOrders() {
       {!end && (
         <Fragment>
           <div className="mx--4 mt-4 h-2 bg-zinc-200" />
-          <ServiceAction />
+          <Actions />
         </Fragment>
       )}
     </section>

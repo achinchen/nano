@@ -21,8 +21,8 @@ const SEPARATOR = ' - ';
 export const getPeriodTime = (datetime: Date | string, duration: number) => {
   const start = dayjs(datetime);
   const end = dayjs(datetime).add(duration, 'minute');
-  return `${start.format('A HH:mm')}${SEPARATOR}${end.format(
-    'A HH:mm'
+  return `${start.format('A hh:mm')}${SEPARATOR}${end.format(
+    'A hh:mm'
   )}`.replace('早上', '上午');
 };
 

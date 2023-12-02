@@ -17,6 +17,13 @@ export { dayjs };
 
 export const getDateString = (date: Date) => date.toISOString().slice(0, 10);
 
+export const formateDateTime = (date: Date) => {
+  const target = dayjs(date);
+  const shouldShowYear = target.year() !== dayjs().year();
+  if (shouldShowYear) return target.format('YYYY/MM/DD A hh:mm');
+  return target.format('MM/DD A hh:mm');
+};
+
 export const getLocaleMMDD = (date: Date) => {
   return `${dayjs(date).format('MMMDD')}${i.day}`;
 };
