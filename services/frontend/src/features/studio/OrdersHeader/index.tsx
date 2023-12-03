@@ -34,7 +34,7 @@ export default function OrdersHeader({ smHidden }: { smHidden?: boolean }) {
     <header
       className={`content-header ${smHidden ? 'hidden md:flex' : 'flex'}`}
     >
-      <h2>{i.list}</h2>
+      <h2 className="text-lg md:text-xl">{i.list}</h2>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton
           icon="i-solar-alt-arrow-left-linear"
