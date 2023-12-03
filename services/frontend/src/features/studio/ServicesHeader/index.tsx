@@ -40,7 +40,7 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
     <header
       className={`content-header ${smHidden ? 'hidden md:flex' : 'flex'}`}
     >
-      <h2>{i.list}</h2>
+      <h2 className="text-lg md:text-xl">{i.list}</h2>
       <aside className={`${CONTAINER_CLASSES} flex`}>
         <div className={`${CONTAINER_CLASSES} hidden md:flex`}>
           <IconButton

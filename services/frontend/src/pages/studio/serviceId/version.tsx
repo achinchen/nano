@@ -7,7 +7,7 @@ import {
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
 import ServiceDetailWithOrders from '~frontend/features/studio/ServiceDetailWithOrders';
-import ServicesHeader from '~frontend/features/studio/ServicesHeader';
+import OrdersHeader from '~frontend/features/studio/OrdersHeader';
 
 function Content() {
   const { setSelectedDate, isListMode } = useStudioContext();
@@ -38,7 +38,7 @@ export default function Index() {
   return (
     <StudioContextProvider>
       <Fragment>
-        <ServicesHeader smHidden />
+        <OrdersHeader smHidden />
         <Content />
       </Fragment>
     </StudioContextProvider>
