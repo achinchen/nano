@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import sharedI from '~frontend/shared/i.json';
 import Avatar from '~frontend/components/Avatar';
 import Avacado from '~frontend/assets/avatar.png';

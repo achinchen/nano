@@ -8,6 +8,7 @@ import StudioServices from '~frontend/pages/studio/services';
 import StudioServiceId from '~frontend/pages/studio/serviceId';
 import StudioServiceIdVersion from '~frontend/pages/studio/serviceId/version';
 import StudioOrders from '~frontend/pages/studio/orders';
+import StudioOrdersRequest from '~frontend/pages/studio/orders/request';
 import StudioOrderId from '~frontend/pages/studio/orderId';
 
 export function App() {
@@ -26,6 +27,10 @@ export function App() {
             element={<StudioServiceIdVersion />}
           />
           <Route path="/studio/orders" element={<StudioOrders />} />
+          <Route
+            path="/studio/orders/request"
+            element={<StudioOrdersRequest />}
+          />
           <Route path="/studio/orders/:id" element={<StudioOrderId />} />
         </Routes>
       </Layout>
