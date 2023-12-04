@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
-import Separator from '~frontend/components/Separator';
 import i from './i.json';
 
 function Field({ children }: React.PropsWithChildren) {

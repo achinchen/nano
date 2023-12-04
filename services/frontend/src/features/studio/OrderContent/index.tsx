@@ -2,9 +2,9 @@ import { Fragment } from 'react';
 import {
   OrderDetailContent,
   OrderDetailHeader,
-} from '~frontend/features/studio/OrderDetail';
+} from './components/OrderDetail';
 
-export default function OrderContent() {
+export default function OrderRequestContent() {
   return (
     <Fragment>
       <OrderDetailHeader />

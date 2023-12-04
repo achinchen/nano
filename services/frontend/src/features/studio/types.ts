@@ -1,6 +1,6 @@
 export type Service = {
   name: string;
-  id: number;
+  id: string;
   description: string;
   location: {
     name: string;
@@ -10,4 +10,8 @@ export type Service = {
   duration: number;
   queue: boolean;
   supplier: string;
+};
+
+export type LooseLocationService = Omit<Service, 'location'> & {
+  location: string;
 };

@@ -6,7 +6,7 @@ import {
 } from '~frontend/features/studio/context';
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
-import OrderRequestCards from '~frontend/features/studio/OrderRequestCards';
+import OrderRequestContent from '~frontend/features/studio/OrderRequestContent';
 import OrderRequestHeader from '~frontend/features/studio/OrderRequestHeader';
 
 function Content() {
@@ -23,8 +23,8 @@ function Content() {
       <section className="hidden md:block">
         {isListMode ? <CalendarWeekList /> : <CalendarHorizontal type="all" />}
       </section>
-      <section className="h-[calc(100dvh-52px)] flex-1 overflow-y-scroll md:h-[calc(100dvh-112px)] md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
-        <OrderRequestCards />
+      <section className="flex-1 md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
+        <OrderRequestContent />
       </section>
     </div>
   );
@@ -34,7 +34,7 @@ export default function Index() {
   return (
     <StudioContextProvider>
       <Fragment>
-        <OrderRequestHeader />
+        <OrderRequestHeader smHidden />
         <Content />
       </Fragment>
     </StudioContextProvider>

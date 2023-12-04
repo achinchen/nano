@@ -4,12 +4,13 @@ import Booking from '~frontend/pages/booking/provider';
 import BookingService from '~frontend/pages/booking/provider/service';
 import Cart from '~frontend/pages/cart';
 import Studio from '~frontend/pages/studio';
-import StudioServices from '~frontend/pages/studio/services';
-import StudioServiceId from '~frontend/pages/studio/serviceId';
-import StudioServiceIdVersion from '~frontend/pages/studio/serviceId/version';
+import StudioServices from '~frontend/pages/studio/services/index';
+import StudioServiceId from '~frontend/pages/studio/services/id';
+import StudioServiceIdVersion from '~frontend/pages/studio/services/id/version';
 import StudioOrders from '~frontend/pages/studio/orders';
 import StudioOrdersRequest from '~frontend/pages/studio/orders/request';
-import StudioOrderId from '~frontend/pages/studio/orderId';
+import StudioOrderIdRequest from '~frontend/pages/studio/orders/id/request';
+import StudioOrderId from '~frontend/pages/studio/orders/id';
 
 export function App() {
   return (
@@ -30,6 +31,10 @@ export function App() {
           <Route
             path="/studio/orders/request"
             element={<StudioOrdersRequest />}
+          />
+          <Route
+            path="/studio/orders/request/:id"
+            element={<StudioOrderIdRequest />}
           />
           <Route path="/studio/orders/:id" element={<StudioOrderId />} />
         </Routes>
