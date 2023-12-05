@@ -5,7 +5,6 @@ import Icon from '~frontend/components/Icon';
 import Avatar from '~frontend/components/Avatar';
 import Avocado from '~frontend/assets/avatar.png';
 import { getRelativeTime } from '~frontend/utils/time';
-import i from './i.json';
 
 const ORDERS = [
   {

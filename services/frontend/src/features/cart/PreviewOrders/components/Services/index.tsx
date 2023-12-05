@@ -40,7 +40,7 @@ function ServiceCard({
                 <span
                   className={`${TAG_CONFIG.sm} ml-8 bg-white text-primary-500 border-solid border-1 border-primary-500 mr-2`}
                 >
-                  {sharedI.order} {index + 1}
+                  {sharedI.queue.order} {index + 1}
                 </span>
               )}
               <span className="text-sm">
