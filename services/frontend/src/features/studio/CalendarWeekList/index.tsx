@@ -73,7 +73,13 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export default function ListMode({ loose = true }: { loose?: boolean }) {
+export default function ListMode({
+  loose = true,
+  type = 'all',
+}: {
+  loose?: boolean;
+  type?: 'order' | 'all';
+}) {
   const { selectedDate, setSelectedDate } = useStudioContext();
   const [serviceData, setServiceData] = useState({});
   const timeOptions = getTimeOptions(
@@ -91,6 +97,8 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
       {}
     );
   }, [serviceData]);
+
+  const hiddenService = type === 'order';
 
   useEffect(() => {
     const thisMonth = new Date().getMonth();
@@ -111,8 +119,12 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
         <ScrollableCalendarWeek data={serviceStatusData} />
       )}
       <section className="mt-2 bg-zinc-50 md:mt-0">
-        <ServiceNav />
-        <main className="md: relative mt-2 h-[calc(100dvh-264px)] overflow-y-scroll">
+        {hiddenService || <ServiceNav />}
+        <main
+          className={`relative mt-2 overflow-y-scroll ${
+            hiddenService ? 'h-[calc(100dvh-220px)]' : 'h-[calc(100dvh-264px)] '
+          }`}
+        >
           <ul className="flex flex-col">
             {timeOptions.map((time) => (
               <li key={time} className="h-12 flex gap-1px md:h-15">
@@ -124,7 +136,7 @@ export default function ListMode({ loose = true }: { loose?: boolean }) {
             ))}
           </ul>
           <ul className="absolute top-0 w-[calc(100%-60px)] translate-x-15 md:w-[calc(100%-72px)] md:translate-x-18">
-            <ServiceTimeBlock loose={loose} />
+            {hiddenService || <ServiceTimeBlock loose={loose} />}
             <OrderTimeBlocks loose={loose} />
             <TakeleaveBlocks loose={loose} />
           </ul>
