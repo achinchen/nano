@@ -35,7 +35,7 @@ function TimeCard({
     <div className="flex items-start gap-2">
       {queue && (
         <span className="my-2 font-normal">
-          {sharedI.order}
+          {sharedI.queue.order}
           {order}
         </span>
       )}

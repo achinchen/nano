@@ -87,7 +87,7 @@ export default function ServiceInfo() {
       </TextButton>
       {open && (
         <InfoPrompt
-          id={id}
+          id={paramsId as string}
           queue={queue}
           title={sharedI.description}
           name={name}

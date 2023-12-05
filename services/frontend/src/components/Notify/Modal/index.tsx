@@ -26,7 +26,7 @@ export default function NotifyModal({
         <header className="mx-4 text-base font-bold color-zinc-700 md:text-lg">
           {title}
         </header>
-        <div className="mx-4 text-sm color-zinc-700 md:text-base">
+        <div className="mx-4 whitespace-pre-line text-sm font-normal color-zinc-500 md:text-base">
           {description}
         </div>
         <footer

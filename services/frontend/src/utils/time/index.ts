@@ -1,7 +1,9 @@
 import zhTW from 'dayjs/locale/zh-tw';
-import dayjs, { locale } from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import dayjs, { locale, extend } from 'dayjs';
 import i from '~frontend/shared/i.json';
 
+extend(relativeTime);
 locale('zh-tw', zhTW);
 
 const HOUR = 60;
@@ -29,4 +31,8 @@ export const getPeriodTime = (datetime: Date | string, duration: number) => {
 export const getPeriodTimes = (datetime: Date | string, duration: number) => {
   const timePeriod = getPeriodTime(datetime, duration);
   return timePeriod.split(SEPARATOR);
+};
+
+export const getRelativeTime = (datetime: Date | string) => {
+  return dayjs(datetime).fromNow();
 };
