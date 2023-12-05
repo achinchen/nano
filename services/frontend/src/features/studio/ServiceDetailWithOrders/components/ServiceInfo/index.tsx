@@ -70,7 +70,7 @@ export default function ServiceInfo() {
           {formateDate(startAt)} － {formateDate(endAt)}
         </EmphasizeBlock>
       </div>
-      <div className="mt-2 flex items-center gap-2 text-sm font-normal">
+      <div className="mt-2 flex items-center gap-2 text-sm">
         <EmphasizeBlock>{startTime}</EmphasizeBlock>
         {featureI.to}
         <EmphasizeBlock>{endTime}</EmphasizeBlock>

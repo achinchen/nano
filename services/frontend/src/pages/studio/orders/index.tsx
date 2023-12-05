@@ -22,7 +22,7 @@ function Content() {
     <div className="flex flex-col md:flex-row md:bg-white">
       <section className="hidden md:block">
         {isListMode ? (
-          <CalendarWeekList />
+          <CalendarWeekList type="order" />
         ) : (
           <CalendarHorizontal type="order" />
         )}

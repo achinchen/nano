@@ -21,7 +21,11 @@ function Content() {
   return (
     <div className="flex flex-col md:flex-row md:bg-white">
       <section className="hidden md:block">
-        {isListMode ? <CalendarWeekList /> : <CalendarHorizontal type="all" />}
+        {isListMode ? (
+          <CalendarWeekList type="order" />
+        ) : (
+          <CalendarHorizontal type="all" />
+        )}
       </section>
       <section className="h-[calc(100dvh-52px)] flex-1 overflow-y-scroll md:h-[calc(100dvh-112px)] md:border-l-1 md:border-l-zinc-200 md:border-l-solid">
         <OrderRequestCards />
