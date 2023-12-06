@@ -11,6 +11,7 @@ import StudioOrders from '~frontend/pages/studio/orders';
 import StudioOrdersRequest from '~frontend/pages/studio/orders/request';
 import StudioOrderIdRequest from '~frontend/pages/studio/orders/id/request';
 import StudioOrderId from '~frontend/pages/studio/orders/id';
+import MyOrders from '~frontend/pages/my/orders';
 
 export function App() {
   return (
@@ -37,6 +38,7 @@ export function App() {
             element={<StudioOrderIdRequest />}
           />
           <Route path="/studio/orders/:id" element={<StudioOrderId />} />
+          <Route path="/my/orders" element={<MyOrders />} />
         </Routes>
       </Layout>
     </BrowserRouter>

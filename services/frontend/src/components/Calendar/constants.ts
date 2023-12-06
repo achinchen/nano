@@ -2,6 +2,7 @@ import type { Status } from './types';
 import i from '~frontend/utils/date/i.json';
 
 export const STATUSES = ['unsold', 'full', 'has-order'] as const;
+export const PROCESS_STATUSES = ['start', 'end'] as const;
 
 const STATUS_BASE_CLASS = 'absolute bottom--1.5 inline-block h-2 w-2 rounded';
 export const STATUS_CLASS: { [key in Status | 'default']: string } = {

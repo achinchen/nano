@@ -28,11 +28,11 @@ export const getLocaleMMDD = (date: Date) => {
   return `${dayjs(date).format('MMMDD')}${i.day}`;
 };
 
-export const getMMDD = (date: Date) => {
+export const getMMDD = (date: Date | string) => {
   return dayjs(date).format('MM/DD');
 };
 
-export const getYYYYMMDD = (date: Date) => {
+export const getYYYYMMDD = (date: Date | string) => {
   return dayjs(date).format('YYYY/MM/DD');
 };
 
