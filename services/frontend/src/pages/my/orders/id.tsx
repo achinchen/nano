@@ -17,7 +17,7 @@ function Content() {
 
   const { id } = useParams<{ id: string }>();
 
-  const end = id !== '21';
+  const end = id === '21';
 
   useEffect(() => {
     const date = searchParams.get('date');
