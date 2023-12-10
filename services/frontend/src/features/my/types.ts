@@ -12,12 +12,13 @@ export type Service = {
   supplier: string;
 };
 
-export type ServiceDetail = Service & {
-  currentAttendee: number;
-  startAt: string;
-  endAt: string;
-};
+export type OrderStatus = 'end' | 'request' | 'coming';
 
-export type LooseLocationService = Omit<Service, 'location'> & {
-  location: string;
+export type Order = {
+  id: string;
+  name: string;
+  queues: string[];
+  duration: number;
+  updatedAt: string;
+  status: OrderStatus;
 };
