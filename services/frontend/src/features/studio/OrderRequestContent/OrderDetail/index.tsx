@@ -1,4 +1,4 @@
-import ConsumerContactInfo from '~frontend/features/studio/components/ConsumerContactInfo';
+import ConsumerContactInfo from '~frontend/shared/components/ConsumerContactInfo';
 import Separator from '~frontend/components/Separator';
 import ServiceInfo from './components/ServiceInfo';
 import ConsumerName from './components/ConsumerName';

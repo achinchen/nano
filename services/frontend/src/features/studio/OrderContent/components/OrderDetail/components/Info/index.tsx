@@ -1,11 +1,9 @@
 import { Fragment } from 'react';
-import ConsumerContactInfo from '~frontend/features/studio/components/ConsumerContactInfo';
+import ConsumerContactInfo from '~frontend/shared/components/ConsumerContactInfo';
+import OrderNote from '~frontend/shared/components/OrderNote';
 import Avatar from '~frontend/components/Avatar';
 import Avocado from '~frontend/assets/avatar.png';
-import { formateDateTime } from '~frontend/utils/date';
 import Separator from '~frontend/components/Separator';
-import IconButton from '~frontend/components/IconButton';
-import i from './i.json';
 
 const order = {
   service: {
@@ -26,7 +24,7 @@ const order = {
 
 const { name, note } = order;
 
-export default function Info({ children }: React.PropsWithChildren) {
+export default function Info() {
   const onNoteEdit = () => console.log('edit note');
   return (
     <Fragment>
@@ -37,25 +35,7 @@ export default function Info({ children }: React.PropsWithChildren) {
       <Separator />
       <ConsumerContactInfo />
       <Separator />
-      <article className="mt-3">
-        <h3 className="flex items-center justify-between text-base font-bold">
-          {i.note}
-          <IconButton
-            size="sm"
-            variant="outline"
-            color="primary"
-            icon="i-solar-pen-2-bold"
-            onClick={onNoteEdit}
-          />
-        </h3>
-        <time className="text-xs font-normal color-zinc-600">
-          {i.updated}
-          {formateDateTime(new Date(note.updateAt))}
-        </time>
-        <p className="mb-10 mt-1 text-sm font-normal color-zinc-600">
-          {note.content}
-        </p>
-      </article>
+      <OrderNote onEdit={onNoteEdit} note={note} />
     </Fragment>
   );
 }

@@ -3,7 +3,7 @@ import OrderCards from '~frontend/features/studio/OrderCards';
 import {
   isToday,
   isTomorrow,
-  formateDate,
+  formateDateWithDay,
   getAfter,
 } from '~frontend/utils/date';
 import i from '~frontend/shared/i.json';
@@ -11,7 +11,7 @@ import i from '~frontend/shared/i.json';
 const generateDate = (date: Date) => {
   if (isToday(date)) return i.today;
   if (isTomorrow(date)) return i.tomorrow;
-  return formateDate(date);
+  return formateDateWithDay(date);
 };
 
 function CardsWithDate({ date }: { date: Date }) {

@@ -1,6 +1,6 @@
 import Icon from '~frontend/components/Icon';
 import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
-import EmphasizeBlock from '~frontend/features/studio/components/EmphasizeBlock';
+import EmphasizeBlock from '~frontend/shared/components/EmphasizeBlock';
 import sharedI from '~frontend/shared/i.json';
 import RadioGroup from '~frontend/components/RadioGroup';
 import { useRequestOrderContext } from '~frontend/features/studio/OrderRequestContent/context';
@@ -84,7 +84,7 @@ export default function ConsumerRequirement() {
           className="color-primary-500"
           size="2xl"
         />
-        {scopedI.datetime}
+        {sharedI.queue.title}
         {queue && <QueueDescription />}
       </div>
       <form className="mx--4 my-4 bg-primary-100 px-4 pb-2 pt-6">

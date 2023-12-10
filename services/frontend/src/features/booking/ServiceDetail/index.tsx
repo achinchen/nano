@@ -3,11 +3,10 @@ import { useState } from 'react';
 import i from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/utils/time';
-import TextButton from '~frontend/components/TextButton';
 import Separator from '~frontend/components/Separator';
-import { formateDate } from '~frontend/utils/date';
+import { formateDateWithDay } from '~frontend/utils/date';
+import ServiceDescriptionMore from '~frontend/shared/components/ServiceDescriptionMore';
 import InfoBlock from './components/InfoBlock';
-import DescriptionPrompt from './components/DescriptionPrompt';
 
 export function ServiceDetail({
   name,
@@ -19,16 +18,12 @@ export function ServiceDetail({
   attendee,
   status,
 }: ServiceDetailProps) {
-  const [isDescriptionSheetOpen, setIsDescriptionSheetOpen] = useState(false);
-  const onReadMoreClick = () => setIsDescriptionSheetOpen(true);
-  const onDescriptionSheetClose = () => setIsDescriptionSheetOpen(false);
-
   return (
     <section>
       <h2 className="my-3 flex justify-between text-xl font-bold">
         {name} <StatusTag status={status} />
       </h2>
-      <time>{formateDate(selectedDate)}</time>
+      <time>{formateDateWithDay(selectedDate)}</time>
       <Separator />
       <div className="mt-2 flex gap-2">
         <InfoBlock
@@ -62,18 +57,11 @@ export function ServiceDetail({
         <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600">
           {description}
         </p>
-        <TextButton onClick={onReadMoreClick} className="text-sm md:text-base">
+        <ServiceDescriptionMore title={i.description} description={description}>
           {i.more}
-        </TextButton>
+        </ServiceDescriptionMore>
       </article>
       <Separator />
-      {isDescriptionSheetOpen && (
-        <DescriptionPrompt
-          title={i.description}
-          description={description}
-          onClose={onDescriptionSheetClose}
-        />
-      )}
     </section>
   );
 }

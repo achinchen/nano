@@ -40,7 +40,14 @@ export const getLocaleYYYYMMDD = (date: Date) => {
   return dayjs(date).format('LL');
 };
 
-export const formateDate = (date: Date) => {
+export const formateDate = (date: string) => {
+  const today = new Date();
+  const target = new Date(date);
+  const isThisYear = today.getFullYear() === target.getFullYear();
+  return isThisYear ? getMMDD(target) : getYYYYMMDD(target);
+};
+
+export const formateDateWithDay = (date: Date | string) => {
   const target = dayjs(date);
   const shouldShowYear = target.year() !== dayjs().year();
   if (shouldShowYear) return target.format('LL dddd');

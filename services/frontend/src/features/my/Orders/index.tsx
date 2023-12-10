@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import OrderCard from '~frontend/features/my/OrderCard';
-import i from './i.json';
+import i from '~frontend/features/my/i.json';
 
 const orders = {
   request: [

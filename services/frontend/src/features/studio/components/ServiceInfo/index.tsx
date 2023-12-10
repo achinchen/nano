@@ -1,5 +1,5 @@
 import type { Service } from '~frontend/features/studio/types';
-import InfoBlocks from '~frontend/features/studio/components/InfoBlocks';
+import InfoBlocks from '~frontend/shared/components/InfoBlocks';
 import OrderFields from '~frontend/features/studio/components/OrderFields';
 import Separator from '~frontend/components/Separator';
 

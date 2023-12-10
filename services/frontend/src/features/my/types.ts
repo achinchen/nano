@@ -12,11 +12,13 @@ export type Service = {
   supplier: string;
 };
 
+export type OrderStatus = 'end' | 'request' | 'coming';
+
 export type Order = {
   id: string;
   name: string;
   queues: string[];
   duration: number;
   updatedAt: string;
-  status: 'end' | 'request' | 'coming';
+  status: OrderStatus;
 };

@@ -3,7 +3,8 @@
   "supplier": "服務者",
   "location": "地點",
   "queue": {
-    "order": "順位"
+    "order": "順位",
+    "title": "選取時段"
   },
   "times": "時段",
   "unit": {
@@ -18,6 +19,7 @@
   "attendee": "提供名額",
   "duration": "時間長度",
   "description": "服務介紹",
+  "detail": "查看服務細節",
   "info": {
     "title": "訂購人資訊",
     "field": {

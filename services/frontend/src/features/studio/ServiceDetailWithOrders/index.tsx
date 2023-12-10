@@ -15,13 +15,31 @@ const orders = [
   },
 ];
 
+const service = {
+  duration: 90,
+  name: '創業諮詢',
+  description:
+    '這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話。這服務敘述是一段沒有意義的話，這服務敘述是一段沒有意義的話。',
+  currentAttendee: 1,
+  queue: false,
+  serviceId: 7,
+  startAt: '2023-12-19T08:30',
+  endAt: '2024-01-31T10:00',
+  attendee: 4,
+  supplier: '阿狗狗',
+  location: {
+    name: '台中',
+    address: '407台中市西屯區臺灣大道三段251號',
+  },
+};
+
 export default function ServiceDetailWithOrders() {
   const { id } = useParams<{ id?: string }>();
   const end = Number(id) % 2 === 0;
 
   return (
     <section className="mb-12">
-      <ServiceInfo />
+      <ServiceInfo {...service} title={service.name} />
       <OrderLinks orders={orders} attendee={4} end={end} />
       {!end && (
         <Fragment>
