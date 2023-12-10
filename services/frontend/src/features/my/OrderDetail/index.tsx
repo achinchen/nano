@@ -56,7 +56,7 @@ export default function OrderDetail() {
       ? order.queues
       : ['2023-12-19T08:30', '2023-12-19T15:30', '2024-01-24T10:30'];
 
-  const status = id !== '21' ? 'end' : id === '12' ? 'coming' : 'request';
+  const status = id === '21' ? 'end' : id === '12' ? 'coming' : 'request';
 
   return (
     <Fragment>

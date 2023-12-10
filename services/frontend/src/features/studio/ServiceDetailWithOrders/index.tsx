@@ -39,7 +39,7 @@ export default function ServiceDetailWithOrders() {
 
   return (
     <section className="mb-12">
-      <ServiceInfo {...service} title={service.name} />
+      <ServiceInfo />
       <OrderLinks orders={orders} attendee={4} end={end} />
       {!end && (
         <Fragment>

@@ -11,7 +11,7 @@ import i from '~frontend/shared/i.json';
 const generateDate = (date: Date) => {
   if (isToday(date)) return i.today;
   if (isTomorrow(date)) return i.tomorrow;
-  return formateDate(date);
+  return formateDate(date.toISOString());
 };
 
 function CardsWithDate({ date }: { date: Date }) {
