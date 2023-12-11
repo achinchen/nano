@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
+import Separator from '~frontend/components/Separator';
 import i from './i.json';
 
 function Field({ children }: React.PropsWithChildren) {
@@ -36,17 +37,20 @@ export default function OrderFields({ queue }: { queue: boolean }) {
       </h3>
       <section className={`${open ? '' : 'hidden'} transition-200 my-4`}>
         {queue && (
-          <div className="flex items-start gap-2">
-            <Icon
-              icon="i-solar-check-circle-bold"
-              size="base"
-              className="mx-2 mt-0.5 flex-shrink-0"
-            />
-            <span className="flex flex-col text-sm">
-              {i.queue.title}
-              <span className="font-normal">{i.queue.description}</span>
-            </span>
-          </div>
+          <Fragment>
+            <div className="flex items-start gap-2">
+              <Icon
+                icon="i-solar-check-circle-bold"
+                size="base"
+                className="mx-2 mt-0.5 flex-shrink-0"
+              />
+              <span className="flex flex-col text-sm">
+                {i.queue.title}
+                <span className="font-normal">{i.queue.description}</span>
+              </span>
+            </div>
+            <Separator />
+          </Fragment>
         )}
         <div>
           <h4 className="h-9 flex items-center text-base">

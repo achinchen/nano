@@ -23,7 +23,10 @@ export default function ServiceInfo() {
 
   return (
     <Fragment>
-      <TextButton className="ml-auto hidden md:block" onClick={onClick}>
+      <TextButton
+        className="ml-auto flex-shrink-0 flex-grow-0"
+        onClick={onClick}
+      >
         {i.title}
       </TextButton>
       {open && (
