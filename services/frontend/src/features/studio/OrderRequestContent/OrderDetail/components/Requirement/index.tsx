@@ -9,14 +9,21 @@ import { getMMDD } from '~frontend/utils/date';
 import scopedI from './i.json';
 import QueueDescription from './QueueDescriptionPrompt';
 
-function QueueItem({ index }: { index: number }) {
+function QueueItem({
+  index,
+  active,
+  disabled,
+}: {
+  index: number;
+  active: boolean;
+  disabled: boolean;
+}) {
   const {
     requirement,
     service: { duration, queue },
   } = useRequestOrderContext();
 
-  const { currentAttendee, attendee, time, disabled } =
-    requirement.queues[index];
+  const { currentAttendee, attendee, time } = requirement.queues[index];
 
   const disabledClass = disabled ? 'color-zinc-500' : '';
   return (
@@ -45,9 +52,9 @@ function QueueItem({ index }: { index: number }) {
             />
           </span>
         </span>
-        <span className="mt-1 text-xs font-normal color-red-500">
+        {/* <span className="mt-1 text-xs font-normal color-red-500">
           此時段為休假時間
-        </span>
+        </span> */}
       </span>
     </span>
   );
@@ -73,12 +80,12 @@ export default function ConsumerRequirement() {
           className="color-primary-500"
           size="2xl"
         />
-        <span className="color-zinc-500">{scopedI.attendee}</span>
+        <span>{scopedI.attendee}</span>
         <EmphasizeBlock>
           {requirement.attendee} {sharedI.unit.attendee}
         </EmphasizeBlock>
       </div>
-      <div className="mt-2 flex items-center gap-2 text-sm color-zinc-500">
+      <div className="mt-2 flex items-center gap-2 text-sm">
         <Icon
           icon="i-solar-calendar-linear"
           className="color-primary-500"

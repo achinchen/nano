@@ -13,7 +13,7 @@ export default function ServiceInfo({
   queue,
 }: Omit<Service, 'name' | 'id'> & { title: string }) {
   return (
-    <div className="my-2 h-112 overflow-y-scroll px-4 font-normal color-zinc-600">
+    <div className="my-2 font-normal color-zinc-600">
       <h3 className="text-base">{title}</h3>
       <p className="mt-0">{description}</p>
       <Separator />
