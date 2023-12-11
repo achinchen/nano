@@ -9,21 +9,14 @@ import { getMMDD } from '~frontend/utils/date';
 import scopedI from './i.json';
 import QueueDescription from './QueueDescriptionPrompt';
 
-function QueueItem({
-  index,
-  active,
-  disabled,
-}: {
-  index: number;
-  active: boolean;
-  disabled: boolean;
-}) {
+function QueueItem({ index }: { index: number }) {
   const {
     requirement,
     service: { duration, queue },
   } = useRequestOrderContext();
 
-  const { currentAttendee, attendee, time } = requirement.queues[index];
+  const { currentAttendee, attendee, time, disabled } =
+    requirement.queues[index];
 
   const disabledClass = disabled ? 'color-zinc-500' : '';
   return (
