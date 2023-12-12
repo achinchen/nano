@@ -4,7 +4,7 @@ import { MyContextProvider, useMyContext } from '~frontend/features/my/context';
 import CalendarHorizontal from '~frontend/features/my/CalendarHorizontal';
 import OrderDetail from '~frontend/features/my/OrderDetail';
 import OrderDetailFooter from '~frontend/features/my/OrderDetailFooter';
-import Header from '~frontend/features/my/Header';
+import Header from '~frontend/features/my/OrderHeader';
 
 const CONTAINER_CLASS = {
   default: 'max-h-[calc(100dvh-56px)] md:max-h-[calc(100dvh-108px)]',

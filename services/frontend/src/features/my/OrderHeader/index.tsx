@@ -1,6 +1,6 @@
 import i from './i.json';
 
-export default function Header({ smHidden }: { smHidden?: boolean }) {
+export default function OrderHeader({ smHidden }: { smHidden?: boolean }) {
   return (
     <header
       className={`content-header md:justify-center ${

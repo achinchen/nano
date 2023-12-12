@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { MyContextProvider, useMyContext } from '~frontend/features/my/context';
 import CalendarHorizontal from '~frontend/features/my/CalendarHorizontal';
 import Orders from '~frontend/features/my/Orders';
-import Header from '~frontend/features/my/Header';
+import Header from '~frontend/features/my/OrderHeader';
 
 function Content() {
   const { setSelectedDate } = useMyContext();
