@@ -1,0 +1,22 @@
+{
+  "info": {
+    "title": "工作室資料",
+    "name": "工作室名稱",
+    "no": "工作室編號",
+    "SNS": "Instagram ID"
+  },
+  "supplier": {
+    "no": "會員編號",
+    "name": "提供者名稱"
+  },
+  "service": {
+    "title": "服務設定",
+    "supplier": "提供者",
+    "time": "每天服務時間"
+  },
+  "update": {
+    "title": "變更請求",
+    "content": "如有變更需求請填寫下述表單，團隊會於三天內審核您的需求。",
+    "button": "申請變更設定"
+  }
+}
