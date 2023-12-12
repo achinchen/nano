@@ -22,7 +22,7 @@ export const StudioSettingContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [view, setView] = useState('studio');
+  const [view, setView] = useState('studio' as View);
   const toggleView = () =>
     setView((prev) => (prev === 'studio' ? 'supplier' : 'studio'));
 
