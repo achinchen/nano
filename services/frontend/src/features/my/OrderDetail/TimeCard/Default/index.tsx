@@ -2,7 +2,7 @@ import type { Props } from '~frontend/features/my/OrderDetail/TimeCard/types';
 import EmphasizeBlock from '~frontend/shared/components/EmphasizeBlock';
 import { formateDateWithDay } from '~frontend/utils/date';
 import { getPeriodTimes } from '~frontend/utils/time';
-import i from './i.json';
+import i from '~frontend/shared/i.json';
 
 export default function Default({ queues, duration }: Props) {
   const [startAt, endAt] = getPeriodTimes(queues[0], duration);

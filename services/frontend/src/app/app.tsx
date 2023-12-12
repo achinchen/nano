@@ -4,6 +4,7 @@ import Booking from '~frontend/pages/booking/provider';
 import BookingService from '~frontend/pages/booking/provider/service';
 import Cart from '~frontend/pages/cart';
 import Studio from '~frontend/pages/studio';
+import StudioSetting from '~frontend/pages/studio/setting';
 import StudioServices from '~frontend/pages/studio/services/index';
 import StudioServiceId from '~frontend/pages/studio/services/id';
 import StudioServiceIdVersion from '~frontend/pages/studio/services/id/version';
@@ -24,6 +25,7 @@ export function App() {
           <Route path="/booking/:provider/s/:id" element={<BookingService />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/studio" element={<Studio />} />
+          <Route path="/studio/setting" element={<StudioSetting />} />
           <Route path="/studio/services" element={<StudioServices />} />
           <Route path="/studio/services/:id" element={<StudioServiceId />} />
           <Route
