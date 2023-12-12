@@ -1,14 +1,15 @@
 import { Fragment } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import ServiceDetail from '~frontend/features/studio/components/ServiceDetailMore';
+import { useParams } from 'react-router-dom';
+import sharedI from '~frontend/shared/i.json';
 import featureI from '~frontend/features/studio/i.json';
 import StatusTag from '~frontend/features/studio/components/StatusTag';
 import { getPeriodTimes } from '~frontend/utils/time';
+import Icon from '~frontend/components/Icon';
 import Separator from '~frontend/components/Separator';
 import { formateDate } from '~frontend/utils/date';
 import EmphasizeBlock from '~frontend/shared/components/EmphasizeBlock';
 import ServiceInfoBlocks from '~frontend/shared/components/InfoBlocks';
-import Button from '~frontend/components/Button';
+import ServiceDescriptionMore from '~frontend/shared/components/ServiceDescriptionMore';
 import i from './i.json';
 
 const service = {
@@ -27,29 +28,23 @@ const service = {
     name: '台中',
     address: '407台中市西屯區臺灣大道三段251號',
   },
-  id: '1',
-  queue: true,
 };
 
-const { startAt, endAt, name, supplier, duration, location, attendee } =
-  service;
+const {
+  startAt,
+  endAt,
+  name,
+  supplier,
+  duration,
+  location,
+  description,
+  attendee,
+} = service;
 
 const [startTime, endTime] = getPeriodTimes(startAt, duration);
 
-function Footer({ target }: { target: string }) {
-  const navigate = useNavigate();
-
-  const onClick = () => navigate(target);
-  return (
-    <Button className="w-full" onClick={onClick}>
-      {i.button}
-    </Button>
-  );
-}
-
 export default function ServiceInfo() {
   const { id } = useParams<{ id?: string }>();
-  const targetPath = `/studio/services/${id}`;
 
   return (
     <Fragment>
@@ -58,29 +53,46 @@ export default function ServiceInfo() {
         <StatusTag end={Number(id) % 2 === 0} />
       </h2>
       <div className="flex items-center gap-2 text-sm">
+        <Icon
+          icon="i-solar-calendar-linear"
+          className="color-primary-500"
+          size="2xl"
+        />
+        <span className="font-normal">{i.date}</span>
         <EmphasizeBlock>
           {formateDate(startAt)} － {formateDate(endAt)}
         </EmphasizeBlock>
       </div>
       <div className="mt-2 flex items-center gap-2 text-sm">
+        <Icon
+          icon="i-solar-clock-circle-linear"
+          className="color-primary-500"
+          size="2xl"
+        />
+        <span className="font-normal">{i.time}</span>
         <EmphasizeBlock>{startTime}</EmphasizeBlock>
         {featureI.to}
         <EmphasizeBlock>{endTime}</EmphasizeBlock>
       </div>
+      <Separator />
+      <article className="mt-3">
+        <h3 className="text-base font-bold">{sharedI.description}</h3>
+        <p className="line-clamp-8 mb-2 mt-1 max-h-42 font-normal color-zinc-600">
+          {description}
+        </p>
+        <ServiceDescriptionMore
+          title={sharedI.description}
+          description={description}
+        >
+          {sharedI.more}
+        </ServiceDescriptionMore>
+      </article>
       <Separator />
       <ServiceInfoBlocks
         attendee={attendee}
         duration={duration}
         location={location}
         supplier={supplier}
-      />
-      <ServiceDetail
-        className="mt-1"
-        service={{
-          ...service,
-          queue: Number(id) % 2 === 0,
-        }}
-        footer={<Footer target={targetPath} />}
       />
     </Fragment>
   );

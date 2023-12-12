@@ -3,7 +3,7 @@ import InfoBlocks from '~frontend/shared/components/InfoBlocks';
 import OrderFields from '~frontend/features/studio/components/OrderFields';
 import Separator from '~frontend/components/Separator';
 
-export default function ServiceInfo({
+export default function ServiceSummary({
   title,
   description,
   attendee,
@@ -11,7 +11,7 @@ export default function ServiceInfo({
   location,
   supplier,
   queue,
-}: Omit<Service, 'name' | 'id'> & { title: string }) {
+}: Omit<Service, 'name' | 'id'> & { title: string; titleSize?: 'sm' | 'md' }) {
   return (
     <div className="my-2 font-normal color-zinc-600">
       <h3 className="text-base">{title}</h3>
