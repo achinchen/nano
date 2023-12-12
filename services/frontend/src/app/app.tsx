@@ -13,6 +13,7 @@ import StudioOrderIdRequest from '~frontend/pages/studio/orders/id/request';
 import StudioOrderId from '~frontend/pages/studio/orders/id';
 import MyOrders from '~frontend/pages/my/orders';
 import MyOrderId from '~frontend/pages/my/orders/id';
+import MySetting from '~frontend/pages/my/setting';
 
 export function App() {
   return (
@@ -41,6 +42,7 @@ export function App() {
           <Route path="/studio/orders/:id" element={<StudioOrderId />} />
           <Route path="/my/orders" element={<MyOrders />} />
           <Route path="/my/orders/:id" element={<MyOrderId />} />
+          <Route path="/my/setting" element={<MySetting />} />
         </Routes>
       </Layout>
     </BrowserRouter>

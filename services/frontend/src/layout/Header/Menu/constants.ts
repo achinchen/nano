@@ -20,7 +20,7 @@ const NAVIGATION = {
     title: i.orders.title,
     items: [
       {
-        href: '/orders',
+        href: '/my/orders',
         icon: 'i-solar-cart-bold',
         label: i.orders.mine,
       },
@@ -30,7 +30,7 @@ const NAVIGATION = {
     title: i.account.title,
     items: [
       {
-        href: '/setting',
+        href: '/my/setting',
         icon: 'i-solar-user-rounded-bold',
         label: i.account.setting,
       },
@@ -40,7 +40,7 @@ const NAVIGATION = {
     title: '',
     items: [
       {
-        href: '/booking',
+        href: '/logout',
         icon: 'i-solar-logout-2-bold',
         label: i.logout,
       },
