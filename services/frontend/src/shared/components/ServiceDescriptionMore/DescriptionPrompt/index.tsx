@@ -1,4 +1,4 @@
-import type { Content } from '../types';
+import type { Content } from '~frontend/shared/components/ServiceDescriptionMore/types';
 import BottomSheet from '~frontend/components/BottomSheet';
 import Dialog from '~frontend/components/Dialog';
 import { getIsMobile } from '~frontend/utils/device';
