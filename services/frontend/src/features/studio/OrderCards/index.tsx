@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
+import { isBefore } from '~frontend/utils/date';
 
 const ORDERS = [
   {
@@ -32,6 +33,8 @@ const ORDERS = [
   },
 ];
 
+const today = new Date();
+
 export default function OrderCards() {
   const [orders] = useState(ORDERS);
 
@@ -56,7 +59,11 @@ export default function OrderCards() {
                   attendee={attendee}
                 />
               </span>
-              <h5 className="line-clamp-2 text-sm font-normal color-zinc-600">
+              <h5
+                className={`line-clamp-2 text-sm font-normal ${
+                  isBefore(new Date(startAt), today) ? 'color-zinc-500' : ''
+                }`}
+              >
                 {name}
               </h5>
             </div>

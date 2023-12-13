@@ -15,13 +15,13 @@ export default function DescriptionPrompt({
   const isMobile = getIsMobile();
   return isMobile ? (
     <BottomSheet title={title} onClose={onClose}>
-      <div className="my-2 h-112 overflow-y-scroll px-4 font-normal color-zinc-600">
+      <div className="my-2 h-112 overflow-y-scroll px-4 font-normal">
         {description}
       </div>
     </BottomSheet>
   ) : (
     <Dialog title={title} onClose={onClose}>
-      <div className="my-2 h-112 overflow-y-scroll px-4 font-normal color-zinc-600">
+      <div className="my-2 h-112 overflow-y-scroll px-4 font-normal">
         {description}
       </div>
     </Dialog>

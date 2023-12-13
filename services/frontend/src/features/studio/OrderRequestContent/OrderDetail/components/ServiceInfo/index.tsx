@@ -11,9 +11,7 @@ export default function ServiceInfo() {
         <h2 className="line-clamp-3 text-lg font-bold">{service.name}</h2>
         <ServiceDetail service={service} />
       </header>
-      <p className="line-clamp-3 my-1 color-zinc-600 lt-sm:hidden">
-        {service.description}
-      </p>
+      <p className="line-clamp-3 my-1 lt-sm:hidden">{service.description}</p>
       <footer>
         {service.location.name} | {service.supplier} |{' '}
         {formatDuration(service.duration)}

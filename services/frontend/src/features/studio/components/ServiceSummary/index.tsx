@@ -13,7 +13,7 @@ export default function ServiceSummary({
   queue,
 }: Omit<Service, 'name' | 'id'> & { title: string; titleSize?: 'sm' | 'md' }) {
   return (
-    <div className="my-2 font-normal color-zinc-600">
+    <div className="my-2 font-normal">
       <h3 className="text-base">{title}</h3>
       <p className="mt-0">{description}</p>
       <Separator />

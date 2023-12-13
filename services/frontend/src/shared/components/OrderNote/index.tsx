@@ -25,13 +25,11 @@ export default function OrderNote({ onEdit, note }: Props) {
           />
         )}
       </h3>
-      <time className="text-xs font-normal color-zinc-600">
+      <time className="text-xs font-normal color-zinc-500">
         {i.updated}
         {formateDateTime(new Date(note.updateAt))}
       </time>
-      <p className="mb-10 mt-1 text-sm font-normal color-zinc-600">
-        {note.content}
-      </p>
+      <p className="mb-10 mt-1 text-sm font-normal">{note.content}</p>
     </article>
   );
 }
