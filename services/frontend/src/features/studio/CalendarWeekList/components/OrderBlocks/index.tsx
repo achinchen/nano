@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
+import { isBefore } from '~frontend/utils/date';
 import {
   getHeightByDuration,
   getTopByTimeAndOpenTime,
@@ -53,6 +54,7 @@ const ORDERS = [
 ];
 
 const studioOpeningHours = ['09:00', '21:00'];
+const today = new Date();
 
 export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
   return (
@@ -87,7 +89,9 @@ export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
                   {currentAttendee}/{attendee}
                 </span>
                 <h5
-                  className={`line-clamp-2 font-normal color-zinc-600 ${size.DESCRIPTION}`}
+                  className={`line-clamp-2 font-normal ${
+                    isBefore(new Date(startAt), today) ? 'color-zinc-500' : ''
+                  } ${size.DESCRIPTION}`}
                 >
                   {name}
                 </h5>

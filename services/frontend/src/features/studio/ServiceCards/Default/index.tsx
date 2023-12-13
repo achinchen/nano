@@ -108,7 +108,7 @@ export default function ServiceDefaultCards({ end }: Props) {
                 <h5 className="line-clamp-2 text-base">{name}</h5>
                 <p
                   className={`line-clamp-3 text-sm ${
-                    end ? 'color-zinc-500' : 'color-zinc-600'
+                    end ? 'color-zinc-500' : ''
                   }`}
                 >
                   {description}

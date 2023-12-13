@@ -18,7 +18,7 @@ export default function ServiceDescriptionMore({
   return (
     <Fragment>
       <TextButton
-        className={`font-medium text-sm  ${className}`}
+        className={`font-medium text-base  ${className}`}
         onClick={onClick}
       >
         {children}

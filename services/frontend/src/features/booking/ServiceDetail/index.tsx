@@ -54,7 +54,7 @@ export function ServiceDetail({
       <Separator />
       <article className="mt-3">
         <h3 className="font-bold">{i.description}</h3>
-        <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal color-zinc-600">
+        <p className="line-clamp-2 mb-2 mt-1 max-h-18 text-ellipsis font-normal">
           {description}
         </p>
         <ServiceDescriptionMore title={i.description} description={description}>

@@ -8,7 +8,7 @@ const info = {
   no: '123456789',
 };
 
-const CONTENT_CLASSNAME = 'color-zinc-600';
+const CONTENT_CLASSNAME = 'color-zinc-500';
 
 export default function Content() {
   return (

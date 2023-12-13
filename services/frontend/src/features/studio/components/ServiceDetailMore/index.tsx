@@ -43,13 +43,13 @@ export default function ServiceInfo({
       {open &&
         (getIsMobile() ? (
           <BottomSheet onClose={onClose} title={service.name} footer={footer}>
-            <div className="my-2 h-112 overflow-y-scroll px-4 font-normal color-zinc-600">
+            <div className="my-2 h-112 overflow-y-scroll px-4 font-normal">
               <Info {...service} title={sharedI.description} />
             </div>
           </BottomSheet>
         ) : (
           <Dialog onClose={onClose} title={service.name} footer={footer}>
-            <div className="my-2 h-112 overflow-y-scroll px-4 font-normal color-zinc-600">
+            <div className="my-2 h-112 overflow-y-scroll px-4 font-normal">
               <Info {...service} title={sharedI.description} />
             </div>
           </Dialog>

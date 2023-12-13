@@ -36,7 +36,7 @@ function Item({ title, content }: { title: string; content: string }) {
   return (
     <div className="flex flex-col">
       {title}
-      <span className="whitespace-pre color-zinc-600">{content}</span>
+      <span className="whitespace-pre text-sm">{content}</span>
     </div>
   );
 }
@@ -117,7 +117,9 @@ export default function Content() {
         <Separator />
         <h3 className="text-base font-normal">{scopedI.update.title}</h3>
         <p className="text-sm">{scopedI.update.content}</p>
-        <TextButton onClick={onClick}>{scopedI.update.button}</TextButton>
+        <TextButton className="text-base" onClick={onClick}>
+          {scopedI.update.button}
+        </TextButton>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ function Item({
       <Icon icon={icon} className="color-primary-500" size="2xl" />
       <span className="flex flex-1 flex-col text-sm">
         {title}
-        <span className="flex justify-between text-base font-normal color-zinc-600">
+        <span className="flex justify-between text-base font-normal">
           {children}
         </span>
       </span>
