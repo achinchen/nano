@@ -98,8 +98,6 @@
     "@unocss/reset": "^0.53.5",
     "@unocss/transformer-directives": "^0.53.5",
     "@vitejs/plugin-react": "^4.0.0",
-    "@vitest/coverage-c8": "^0.32.0",
-    "@vitest/ui": "^0.32.0",
     "babel-jest": "^29.4.1",
     "cypress": "^13.5.1",
     "eslint": "^8.44.0",
@@ -128,7 +126,6 @@
     "ts-node": "^10.9.1",
     "typeorm": "^0.3.17",
     "typescript": "~5.0.2",
-    "unocss": "^0.53.5",
-    "vitest": "^0.32.0"
+    "unocss": "^0.53.5"
   }
 }
