@@ -12,7 +12,7 @@ import { HeaderContextProvider, useHeaderContext } from './context';
 export function Header() {
   const { isProvider, isLogin, isMenuOpen } = useHeaderContext();
   return (
-    <header className="mx-auto max-w-7xl min-h-11 flex justify-between px-4 py-2 md:px-10 md:color-zinc-50">
+    <header className="mx-auto max-w-5xl min-h-11 flex justify-between px-4 py-2 md:color-zinc-50">
       <div className="flex items-center gap-1 md:gap-4">
         {isMenuOpen ? (
           <MenuBackButton />

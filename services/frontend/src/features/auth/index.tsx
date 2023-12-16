@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ExampleStudio from '~frontend/assets/example-studio.png';
 import Brand from '~frontend/assets/brand.jpg';
 import Button from '~frontend/components/Button';
-import i from './Privacy/Content/i.json';
+import i from './i.json';
 
 const studio = {
   name: '阿狗狗快樂工作室',
@@ -36,11 +36,21 @@ export default function Auth() {
       </Button>
       <p className="my-0 text-center">
         {i.agreement}
-        <Link to="/privacy" className={LINK}>
+        <Link
+          to="/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK}
+        >
           {i.privacy}
         </Link>
         {i.and}
-        <Link to="/terms" className={LINK}>
+        <Link
+          to="/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK}
+        >
           {i.terms}
         </Link>
       </p>
