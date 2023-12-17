@@ -1,5 +1,5 @@
-import type { OrderStatus } from '~frontend/features/my/types';
-import i from '~frontend/features/my/i.json';
+import type { OrderStatus } from '~frontend/features/my/order/types';
+import i from '~frontend/features/my/order/i.json';
 
 const className = {
   request: 'bg-yellow-100 color-yellow-500',

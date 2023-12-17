@@ -1,4 +1,4 @@
-import type { Order } from '~frontend/features/my/types';
+import type { Order } from '~frontend/features/my/order/types';
 import { useNavigate } from 'react-router-dom';
 import { isBefore, getYYYYMMDD } from '~frontend/utils/date';
 import { getPeriodTime } from '~frontend/utils/time';
@@ -6,8 +6,8 @@ import Icon from '~frontend/components/Icon';
 import Separator from '~frontend/components/Separator';
 import Button from '~frontend/components/Button';
 import IconButton from '~frontend/components/IconButton';
-import UpdateTag from '~frontend/features/my/components/UpdateTag';
-import { useMyContext } from '~frontend/features/my/context';
+import UpdateTag from '~frontend/features/my/order/Orders/Card/UpdateTag';
+import { useMyOrderContext } from '~frontend/features/my/order/context';
 import i from './i.json';
 
 export default function OrderCard({
@@ -19,7 +19,7 @@ export default function OrderCard({
   status,
 }: Order) {
   const navigate = useNavigate();
-  const { visitedAt } = useMyContext();
+  const { visitedAt } = useMyOrderContext();
 
   const onMoreClick = () => navigate(`/my/orders/${id}`);
   const onCalendarEventClick = () => navigate(`/my/orders/${id}/calendar`);

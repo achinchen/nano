@@ -10,6 +10,7 @@ import OrderNote from '~frontend/shared/components/OrderNote';
 import ServiceDescriptionMore from '~frontend/shared/components/ServiceDescriptionMore';
 import StatusBadge from './StatusBadge';
 import TimeCard from './TimeCard';
+export { default as Footer } from './Footer';
 
 const service = {
   duration: 90,
