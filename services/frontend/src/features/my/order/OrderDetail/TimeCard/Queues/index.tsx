@@ -1,4 +1,4 @@
-import type { Props } from '~frontend/features/my/OrderDetail/TimeCard/types';
+import type { Props } from '~frontend/features/my/order/OrderDetail/TimeCard/types';
 import { Fragment } from 'react';
 import { formatDuration, getPeriodTime } from '~frontend/utils/time';
 import { getMMDD } from '~frontend/utils/date';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLoose from '~frontend/components/Calendar/Month/Loose/Process';
-import { useMyContext } from '~frontend/features/my/context';
+import { useAppContext } from '~frontend/context';
 import { isBefore } from '~frontend/utils/date';
 
 type Props = {
@@ -44,8 +44,8 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export default function CalendarHorizontal({ className = '' }: Props) {
-  const { selectedDate, setSelectedDate } = useMyContext();
+export default function Calendar({ className = '' }: Props) {
+  const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
 
   useEffect(() => {

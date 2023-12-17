@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="my--4 w-100% flex bg-white pa-2 shadow-dialog">
+    <footer className="relative bottom-0 w-100% flex bg-white pa-2 shadow-dialog">
       <Button
         color="primary"
         className="flex-1"

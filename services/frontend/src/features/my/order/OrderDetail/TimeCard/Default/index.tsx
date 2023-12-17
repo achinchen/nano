@@ -1,4 +1,4 @@
-import type { Props } from '~frontend/features/my/OrderDetail/TimeCard/types';
+import type { Props } from '~frontend/features/my/order/OrderDetail/TimeCard/types';
 import EmphasizeBlock from '~frontend/shared/components/EmphasizeBlock';
 import { formateDateWithDay } from '~frontend/utils/date';
 import { getPeriodTimes } from '~frontend/utils/time';

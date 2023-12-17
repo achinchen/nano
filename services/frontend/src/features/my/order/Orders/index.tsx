@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import OrderCard from '~frontend/features/my/OrderCard';
-import i from '~frontend/features/my/i.json';
+import Card from '~frontend/features/my/order/Orders/Card';
+import Title from '~frontend/features/my/order/Orders/Title';
 
 const orders = {
   request: [
@@ -46,34 +46,30 @@ const orders = {
   ],
 };
 
-function Title({ children }: { children: string }) {
-  return <h3 className="mt-6 text-lg first:mt-0">{children}</h3>;
-}
-
 export default function Orders() {
   return (
     <Fragment>
       {orders.request.length !== 0 && (
         <Fragment>
-          <Title>{i.request}</Title>
+          <Title status="request" />
           {orders.request.map((order) => (
-            <OrderCard key={order.id} {...order} status="request" />
+            <Card key={order.id} {...order} status="request" />
           ))}
         </Fragment>
       )}
       {orders.coming.length !== 0 && (
         <Fragment>
-          <Title>{i.coming}</Title>
+          <Title status="coming" />
           {orders.coming.map((order) => (
-            <OrderCard key={order.id} {...order} status="coming" />
+            <Card key={order.id} {...order} status="coming" />
           ))}
         </Fragment>
       )}
       {orders.end.length !== 0 && (
         <Fragment>
-          <Title>{i.end}</Title>
+          <Title status="end" />
           {orders.end.map((order) => (
-            <OrderCard key={order.id} {...order} status="end" />
+            <Card key={order.id} {...order} status="end" />
           ))}
         </Fragment>
       )}

@@ -12,48 +12,58 @@ import StudioOrders from '~frontend/pages/studio/orders';
 import StudioOrdersRequest from '~frontend/pages/studio/orders/request';
 import StudioOrderIdRequest from '~frontend/pages/studio/orders/id/request';
 import StudioOrderId from '~frontend/pages/studio/orders/id';
+import MyOrdersLayout from '~frontend/pages/my/orders/layout';
 import MyOrders from '~frontend/pages/my/orders';
 import MyOrderId from '~frontend/pages/my/orders/id';
-import MySetting from '~frontend/pages/my/setting';
+import MySetting from '~frontend/pages/my/setting/index';
 import Login from '~frontend/pages/login';
 import Terms from '~frontend/pages/terms';
 import Privacy from '~frontend/features/auth/Privacy';
+import { AppContextProvider } from '~frontend/context';
 
 export function App() {
   return (
     <BrowserRouter basename="/" future={{ v7_startTransition: true }}>
       <Layout>
-        <Routes>
-          <Route path="/booking/:provider" element={<Booking />} />
-          <Route path="/booking/:provider/s/:id" element={<BookingService />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/studio" element={<Studio />} />
-          <Route path="/studio/setting" element={<StudioSetting />} />
-          <Route path="/studio/services" element={<StudioServices />} />
-          <Route path="/studio/services/:id" element={<StudioServiceId />} />
-          <Route
-            path="/studio/services/:id/:version"
-            element={<StudioServiceIdVersion />}
-          />
-          <Route path="/studio/orders" element={<StudioOrders />} />
-          <Route
-            path="/studio/orders/request"
-            element={<StudioOrdersRequest />}
-          />
-          <Route
-            path="/studio/orders/request/:id"
-            element={<StudioOrderIdRequest />}
-          />
-          <Route path="/studio/orders/:id" element={<StudioOrderId />} />
+        <AppContextProvider>
+          <Routes>
+            <Route path="/booking/:provider" element={<Booking />} />
+            <Route
+              path="/booking/:provider/s/:id"
+              element={<BookingService />}
+            />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/studio" element={<Studio />} />
+            <Route path="/studio/setting" element={<StudioSetting />} />
+            <Route path="/studio/services" element={<StudioServices />} />
+            <Route path="/studio/services/:id" element={<StudioServiceId />} />
+            <Route
+              path="/studio/services/:id/:version"
+              element={<StudioServiceIdVersion />}
+            />
+            <Route path="/studio/orders" element={<StudioOrders />} />
+            <Route
+              path="/studio/orders/request"
+              element={<StudioOrdersRequest />}
+            />
+            <Route
+              path="/studio/orders/request/:id"
+              element={<StudioOrderIdRequest />}
+            />
+            <Route path="/studio/orders/:id" element={<StudioOrderId />} />
 
-          <Route path="/my/orders" element={<MyOrders />} />
-          <Route path="/my/orders/:id" element={<MyOrderId />} />
-          <Route path="/my/setting" element={<MySetting />} />
+            <Route path="/my/orders" element={<MyOrdersLayout />}>
+              <Route index element={<MyOrders />} />
+              <Route path=":id" element={<MyOrderId />} />
+            </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-        </Routes>
+            <Route path="/my/setting" element={<MySetting />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+          </Routes>
+        </AppContextProvider>
       </Layout>
     </BrowserRouter>
   );
