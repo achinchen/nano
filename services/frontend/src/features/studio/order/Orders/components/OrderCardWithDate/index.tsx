@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import OrderCards from '~frontend/features/studio/OrderCards';
+import OrderCards from '~frontend/features/studio/components/OrderCards';
 import {
   isToday,
   isTomorrow,

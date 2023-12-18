@@ -8,10 +8,13 @@ import {
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
 import sharedI from '~frontend/shared/i.json';
+import { useAppContext } from '~frontend/context';
 import i from './i.json';
 
 export default function OrdersHeader({ smHidden }: { smHidden?: boolean }) {
-  const { setSelectedDate, isListMode, setListMode } = useStudioContext();
+  const { isListMode, toggleListMode } = useStudioContext();
+  const { setSelectedDate } = useAppContext();
+
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
       return isListMode
@@ -28,7 +31,6 @@ export default function OrdersHeader({ smHidden }: { smHidden?: boolean }) {
     });
   };
   const onTodayClick = () => setSelectedDate(new Date());
-  const onToggleListMode = () => setListMode((isListMode) => !isListMode);
 
   return (
     <header
@@ -58,7 +60,7 @@ export default function OrdersHeader({ smHidden }: { smHidden?: boolean }) {
           color="dark"
           size="sm"
           variant={isListMode ? 'solid' : 'outline'}
-          onClick={onToggleListMode}
+          onClick={toggleListMode}
         />
       </aside>
     </header>

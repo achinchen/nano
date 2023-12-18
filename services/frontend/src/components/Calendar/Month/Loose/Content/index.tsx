@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
 import { Content as ContentType } from '~frontend/components/Calendar/types';
-import { MAX_LENGTH } from './constants';
-import i from './i.json';
+import i from '../i.json';
+import { MAX_LENGTH } from '../constants';
 
 type Props = {
   data: ContentType[];

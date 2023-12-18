@@ -7,7 +7,7 @@ import {
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
 import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
 import ServiceDetailWithOrders from '~frontend/features/studio/ServiceDetailWithOrders';
-import OrdersHeader from '~frontend/features/studio/OrdersHeader';
+import OrdersHeader from '~frontend/features/studio/order/Header';
 
 function Content() {
   const { setSelectedDate, isListMode } = useStudioContext();
