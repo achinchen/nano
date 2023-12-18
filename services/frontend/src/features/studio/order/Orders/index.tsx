@@ -1,6 +1,6 @@
 import type { Content } from './types';
 import { Fragment, useState } from 'react';
-import OrderCards from '~frontend/features/studio/OrderCards';
+import OrderCards from '~frontend/features/studio/components/OrderCards';
 import ContentTabs from './components/ContentTabs';
 import { CONTENT } from './constants';
 
@@ -8,6 +8,7 @@ export default function OrdersContent() {
   const [currentContent, setCurrentContent] = useState<Content>(
     CONTENT.IN_PROGRESS
   );
+
   return (
     <Fragment>
       <header className="pa-4">

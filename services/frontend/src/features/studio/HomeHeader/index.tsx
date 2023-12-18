@@ -13,7 +13,7 @@ import i from '~frontend/shared/i.json';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function HomeHeader() {
-  const { selectedDate, setSelectedDate, isListMode, setListMode } =
+  const { selectedDate, setSelectedDate, isListMode, toggleListMode } =
     useStudioContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
@@ -31,7 +31,6 @@ export default function HomeHeader() {
     });
   };
   const onTodayClick = () => setSelectedDate(new Date());
-  const onToggleListMode = () => setListMode((isListMode) => !isListMode);
 
   return (
     <header className="content-header">
@@ -66,7 +65,7 @@ export default function HomeHeader() {
           color="dark"
           size="sm"
           variant={isListMode ? 'solid' : 'outline'}
-          onClick={onToggleListMode}
+          onClick={toggleListMode}
         />
       </aside>
     </header>

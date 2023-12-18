@@ -14,7 +14,7 @@ import i from './i.json';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
-  const { setSelectedDate, isListMode, setListMode } = useStudioContext();
+  const { setSelectedDate, isListMode, toggleListMode } = useStudioContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
       return isListMode
@@ -31,7 +31,6 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
     });
   };
   const onTodayClick = () => setSelectedDate(new Date());
-  const onToggleListMode = () => setListMode((isListMode) => !isListMode);
   const onCreateClick = () => {
     /** */
   };
@@ -70,7 +69,7 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
             color="dark"
             size="sm"
             variant={isListMode ? 'solid' : 'outline'}
-            onClick={onToggleListMode}
+            onClick={toggleListMode}
           />
         </div>
         <Link to="/studio/service/create">

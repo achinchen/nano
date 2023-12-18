@@ -1,4 +1,5 @@
 import {
+  startTransition,
   Dispatch,
   SetStateAction,
   createContext,
@@ -14,7 +15,7 @@ export type InitialState = {
   setSelectedDate: Dispatch<SetStateAction<Date>>;
   isToday: boolean;
   isListMode: boolean;
-  setListMode: Dispatch<SetStateAction<boolean>>;
+  toggleListMode: () => void;
 };
 
 export const EVENT_NAME = 'studio-date-change';
@@ -26,7 +27,7 @@ export const StudioContext = createContext<InitialState>({
   isToday: false,
   isListMode: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setListMode: () => {},
+  toggleListMode: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -40,6 +41,9 @@ export const StudioContextProvider = ({
 }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isListMode, setListMode] = useState(false);
+
+  const toggleListMode = () =>
+    startTransition(() => setListMode((isListMode) => !isListMode));
 
   const isToday = useMemo(() => getIsToday(selectedDate), [selectedDate]);
 
@@ -55,7 +59,7 @@ export const StudioContextProvider = ({
         selectedDate,
         setSelectedDate: setSelectedDateWithEvent,
         isListMode,
-        setListMode,
+        toggleListMode,
       }}
     >
       {children}

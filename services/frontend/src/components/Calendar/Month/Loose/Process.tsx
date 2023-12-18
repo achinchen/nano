@@ -1,5 +1,5 @@
 import type { Props } from '~frontend/components/Calendar/Month/Loose/types';
-import Container from './Container';
+import Container from './components/Container';
 
 type Progress = 'start' | 'end';
 

@@ -7,13 +7,13 @@ import { getMonthDays } from '~frontend/components/Calendar/utils';
 
 const LAST_ROW_START_INDEX = 35;
 
-export default function CalendarMonthLooseContainer({
+export default function Container({
   className = '',
   onSelect,
   selectedDate,
   data,
   children,
-}: Props & { children: (data: unknown) => JSX.Element }) {
+}: Props & { children: (data: unknown, date: string) => JSX.Element }) {
   const { selected, getCurrentColor, onDateSelect } = useDateSelect({
     selectedDate,
     onSelect,
@@ -53,7 +53,7 @@ export default function CalendarMonthLooseContainer({
               {day}
             </span>
             {data?.[`${month}-${day}`]
-              ? children(data[`${month}-${day}`])
+              ? children(data[`${month}-${day}`], `${month}-${day}`)
               : null}
           </li>
         ))}
