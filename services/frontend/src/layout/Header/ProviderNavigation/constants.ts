@@ -12,7 +12,7 @@ export const NAVIGATION = [
     label: i.orders,
   },
   {
-    href: '/requests',
+    href: '/orders/requested',
     icon: 'i-solar-inbox-archive-bold',
     label: i.requested,
   },
