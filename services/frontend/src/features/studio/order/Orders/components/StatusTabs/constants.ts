@@ -1,15 +1,15 @@
 import i from '~frontend/features/studio/i.json';
-import { CONTENT } from '~frontend/features/studio/ServicesContent/constants';
+import { STATUS } from '~frontend/features/studio/order/Orders/constants';
 
-export const CONTENT_ITEMS = [
+export const STATUS_ITEMS = [
   {
     icon: 'i-solar-notes-minimalistic-bold',
     label: i.processing,
-    value: CONTENT.IN_PROGRESS,
+    value: STATUS.IN_PROGRESS,
   },
   {
     icon: 'i-solar-bag-bold',
     label: i.end,
-    value: CONTENT.END,
+    value: STATUS.END,
   },
 ];

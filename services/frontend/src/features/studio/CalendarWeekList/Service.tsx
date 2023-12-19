@@ -1,8 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useAppContext } from '~frontend/context';
+import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
+import ServiceNav from './components/ServiceNav';
 import { getTimeOptions } from './utils';
 
 const mockServiceData = {
@@ -70,7 +72,7 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export default function OrderCalendarListMode() {
+export default function ServiceCalendarListMode() {
   const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
   const timeOptions = getTimeOptions(
@@ -104,7 +106,8 @@ export default function OrderCalendarListMode() {
         loose
       />
       <section className="mt-2 bg-zinc-50 md:mt-0">
-        <main className="relative mt-2 h-[calc(100dvh-220px)] overflow-y-scroll">
+        <ServiceNav />
+        <main className="relative mt-2 h-[calc(100dvh-264px)] overflow-y-scroll">
           <ul className="flex flex-col">
             {timeOptions.map((time) => (
               <li key={time} className="h-12 flex gap-1px md:h-15">
@@ -116,6 +119,7 @@ export default function OrderCalendarListMode() {
             ))}
           </ul>
           <ul className="absolute top-0 w-[calc(100%-60px)] translate-x-15 md:w-[calc(100%-72px)] md:translate-x-18">
+            <ServiceTimeBlock loose />
             <OrderTimeBlocks loose />
             <TakeleaveBlocks loose />
           </ul>
