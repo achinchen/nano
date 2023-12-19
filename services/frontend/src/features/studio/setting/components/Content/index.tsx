@@ -4,7 +4,7 @@ import Avocado from '~frontend/assets/avatar.png';
 import sharedI from '~frontend/shared/i.json';
 import Separator from '~frontend/components/Separator';
 import { getPeriodTimes } from '~frontend/utils/time';
-import { useStudioSettingContext } from '~frontend/features/studio/setting-/context';
+import { useStudioSettingContext } from '~frontend/features/studio/setting/context';
 import Icon from '~frontend/components/Icon';
 import TextButton from '~frontend/components/TextButton';
 import scopedI from './i.json';

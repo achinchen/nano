@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useStudioSettingContext } from '~frontend/features/studio/setting-/context';
+import { useStudioSettingContext } from '~frontend/features/studio/setting/context';
 import Icon from '~frontend/components/Icon';
 import i from './i.json';
 
