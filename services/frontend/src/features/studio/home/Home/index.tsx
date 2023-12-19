@@ -1,9 +1,9 @@
 import type { Content } from './types';
-import { useState } from 'react';
-import ServiceSimpleCards from '~frontend/features/studio/components/ServiceCards/Simple';
-import ContentTabs from '~frontend/features/studio/HomeContent/ContentTabs';
+import { Fragment, useState } from 'react';
 import OrderCards from '~frontend/features/studio/components/OrderCards';
-import { useCalendarVerticalContext } from '~frontend/features/studio/CalendarVertical/context';
+import { useCalendarModeSwitchableContext } from '~frontend/shared/components/CalendarModeSwitchable/context';
+import ContentTabs from './components/ContentTabs';
+import ServiceCards from './components/ServiceCards';
 import { CONTENT } from './constants';
 
 export default function HomeContent() {
@@ -11,10 +11,10 @@ export default function HomeContent() {
     CONTENT.SERVICE
   );
 
-  const { mode } = useCalendarVerticalContext();
+  const { mode } = useCalendarModeSwitchableContext();
 
   return (
-    <main className="flex-1">
+    <Fragment>
       <ContentTabs
         currentContent={currentContent}
         setCurrentContent={setCurrentContent}
@@ -25,8 +25,8 @@ export default function HomeContent() {
         }`}
       >
         {currentContent === CONTENT.ORDER && <OrderCards />}
-        {currentContent === CONTENT.SERVICE && <ServiceSimpleCards />}
+        {currentContent === CONTENT.SERVICE && <ServiceCards />}
       </section>
-    </main>
+    </Fragment>
   );
 }

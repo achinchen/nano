@@ -29,6 +29,7 @@ const getMockData = (month: number) => {
   }, {});
 };
 
+
 export function CalendarVertical({ className = '' }: { className?: string }) {
   const { mode, toggleMode } = useCalendarVerticalContext();
   const { pan, onStart, onEnd } = usePan();

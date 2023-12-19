@@ -1,38 +1,16 @@
 import { Link } from 'react-router-dom';
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
-import { useAppContext } from '~frontend/context';
+import useHeader from '~frontend/features/studio/hooks/use-header';
 import { useStudioContext } from '~frontend/features/studio/context';
-import {
-  getNextWeek,
-  getPreviousWeek,
-  getFirstDateInNextMonth,
-  getFirstDateInPreviousMonth,
-} from '~frontend/utils/date';
 import sharedI from '~frontend/shared/i.json';
 import i from './i.json';
 
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
-  const { setSelectedDate } = useAppContext();
+  const { onNextClick, onPreviousClick, onTodayClick } = useHeader();
   const { isListMode, toggleListMode } = useStudioContext();
-  const onNextClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getNextWeek(selectedDate)
-        : getFirstDateInNextMonth(selectedDate);
-    });
-  };
-
-  const onPreviousClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getPreviousWeek(selectedDate)
-        : getFirstDateInPreviousMonth(selectedDate);
-    });
-  };
-  const onTodayClick = () => setSelectedDate(new Date());
   const onCreateClick = () => {
     /** */
   };

@@ -1,56 +1,24 @@
-import { Fragment, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import {
-  StudioContextProvider,
-  useStudioContext,
-} from '~frontend/features/studio/context';
-import CalendarVertical from '~frontend/features/studio/CalendarVertical';
-import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
-import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
-import HomeContent from '~frontend/features/studio/HomeContent';
-import HomeHeader from '~frontend/features/studio/HomeHeader';
-import { getIsMobile } from '~frontend/utils/device';
-import { CalendarVerticalContextProvider } from '~frontend/features/studio/CalendarVertical/context';
-
-function Content() {
-  const { setSelectedDate, isListMode } = useStudioContext();
-  const [searchParams] = useSearchParams();
-
-  useEffect(() => {
-    const date = searchParams.get('date');
-    if (!date) return;
-  }, [setSelectedDate, searchParams]);
-
-  return getIsMobile() ? (
-    <div className="flex flex-col">
-      {isListMode ? (
-        <CalendarWeekList loose={false} />
-      ) : (
-        <Fragment>
-          <CalendarVertical />
-          <HomeContent />
-        </Fragment>
-      )}
-    </div>
-  ) : (
-    <div className="flex flex-row bg-white">
-      {isListMode ? <CalendarWeekList /> : <CalendarHorizontal />}
-      <section className="flex-1 border-l-1 border-l-zinc-200 border-l-solid">
-        <HomeContent />
-      </section>
-    </div>
-  );
-}
+import { Fragment } from 'react';
+import { StudioContextProvider } from '~frontend/features/studio/context';
+import Calendar from '~frontend/features/studio/home/Calendar';
+import Header from '~frontend/features/studio/home/Header';
+import { CalendarModeSwitchableContextProvider } from '~frontend/shared/components/CalendarModeSwitchable/context';
+import Home from '~frontend/features/studio/home/Home';
 
 export default function Index() {
   return (
     <StudioContextProvider>
-      <CalendarVerticalContextProvider>
+      <CalendarModeSwitchableContextProvider>
         <Fragment>
-          <HomeHeader />
-          <Content />
+          <Header />
+          <div className="flex flex-col md:flex-row md:bg-white">
+            <Calendar />
+            <section className="flex-1 border-l-1 border-l-zinc-200 border-l-solid">
+              <Home />
+            </section>
+          </div>
         </Fragment>
-      </CalendarVerticalContextProvider>
+      </CalendarModeSwitchableContextProvider>
     </StudioContextProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { CONTENT } from '~frontend/features/studio/HomeContent/constants';
+import { CONTENT } from '~frontend/features/studio/home/Home/constants';
 import i from './i.json';
 
 export const CONTENT_ITEMS = [
