@@ -8,10 +8,11 @@ import StudioSetting from '~frontend/pages/studio/setting';
 import StudioServiceLayout from '~frontend/pages/studio/services/layout';
 import StudioServices from '~frontend/pages/studio/services/index';
 import StudioServiceId from '~frontend/pages/studio/services/id';
-import StudioServiceIdVersion from '~frontend/pages/studio/services/id/version';
+// import StudioServiceIdVersion from '~frontend/pages/studio/services/id/version';
 import StudioOrders from '~frontend/pages/studio/orders';
-import StudioOrdersRequest from '~frontend/pages/studio/orders/request';
-import StudioOrderIdRequest from '~frontend/pages/studio/orders/id/request';
+import StudioOrderRequestedLayout from '~frontend/pages/studio/orders-requested/layout';
+import StudioOrdersRequested from '~frontend/pages/studio/orders-requested';
+import StudioOrdersRequestedId from '~frontend/pages/studio/orders-requested/id';
 import StudioOrderId from '~frontend/pages/studio/orders/id';
 import StudioOrderLayout from '~frontend/pages/studio/orders/layout';
 import MyOrdersLayout from '~frontend/pages/my/orders/layout';
@@ -56,20 +57,18 @@ export function App() {
               <Route path=":id" element={<StudioOrderId />} />
             </Route>
 
-            <Route
+            {/* <Route
               path="/studio/services/:id/:version"
               element={<StudioServiceIdVersion />}
-            />
+            /> */}
 
             <Route
-              path="/studio/orders/request"
-              element={<StudioOrdersRequest />}
-            />
-
-            <Route
-              path="/studio/orders/request/:id"
-              element={<StudioOrderIdRequest />}
-            />
+              path="/studio/orders/requested"
+              element={<StudioOrderRequestedLayout />}
+            >
+              <Route index element={<StudioOrdersRequested />} />
+              <Route path=":id" element={<StudioOrdersRequestedId />} />
+            </Route>
 
             <Route path="/my/orders" element={<MyOrdersLayout />}>
               <Route index element={<MyOrders />} />

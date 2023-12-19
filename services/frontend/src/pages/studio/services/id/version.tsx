@@ -5,7 +5,7 @@ import {
   useStudioContext,
 } from '~frontend/features/studio/context';
 import CalendarHorizontal from '~frontend/features/studio/CalendarHorizontal';
-import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
+import CalendarWeekList from '~frontend/features/studio/components/CalendarWeekList';
 import ServiceDetailWithOrders from '~frontend/features/studio/ServiceDetailWithOrders';
 import OrdersHeader from '~frontend/features/studio/order/Header';
 

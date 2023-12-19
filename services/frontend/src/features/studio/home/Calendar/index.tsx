@@ -1,6 +1,6 @@
 import { Fragment, lazy } from 'react';
 import { useStudioContext } from '~frontend/features/studio/context';
-import CalendarWeekList from '~frontend/features/studio/CalendarWeekList';
+import CalendarWeekList from '~frontend/features/studio/components/CalendarWeekList/ServiceRWD';
 import { getIsMobile } from '~frontend/utils/device';
 import CalendarMonth from './components/Month';
 

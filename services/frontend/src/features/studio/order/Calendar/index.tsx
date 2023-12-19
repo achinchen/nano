@@ -3,7 +3,7 @@ import { useStudioContext } from '~frontend/features/studio/context';
 import CalendarMonth from './components/Month';
 
 const CalendarWeekList = lazy(
-  () => import('~frontend/features/studio/CalendarWeekList/Order')
+  () => import('~frontend/features/studio/components/CalendarWeekList/Order')
 );
 
 export default function Calendar() {

@@ -7,9 +7,9 @@ import useHeader from '~frontend/features/studio/hooks/use-header';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function Header() {
-  const { selectedDate, onNextClick, onPreviousClick, onTodayClick } =
-    useHeader();
   const { isListMode, toggleListMode } = useStudioContext();
+  const { selectedDate, onNextClick, onPreviousClick, onTodayClick } =
+    useHeader({ isListMode });
 
   return (
     <header className="content-header">
