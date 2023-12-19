@@ -8,7 +8,7 @@ import StudioSetting from '~frontend/pages/studio/setting';
 import StudioServiceLayout from '~frontend/pages/studio/services/layout';
 import StudioServices from '~frontend/pages/studio/services/index';
 import StudioServiceId from '~frontend/pages/studio/services/id';
-// import StudioServiceIdVersion from '~frontend/pages/studio/services/id/version';
+import StudioServiceVersion from '~frontend/pages/studio/services-version';
 import StudioOrders from '~frontend/pages/studio/orders';
 import StudioOrderRequestedLayout from '~frontend/pages/studio/orders-requested/layout';
 import StudioOrdersRequested from '~frontend/pages/studio/orders-requested';
@@ -40,27 +40,21 @@ export function App() {
 
             <Route path="/studio" element={<StudioHome />} />
 
-            <Route path="/studio/services" element={<StudioServiceLayout />}>
-              <Route index element={<StudioServices />} />
-              <Route path=":id" element={<StudioServiceId />} />
-            </Route>
-
             <Route path="/studio/setting" element={<StudioSetting />} />
-
             <Route path="/studio/services" element={<StudioServiceLayout />}>
               <Route index element={<StudioServices />} />
               <Route path=":id" element={<StudioServiceId />} />
             </Route>
+
+            <Route
+              path="/studio/services/:id/:version"
+              element={<StudioServiceVersion />}
+            />
 
             <Route path="/studio/orders" element={<StudioOrderLayout />}>
               <Route index element={<StudioOrders />} />
               <Route path=":id" element={<StudioOrderId />} />
             </Route>
-
-            {/* <Route
-              path="/studio/services/:id/:version"
-              element={<StudioServiceIdVersion />}
-            /> */}
 
             <Route
               path="/studio/orders/requested"
