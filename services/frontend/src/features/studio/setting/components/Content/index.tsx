@@ -81,7 +81,7 @@ export default function Content() {
               <div className="flex flex-col gap-2">
                 {scopedI.service.supplier}
                 <button
-                  className="flex items-center gap-2 border-1 border-zinc-200 rounded-4 border-solid pa-2 text-base font-bold"
+                  className="flex items-center gap-2 border-1 border-zinc-200 rounded-4 border-solid pa-2 text-base font-bold color-zinc-700"
                   onClick={toggleView}
                 >
                   <Avatar src={info.supplier.avatar} />

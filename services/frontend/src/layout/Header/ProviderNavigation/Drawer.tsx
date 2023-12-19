@@ -21,6 +21,7 @@ export default function Drawer() {
                 <Link
                   to={href}
                   className="h-14 flex items-center gap-4 color-zinc-700"
+                  onClick={toggle}
                 >
                   <Icon icon={icon} size="2xl" />
                   <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
