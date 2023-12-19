@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
+import { useAppContext } from '~frontend/context';
 import { useStudioContext } from '~frontend/features/studio/context';
 import {
   getNextWeek,
@@ -14,7 +15,8 @@ import i from './i.json';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
-  const { setSelectedDate, isListMode, toggleListMode } = useStudioContext();
+  const { setSelectedDate } = useAppContext();
+  const { isListMode, toggleListMode } = useStudioContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => {
       return isListMode

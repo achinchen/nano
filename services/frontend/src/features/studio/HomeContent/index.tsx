@@ -1,6 +1,6 @@
 import type { Content } from './types';
 import { useState } from 'react';
-import ServiceSimpleCards from '~frontend/features/studio/ServiceCards/Simple';
+import ServiceSimpleCards from '~frontend/features/studio/components/ServiceCards/Simple';
 import ContentTabs from '~frontend/features/studio/HomeContent/ContentTabs';
 import OrderCards from '~frontend/features/studio/components/OrderCards';
 import { useCalendarVerticalContext } from '~frontend/features/studio/CalendarVertical/context';
