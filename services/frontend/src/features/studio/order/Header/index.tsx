@@ -1,33 +1,13 @@
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
-import {
-  getNextWeek,
-  getPreviousWeek,
-  getFirstDateInNextMonth,
-  getFirstDateInPreviousMonth,
-} from '~frontend/utils/date';
+import useHeader from '~frontend/features/studio/hooks/use-header';
 import sharedI from '~frontend/shared/i.json';
 import i from './i.json';
 
 export default function Header({ smHidden }: { smHidden?: boolean }) {
-  const { setSelectedDate, isListMode, toggleListMode } = useStudioContext();
-  const onNextClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getNextWeek(selectedDate)
-        : getFirstDateInNextMonth(selectedDate);
-    });
-  };
-
-  const onPreviousClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getPreviousWeek(selectedDate)
-        : getFirstDateInPreviousMonth(selectedDate);
-    });
-  };
-  const onTodayClick = () => setSelectedDate(new Date());
+  const { onNextClick, onPreviousClick, onTodayClick } = useHeader();
+  const { isListMode, toggleListMode } = useStudioContext();
 
   return (
     <header

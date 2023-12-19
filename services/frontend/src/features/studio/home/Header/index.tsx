@@ -1,42 +1,21 @@
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
-import {
-  getNextWeek,
-  getPreviousWeek,
-  getLocaleYYYYMMDD,
-  getFirstDateInNextMonth,
-  getFirstDateInPreviousMonth,
-} from '~frontend/utils/date';
+import { getLocaleYYYYMMDD } from '~frontend/utils/date';
 import i from '~frontend/shared/i.json';
-
+import useHeader from '~frontend/features/studio/hooks/use-header';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
-export default function HomeHeader() {
-  const { selectedDate, setSelectedDate, isListMode, toggleListMode } =
-    useStudioContext();
-  const onNextClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getNextWeek(selectedDate)
-        : getFirstDateInNextMonth(selectedDate);
-    });
-  };
-
-  const onPreviousClick = () => {
-    setSelectedDate((selectedDate) => {
-      return isListMode
-        ? getPreviousWeek(selectedDate)
-        : getFirstDateInPreviousMonth(selectedDate);
-    });
-  };
-  const onTodayClick = () => setSelectedDate(new Date());
+export default function Header() {
+  const { selectedDate, onNextClick, onPreviousClick, onTodayClick } =
+    useHeader();
+  const { isListMode, toggleListMode } = useStudioContext();
 
   return (
     <header className="content-header">
       <time onClick={onTodayClick}>{getLocaleYYYYMMDD(selectedDate)}</time>
       <aside className={`${CONTAINER_CLASSES} flex`}>
-        <div className={`${CONTAINER_CLASSES} hidden md:flex`}>
+        <div className={`${CONTAINER_CLASSES} hidden gap-2 md:flex`}>
           <IconButton
             icon="i-solar-alt-arrow-left-linear"
             color="dark"

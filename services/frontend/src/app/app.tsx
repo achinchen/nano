@@ -3,7 +3,7 @@ import Layout from '~frontend/layout';
 import Booking from '~frontend/pages/booking/provider';
 import BookingService from '~frontend/pages/booking/provider/service';
 import Cart from '~frontend/pages/cart';
-import Studio from '~frontend/pages/studio';
+import StudioHome from '~frontend/pages/studio';
 import StudioSetting from '~frontend/pages/studio/setting';
 import StudioServiceLayout from '~frontend/pages/studio/services/layout';
 import StudioServices from '~frontend/pages/studio/services/index';
@@ -37,7 +37,13 @@ export function App() {
 
             <Route path="/cart" element={<Cart />} />
 
-            <Route path="/studio" element={<Studio />} />
+            <Route path="/studio" element={<StudioHome />} />
+
+            <Route path="/studio/services" element={<StudioServiceLayout />}>
+              <Route index element={<StudioServices />} />
+              <Route path=":id" element={<StudioServiceId />} />
+            </Route>
+
             <Route path="/studio/setting" element={<StudioSetting />} />
 
             <Route path="/studio/services" element={<StudioServiceLayout />}>

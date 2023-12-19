@@ -1,4 +1,4 @@
-import type { Content } from '~frontend/features/studio/HomeContent/types';
+import type { Content } from '~frontend/features/studio/home/Home/types';
 import type { Value } from '~frontend/components/Tabs/types';
 import { Tabs, Tab } from '~frontend/components/Tabs';
 import { CONTENT_ITEMS } from './constants';

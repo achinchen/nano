@@ -1,10 +1,9 @@
 import type { PanInfo } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, startTransition } from 'react';
 import { motion } from 'framer-motion';
-import { useStudioContext } from '~frontend/features/studio/context';
+import { useAppContext } from '~frontend/context';
 import { SheetIndicator } from '~frontend/components/Sheet';
 import CalendarMonthTight from '~frontend/components/Calendar/Month/Tight';
-import CalendarWeek from '~frontend/components/Calendar/Week';
 import {
   getNextWeek,
   getPreviousWeek,
@@ -12,7 +11,7 @@ import {
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
 import { usePan, Direction } from '~frontend/components/shared/hooks/use-pan';
-import { useCalendarVerticalContext } from './context';
+import { useCalendarModeSwitchableContext } from './context';
 
 const mockServiceData = {
   17: [{ status: 'has-order', name: '提拉米蘇蛋糕課', id: 1 }],
@@ -47,6 +46,8 @@ const mockServiceData = {
   ],
 };
 
+const CalendarWeek = lazy(() => import('~frontend/components/Calendar/Week'));
+
 const getMockData = (month: number) => {
   return Object.entries(mockServiceData).reduce((data, [date, value]) => {
     return {
@@ -56,16 +57,22 @@ const getMockData = (month: number) => {
   }, {});
 };
 
-export function CalendarVertical({ className = '' }: { className?: string }) {
-  const { mode, toggleMode } = useCalendarVerticalContext();
+export default function CalendarModeSwitchable({
+  className = '',
+}: {
+  className?: string;
+}) {
+  const { mode, toggleMode } = useCalendarModeSwitchableContext();
   const { pan, onStart, onEnd } = usePan();
-  const { selectedDate, setSelectedDate } = useStudioContext();
+  const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
   const isWeek = mode === 'week';
 
   const onPanStart = (_: unknown, { offset: { x, y } }: PanInfo) => {
     onStart({ x, y });
   };
+
+  const onToggle = () => startTransition(toggleMode);
 
   const onHorizontal = (direction: Direction) => {
     let cb;
@@ -117,10 +124,8 @@ export function CalendarVertical({ className = '' }: { className?: string }) {
             data={serviceData}
           />
         )}
-        <SheetIndicator onClick={toggleMode} />
+        <SheetIndicator onClick={onToggle} />
       </motion.main>
     </section>
   );
 }
-
-export default CalendarVertical;

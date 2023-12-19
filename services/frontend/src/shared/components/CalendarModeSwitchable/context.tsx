@@ -7,17 +7,17 @@ type InitialState = {
   toggleMode: () => void;
 };
 
-export const CalendarVerticalContext = createContext<InitialState>({
+export const CalendarModeSwitchableContext = createContext<InitialState>({
   mode: 'week',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleMode: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  CalendarVerticalContext.displayName = 'CalendarVerticalContext';
+  CalendarModeSwitchableContext.displayName = 'CalendarModeSwitchableContext';
 }
 
-export const CalendarVerticalContextProvider = ({
+export const CalendarModeSwitchableContextProvider = ({
   children,
 }: {
   children: JSX.Element;
@@ -29,22 +29,22 @@ export const CalendarVerticalContextProvider = ({
   };
 
   return (
-    <CalendarVerticalContext.Provider
+    <CalendarModeSwitchableContext.Provider
       value={{
         mode,
         toggleMode,
       }}
     >
       {children}
-    </CalendarVerticalContext.Provider>
+    </CalendarModeSwitchableContext.Provider>
   );
 };
 
-export function useCalendarVerticalContext() {
-  const context = useContext(CalendarVerticalContext);
+export function useCalendarModeSwitchableContext() {
+  const context = useContext(CalendarModeSwitchableContext);
   if (context === undefined) {
     throw new Error(
-      'The CalendarVerticalContext hook must be used within a CalendarVerticalContextProvider.Provider'
+      'The CalendarModeSwitchableContext hook must be used within a CalendarModeSwitchableContextProvider.Provider'
     );
   }
   return context;
