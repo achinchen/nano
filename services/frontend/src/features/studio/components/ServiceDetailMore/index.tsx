@@ -35,7 +35,7 @@ export default function ServiceInfo({
   return (
     <Fragment>
       <TextButton
-        className={`ml-auto flex-shrink-0 flex-grow-0 font-medium ${className}`}
+        className={`ml-auto flex-shrink-0 flex-grow-0 font-medium text-base ${className}`}
         onClick={onClick}
       >
         {i.title}

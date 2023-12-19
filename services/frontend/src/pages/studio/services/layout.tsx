@@ -13,7 +13,7 @@ export default function Index() {
     <StudioContextProvider>
       <Fragment>
         <Header smHidden={!isIndex} />
-        <div className="flex flex-col md:flex-row md:bg-white">
+        <div className="h-full flex flex-col md:flex-row md:bg-white">
           <section className="hidden md:block">
             <Calendar />
           </section>

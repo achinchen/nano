@@ -5,7 +5,7 @@ const NAVIGATION = {
     title: i.studio.title,
     items: [
       {
-        href: '/studio',
+        href: '/studio/setting',
         icon: 'i-solar-shop-bold',
         label: i.studio.profile,
       },

@@ -1,6 +1,6 @@
 export const SIDE_MENU = {
   STUDIO: {
-    href: '/studio',
+    href: '/studio/setting',
     icon: 'i-solar-shop-bold',
   },
   CART: {

@@ -7,12 +7,12 @@ export const NAVIGATION = [
     label: i.services,
   },
   {
-    href: '/orders',
+    href: '/studio/orders',
     icon: 'i-solar-bag-bold',
     label: i.orders,
   },
   {
-    href: '/requests',
+    href: '/studio/orders/requested',
     icon: 'i-solar-inbox-archive-bold',
     label: i.requested,
   },
