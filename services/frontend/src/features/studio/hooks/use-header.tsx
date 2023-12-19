@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useAppContext } from '~frontend/context';
-import { useStudioContext } from '~frontend/features/studio/context';
 import {
   getNextWeek,
   getPreviousWeek,
@@ -8,9 +7,8 @@ import {
   getFirstDateInPreviousMonth,
 } from '~frontend/utils/date';
 
-export default function useHeader() {
+export default function useHeader({ isListMode }: { isListMode: boolean }) {
   const { selectedDate, setSelectedDate } = useAppContext();
-  const { isListMode } = useStudioContext();
 
   const onNextClick = useCallback(() => {
     setSelectedDate((selectedDate) => {

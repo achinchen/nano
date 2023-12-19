@@ -9,8 +9,10 @@ import i from './i.json';
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
 
 export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
-  const { onNextClick, onPreviousClick, onTodayClick } = useHeader();
   const { isListMode, toggleListMode } = useStudioContext();
+  const { onNextClick, onPreviousClick, onTodayClick } = useHeader({
+    isListMode,
+  });
   const onCreateClick = () => {
     /** */
   };

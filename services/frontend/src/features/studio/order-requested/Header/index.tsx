@@ -1,13 +1,13 @@
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
-import useHeader from '~frontend/features/studio/hooks/use-header';
 import sharedI from '~frontend/shared/i.json';
+import useHeader from '~frontend/features/studio/hooks/use-header';
 import i from './i.json';
 
 export default function Header({ smHidden }: { smHidden?: boolean }) {
   const { isListMode, toggleListMode } = useStudioContext();
-  const { onNextClick, onPreviousClick, onTodayClick } = useHeader({
+  const { onPreviousClick, onNextClick, onTodayClick } = useHeader({
     isListMode,
   });
 

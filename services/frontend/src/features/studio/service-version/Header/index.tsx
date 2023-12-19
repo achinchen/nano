@@ -1,20 +1,18 @@
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
 import { useStudioContext } from '~frontend/features/studio/context';
-import useHeader from '~frontend/features/studio/hooks/use-header';
 import sharedI from '~frontend/shared/i.json';
+import useHeader from '~frontend/features/studio/hooks/use-header';
 import i from './i.json';
 
-export default function Header({ smHidden }: { smHidden?: boolean }) {
+export default function Header() {
   const { isListMode, toggleListMode } = useStudioContext();
-  const { onNextClick, onPreviousClick, onTodayClick } = useHeader({
+  const { onPreviousClick, onNextClick, onTodayClick } = useHeader({
     isListMode,
   });
 
   return (
-    <header
-      className={`content-header ${smHidden ? 'hidden md:flex' : 'flex'}`}
-    >
+    <header className="hidden content-header md:flex">
       <h2 className="text-lg md:text-xl">{i.list}</h2>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton
