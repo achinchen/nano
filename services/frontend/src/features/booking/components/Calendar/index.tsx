@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import CalendarMonthLoose from '~frontend/components/Calendar/Month/Loose';
-import { useBookingContext } from '~frontend/features/booking/context';
+import CalendarMonthLooseStatus from '~frontend/components/Calendar/Month/Loose/Status';
+import { useAppContext } from '~frontend/context';
 
 type Props = {
   className?: string;
@@ -22,7 +22,7 @@ const getMockData = (month: number) => {
 };
 
 export function CalendarHorizontal({ className = '' }: Props) {
-  const { selectedDate, setSelectedDate } = useBookingContext();
+  const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
 
   useEffect(() => {
@@ -33,11 +33,10 @@ export function CalendarHorizontal({ className = '' }: Props) {
 
   return (
     <section className={`w-160 bg-zinc-50 ${className}`}>
-      <CalendarMonthLoose
+      <CalendarMonthLooseStatus
         data={serviceData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
-        type="status"
       />
     </section>
   );

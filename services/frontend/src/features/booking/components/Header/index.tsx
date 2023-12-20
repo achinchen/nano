@@ -1,15 +1,15 @@
 import IconButton from '~frontend/components/IconButton';
 import Button from '~frontend/components/Button';
-import { useBookingContext } from '~frontend/features/booking/context';
 import {
   getFirstDateInNextMonth,
   getFirstDateInPreviousMonth,
   getLocaleYYYYMMDD,
 } from '~frontend/utils/date';
 import i from '~frontend/shared/i.json';
+import { useAppContext } from '~frontend/context';
 
-export function Header({ className = '' }: { className?: string }) {
-  const { selectedDate, setSelectedDate } = useBookingContext();
+export function Header({ smHidden = false }: { smHidden?: boolean }) {
+  const { selectedDate, setSelectedDate } = useAppContext();
   const onNextClick = () => {
     setSelectedDate((selectedDate) => getFirstDateInNextMonth(selectedDate));
   };
@@ -22,7 +22,7 @@ export function Header({ className = '' }: { className?: string }) {
   const onTodayClick = () => setSelectedDate(new Date());
 
   return (
-    <header className={`content-header ${className}`}>
+    <header className={`content-header ${smHidden ? 'hidden md:flex' : ''}`}>
       <time onClick={onTodayClick}>{getLocaleYYYYMMDD(selectedDate)}</time>
       <aside className="hidden items-center justify-between gap-2 md:flex">
         <IconButton

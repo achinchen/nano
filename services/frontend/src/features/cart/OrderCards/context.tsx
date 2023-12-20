@@ -108,7 +108,7 @@ export function useOrderCardsContext() {
   const context = useContext(OrderCardsContext);
   if (context === undefined) {
     throw new Error(
-      'The OrderCardsContext hook must be used within a CalendarVerticalContextProvider.Provider'
+      'The OrderCardsContext hook must be used within a OrderCardsContext.Provider'
     );
   }
   return context;

@@ -1,10 +1,11 @@
 import type { Meta } from '@storybook/react';
 import type { Status } from '~frontend/components/Calendar/types';
 import { useState } from 'react';
-import { CalendarMonthLoose, CalendarMonthTight } from '.';
+import CalendarMonthLooseNameTag from './Loose/NameTag';
+import { CalendarMonthTight } from '.';
 
-const Story: Meta<typeof CalendarMonthLoose> = {
-  component: CalendarMonthLoose,
+const Story: Meta<typeof CalendarMonthLooseNameTag> = {
+  component: CalendarMonthLooseNameTag,
   title: 'CalendarMonth',
 };
 
@@ -51,11 +52,10 @@ export const Loose = () => {
   const [selectedDate, setSelectedDate] = useState(new Date('2023-09-17'));
 
   return (
-    <CalendarMonthLoose
+    <CalendarMonthLooseNameTag
       selectedDate={selectedDate}
       onSelect={setSelectedDate}
       data={getMockData(new Date().getMonth() + 1)}
-      type="content"
     />
   );
 };
