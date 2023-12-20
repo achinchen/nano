@@ -1,13 +1,13 @@
 import type { ServiceCardProps } from './types';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useBookingContext } from '~frontend/features/booking/context';
 import Icon from '~frontend/components/Icon';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import sharedI from '~frontend/shared/i.json';
 import { formatDuration } from '~frontend/utils/time';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
+import { useAppContext } from '~frontend/context';
 import scopedI from './i.json';
 
 const SERVICES = [
@@ -156,7 +156,7 @@ export function ServiceCard({
 }
 
 export function ServiceCards() {
-  const { selectedDate } = useBookingContext();
+  const { selectedDate } = useAppContext();
   const [services, setServices] = useState<ServiceCardProps[]>([]);
 
   useEffect(() => {

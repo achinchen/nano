@@ -1,5 +1,5 @@
 import type { ServiceTime } from './type';
-import { useServiceTimesContext } from '~frontend/features/booking/ServiceTimes/context';
+import { useServiceTimesContext } from '~frontend/features/booking/detail/components/ServiceTimes/context';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
 import scopedI from './i.json';

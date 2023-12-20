@@ -48,7 +48,7 @@ export function usePreviewOrdersContext() {
   const context = useContext(PreviewOrdersContext);
   if (context === undefined) {
     throw new Error(
-      'The PreviewOrdersContext hook must be used within a CalendarVerticalContextProvider.Provider'
+      'The PreviewOrdersContext hook must be used within a PreviewOrdersContext.Provider'
     );
   }
   return context;
