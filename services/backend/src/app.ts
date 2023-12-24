@@ -5,6 +5,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import csrf from 'tiny-csrf';
+import cors from 'cors';
 import { config } from 'dotenv';
 import { middleware as loggerMiddleware } from './domain/shared/http/middleware/logger';
 import authRouter from './domain/user/http/routes';
@@ -23,6 +24,11 @@ app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser('123456789iamasecret987654321look'));
 app.use(csrf('123456789iamasecret987654321look'));
+app.use(
+  cors({
+    origin: process.env.CLIENT_HOST,
+  })
+);
 
 app.use(expressStatic(path.join(__dirname, 'assets')));
 app.use(
@@ -62,7 +68,7 @@ app.use('/health-check', function (req, res) {
 
 function isAuthenticated(req, res, next) {
   if (req.session.passport?.user) next();
-  else next('route');
+  else next('/');
 }
 
 app.get('/', isAuthenticated, function (req, res) {

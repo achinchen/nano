@@ -30,16 +30,18 @@ jest.mock('~backend/domain/user/service/auth/google', () => {
   };
 });
 
+process.env.CLIENT_HOST = '';
+
 it('calls AuthService.authenticate with the correct provider for /login/federated/google', async () => {
   await router.get('/login/federated/google');
   expect(AuthService.authenticate).toHaveBeenCalledWith(PROVIDER);
 });
 
-it('calls AuthService.authenticate with the correct options for /oauth2/redirect/google', async () => {
-  await router.get('/oauth2/redirect/google');
+it('calls AuthService.authenticate with the correct options for /login/redirect/google', async () => {
+  await router.get('/login/callback/google');
   expect(AuthService.authenticate).toHaveBeenCalledWith(PROVIDER, {
-    successReturnToOrRedirect: '/health-check?success',
-    failureRedirect: '/health-check?failure',
+    successReturnToOrRedirect: '/login',
+    failureRedirect: '/login?failure',
   });
 });
 

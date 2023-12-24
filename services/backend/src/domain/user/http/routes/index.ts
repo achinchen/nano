@@ -11,10 +11,10 @@ router.use(transactionMiddleware('user'));
 router.get('/login/federated/google', passport.authenticate(PROVIDER));
 
 router.get(
-  '/oauth2/redirect/google',
-  passport.authenticate(PROVIDER, {
-    successReturnToOrRedirect: '/health-check?success',
-    failureRedirect: '/health-check?failure',
+  '/login/callback/google',
+  passport.authenticate('google', {
+    successRedirect: `${process.env.CLIENT_HOST}/login`,
+    failureRedirect: `${process.env.CLIENT_HOST}/login?failed`,
   })
 );
 
