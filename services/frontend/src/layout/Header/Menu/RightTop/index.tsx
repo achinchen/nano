@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import Icon from '~frontend/components/Icon';
 import {
+  LOGOUT_NAVIGATION,
   PROVIDER_NAVIGATION,
   CONSUMER_NAVIGATION,
 } from '~frontend/layout/Header/Menu/constants';
@@ -12,11 +13,17 @@ type Props = {
 };
 
 export default function RightTop({ onClose }: Props) {
-  const { isProvider } = useHeaderContext();
+  const { isProvider, setMenuOpen } = useHeaderContext();
   const navigation = isProvider ? PROVIDER_NAVIGATION : CONSUMER_NAVIGATION;
+
   const onMenuClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  const onClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Fragment>
       <div className="fixed bottom-0 left-0 right-0 top-0" onClick={onClose} />
@@ -31,7 +38,11 @@ export default function RightTop({ onClose }: Props) {
               <ul>
                 {items.map(({ icon, label, href }) => (
                   <li key={label}>
-                    <Link to={href} className="h-14 flex items-center gap-4">
+                    <Link
+                      to={href}
+                      className="h-14 flex items-center gap-4"
+                      onClick={onClick}
+                    >
                       <Icon icon={icon} size="2xl" />
                       <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
                         {label}
@@ -43,6 +54,18 @@ export default function RightTop({ onClose }: Props) {
             </li>
           </ul>
         ))}
+        <li className="h-11 flex items-center" />
+        <li>
+          <button
+            className="h-14 w-full flex items-center gap-4"
+            onClick={LOGOUT_NAVIGATION.onClick}
+          >
+            <Icon icon={LOGOUT_NAVIGATION.icon} size="2xl" />
+            <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
+              {LOGOUT_NAVIGATION.label}
+            </span>
+          </button>
+        </li>
       </aside>
     </Fragment>
   );

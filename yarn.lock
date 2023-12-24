@@ -504,7 +504,7 @@
     json5 "^2.1.2"
     lodash "^4.17.19"
     resolve "^1.3.2"
-    semver "7.5.2"
+    semver "^5.4.1"
     source-map "^0.5.0"
 
 "@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.15.0", "@babel/core@^7.21.3":
@@ -526,7 +526,7 @@
     debug "^4.1.0"
     gensync "^1.0.0-beta.2"
     json5 "^2.2.2"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/core@^7.12.10", "@babel/core@^7.18.13", "@babel/core@^7.20.12", "@babel/core@^7.7.5":
   version "7.22.15"
@@ -547,7 +547,7 @@
     debug "^4.1.0"
     gensync "^1.0.0-beta.2"
     json5 "^2.2.3"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/core@^7.22.9", "@babel/core@^7.23.3":
   version "7.23.3"
@@ -568,7 +568,7 @@
     debug "^4.1.0"
     gensync "^1.0.0-beta.2"
     json5 "^2.2.3"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/generator@^7.12.11", "@babel/generator@^7.12.5", "@babel/generator@^7.18.13", "@babel/generator@^7.22.15", "@babel/generator@^7.22.9":
   version "7.22.15"
@@ -640,7 +640,7 @@
     "@babel/helper-validator-option" "^7.22.15"
     browserslist "^4.21.9"
     lru-cache "^5.1.1"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/helper-compilation-targets@^7.17.7", "@babel/helper-compilation-targets@^7.22.5":
   version "7.22.5"
@@ -651,7 +651,7 @@
     "@babel/helper-validator-option" "^7.22.5"
     browserslist "^4.21.3"
     lru-cache "^5.1.1"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/helper-create-class-features-plugin@^7.18.6", "@babel/helper-create-class-features-plugin@^7.22.5":
   version "7.22.5"
@@ -666,7 +666,7 @@
     "@babel/helper-replace-supers" "^7.22.5"
     "@babel/helper-skip-transparent-expression-wrappers" "^7.22.5"
     "@babel/helper-split-export-declaration" "^7.22.5"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/helper-create-class-features-plugin@^7.21.0", "@babel/helper-create-class-features-plugin@^7.22.11", "@babel/helper-create-class-features-plugin@^7.22.15":
   version "7.22.15"
@@ -681,7 +681,7 @@
     "@babel/helper-replace-supers" "^7.22.9"
     "@babel/helper-skip-transparent-expression-wrappers" "^7.22.5"
     "@babel/helper-split-export-declaration" "^7.22.6"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/helper-create-regexp-features-plugin@^7.18.6", "@babel/helper-create-regexp-features-plugin@^7.22.5":
   version "7.22.5"
@@ -690,7 +690,7 @@
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.22.5"
     regexpu-core "^5.3.1"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/helper-create-regexp-features-plugin@^7.22.15":
   version "7.22.15"
@@ -699,7 +699,7 @@
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.22.5"
     regexpu-core "^5.3.1"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/helper-define-polyfill-provider@^0.1.5":
   version "0.1.5"
@@ -713,7 +713,7 @@
     debug "^4.1.1"
     lodash.debounce "^4.0.8"
     resolve "^1.14.2"
-    semver "7.5.2"
+    semver "^6.1.2"
 
 "@babel/helper-define-polyfill-provider@^0.4.0":
   version "0.4.0"
@@ -725,7 +725,7 @@
     debug "^4.1.1"
     lodash.debounce "^4.0.8"
     resolve "^1.14.2"
-    semver "7.5.2"
+    semver "^6.1.2"
 
 "@babel/helper-define-polyfill-provider@^0.4.2":
   version "0.4.2"
@@ -2354,7 +2354,7 @@
     babel-plugin-polyfill-corejs2 "^0.4.3"
     babel-plugin-polyfill-corejs3 "^0.8.1"
     babel-plugin-polyfill-regenerator "^0.5.0"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/plugin-transform-runtime@^7.22.9":
   version "7.23.3"
@@ -2366,7 +2366,7 @@
     babel-plugin-polyfill-corejs2 "^0.4.6"
     babel-plugin-polyfill-corejs3 "^0.8.5"
     babel-plugin-polyfill-regenerator "^0.5.3"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/plugin-transform-shorthand-properties@^7.12.1", "@babel/plugin-transform-shorthand-properties@^7.22.5":
   version "7.22.5"
@@ -2623,7 +2623,7 @@
     babel-plugin-polyfill-corejs3 "^0.8.3"
     babel-plugin-polyfill-regenerator "^0.5.2"
     core-js-compat "^3.31.0"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/preset-env@^7.15.0", "@babel/preset-env@^7.20.2":
   version "7.22.5"
@@ -2709,7 +2709,7 @@
     babel-plugin-polyfill-corejs3 "^0.8.1"
     babel-plugin-polyfill-regenerator "^0.5.0"
     core-js-compat "^3.30.2"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 "@babel/preset-env@^7.22.9":
   version "7.23.3"
@@ -2795,7 +2795,7 @@
     babel-plugin-polyfill-corejs3 "^0.8.5"
     babel-plugin-polyfill-regenerator "^0.5.3"
     core-js-compat "^3.31.0"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 "@babel/preset-modules@0.1.6-no-external-plugins":
   version "0.1.6-no-external-plugins"
@@ -4396,7 +4396,7 @@
     colors "~1.2.1"
     lodash "~4.17.15"
     resolve "~1.22.1"
-    semver "7.5.2"
+    semver "~7.5.4"
     source-map "~0.6.1"
     typescript "~5.0.4"
 
@@ -4446,7 +4446,7 @@
   dependencies:
     https-proxy-agent "^5.0.1"
     nan "^2.17.0"
-    semver "7.5.2"
+    semver "^7.5.2"
 
 "@newrelic/security-agent@0.2.1":
   version "0.2.1"
@@ -4454,7 +4454,7 @@
   integrity sha512-oFPnBO+BlJap/qC3r80NuiHmedXdjpWnVnzAlNjsSZoAT7qJM/29tip6ZX/Qmp17mZAIiOVJ2MkyQ5OXHXPdLw==
   dependencies:
     "@aws-sdk/client-lambda" "^3.363.0"
-    axios "^1.6.1"
+    axios "0.21.4"
     check-disk-space "3.3.1"
     content-type "^1.0.5"
     fast-safe-stringify "^2.1.1"
@@ -4469,7 +4469,7 @@
     pretty-bytes "^5.6.0"
     request-ip "^3.3.0"
     ringbufferjs "^2.0.0"
-    semver "7.5.2"
+    semver "^7.5.4"
     sync-request "^6.1.0"
     unescape "^1.0.1"
     unescape-js "^1.1.4"
@@ -4732,7 +4732,7 @@
     "@phenomnomnominal/tsquery" "~5.0.1"
     detect-port "^1.5.1"
     dotenv "~10.0.0"
-    semver "7.5.2"
+    semver "7.5.3"
 
 "@nx/devkit@16.5.0":
   version "16.5.0"
@@ -4742,7 +4742,7 @@
     "@nrwl/devkit" "16.5.0"
     ejs "^3.1.7"
     ignore "^5.0.4"
-    semver "7.5.2"
+    semver "7.5.3"
     tmp "~0.2.1"
     tslib "^2.3.0"
 
@@ -4754,7 +4754,7 @@
     "@nrwl/devkit" "16.5.1"
     ejs "^3.1.7"
     ignore "^5.0.4"
-    semver "7.5.2"
+    semver "7.5.3"
     tmp "~0.2.1"
     tslib "^2.3.0"
 
@@ -4767,7 +4767,7 @@
     ejs "^3.1.7"
     enquirer "~2.3.6"
     ignore "^5.0.4"
-    semver "7.5.2"
+    semver "7.5.3"
     tmp "~0.2.1"
     tslib "^2.3.0"
 
@@ -4784,7 +4784,7 @@
     chalk "^4.1.0"
     confusing-browser-globals "^1.0.9"
     jsonc-eslint-parser "^2.1.0"
-    semver "7.5.2"
+    semver "7.5.3"
 
 "@nx/express@16.5.1", "@nx/express@^16.5.0":
   version "16.5.1"
@@ -4880,7 +4880,7 @@
     ignore "^5.0.4"
     js-tokens "^4.0.0"
     minimatch "3.0.5"
-    semver "7.5.2"
+    semver "7.5.3"
     source-map-support "0.5.19"
     tslib "^2.3.0"
 
@@ -4910,7 +4910,7 @@
     ignore "^5.0.4"
     js-tokens "^4.0.0"
     minimatch "3.0.5"
-    semver "7.5.2"
+    semver "7.5.3"
     source-map-support "0.5.19"
     tslib "^2.3.0"
 
@@ -4944,7 +4944,7 @@
     npm-package-arg "11.0.1"
     npm-run-path "^4.0.1"
     ora "5.3.0"
-    semver "7.5.2"
+    semver "7.5.3"
     source-map-support "0.5.19"
     ts-node "10.9.1"
     tsconfig-paths "^4.1.2"
@@ -4995,7 +4995,7 @@
     fs-extra "^11.1.0"
     http-proxy-middleware "^2.0.6"
     ignore "^5.0.4"
-    semver "7.5.2"
+    semver "7.5.3"
     ts-node "10.9.1"
     tsconfig-paths "^4.1.2"
     url-loader "^4.1.1"
@@ -5272,7 +5272,7 @@
     "@nx/workspace" "16.5.0"
     "@phenomnomnominal/tsquery" "~5.0.1"
     dotenv "~10.0.0"
-    semver "7.5.2"
+    semver "7.5.3"
 
 "@nx/vite@16.5.0":
   version "16.5.0"
@@ -5868,7 +5868,7 @@
     import-lazy "~4.0.0"
     jju "~1.4.0"
     resolve "~1.22.1"
-    semver "7.5.2"
+    semver "~7.5.4"
     z-schema "~5.0.2"
 
 "@rushstack/rig-package@0.4.1":
@@ -6819,7 +6819,7 @@
     pretty-hrtime "^1.0.3"
     prompts "^2.4.0"
     read-pkg-up "^7.0.1"
-    semver "7.5.2"
+    semver "^7.3.7"
     serve-favicon "^2.5.0"
     telejson "^7.2.0"
     tiny-invariant "^1.3.1"
@@ -6924,7 +6924,7 @@
     dequal "^2.0.2"
     lodash "^4.17.21"
     memoizerific "^1.11.3"
-    semver "7.5.2"
+    semver "^7.3.7"
     store2 "^2.14.2"
     telejson "^7.2.0"
     ts-dedent "^2.0.0"
@@ -7138,7 +7138,7 @@
     node-fetch "^2"
     playwright "^1.14.0"
     regenerator-runtime "^0.13.9"
-    semver "7.5.2"
+    semver "^7.3.7"
     tempy "^1.0.1"
     ts-dedent "^2.0.0"
 
@@ -7312,7 +7312,7 @@
     "@mole-inc/bin-wrapper" "^8.0.1"
     commander "^7.1.0"
     fast-glob "^3.2.5"
-    semver "7.5.2"
+    semver "^7.3.8"
     slash "3.0.0"
     source-map "^0.7.3"
 
@@ -8129,7 +8129,7 @@
     grapheme-splitter "^1.0.4"
     ignore "^5.2.0"
     natural-compare-lite "^1.4.0"
-    semver "7.5.2"
+    semver "^7.3.7"
     tsutils "^3.21.0"
 
 "@typescript-eslint/parser@^5.59.11":
@@ -8198,7 +8198,7 @@
     debug "^4.3.4"
     globby "^11.1.0"
     is-glob "^4.0.3"
-    semver "7.5.2"
+    semver "^7.3.7"
     tsutils "^3.21.0"
 
 "@typescript-eslint/typescript-estree@5.62.0":
@@ -8211,7 +8211,7 @@
     debug "^4.3.4"
     globby "^11.1.0"
     is-glob "^4.0.3"
-    semver "7.5.2"
+    semver "^7.3.7"
     tsutils "^3.21.0"
 
 "@typescript-eslint/utils@5.59.11", "@typescript-eslint/utils@^5.10.0", "@typescript-eslint/utils@^5.58.0":
@@ -8226,7 +8226,7 @@
     "@typescript-eslint/types" "5.59.11"
     "@typescript-eslint/typescript-estree" "5.59.11"
     eslint-scope "^5.1.1"
-    semver "7.5.2"
+    semver "^7.3.7"
 
 "@typescript-eslint/utils@5.62.0", "@typescript-eslint/utils@^5.60.1", "@typescript-eslint/utils@^5.61.0":
   version "5.62.0"
@@ -8240,7 +8240,7 @@
     "@typescript-eslint/types" "5.62.0"
     "@typescript-eslint/typescript-estree" "5.62.0"
     eslint-scope "^5.1.1"
-    semver "7.5.2"
+    semver "^7.3.7"
 
 "@typescript-eslint/visitor-keys@5.59.11":
   version "5.59.11"
@@ -9593,7 +9593,7 @@ babel-plugin-polyfill-corejs2@^0.4.3:
   dependencies:
     "@babel/compat-data" "^7.17.7"
     "@babel/helper-define-polyfill-provider" "^0.4.0"
-    semver "7.5.2"
+    semver "^6.1.1"
 
 babel-plugin-polyfill-corejs2@^0.4.5:
   version "0.4.5"
@@ -9602,7 +9602,7 @@ babel-plugin-polyfill-corejs2@^0.4.5:
   dependencies:
     "@babel/compat-data" "^7.22.6"
     "@babel/helper-define-polyfill-provider" "^0.4.2"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 babel-plugin-polyfill-corejs2@^0.4.6:
   version "0.4.6"
@@ -9611,7 +9611,7 @@ babel-plugin-polyfill-corejs2@^0.4.6:
   dependencies:
     "@babel/compat-data" "^7.22.6"
     "@babel/helper-define-polyfill-provider" "^0.4.3"
-    semver "7.5.2"
+    semver "^6.3.1"
 
 babel-plugin-polyfill-corejs3@^0.1.0:
   version "0.1.7"
@@ -9795,7 +9795,7 @@ bin-version-check@^5.0.0:
   integrity sha512-bYsvMqJ8yNGILLz1KP9zKLzQ6YpljV3ln1gqhuLkUtyfGi3qXKGuK2p+U4NAvjVFzDFiBBtOpCOSFNuYYEGZ5g==
   dependencies:
     bin-version "^6.0.0"
-    semver "7.5.2"
+    semver "^7.5.3"
     semver-truncate "^3.0.0"
 
 bin-version@^6.0.0:
@@ -10100,7 +10100,7 @@ builtins@^5.0.0:
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-5.0.1.tgz#87f6db9ab0458be728564fa81d876d8d74552fa9"
   integrity sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==
   dependencies:
-    semver "7.5.2"
+    semver "^7.0.0"
 
 bundle-name@^3.0.0:
   version "3.0.0"
@@ -10381,7 +10381,7 @@ chokidar@^2.1.8:
     anymatch "^2.0.0"
     async-each "^1.0.1"
     braces "^2.3.2"
-    glob-parent "~5.1.2"
+    glob-parent "^3.1.0"
     inherits "^2.0.3"
     is-binary-path "^1.0.0"
     is-glob "^4.0.0"
@@ -10937,6 +10937,14 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
+cors@^2.8.5:
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.5.tgz#eac11da51592dd86b9f06f6e7ac293b3df875d29"
+  integrity sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==
+  dependencies:
+    object-assign "^4"
+    vary "^1"
+
 corser@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/corser/-/corser-2.0.1.tgz#8eda252ecaab5840dcd975ceb90d9370c819ff87"
@@ -11072,7 +11080,7 @@ css-loader@^6.4.0:
     postcss-modules-scope "^3.0.0"
     postcss-modules-values "^4.0.0"
     postcss-value-parser "^4.2.0"
-    semver "7.5.2"
+    semver "^7.3.8"
 
 css-minimizer-webpack-plugin@^5.0.0:
   version "5.0.1"
@@ -11268,7 +11276,7 @@ cypress@^13.5.1:
     process "^0.11.10"
     proxy-from-env "1.0.0"
     request-progress "^3.0.0"
-    semver "7.5.2"
+    semver "^7.5.3"
     supports-color "^8.1.1"
     tmp "~0.2.1"
     untildify "^4.0.0"
@@ -12224,7 +12232,7 @@ eslint-plugin-import@^2.27.5:
     minimatch "^3.1.2"
     object.values "^1.1.6"
     resolve "^1.22.1"
-    semver "7.5.2"
+    semver "^6.3.0"
     tsconfig-paths "^3.14.1"
 
 eslint-plugin-jest-dom@^5.0.1:
@@ -12262,7 +12270,7 @@ eslint-plugin-jsx-a11y@^6.7.1:
     minimatch "^3.1.2"
     object.entries "^1.1.6"
     object.fromentries "^2.0.6"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 eslint-plugin-prettier@^4.2.1:
   version "4.2.1"
@@ -12294,7 +12302,7 @@ eslint-plugin-react@^7.32.2:
     object.values "^1.1.6"
     prop-types "^15.8.1"
     resolve "^2.0.0-next.4"
-    semver "7.5.2"
+    semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
 
 eslint-plugin-testing-library@^5.11.0:
@@ -13107,7 +13115,7 @@ fork-ts-checker-webpack-plugin@7.2.13:
     minimatch "^3.0.4"
     node-abort-controller "^3.0.1"
     schema-utils "^3.1.1"
-    semver "7.5.2"
+    semver "^7.3.5"
     tapable "^2.2.1"
 
 fork-ts-checker-webpack-plugin@^6.0.4:
@@ -13126,7 +13134,7 @@ fork-ts-checker-webpack-plugin@^6.0.4:
     memfs "^3.1.2"
     minimatch "^3.0.4"
     schema-utils "2.7.0"
-    semver "7.5.2"
+    semver "^7.3.2"
     tapable "^1.0.0"
 
 form-data@^2.2.0:
@@ -14850,7 +14858,7 @@ istanbul-lib-instrument@^4.0.0:
     "@babel/core" "^7.7.5"
     "@istanbuljs/schema" "^0.1.2"
     istanbul-lib-coverage "^3.0.0"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 istanbul-lib-instrument@^5.0.4, istanbul-lib-instrument@^5.1.0:
   version "5.2.1"
@@ -14861,7 +14869,7 @@ istanbul-lib-instrument@^5.0.4, istanbul-lib-instrument@^5.1.0:
     "@babel/parser" "^7.14.7"
     "@istanbuljs/schema" "^0.1.2"
     istanbul-lib-coverage "^3.2.0"
-    semver "7.5.2"
+    semver "^6.3.0"
 
 istanbul-lib-processinfo@^2.0.2:
   version "2.0.3"
@@ -15880,7 +15888,7 @@ jest-snapshot@^28.1.3:
     jest-util "^28.1.3"
     natural-compare "^1.4.0"
     pretty-format "^28.1.3"
-    semver "7.5.2"
+    semver "^7.3.5"
 
 jest-snapshot@^29.5.0:
   version "29.5.0"
@@ -15909,7 +15917,7 @@ jest-snapshot@^29.5.0:
     jest-util "^29.5.0"
     natural-compare "^1.4.0"
     pretty-format "^29.5.0"
-    semver "7.5.2"
+    semver "^7.3.5"
 
 jest-snapshot@^29.6.1:
   version "29.6.1"
@@ -15936,7 +15944,7 @@ jest-snapshot@^29.6.1:
     jest-util "^29.6.1"
     natural-compare "^1.4.0"
     pretty-format "^29.6.1"
-    semver "7.5.2"
+    semver "^7.5.3"
 
 jest-snapshot@^29.7.0:
   version "29.7.0"
@@ -15962,7 +15970,7 @@ jest-snapshot@^29.7.0:
     jest-util "^29.7.0"
     natural-compare "^1.4.0"
     pretty-format "^29.7.0"
-    semver "7.5.2"
+    semver "^7.5.3"
 
 jest-util@^28.1.3:
   version "28.1.3"
@@ -16396,7 +16404,7 @@ jsonc-eslint-parser@^2.1.0:
     acorn "^8.5.0"
     eslint-visitor-keys "^3.0.0"
     espree "^9.0.0"
-    semver "7.5.2"
+    semver "^7.3.5"
 
 jsonc-parser@3.2.0:
   version "3.2.0"
@@ -16935,14 +16943,14 @@ make-dir@^2.0.0, make-dir@^2.1.0:
   integrity sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==
   dependencies:
     pify "^4.0.1"
-    semver "7.5.2"
+    semver "^5.6.0"
 
 make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
-    semver "7.5.2"
+    semver "^6.0.0"
 
 make-error@1.x, make-error@^1.1.1:
   version "1.3.6"
@@ -17489,7 +17497,7 @@ newrelic@^11.0.0:
     json-stringify-safe "^5.0.0"
     readable-stream "^3.6.1"
     require-in-the-middle "^7.2.0"
-    semver "7.5.2"
+    semver "^7.5.2"
     winston-transport "^4.5.0"
   optionalDependencies:
     "@contrast/fn-inspect" "^3.3.0"
@@ -17611,7 +17619,7 @@ normalize-package-data@^2.5.0:
   dependencies:
     hosted-git-info "^2.1.4"
     resolve "^1.10.0"
-    semver "7.5.2"
+    semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
 normalize-package-data@^3.0.0:
@@ -17621,7 +17629,7 @@ normalize-package-data@^3.0.0:
   dependencies:
     hosted-git-info "^4.0.1"
     is-core-module "^2.5.0"
-    semver "7.5.2"
+    semver "^7.3.4"
     validate-npm-package-license "^3.0.1"
 
 normalize-path@^2.1.1:
@@ -17653,7 +17661,7 @@ npm-package-arg@11.0.1:
   dependencies:
     hosted-git-info "^7.0.0"
     proc-log "^3.0.0"
-    semver "7.5.2"
+    semver "^7.3.5"
     validate-npm-package-name "^5.0.0"
 
 npm-run-path@^2.0.0:
@@ -17709,7 +17717,7 @@ nx@16.3.2:
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "^3.0.0-rc.18"
     "@zkochan/js-yaml" "0.0.6"
-    axios "^1.6.1"
+    axios "^1.0.0"
     chalk "^4.1.0"
     cli-cursor "3.1.0"
     cli-spinners "2.6.1"
@@ -17728,7 +17736,7 @@ nx@16.3.2:
     minimatch "3.0.5"
     npm-run-path "^4.0.1"
     open "^8.4.0"
-    semver "7.5.2"
+    semver "7.3.4"
     string-width "^4.2.3"
     strong-log-transformer "^2.1.0"
     tar-stream "~2.2.0"
@@ -17760,7 +17768,7 @@ nx@16.5.0:
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "3.0.0-rc.46"
     "@zkochan/js-yaml" "0.0.6"
-    axios "^1.6.1"
+    axios "^1.0.0"
     chalk "^4.1.0"
     cli-cursor "3.1.0"
     cli-spinners "2.6.1"
@@ -17779,7 +17787,7 @@ nx@16.5.0:
     minimatch "3.0.5"
     npm-run-path "^4.0.1"
     open "^8.4.0"
-    semver "7.5.2"
+    semver "7.5.3"
     string-width "^4.2.3"
     strong-log-transformer "^2.1.0"
     tar-stream "~2.2.0"
@@ -17811,7 +17819,7 @@ nx@16.5.1:
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "3.0.0-rc.46"
     "@zkochan/js-yaml" "0.0.6"
-    axios "^1.6.1"
+    axios "^1.0.0"
     chalk "^4.1.0"
     cli-cursor "3.1.0"
     cli-spinners "2.6.1"
@@ -17830,7 +17838,7 @@ nx@16.5.1:
     minimatch "3.0.5"
     npm-run-path "^4.0.1"
     open "^8.4.0"
-    semver "7.5.2"
+    semver "7.5.3"
     string-width "^4.2.3"
     strong-log-transformer "^2.1.0"
     tar-stream "~2.2.0"
@@ -17861,7 +17869,7 @@ nx@17.1.2:
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "3.0.0-rc.46"
     "@zkochan/js-yaml" "0.0.6"
-    axios "^1.6.1"
+    axios "^1.5.1"
     chalk "^4.1.0"
     cli-cursor "3.1.0"
     cli-spinners "2.6.1"
@@ -17882,7 +17890,7 @@ nx@17.1.2:
     node-machine-id "1.1.12"
     npm-run-path "^4.0.1"
     open "^8.4.0"
-    semver "7.5.2"
+    semver "7.5.3"
     string-width "^4.2.3"
     strong-log-transformer "^2.1.0"
     tar-stream "~2.2.0"
@@ -17942,7 +17950,7 @@ oauth@0.9.x:
   resolved "https://registry.yarnpkg.com/oauth/-/oauth-0.9.15.tgz#bd1fefaf686c96b75475aed5196412ff60cfb9c1"
   integrity sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==
 
-object-assign@^4.0.1, object-assign@^4.1.1:
+object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
@@ -18643,7 +18651,7 @@ postcss-loader@^6.1.1:
   dependencies:
     cosmiconfig "^7.0.0"
     klona "^2.0.5"
-    semver "7.5.2"
+    semver "^7.3.5"
 
 postcss-merge-longhand@^6.0.0:
   version "6.0.0"
@@ -19543,7 +19551,7 @@ remark-parse@8.0.3:
     parse-entities "^2.0.0"
     repeat-string "^1.5.4"
     state-toggle "^1.0.0"
-    trim "0.0.3"
+    trim "0.0.1"
     trim-trailing-lines "^1.0.0"
     unherit "^1.0.4"
     unist-util-remove-position "^2.0.0"
@@ -19983,7 +19991,7 @@ semver-truncate@^3.0.0:
   resolved "https://registry.yarnpkg.com/semver-truncate/-/semver-truncate-3.0.0.tgz#0e3b4825d4a4225d8ae6e7c72231182b42edba40"
   integrity sha512-LJWA9kSvMolR51oDE6PN3kALBNaUdkxzAGcexw8gjMA8xr5zUqK0JiR3CgARSqanYF3Z1YHvsErb1KDgh+v7Rg==
   dependencies:
-    semver "7.5.2"
+    semver "^7.3.5"
 
 semver@7.5.2:
   version "7.5.2"
@@ -21254,7 +21262,7 @@ ts-jest@^29.1.0:
     json5 "^2.2.3"
     lodash.memoize "4.x"
     make-error "1.x"
-    semver "7.5.2"
+    semver "7.x"
     yargs-parser "^21.0.1"
 
 ts-loader@^9.3.1:
@@ -21265,7 +21273,7 @@ ts-loader@^9.3.1:
     chalk "^4.1.0"
     enhanced-resolve "^5.0.0"
     micromatch "^4.0.0"
-    semver "7.5.2"
+    semver "^7.3.4"
 
 ts-node@10.9.1, ts-node@^10.8.1, ts-node@^10.9.1:
   version "10.9.1"
@@ -21932,7 +21940,7 @@ validator@^13.9.0:
   resolved "https://registry.yarnpkg.com/validator/-/validator-13.9.0.tgz#33e7b85b604f3bbce9bb1a05d5c3e22e1c2ff855"
   integrity sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==
 
-vary@~1.1.2:
+vary@^1, vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
@@ -22021,7 +22029,7 @@ vue-tsc@^1.8.8:
   dependencies:
     "@vue/language-core" "1.8.8"
     "@vue/typescript" "1.8.8"
-    semver "7.5.2"
+    semver "^7.3.8"
 
 w3c-xmlserializer@^4.0.0:
   version "4.0.0"
@@ -22035,7 +22043,7 @@ wait-on@^5.3.0:
   resolved "https://registry.yarnpkg.com/wait-on/-/wait-on-5.3.0.tgz#584e17d4b3fe7b46ac2b9f8e5e102c005c2776c7"
   integrity sha512-DwrHrnTK+/0QFaB9a8Ol5Lna3k7WvUR4jzSKmz0YaPBpuN2sACyiPVKVfj6ejnjcajAcvn3wlbTyMIn9AZouOg==
   dependencies:
-    axios "^1.6.1"
+    axios "^0.21.1"
     joi "^17.3.0"
     lodash "^4.17.21"
     minimist "^1.2.5"

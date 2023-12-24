@@ -1,7 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import ExampleStudio from '~frontend/assets/example-studio.png';
 import Brand from '~frontend/assets/brand.jpg';
 import Button from '~frontend/components/Button';
+import { LOGIN_PATH } from './constants';
+import { getAuthPrevPath, removeAuthPrevPath, settAuthPrevPath } from './utils';
 import i from './i.json';
 
 const studio = {
@@ -14,9 +17,19 @@ const LINK = 'px-0.5 mx-0.5 border-b border-zinc-700 border-b-solid';
 
 export default function Auth() {
   const navigator = useNavigate();
+
   const onLogin = () => {
-    navigator(-1);
+    settAuthPrevPath(window.location.pathname + window.location.search);
+    window.location.href = LOGIN_PATH;
   };
+
+  useEffect(() => {
+    const prev = getAuthPrevPath();
+    if (prev) {
+      removeAuthPrevPath();
+      navigator(prev);
+    }
+  }, [navigator]);
 
   return (
     <section className="h-[calc(100dvh-112px)] flex flex-1 flex-col items-center gap-4 bg-white px-4 py-6 font-normal md:h-[calc(100dvh-108px)] md:px-10">

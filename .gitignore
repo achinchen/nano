@@ -55,6 +55,7 @@ uno.css
 # prevent commit env
 .env.local
 .env.*.local
+.env
 
 # prevent commit logger 
 error.log

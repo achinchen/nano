@@ -25,6 +25,7 @@ import Privacy from '~frontend/features/auth/Privacy';
 import { AppContextProvider } from '~frontend/context';
 
 export function App() {
+
   return (
     <BrowserRouter basename="/" future={{ v7_startTransition: true }}>
       <Layout>
@@ -35,7 +36,6 @@ export function App() {
               path="/booking/:provider/s/:id"
               element={<BookingService />}
             />
-
             <Route path="/cart" element={<Cart />} />
 
             <Route path="/studio" element={<StudioHome />} />

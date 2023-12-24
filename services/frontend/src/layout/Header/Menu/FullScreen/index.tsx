@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
 import IconButton from '~frontend/components/IconButton';
 import {
+  LOGOUT_NAVIGATION,
   PROVIDER_NAVIGATION,
   CONSUMER_NAVIGATION,
 } from '~frontend/layout/Header/Menu/constants';
@@ -27,7 +28,7 @@ export default function FullScreenMenu() {
                   <Link
                     to={href}
                     className="h-14 flex items-center gap-4 color-zinc-700"
-                    onClick={onClick}
+                    onClickCapture={onClick}
                   >
                     <Icon icon={icon} size="2xl" className="h-8 w-8" />
                     <span className="h-100% flex flex-1 items-center justify-between border-b-1 border-b-zinc-200 border-b-solid">
@@ -48,6 +49,20 @@ export default function FullScreenMenu() {
           </li>
         </ul>
       ))}
+      <ul>
+        <li className="h-11 flex items-center text-lg" />
+        <li className="rounded-4 bg-white px-4">
+          <button
+            className="h-14 w-full flex items-center gap-4 text-base"
+            onClick={LOGOUT_NAVIGATION.onClick}
+          >
+            <Icon icon={LOGOUT_NAVIGATION.icon} size="2xl" />
+            <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
+              {LOGOUT_NAVIGATION.label}
+            </span>
+          </button>
+        </li>
+      </ul>
     </nav>
   );
 }
