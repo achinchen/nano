@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { passport } from '~backend/domain/user/service/auth/google';
 import { middleware as transactionMiddleware } from '~backend/domain/shared/http/middleware/transaction';
+import { me } from './me';
 import { logout } from './logout';
 
 export const PROVIDER = 'google';
@@ -19,5 +20,7 @@ router.get(
 );
 
 router.get('/logout', logout());
+
+router.get('/me', me());
 
 export default router;

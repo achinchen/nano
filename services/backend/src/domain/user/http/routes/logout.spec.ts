@@ -1,6 +1,6 @@
-import { logout } from './logout';
+import { logout as originLogout } from './logout';
 
-const logoutMiddleware = logout();
+const logout = originLogout();
 
 describe('Logout', () => {
   it('calls req.logout and redirect to / on successful logout', () => {
@@ -12,14 +12,17 @@ describe('Logout', () => {
       redirect: jest.fn((url) => {
         expect(url).toBe('/');
       }),
+      status: jest.fn().mockReturnThis(),
+      end: jest.fn(),
     };
 
     const next = jest.fn();
 
-    logoutMiddleware(req, res, next);
+    logout(req, res, next);
 
     expect(req.logout).toHaveBeenCalled();
-    expect(res.redirect).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(204);
+    expect(res.end).toHaveBeenCalled();
     expect(next).not.toHaveBeenCalled();
   });
 
@@ -29,12 +32,13 @@ describe('Logout', () => {
     };
     const res = {
       redirect: jest.fn(),
+      status: jest.fn().mockReturnThis(),
     };
     const next = jest.fn((err) => {
       expect(err).toBeInstanceOf(Error);
     });
 
-    logoutMiddleware(req, res, next);
+    logout(req, res, next);
 
     expect(req.logout).toHaveBeenCalled();
     expect(res.redirect).not.toHaveBeenCalled();
