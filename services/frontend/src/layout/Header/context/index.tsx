@@ -1,26 +1,15 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { createContext, useContext, useState } from 'react';
 
 export type InitialState = {
   isMenuOpen: boolean;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
-  isLogin: boolean;
-  setIsLogin: Dispatch<SetStateAction<boolean>>;
-  isProvider: boolean;
-  setIsProvider: Dispatch<SetStateAction<boolean>>;
 };
 
 export const HeaderContext = createContext<InitialState>({
   isMenuOpen: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setMenuOpen: () => {},
-  isLogin: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setIsLogin: () => {},
-  isProvider: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setIsProvider: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -32,24 +21,13 @@ export const HeaderContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [searchParams] = useSearchParams();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(
-    !(searchParams.get('guest') === 'true')
-  );
-  const [isProvider, setIsProvider] = useState(
-    searchParams.get('provider') === 'true'
-  );
 
   return (
     <HeaderContext.Provider
       value={{
         isMenuOpen,
         setMenuOpen,
-        isLogin,
-        setIsLogin,
-        isProvider,
-        setIsProvider,
       }}
     >
       {children}

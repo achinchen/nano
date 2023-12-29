@@ -1,5 +1,5 @@
 import IconButton from '~frontend/components/IconButton';
-import { useHeaderContext } from '~frontend/layout/Header/context';
+import { useHeaderContext } from '~frontend/layout/Header/context/index';
 
 export default function CloseButton() {
   const { isMenuOpen, setMenuOpen } = useHeaderContext();

@@ -6,14 +6,17 @@ import {
   PROVIDER_NAVIGATION,
   CONSUMER_NAVIGATION,
 } from '~frontend/layout/Header/Menu/constants';
-import { useHeaderContext } from '~frontend/layout/Header/context';
+import { useHeaderContext } from '~frontend/layout/Header/context/index';
+import { useAppContext } from '~frontend/context';
 
 type Props = {
   onClose: () => void;
 };
 
 export default function RightTop({ onClose }: Props) {
-  const { isProvider, setMenuOpen } = useHeaderContext();
+  const { isProvider } = useAppContext();
+  const { setMenuOpen } = useHeaderContext();
+
   const navigation = isProvider ? PROVIDER_NAVIGATION : CONSUMER_NAVIGATION;
 
   const onMenuClick = (event: React.MouseEvent) => {
@@ -61,7 +64,7 @@ export default function RightTop({ onClose }: Props) {
             onClick={LOGOUT_NAVIGATION.onClick}
           >
             <Icon icon={LOGOUT_NAVIGATION.icon} size="2xl" />
-            <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
+            <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid text-base">
               {LOGOUT_NAVIGATION.label}
             </span>
           </button>

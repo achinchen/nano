@@ -3,14 +3,6 @@ import { useState, useCallback } from 'react';
 import { FetchError, fetcher as utilsFetcher } from '~frontend/utils/fetcher';
 import { getBasePath } from '~frontend/utils/env/get-base-path';
 
-function getToken() {
-  const token = document.cookie
-    .split('; ')
-    .find((row) => row.startsWith('Token='));
-  if (!token) return '';
-  return token.split('=')[1];
-}
-
 function useFetch<T>(): Return<T> {
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +15,7 @@ function useFetch<T>(): Return<T> {
           const { path, options } = fetchArgs;
           const headers = {
             ...options?.headers,
-            Authorization: `Bearer ${getToken()}`,
+            credentials: 'include',
           };
           const result = await utilsFetcher(basePath, path, {
             ...options,

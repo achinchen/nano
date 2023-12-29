@@ -1,8 +1,8 @@
-export const AVATARS = [
-  'https://loremipsum.io/assets/images/lorem-ipsum-15th-century-typesetter.jpg',
-  'https://loremipsum.io/assets/images/lorem-ipsum-star-wars.jpg',
-  'https://loremipsum.io/assets/images/lorem-ipsum-generator-cicero-de-finibus-bonorum-et-malorum.png',
-];
+import AvocadoOne from '~frontend/assets/avatar/1.jpeg';
+import AvocadoTwo from '~frontend/assets/avatar/2.jpeg';
+import AvocadoThree from '~frontend/assets/avatar/3.jpeg';
+
+export const AVATARS = [AvocadoOne, AvocadoTwo, AvocadoThree];
 
 export default function getAvatarById(id: number) {
   const index = id % AVATARS.length;
