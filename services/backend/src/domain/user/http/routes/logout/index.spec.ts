@@ -7,6 +7,8 @@ jest.mock('~backend/domain/shared/http/middleware/auth/token', () => {
   };
 });
 
+const next = jest.fn();
+
 describe('Logout', () => {
   beforeEach(() => {
     (updateSessionIdentifierAndGetToken as jest.Mock).mockClear();
@@ -25,9 +27,7 @@ describe('Logout', () => {
       end: jest.fn(),
     };
 
-    const next = jest.fn();
-
-    await logout(req, res);
+    await logout(req, res, next);
 
     expect(updateSessionIdentifierAndGetToken).toHaveBeenCalledWith(
       req.user.id
@@ -38,9 +38,8 @@ describe('Logout', () => {
   });
 
   it('calls next middleware with an error if logout encounters an error', () => {
-    const req = {
-      logout: jest.fn((cb) => cb(new Error('Logout Error'))),
-    };
+    const req = {};
+
     const res = {
       redirect: jest.fn(),
       status: jest.fn().mockReturnThis(),
@@ -51,7 +50,6 @@ describe('Logout', () => {
 
     logout(req, res, next);
 
-    expect(req.logout).toHaveBeenCalled();
     expect(updateSessionIdentifierAndGetToken).not.toHaveBeenCalled();
     expect(res.redirect).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalled();

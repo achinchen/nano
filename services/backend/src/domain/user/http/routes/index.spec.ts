@@ -1,7 +1,6 @@
 import supertest from 'supertest';
 import express from 'express';
-import { auth } from '~backend/domain/shared/http/middleware/auth';
-import { logout } from './logout';
+import { auth, authSilent } from '~backend/domain/shared/http/middleware/auth';
 import { setting } from './setting';
 import { me } from './me';
 import {

@@ -48,7 +48,7 @@ it('loginFederatedGoogle: calls AuthService.authenticate with the correct provid
 it('loginCallbackGoogle: calls AuthService.authenticate with the correct options', async () => {
   loginCallbackGoogle();
   expect(AuthService.authenticate).toHaveBeenLastCalledWith(PROVIDER, {
-    failureRedirect: '/login?failed',
+    failureRedirect: `${process.env.CLIENT_HOST}/login?failed`,
     session: false,
   });
 });
@@ -66,8 +66,9 @@ describe('loginCallbackGoogleSuccess', () => {
   const token = 'test-token';
   (updateSessionIdentifierAndGetToken as jest.Mock).mockResolvedValue(token);
 
-  it('should set a cookie and redirect', async () => {
-    await loginCallbackGoogleSuccess(req, res);
+  it('sets a cookie and redirects', async () => {
+    const next = jest.fn();
+    await loginCallbackGoogleSuccess(req, res, next);
     expect(res.cookie).toHaveBeenCalledWith(TOKEN_COOKIE_NAME, token, {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
