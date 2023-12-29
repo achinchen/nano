@@ -21,6 +21,7 @@ export class ScopedLocalStorage {
     return getLocalStorage(this.getScopedKey(key));
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public set(key: string, payload: any) {
     setLocalStorage(this.getScopedKey(key), payload);
   }
