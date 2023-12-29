@@ -26,6 +26,9 @@ export class User {
   @Column({ length: 30, unique: true })
   phone: string;
 
+  @Column({ length: 60 })
+  sessionIdentifier: string;
+
   @Column()
   createdAt: Date;
 

@@ -1,12 +1,11 @@
 import { userRepository } from '~backend/domain/user/repository/user';
-import { me as originMe } from './me';
+import { setting } from '.';
 jest.mock('~backend/domain/user/repository/user');
 
-const me = originMe();
 const mockUserRepository = userRepository as jest.Mocked<typeof userRepository>;
-const req = { session: { passport: { user: { id: '1' } } } };
+const req = { user: { id: 1 } };
 
-describe('me', () => {
+describe('setting', () => {
   it('returns the user profile for a given session id', async () => {
     const mockProfile = {
       id: 1,
@@ -24,7 +23,7 @@ describe('me', () => {
 
     mockUserRepository.getById.mockResolvedValueOnce(mockProfile);
 
-    await me(req, res);
+    await setting(req, res);
 
     expect(res.json).toHaveBeenCalledWith(mockProfile);
     expect(res.status).not.toHaveBeenCalled();
@@ -37,7 +36,7 @@ describe('me', () => {
       send: jest.fn(),
     };
 
-    await me(req, res);
+    await setting(req, res);
 
     expect(res.status).toHaveBeenCalledWith(403);
     expect(res.send).toHaveBeenCalled();

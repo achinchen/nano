@@ -1,11 +1,21 @@
-import { logout as originLogout } from './logout';
+import { updateSessionIdentifierAndGetToken } from '~backend/domain/shared/http/middleware/auth/token';
+import { logout } from '.';
 
-const logout = originLogout();
+jest.mock('~backend/domain/shared/http/middleware/auth/token', () => {
+  return {
+    updateSessionIdentifierAndGetToken: jest.fn(),
+  };
+});
 
 describe('Logout', () => {
-  it('calls req.logout and redirect to / on successful logout', () => {
+  beforeEach(() => {
+    (updateSessionIdentifierAndGetToken as jest.Mock).mockClear();
+  });
+
+  it('calls req.logout and redirect to / on successful logout', async () => {
     const req = {
       logout: jest.fn((cb) => cb(null)),
+      user: { id: 123 },
     };
 
     const res = {
@@ -18,9 +28,12 @@ describe('Logout', () => {
 
     const next = jest.fn();
 
-    logout(req, res, next);
+    await logout(req, res, next);
 
     expect(req.logout).toHaveBeenCalled();
+    expect(updateSessionIdentifierAndGetToken).toHaveBeenCalledWith(
+      req.user.id
+    );
     expect(res.status).toHaveBeenCalledWith(204);
     expect(res.end).toHaveBeenCalled();
     expect(next).not.toHaveBeenCalled();
@@ -41,6 +54,7 @@ describe('Logout', () => {
     logout(req, res, next);
 
     expect(req.logout).toHaveBeenCalled();
+    expect(updateSessionIdentifierAndGetToken).not.toHaveBeenCalled();
     expect(res.redirect).not.toHaveBeenCalled();
     expect(next).toHaveBeenCalled();
   });

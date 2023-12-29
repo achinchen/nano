@@ -1,26 +1,30 @@
 import { Router } from 'express';
-import { passport } from '~backend/domain/user/service/auth/google';
+import { auth, authSilent } from '~backend/domain/shared/http/middleware/auth';
 import { middleware as transactionMiddleware } from '~backend/domain/shared/http/middleware/transaction';
-import { me } from './me';
+import {
+  loginFederatedGoogle,
+  loginCallbackGoogle,
+  loginCallbackGoogleSuccess,
+} from './login';
+import { setting } from './setting';
+import { me } from './me/';
 import { logout } from './logout';
-
-export const PROVIDER = 'google';
 
 const router = Router();
 router.use(transactionMiddleware('user'));
 
-router.get('/login/federated/google', passport.authenticate(PROVIDER));
+router.get('/login/federated/google', loginFederatedGoogle());
 
 router.get(
   '/login/callback/google',
-  passport.authenticate('google', {
-    successRedirect: `${process.env.CLIENT_HOST}/login`,
-    failureRedirect: `${process.env.CLIENT_HOST}/login?failed`,
-  })
+  loginCallbackGoogle(),
+  loginCallbackGoogleSuccess
 );
 
-router.get('/logout', logout());
+router.get('/logout', auth, logout);
 
-router.get('/me', me());
+router.get('/users/setting', auth, setting);
+
+router.get('/users/me', authSilent, me);
 
 export default router;

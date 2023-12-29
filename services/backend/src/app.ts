@@ -36,7 +36,10 @@ app.use(
     secret: '123456789iamasecret987654321look',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: app.get('env') === 'production', signed: true },
+    cookie: {
+      secure: app.get('env') === 'production',
+      signed: true,
+    },
   })
 );
 
@@ -64,19 +67,6 @@ app.use('/', orderRouter);
 
 app.use('/health-check', function (req, res) {
   res.send('pong');
-});
-
-function isAuthenticated(req, res, next) {
-  if (req.session.passport?.user) next();
-  else next('/');
-}
-
-app.get('/', isAuthenticated, function (req, res) {
-  res.send(`hello, ${req.session.passport.user.nickname}`);
-});
-
-app.get('/', function (req, res) {
-  res.send(`hello, guest`);
 });
 
 app.use(function (req, res, next) {

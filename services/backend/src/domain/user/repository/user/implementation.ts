@@ -14,7 +14,10 @@ export class UserRepository implements IUserRepository {
   }
 
   async getById(id: User['id']): Promise<User> {
-    const user = await userRepository.findOneBy({ id });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { sessionIdentifier, ...user } = await userRepository.findOneBy({
+      id,
+    });
     return user;
   }
 
