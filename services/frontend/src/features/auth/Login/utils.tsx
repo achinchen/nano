@@ -9,7 +9,7 @@ export function getAuthPrevPath() {
   return scopedLocalStorage.get(KEY);
 }
 
-export function settAuthPrevPath(payload: string) {
+export function setAuthPrevPath(payload: string) {
   return scopedLocalStorage.set(KEY, payload);
 }
 

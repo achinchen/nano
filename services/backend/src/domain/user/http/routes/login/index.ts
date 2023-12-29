@@ -13,12 +13,16 @@ export const loginCallbackGoogle = () =>
     session: false,
   });
 
-export const loginCallbackGoogleSuccess = async (req, res) => {
-  const token = await updateSessionIdentifierAndGetToken(req.user.id);
-  res.cookie(TOKEN_COOKIE_NAME, token, {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    httpOnly: true,
-    secure: app.get('env') === 'production',
-  });
-  res.redirect(`${process.env.CLIENT_HOST}/login`);
+export const loginCallbackGoogleSuccess = async (req, res, next) => {
+  try {
+    const token = await updateSessionIdentifierAndGetToken(req.user.id);
+    res.cookie(TOKEN_COOKIE_NAME, token, {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+      secure: app.get('env') === 'production',
+    });
+    res.redirect(`${process.env.CLIENT_HOST}/login`);
+  } catch (err) {
+    next(err);
+  }
 };

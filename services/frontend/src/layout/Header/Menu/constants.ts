@@ -48,7 +48,9 @@ export const PROVIDER_NAVIGATION = [
 export const CONSUMER_NAVIGATION = [NAVIGATION.ORDERS, NAVIGATION.ACCOUNT];
 
 export const LOGOUT_NAVIGATION = {
-  onClick: logout,
+  onClick: async () => {
+    await logout();
+  },
   icon: 'i-solar-logout-2-bold',
   label: i.logout,
 };

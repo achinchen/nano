@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import ExampleStudio from '~frontend/assets/example-studio.png';
 import Brand from '~frontend/assets/brand.jpg';
 import Button from '~frontend/components/Button';
+import { useAppContext } from '~frontend/context';
 import { LOGIN_PATH } from './constants';
-import { getAuthPrevPath, removeAuthPrevPath, settAuthPrevPath } from './utils';
+import { getAuthPrevPath, removeAuthPrevPath, setAuthPrevPath } from './utils';
 import i from './i.json';
 
 const studio = {
@@ -16,12 +17,19 @@ const WIDTH = 'md:w-sm';
 const LINK = 'px-0.5 mx-0.5 border-b border-zinc-700 border-b-solid';
 
 export default function Auth() {
+  const { isLogin } = useAppContext();
   const navigator = useNavigate();
 
   const onLogin = () => {
-    settAuthPrevPath(window.location.pathname + window.location.search);
+    setAuthPrevPath(window.location.pathname);
     window.location.href = LOGIN_PATH;
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigator('/');
+    }
+  }, [isLogin, navigator]);
 
   useEffect(() => {
     const prev = getAuthPrevPath();
@@ -29,7 +37,7 @@ export default function Auth() {
       removeAuthPrevPath();
       navigator(prev);
     }
-  }, [navigator]);
+  }, [navigator, isLogin]);
 
   return (
     <section className="h-[calc(100dvh-112px)] flex flex-1 flex-col items-center gap-4 bg-white px-4 py-6 font-normal md:h-[calc(100dvh-108px)] md:px-10">

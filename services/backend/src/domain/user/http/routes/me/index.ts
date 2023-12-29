@@ -6,7 +6,7 @@ export enum Role {
   provider,
 }
 
-export const me = async (req, res) => {
+export const me = async (req, res, next) => {
   try {
     const id = req.user?.id;
     if (!id) return res.json({ role: Role.guest });
@@ -16,6 +16,6 @@ export const me = async (req, res) => {
 
     return res.json({ id, role: Role.provider });
   } catch {
-    return res.status(500).send();
+    next();
   }
 };

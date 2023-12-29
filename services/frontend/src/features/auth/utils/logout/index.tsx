@@ -4,8 +4,9 @@ import { fetcher } from '~frontend/utils/fetcher';
 export default async function logout() {
   try {
     await fetcher(getBasePath(), '/logout');
-    window.location.href = '/';
+    window.location.reload();
   } catch (e) {
+    console.error(e);
     /** */
   }
 }

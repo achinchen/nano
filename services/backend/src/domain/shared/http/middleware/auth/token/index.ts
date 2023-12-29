@@ -40,10 +40,12 @@ export async function findUserByToken(token: Token) {
       algorithm: [ALGORITHM],
     }) as Payload;
 
-    return await userRepository.findOneBy({
+    const user = await userRepository.findOneBy({
       id,
       sessionIdentifier,
     });
+
+    return user;
   } catch ({ message }) {
     return null;
   }

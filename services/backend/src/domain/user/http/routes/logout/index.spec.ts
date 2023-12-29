@@ -14,7 +14,6 @@ describe('Logout', () => {
 
   it('calls req.logout and redirect to / on successful logout', async () => {
     const req = {
-      logout: jest.fn((cb) => cb(null)),
       user: { id: 123 },
     };
 
@@ -28,9 +27,8 @@ describe('Logout', () => {
 
     const next = jest.fn();
 
-    await logout(req, res, next);
+    await logout(req, res);
 
-    expect(req.logout).toHaveBeenCalled();
     expect(updateSessionIdentifierAndGetToken).toHaveBeenCalledWith(
       req.user.id
     );

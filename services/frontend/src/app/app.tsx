@@ -30,8 +30,8 @@ import { AppContextProvider } from '~frontend/context';
 export function App() {
   return (
     <BrowserRouter basename="/" future={{ v7_startTransition: true }}>
-      <Layout>
-        <AppContextProvider>
+      <AppContextProvider>
+        <Layout>
           <Routes>
             <Route path="/booking/:provider" element={<Booking />} />
             <Route
@@ -123,19 +123,12 @@ export function App() {
               }
             />
 
-            <Route
-              path="/login"
-              element={
-                <GuestProtectedRoute>
-                  <Login />
-                </GuestProtectedRoute>
-              }
-            />
+            <Route path="/login" element={<Login />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>
-        </AppContextProvider>
-      </Layout>
+        </Layout>
+      </AppContextProvider>
     </BrowserRouter>
   );
 }
