@@ -1,4 +1,9 @@
-import getAvatarById, { AVATARS } from './index';
+import { AVATARS } from './constants';
+import getAvatarById from './index';
+
+jest.mock('./constants', () => ({
+  AVATARS: ['AvocadoOne', 'AvocadoTwo', 'AvocadoThree'],
+}));
 
 describe('getAvatarById', () => {
   test.each([

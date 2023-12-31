@@ -3,7 +3,9 @@ import { useAppContext } from '~frontend/context';
 
 export default function ProviderProtectedRoute({
   children,
-}: React.PropsWithChildren): React.ReactNode {
+}: {
+  children: JSX.Element;
+}) {
   const { isProvider } = useAppContext();
   if (!isProvider) return <Navigate to="/login" />;
   return children;

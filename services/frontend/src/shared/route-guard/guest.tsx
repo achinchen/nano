@@ -3,7 +3,9 @@ import { useAppContext } from '~frontend/context';
 
 export default function GuestProtectedRoute({
   children,
-}: React.PropsWithChildren): React.ReactNode {
+}: {
+  children: JSX.Element;
+}) {
   const { isLogin } = useAppContext();
   if (isLogin) return <Navigate to="/my/setting" />;
   return children;

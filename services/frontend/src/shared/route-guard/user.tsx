@@ -3,7 +3,9 @@ import { useAppContext } from '~frontend/context';
 
 export default function UserProtectedRoute({
   children,
-}: React.PropsWithChildren): React.ReactNode {
+}: {
+  children: JSX.Element;
+}) {
   const { isLogin } = useAppContext();
   if (!isLogin) return <Navigate to="/login" />;
   return children;
