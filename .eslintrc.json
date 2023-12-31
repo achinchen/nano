@@ -4,6 +4,7 @@
   "extends": ["plugin:prettier/recommended", "@unocss", "plugin:import/recommended"],
   "plugins": ["@nx"],
   "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
     "prettier/prettier": [
       "error",
       {

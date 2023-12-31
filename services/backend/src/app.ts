@@ -5,6 +5,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import csrf from 'tiny-csrf';
+import cors from 'cors';
 import { config } from 'dotenv';
 import { middleware as loggerMiddleware } from './domain/shared/http/middleware/logger';
 import authRouter from './domain/user/http/routes';
@@ -23,6 +24,11 @@ app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser('123456789iamasecret987654321look'));
 app.use(csrf('123456789iamasecret987654321look'));
+app.use(
+  cors({
+    origin: process.env.CLIENT_HOST,
+  })
+);
 
 app.use(expressStatic(path.join(__dirname, 'assets')));
 app.use(
@@ -30,7 +36,10 @@ app.use(
     secret: '123456789iamasecret987654321look',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: app.get('env') === 'production', signed: true },
+    cookie: {
+      secure: app.get('env') === 'production',
+      signed: true,
+    },
   })
 );
 
@@ -60,19 +69,6 @@ app.use('/health-check', function (req, res) {
   res.send('pong');
 });
 
-function isAuthenticated(req, res, next) {
-  if (req.session.passport?.user) next();
-  else next('route');
-}
-
-app.get('/', isAuthenticated, function (req, res) {
-  res.send(`hello, ${req.session.passport.user.nickname}`);
-});
-
-app.get('/', function (req, res) {
-  res.send(`hello, guest`);
-});
-
 app.use(function (req, res, next) {
   next(createError(404));
 });
@@ -81,7 +77,7 @@ const errorRequestHandler = function (err, req, res) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  res.status(err.status || 500);
+  res.status(err.status || 500).end();
 } as express.ErrorRequestHandler;
 
 app.use(errorRequestHandler);

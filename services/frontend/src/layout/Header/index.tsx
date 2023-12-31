@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
 import Studio from '~frontend/assets/example-studio.png';
+import { useAppContext } from '~frontend/context';
 import ProviderNavigationDrawer from './ProviderNavigation/Drawer';
 import ProviderNavigation from './ProviderNavigation';
 import IconLink from './components/IconLink';
@@ -10,7 +11,8 @@ import { SIDE_MENU } from './constants';
 import { HeaderContextProvider, useHeaderContext } from './context';
 
 export function Header() {
-  const { isProvider, isLogin, isMenuOpen } = useHeaderContext();
+  const { isLogin, isProvider } = useAppContext();
+  const { isMenuOpen } = useHeaderContext();
   return (
     <header className="mx-auto max-w-5xl min-h-11 flex justify-between px-4 py-2 md:color-zinc-50">
       <div className="flex items-center gap-1 md:gap-4">

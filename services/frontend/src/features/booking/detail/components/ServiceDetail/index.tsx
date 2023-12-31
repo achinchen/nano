@@ -1,5 +1,4 @@
 import type { ServiceDetailProps } from './types';
-import { useState } from 'react';
 import i from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/utils/time';

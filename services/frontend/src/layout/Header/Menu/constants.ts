@@ -1,3 +1,4 @@
+import logout from '~frontend/features/auth/utils/logout';
 import i from './i.json';
 
 const NAVIGATION = {
@@ -36,27 +37,20 @@ const NAVIGATION = {
       },
     ],
   },
-  LOGOUT: {
-    title: '',
-    items: [
-      {
-        href: '/logout',
-        icon: 'i-solar-logout-2-bold',
-        label: i.logout,
-      },
-    ],
-  },
 } as const;
 
 export const PROVIDER_NAVIGATION = [
   NAVIGATION.ORDERS,
   NAVIGATION.ACCOUNT,
   NAVIGATION.STUDIO,
-  NAVIGATION.LOGOUT,
 ];
 
-export const CONSUMER_NAVIGATION = [
-  NAVIGATION.ORDERS,
-  NAVIGATION.ACCOUNT,
-  NAVIGATION.LOGOUT,
-];
+export const CONSUMER_NAVIGATION = [NAVIGATION.ORDERS, NAVIGATION.ACCOUNT];
+
+export const LOGOUT_NAVIGATION = {
+  onClick: async () => {
+    await logout();
+  },
+  icon: 'i-solar-logout-2-bold',
+  label: i.logout,
+};

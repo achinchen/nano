@@ -1,12 +1,6 @@
-import { useState, useEffect, useMemo, Fragment } from 'react';
-import CalendarWeek from '~frontend/components/Calendar/Week';
-import { useStudioContext } from '~frontend/features/studio/context';
-import sharedI from '~frontend/shared/i.json';
+import { Fragment } from 'react';
 import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
-import { getPeriodTime } from '~frontend/utils/time';
-import takeLeaveImage from '~frontend/assets/takeleave.svg';
 import {
-  getTimeOptions,
   getHeightByDuration,
   getTopByTimeAndOpenTime,
 } from '~frontend/features/studio/components/CalendarWeekList/utils';
