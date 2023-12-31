@@ -24,7 +24,6 @@ import Terms from '~frontend/pages/terms';
 import Privacy from '~frontend/pages/privacy';
 import ProviderProtectedRoute from '~frontend/shared/route-guard/provider';
 import UserProtectedRoute from '~frontend/shared/route-guard/user';
-import GuestProtectedRoute from '~frontend/shared/route-guard/guest';
 import { AppContextProvider } from '~frontend/context';
 
 export function App() {
