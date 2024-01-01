@@ -17,7 +17,8 @@ export const dataSource = new DataSource({
   type: 'mysql',
   url: process.env.DB_URL,
   driver: {},
-  synchronize: process.env.NODE_ENV === 'development',
+  synchronize: true,
+  // synchronize: process.env.NODE_ENV === 'development',
   logging: false,
   entities: [
     User,

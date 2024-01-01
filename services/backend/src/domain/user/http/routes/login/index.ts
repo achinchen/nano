@@ -20,6 +20,7 @@ export const loginCallbackGoogleSuccess = async (req, res, next) => {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
       secure: app.get('env') === 'production',
+      domain: process.env.COOKIE_DOMAIN,
     });
     res.redirect(`${process.env.CLIENT_HOST}/login`);
   } catch (err) {
