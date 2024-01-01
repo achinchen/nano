@@ -55,7 +55,7 @@
           "nx run backend:docker:up",
           "nx run backend:serve:development"
         ],
-        "parallel":  true
+        "parallel": true
       }
     },
     "lint": {
@@ -78,6 +78,16 @@
           "codeCoverage": true
         }
       }
+    },
+    "docker:build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f services/backend/Dockerfile . -t backend"
+    },
+    "deploy": {
+      "dependsOn": [
+        "build"
+      ],
+      "command": "fly deploy --config services/backend/fly.toml --dockerfile services/backend/Dockerfile"
     }
   },
   "tags": []

@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for bukku-db on 2024-01-01T16:57:24+08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "bukku-db"
+primary_region = "nrt"
+
+[build]
+  image = "mysql:8.0.32"
+
+[env]
+  MYSQL_DATABASE = "bukku"
+  MYSQL_USER = "non_root_user"
+
+[processes]
+  app = "--datadir /data/mysql --default-authentication-plugin mysql_native_password --performance-schema=OFF --innodb-buffer-pool-size 64M"
+
+[[mounts]]
+  source = "mysqldata"
+  destination = "/data"
+  auto_extend_size_threshold = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+  processes = ["app"]
