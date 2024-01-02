@@ -7,10 +7,11 @@ import {
   loginCallbackGoogle,
   PROVIDER,
 } from '.';
+import { app } from '~backend/app';
 
 jest.mock('~backend/app', () => {
   return {
-    app: { get: jest.fn() },
+    app: { get: jest.fn().mockReturnValue('test') },
   };
 });
 
@@ -72,7 +73,8 @@ describe('loginCallbackGoogleSuccess', () => {
     expect(res.cookie).toHaveBeenCalledWith(TOKEN_COOKIE_NAME, token, {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
-      secure: expect.any(Boolean),
+      secure: app.get('env') === 'production',
+      domain: expect.any(String),
     });
 
     expect(res.redirect).toHaveBeenCalledWith(
