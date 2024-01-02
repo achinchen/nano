@@ -1,5 +1,6 @@
 {
   "rewrites":  [
+    { "source": "/api/:path*", "destination": "https://api.staging.bukku.life/:path*" },
     {"source": "/(.*)", "destination": "/"}
   ]
 }
