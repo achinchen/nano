@@ -1,0 +1,3600 @@
+{
+  "version": "6.0",
+  "nxVersion": "16.3.2",
+  "deps": {
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@newrelic/native-metrics": "^10.0.0",
+    "@swc/helpers": "~0.5.0",
+    "@types/validator": "^13.11.6",
+    "axios": "^1.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.9",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "framer-motion": "^10.16.4",
+    "ical-generator": "^5.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.5.2",
+    "newrelic": "^11.0.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pluralize": "^8.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-modal-sheet": "^2.0.0",
+    "react-router-dom": "^6.19.0",
+    "semver": "^7.5.4",
+    "tiny-csrf": "^1.1.3",
+    "tslib": "^2.3.0",
+    "validator": "^13.9.0",
+    "vite": "^4.5.1",
+    "vite-plugin-dts": "^3.5.3",
+    "vite-tsconfig-paths": "^4.2.0",
+    "winston": "^3.10.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/config-nx-scopes": "^17.6.4",
+    "@iconify-json/solar": "^1.1.2",
+    "@iconify-json/svg-spinners": "^1.1.2",
+    "@jest/globals": "^29.7.0",
+    "@nx/cypress": "16.5.0",
+    "@nx/eslint-plugin": "^16.5.0",
+    "@nx/express": "^16.5.0",
+    "@nx/jest": "^17.1.2",
+    "@nx/js": "17.1.2",
+    "@nx/next": "^16.5.0",
+    "@nx/node": "16.5.0",
+    "@nx/react": "16.5.0",
+    "@nx/storybook": "16.5.0",
+    "@nx/vite": "16.5.0",
+    "@nx/web": "16.5.0",
+    "@nx/webpack": "16.5.0",
+    "@nx/workspace": "16.5.0",
+    "@storybook/addon-essentials": "^7.4.0",
+    "@storybook/core-common": "^7.4.0",
+    "@storybook/core-server": "^7.4.0",
+    "@storybook/react-vite": "^7.4.0",
+    "@storybook/test-runner": "^0.7.2",
+    "@swc-node/register": "~1.6.7",
+    "@swc/cli": "~0.1.62",
+    "@swc/core": "~1.3.85",
+    "@testing-library/dom": "^9.3.1",
+    "@testing-library/jest-dom": "^6.1.2",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "@types/jest": "^29.5.8",
+    "@types/node": "18.14.2",
+    "@types/passport-google-oauth20": "^2.0.11",
+    "@types/react": "18.2.13",
+    "@types/react-dom": "18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "@unocss/eslint-config": "^0.53.5",
+    "@unocss/postcss": "^0.53.5",
+    "@unocss/preset-icons": "^0.53.5",
+    "@unocss/preset-rem-to-px": "^0.53.5",
+    "@unocss/preset-uno": "^0.53.5",
+    "@unocss/preset-web-fonts": "^0.53.5",
+    "@unocss/reset": "^0.53.5",
+    "@unocss/transformer-directives": "^0.53.5",
+    "@vitejs/plugin-react": "^4.0.0",
+    "babel-jest": "^29.4.1",
+    "cypress": "^13.5.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-check-file": "^2.4.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.2",
+    "eslint-plugin-jest-dom": "^5.0.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "husky": "^8.0.3",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.6.1",
+    "jest-environment-node": "^29.6.1",
+    "jsdom": "~22.1.0",
+    "lint-staged": "^13.2.2",
+    "nx": "16.3.2",
+    "prettier": "^2.6.2",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.0.2",
+    "unocss": "^0.53.5"
+  },
+  "pathMappings": {
+    "~backend/*": [
+      "services/backend/src/*"
+    ],
+    "~frontend/*": [
+      "services/frontend/src/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "projectFileMap": {
+    "backend": [
+      {
+        "file": "services/backend/.dockerignore",
+        "hash": "14729021527445463689"
+      },
+      {
+        "file": "services/backend/.env.example",
+        "hash": "8709731939992266335"
+      },
+      {
+        "file": "services/backend/.env.test",
+        "hash": "8709731939992266335"
+      },
+      {
+        "file": "services/backend/.eslintrc.json",
+        "hash": "10283490019372104406"
+      },
+      {
+        "file": "services/backend/docker-compose.yml",
+        "hash": "17499843949528735510"
+      },
+      {
+        "file": "services/backend/Dockerfile",
+        "hash": "14495387083212803255"
+      },
+      {
+        "file": "services/backend/fly.toml",
+        "hash": "16011623296917281112"
+      },
+      {
+        "file": "services/backend/jest.config.ts",
+        "hash": "3516201584995697831"
+      },
+      {
+        "file": "services/backend/project.json",
+        "hash": "8554343643600936519"
+      },
+      {
+        "file": "services/backend/src/app.ts",
+        "hash": "13791113079705468675",
+        "deps": [
+          "npm:node:path",
+          "npm:http-errors",
+          "npm:express",
+          "npm:express-session",
+          "npm:cookie-parser",
+          "npm:passport",
+          "npm:tiny-csrf",
+          "npm:cors",
+          "npm:dotenv",
+          "npm:pluralize"
+        ]
+      },
+      {
+        "file": "services/backend/src/assets/placeholder.txt",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "services/backend/src/data-source.ts",
+        "hash": "115338674413714578",
+        "deps": [
+          "npm:dotenv",
+          "npm:reflect-metadata",
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/order/aggregate-root/constants.ts",
+        "hash": "1432233424734244155"
+      },
+      {
+        "file": "services/backend/src/domain/order/aggregate-root/index.spec.ts",
+        "hash": "14599624895466421487"
+      },
+      {
+        "file": "services/backend/src/domain/order/aggregate-root/index.ts",
+        "hash": "15297596583239341535"
+      },
+      {
+        "file": "services/backend/src/domain/order/dto.ts",
+        "hash": "1531211749195245158"
+      },
+      {
+        "file": "services/backend/src/domain/order/entity.ts",
+        "hash": "15170933729791604962"
+      },
+      {
+        "file": "services/backend/src/domain/order/error.ts",
+        "hash": "5264572459058982582"
+      },
+      {
+        "file": "services/backend/src/domain/order/event.ts",
+        "hash": "7792053548519187229"
+      },
+      {
+        "file": "services/backend/src/domain/order/http/routes.ts",
+        "hash": "15631431346180788087",
+        "deps": [
+          "npm:express"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/order/infra/db/order.ts",
+        "hash": "13699093461890623091",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/order/repository/order/abstract.ts",
+        "hash": "1337705174282064225"
+      },
+      {
+        "file": "services/backend/src/domain/order/repository/order/implementation.spec.ts",
+        "hash": "4053388589803020826"
+      },
+      {
+        "file": "services/backend/src/domain/order/repository/order/implementation.ts",
+        "hash": "17854616882777085241"
+      },
+      {
+        "file": "services/backend/src/domain/order/repository/order/index.ts",
+        "hash": "9755303517643576495"
+      },
+      {
+        "file": "services/backend/src/domain/order/service/ical.ts",
+        "hash": "3699172269613892248",
+        "deps": [
+          "npm:ical-generator"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/create-order/implementation.spec.ts",
+        "hash": "18311103352930115041"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/create-order/implementation.ts",
+        "hash": "3683211985230042421"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/create-order/index.ts",
+        "hash": "6820755702000681289"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/delete-order/implementation.spec.ts",
+        "hash": "10072596283233927024"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/delete-order/implementation.ts",
+        "hash": "15273779194505255929"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/delete-order/index.ts",
+        "hash": "2393397324065388428"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/merge-order/implementation.spec.ts",
+        "hash": "14083263733994886553"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/merge-order/implementation.ts",
+        "hash": "8627783578980239544"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/merge-order/index.ts",
+        "hash": "13919622328763084961"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/permit-order/implementation.spec.ts",
+        "hash": "13072482046418012754"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/permit-order/implementation.ts",
+        "hash": "824305002611353023"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/permit-order/index.ts",
+        "hash": "15765980093573150870"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/reject-order/implementation.spec.ts",
+        "hash": "11366162736079732406"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/reject-order/implementation.ts",
+        "hash": "6761674724917526898"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/reject-order/index.ts",
+        "hash": "15386614521326343735"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/request-order/implementation.spec.ts",
+        "hash": "2916237083982175773"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/request-order/implementation.ts",
+        "hash": "5152193264846166369"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/request-order/index.ts",
+        "hash": "7501917738016433793"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-note/implementation.spec.ts",
+        "hash": "13985057653094247861"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-note/implementation.ts",
+        "hash": "8063758142300749482"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-note/index.ts",
+        "hash": "5021925367219320817"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-service-history/implementation.spec.ts",
+        "hash": "6618695172402881903"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-service-history/implementation.ts",
+        "hash": "8737214648371946860"
+      },
+      {
+        "file": "services/backend/src/domain/order/use-case/update-order-service-history/index.ts",
+        "hash": "11946567569227322593"
+      },
+      {
+        "file": "services/backend/src/domain/provider/dto.ts",
+        "hash": "14852521616828547912"
+      },
+      {
+        "file": "services/backend/src/domain/provider/entity.ts",
+        "hash": "2044490148313914273"
+      },
+      {
+        "file": "services/backend/src/domain/provider/error.ts",
+        "hash": "5264572459058982582"
+      },
+      {
+        "file": "services/backend/src/domain/provider/http/routes/index.ts",
+        "hash": "18347768139510513525",
+        "deps": [
+          "npm:express"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/provider/infra/db/location.ts",
+        "hash": "11885167784980912735",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/provider/infra/db/provider.ts",
+        "hash": "12462113650971968909",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/provider/infra/db/supplier.ts",
+        "hash": "9531626746062439478",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/provider/infra/db/takeleave.ts",
+        "hash": "3980430067936662792",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/location/abstract.ts",
+        "hash": "16952886753261595804"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/location/implementation.spec.ts",
+        "hash": "2493661253668961402"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/location/implementation.ts",
+        "hash": "4540508015329717060"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/location/index.ts",
+        "hash": "16641285281462330435"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/provider/abstract.ts",
+        "hash": "13120496014091766518"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/provider/implementation.spec.ts",
+        "hash": "17250448249133084130"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/provider/implementation.ts",
+        "hash": "10743870840133054947"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/provider/index.ts",
+        "hash": "1783919407969448326"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/supplier/abstract.ts",
+        "hash": "11582125590884748981"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/supplier/implementation.spec.ts",
+        "hash": "13254746691097480515"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/supplier/implementation.ts",
+        "hash": "16981414130648895678"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/supplier/index.ts",
+        "hash": "9908558316954433968"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/takeleave/abstract.ts",
+        "hash": "11908921018100585608"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/takeleave/implementation.spec.ts",
+        "hash": "7886950719640880432"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/takeleave/implementation.ts",
+        "hash": "2374955058429013876"
+      },
+      {
+        "file": "services/backend/src/domain/provider/repository/takeleave/index.ts",
+        "hash": "12619075854101094873"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-location/implementation.spec.ts",
+        "hash": "12733091187810351657"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-location/implementation.ts",
+        "hash": "2626130838161930627"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-location/index.ts",
+        "hash": "13181618885753720093"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-provider/implementation.spec.ts",
+        "hash": "3232307913987289350"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-provider/implementation.ts",
+        "hash": "10657694760423951192"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-provider/index.ts",
+        "hash": "14486514670761889466"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-supplier/implementation.spec.ts",
+        "hash": "14100836530278605662"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-supplier/implementation.ts",
+        "hash": "4510370192373034768"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-supplier/index.ts",
+        "hash": "214744253110601403"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-takeleave/implementation.spec.ts",
+        "hash": "6591643166385045359"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-takeleave/implementation.ts",
+        "hash": "6184378691755389796"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/create-takeleave/index.ts",
+        "hash": "3548477956951160134"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-location/implementation.spec.ts",
+        "hash": "1186248292618074085"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-location/implementation.ts",
+        "hash": "3072945073165634206"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-location/index.ts",
+        "hash": "14884154850958264219"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-supplier/implementation.spec.ts",
+        "hash": "766707432765353399"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-supplier/implementation.ts",
+        "hash": "4575051596028682895"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-supplier/index.ts",
+        "hash": "14917479253690432404"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-takeleave/implementation.spec.ts",
+        "hash": "9934091013101512195"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-takeleave/implementation.ts",
+        "hash": "10735376221162035739"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/delete-takeleave/index.ts",
+        "hash": "7507818786979002789"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/update-supplier/implementation.spec.ts",
+        "hash": "18044903511344659043"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/update-supplier/implementation.ts",
+        "hash": "5176532911243971959"
+      },
+      {
+        "file": "services/backend/src/domain/provider/use-case/update-supplier/index.ts",
+        "hash": "2051444322818927710"
+      },
+      {
+        "file": "services/backend/src/domain/service/aggregate-root/index.spec.ts",
+        "hash": "13768150422810622203"
+      },
+      {
+        "file": "services/backend/src/domain/service/aggregate-root/index.ts",
+        "hash": "5415556575160170841"
+      },
+      {
+        "file": "services/backend/src/domain/service/dto.ts",
+        "hash": "3350401837938193496"
+      },
+      {
+        "file": "services/backend/src/domain/service/entity.ts",
+        "hash": "6081767637358547757"
+      },
+      {
+        "file": "services/backend/src/domain/service/error.ts",
+        "hash": "5264572459058982582"
+      },
+      {
+        "file": "services/backend/src/domain/service/event.ts",
+        "hash": "9893288142773492605"
+      },
+      {
+        "file": "services/backend/src/domain/service/infra/db/service-history.ts",
+        "hash": "9784199403155608588",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/service/infra/db/service.ts",
+        "hash": "13056268643911986996",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/service/repository/service/abstract.ts",
+        "hash": "945104174857346464"
+      },
+      {
+        "file": "services/backend/src/domain/service/repository/service/implementation.spec.ts",
+        "hash": "8324956171779359015"
+      },
+      {
+        "file": "services/backend/src/domain/service/repository/service/implementation.ts",
+        "hash": "13224832821560609557"
+      },
+      {
+        "file": "services/backend/src/domain/service/repository/service/index.ts",
+        "hash": "10744922807715959626"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/close-service/implementation.spec.ts",
+        "hash": "13276814440429556467"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/close-service/implementation.ts",
+        "hash": "9263683320030282806"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/close-service/index.ts",
+        "hash": "4568953021951211336"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/create-service/implementation.spec.ts",
+        "hash": "14993659566613078345"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/create-service/implementation.ts",
+        "hash": "6537961394470487093"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/create-service/index.ts",
+        "hash": "312262125074292468"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service-has-order/implementation.spec.ts",
+        "hash": "6360387850049782491"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service-has-order/implementation.ts",
+        "hash": "14394525631125318843"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service-has-order/index.ts",
+        "hash": "5575580785164114051"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service/implementation.spec.ts",
+        "hash": "2131219368514442089"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service/implementation.ts",
+        "hash": "6403364446323183177"
+      },
+      {
+        "file": "services/backend/src/domain/service/use-case/update-service/index.ts",
+        "hash": "2940679826600772611"
+      },
+      {
+        "file": "services/backend/src/domain/service/value-object/version/implementation.ts",
+        "hash": "13876886745752761216"
+      },
+      {
+        "file": "services/backend/src/domain/service/value-object/version/index.spec.ts",
+        "hash": "15344497474751032817"
+      },
+      {
+        "file": "services/backend/src/domain/service/value-object/version/index.ts",
+        "hash": "16468150064179065683"
+      },
+      {
+        "file": "services/backend/src/domain/service/value-object/version/utils/index.spec.ts",
+        "hash": "13181555170813423131",
+        "deps": [
+          "npm:semver"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/service/value-object/version/utils/index.ts",
+        "hash": "7030765666419576367",
+        "deps": [
+          "npm:semver"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/aggregate-root/index.ts",
+        "hash": "7688300126311784238"
+      },
+      {
+        "file": "services/backend/src/domain/shared/error/index.ts",
+        "hash": "7775982414346098237"
+      },
+      {
+        "file": "services/backend/src/domain/shared/event/backup.ts",
+        "hash": "2535238939895420914"
+      },
+      {
+        "file": "services/backend/src/domain/shared/event/index.spec.ts",
+        "hash": "1834142086725088008",
+        "deps": [
+          "npm:node:events"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/event/index.ts",
+        "hash": "18011669954649386390",
+        "deps": [
+          "npm:node:events"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/guard.ts",
+        "hash": "8683837081326257178"
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/constants.ts",
+        "hash": "6460037832700135430"
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/index.spec.ts",
+        "hash": "6991964613712831525"
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/index.ts",
+        "hash": "16240224403841223487"
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/token/index.spec.ts",
+        "hash": "4149594439478487459",
+        "deps": [
+          "npm:crypto",
+          "npm:jsonwebtoken"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/token/index.ts",
+        "hash": "18293794220813929694",
+        "deps": [
+          "npm:crypto",
+          "npm:jsonwebtoken"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/auth/token/types.ts",
+        "hash": "16183064343018036815"
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/logger.ts",
+        "hash": "5601864242496464284",
+        "deps": [
+          "npm:winston",
+          "npm:morgan"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/http/middleware/transaction.ts",
+        "hash": "2731500002330357636"
+      },
+      {
+        "file": "services/backend/src/domain/shared/logger/constants.ts",
+        "hash": "2391952219932526747"
+      },
+      {
+        "file": "services/backend/src/domain/shared/logger/index.ts",
+        "hash": "17452366887151606535",
+        "deps": [
+          "npm:node:path",
+          "npm:winston"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/monitor/index.ts",
+        "hash": "14304414170769552769",
+        "deps": [
+          "npm:newrelic"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/result.ts",
+        "hash": "16240365465188214042"
+      },
+      {
+        "file": "services/backend/src/domain/shared/use-case.ts",
+        "hash": "7539337577967003244"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/abstract.ts",
+        "hash": "17876616103515023106"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/email/implementation.ts",
+        "hash": "15648033643107958968"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/email/index.spec.ts",
+        "hash": "4737019462712168154"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/email/index.ts",
+        "hash": "14492929552482664762"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/email/utils/index.spec.ts",
+        "hash": "200602083583704313",
+        "deps": [
+          "npm:validator"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/email/utils/index.ts",
+        "hash": "2358480246806701020",
+        "deps": [
+          "npm:validator"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/phone/implementation.ts",
+        "hash": "14137185691375038960"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/phone/index.spec.ts",
+        "hash": "17793393282959232744"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/phone/index.ts",
+        "hash": "14265747420843564478"
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/phone/utils/index.spec.ts",
+        "hash": "2049102651739059742",
+        "deps": [
+          "npm:validator"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/shared/value-object/phone/utils/index.ts",
+        "hash": "2710078715667868334",
+        "deps": [
+          "npm:validator"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/dto.ts",
+        "hash": "9797087876330983903"
+      },
+      {
+        "file": "services/backend/src/domain/user/entity.ts",
+        "hash": "687363352671820564"
+      },
+      {
+        "file": "services/backend/src/domain/user/error.ts",
+        "hash": "13616310256163502701"
+      },
+      {
+        "file": "services/backend/src/domain/user/event.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/index.spec.ts",
+        "hash": "4616046184725586488",
+        "deps": [
+          "npm:supertest",
+          "npm:express"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/index.ts",
+        "hash": "13753469950161839538",
+        "deps": [
+          "npm:express"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/login/index.spec.ts",
+        "hash": "5449121991857709527"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/login/index.ts",
+        "hash": "924684575108377953"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/logout/index.spec.ts",
+        "hash": "14858635829962075572"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/logout/index.ts",
+        "hash": "9735987785759827935"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/me/index.spec.ts",
+        "hash": "16814551018927190020"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/me/index.ts",
+        "hash": "6038648285950112383"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/setting/index.spec.ts",
+        "hash": "17977778309550930102"
+      },
+      {
+        "file": "services/backend/src/domain/user/http/routes/setting/index.ts",
+        "hash": "8630773163940076538"
+      },
+      {
+        "file": "services/backend/src/domain/user/infra/db/user-federated-credential.ts",
+        "hash": "15668972637018789464",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/infra/db/user.ts",
+        "hash": "1611156702249187695",
+        "deps": [
+          "npm:typeorm"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user-federated-credential/abstract.ts",
+        "hash": "9461226046878526282"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user-federated-credential/implementation.spec.ts",
+        "hash": "12225761970659160062"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user-federated-credential/implementation.ts",
+        "hash": "7489006407789236776"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user-federated-credential/index.ts",
+        "hash": "3738963482719550143"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user/abstract.ts",
+        "hash": "10870004279988278622"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user/implementation.spec.ts",
+        "hash": "2912831836594754414"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user/implementation.ts",
+        "hash": "12755743869013592039"
+      },
+      {
+        "file": "services/backend/src/domain/user/repository/user/index.ts",
+        "hash": "15083563341687630593"
+      },
+      {
+        "file": "services/backend/src/domain/user/service/auth/google.spec.ts",
+        "hash": "7928234261774282204",
+        "deps": [
+          "npm:passport"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/service/auth/google.ts",
+        "hash": "4658647956059866481",
+        "deps": [
+          "npm:passport",
+          "npm:passport-google-oauth20"
+        ]
+      },
+      {
+        "file": "services/backend/src/domain/user/use-case/create-user/implementation.spec.ts",
+        "hash": "12644463622531620987"
+      },
+      {
+        "file": "services/backend/src/domain/user/use-case/create-user/implementation.ts",
+        "hash": "7522431119919234544"
+      },
+      {
+        "file": "services/backend/src/domain/user/use-case/create-user/index.ts",
+        "hash": "2136286311053603845"
+      },
+      {
+        "file": "services/backend/src/main.ts",
+        "hash": "10470085531596309583"
+      },
+      {
+        "file": "services/backend/src/types/express.d.ts",
+        "hash": "16963426469542559335"
+      },
+      {
+        "file": "services/backend/tsconfig.app.json",
+        "hash": "2933230796697913216"
+      },
+      {
+        "file": "services/backend/tsconfig.json",
+        "hash": "3490524966360018312"
+      },
+      {
+        "file": "services/backend/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      },
+      {
+        "file": "services/backend/webpack.config.js",
+        "hash": "10619490397189790225",
+        "deps": [
+          "npm:@nx/webpack"
+        ]
+      }
+    ],
+    "db": [
+      {
+        "file": "services/db/fly.toml",
+        "hash": "16926468844024752213"
+      },
+      {
+        "file": "services/db/project.json",
+        "hash": "1998144665528830162"
+      },
+      {
+        "file": "services/db/README.md",
+        "hash": "17637786358904446806"
+      }
+    ],
+    "frontend": [
+      {
+        "file": "services/frontend/.env.development",
+        "hash": "11762116709806809914"
+      },
+      {
+        "file": "services/frontend/.env.production",
+        "hash": "15068153131708979242"
+      },
+      {
+        "file": "services/frontend/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "services/frontend/.storybook/main.ts",
+        "hash": "10914006705185590899",
+        "deps": [
+          "npm:@storybook/react-vite",
+          "npm:vite"
+        ]
+      },
+      {
+        "file": "services/frontend/.storybook/preview.ts",
+        "hash": "5124579751412704999",
+        "deps": [
+          "npm:virtual:uno.css"
+        ]
+      },
+      {
+        "file": "services/frontend/.storybook/styles/global.css",
+        "hash": "12719351026207202636"
+      },
+      {
+        "file": "services/frontend/.storybook/styles/index.css",
+        "hash": "18042386082435172863"
+      },
+      {
+        "file": "services/frontend/.storybook/styles/reset.css",
+        "hash": "9665587819688710018"
+      },
+      {
+        "file": "services/frontend/.storybook/vite.config.ts",
+        "hash": "13781929956461614467",
+        "deps": [
+          "npm:path",
+          "npm:vite",
+          "npm:@vitejs/plugin-react",
+          "npm:unocss",
+          "npm:vite-tsconfig-paths",
+          "npm:vite-plugin-dts"
+        ]
+      },
+      {
+        "file": "services/frontend/index.html",
+        "hash": "16933670138579865003"
+      },
+      {
+        "file": "services/frontend/jest.config.ts",
+        "hash": "15957192463932180135"
+      },
+      {
+        "file": "services/frontend/postcss.config.js",
+        "hash": "4798892270180251072"
+      },
+      {
+        "file": "services/frontend/project.json",
+        "hash": "14003269561100188615"
+      },
+      {
+        "file": "services/frontend/public/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "services/frontend/src/app/app.tsx",
+        "hash": "16667078782436216654",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/assets/avatar.png",
+        "hash": "7465567727022069972"
+      },
+      {
+        "file": "services/frontend/src/assets/avatar/1.jpeg",
+        "hash": "11974660013829439661"
+      },
+      {
+        "file": "services/frontend/src/assets/avatar/2.jpeg",
+        "hash": "10377265544161908029"
+      },
+      {
+        "file": "services/frontend/src/assets/avatar/3.jpeg",
+        "hash": "1095347236206999069"
+      },
+      {
+        "file": "services/frontend/src/assets/brand.jpg",
+        "hash": "1597233023326542140"
+      },
+      {
+        "file": "services/frontend/src/assets/example-studio.png",
+        "hash": "3060495523017164403"
+      },
+      {
+        "file": "services/frontend/src/assets/takeleave.svg",
+        "hash": "12430237265979097403"
+      },
+      {
+        "file": "services/frontend/src/components/Avatar/index.spec.tsx",
+        "hash": "3134499103016200385",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Avatar/index.stories.tsx",
+        "hash": "13682856466275594655",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Avatar/index.tsx",
+        "hash": "13669969957927562253"
+      },
+      {
+        "file": "services/frontend/src/components/Badge/index.spec.tsx",
+        "hash": "104580998054645714",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Badge/index.stories.tsx",
+        "hash": "10312948523450373754",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Badge/index.tsx",
+        "hash": "438777940502875406"
+      },
+      {
+        "file": "services/frontend/src/components/BottomSheet/index.spec.tsx",
+        "hash": "4180609781114481291",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/BottomSheet/index.stories.tsx",
+        "hash": "1058946766151071507",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/BottomSheet/index.tsx",
+        "hash": "18292265779784725633"
+      },
+      {
+        "file": "services/frontend/src/components/Button/constants.ts",
+        "hash": "564471231724765593"
+      },
+      {
+        "file": "services/frontend/src/components/Button/index.spec.tsx",
+        "hash": "10573726494150942577",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Button/index.stories.tsx",
+        "hash": "8694195535723921341",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Button/index.tsx",
+        "hash": "7140937187199618657",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/constants.ts",
+        "hash": "10756287441083744042"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/hooks/use-date-select/constants.ts",
+        "hash": "8526605134524789826"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/hooks/use-date-select/index.spec.tsx",
+        "hash": "13445593296829705855",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/hooks/use-date-select/index.tsx",
+        "hash": "12375543309877904267",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/hooks/use-date-select/utils/index.spec.ts",
+        "hash": "12731559274985055780"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/hooks/use-date-select/utils/index.ts",
+        "hash": "9070095145361651493"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/index.stories.tsx",
+        "hash": "12199006538664656373",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/index.ts",
+        "hash": "9577340540841724724"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/components/Container.tsx",
+        "hash": "5462099808345398312",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/constants.ts",
+        "hash": "17139926977766685254"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/i.json",
+        "hash": "8515500940772271929"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/Name.tsx",
+        "hash": "3147260005570145056"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/NameTag.tsx",
+        "hash": "8369877043123569648"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/Process.tsx",
+        "hash": "3920692886916181031"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/Status.tsx",
+        "hash": "17051496404300050754"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/Tag.tsx",
+        "hash": "15591857193307934871"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Loose/types.ts",
+        "hash": "18221884810664410455"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Tight/index.spec.tsx",
+        "hash": "10781552172674708265",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Month/Tight/index.tsx",
+        "hash": "8867988535708549213",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/types.ts",
+        "hash": "17021918800211456773"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/utils/index.spec.ts",
+        "hash": "9170289177754469660"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/utils/index.ts",
+        "hash": "18278500541949151462"
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Week/index.spec.tsx",
+        "hash": "15103513813891962208",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Week/index.stories.tsx",
+        "hash": "29851851189966953",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Calendar/Week/index.tsx",
+        "hash": "1774066791022852882",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Checkbox/constants.ts",
+        "hash": "14487378854811656501"
+      },
+      {
+        "file": "services/frontend/src/components/Checkbox/index.spec.tsx",
+        "hash": "6610506115731903746",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Checkbox/index.stories.tsx",
+        "hash": "15051835886190726400",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Checkbox/index.tsx",
+        "hash": "6405694012367615907"
+      },
+      {
+        "file": "services/frontend/src/components/Counter/index.spec.tsx",
+        "hash": "16557877442179564755",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Counter/index.tsx",
+        "hash": "11434692928135430397",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Dialog/index.spec.tsx",
+        "hash": "7735529652502020278",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Dialog/index.stories.tsx",
+        "hash": "3479525947198757719",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Dialog/index.tsx",
+        "hash": "4101742154986357171"
+      },
+      {
+        "file": "services/frontend/src/components/Icon/index.spec.tsx",
+        "hash": "16229688522959199333",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Icon/index.stories.tsx",
+        "hash": "10763750068616034426",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Icon/index.tsx",
+        "hash": "4372218294849475445",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/IconButton/constants.ts",
+        "hash": "18373878283044849823"
+      },
+      {
+        "file": "services/frontend/src/components/IconButton/index.spec.tsx",
+        "hash": "3338363956504063958",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/IconButton/index.stories.tsx",
+        "hash": "14610859795146962150",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/IconButton/index.tsx",
+        "hash": "9509922406587730092"
+      },
+      {
+        "file": "services/frontend/src/components/IconLoading/index.tsx",
+        "hash": "11319609588140217408"
+      },
+      {
+        "file": "services/frontend/src/components/Input/index.spec.tsx",
+        "hash": "12403868192480924359",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Input/index.stories.tsx",
+        "hash": "8763075155866530761",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Input/index.tsx",
+        "hash": "13547817608347337067",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/InputDate/index.spec.tsx",
+        "hash": "5034666228869395245",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/InputDate/index.stories.tsx",
+        "hash": "1978859395383709909",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/InputDate/index.tsx",
+        "hash": "8576074853477882207"
+      },
+      {
+        "file": "services/frontend/src/components/InputTel/index.spec.tsx",
+        "hash": "4031769636210027520",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/InputTel/index.stories.tsx",
+        "hash": "17244760292799715095",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/InputTel/index.tsx",
+        "hash": "11438189759696305139",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/constants.ts",
+        "hash": "4004108481221442055"
+      },
+      {
+        "file": "services/frontend/src/components/Message/hooks/use-message.spec.ts",
+        "hash": "10942439978672126427",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/hooks/use-message.ts",
+        "hash": "9115334117789614187",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/index.spec.tsx",
+        "hash": "14745220750613464577"
+      },
+      {
+        "file": "services/frontend/src/components/Message/index.stories.tsx",
+        "hash": "3714357651992716361",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/index.tsx",
+        "hash": "21476337967380057"
+      },
+      {
+        "file": "services/frontend/src/components/Message/Message/constants.ts",
+        "hash": "15488003146475583483"
+      },
+      {
+        "file": "services/frontend/src/components/Message/Message/index.spec.tsx",
+        "hash": "17321672478098544479",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/Message/index.tsx",
+        "hash": "271266780993300540",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/constants.ts",
+        "hash": "17649736551750970637"
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/context.spec.tsx",
+        "hash": "12495463410700047620",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/context.tsx",
+        "hash": "17373441075702834622",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/index.spec.tsx",
+        "hash": "12587060025825146906",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/index.tsx",
+        "hash": "9068269146847302340"
+      },
+      {
+        "file": "services/frontend/src/components/Message/Messages/utils.ts",
+        "hash": "16107370646374155788"
+      },
+      {
+        "file": "services/frontend/src/components/Message/types.ts",
+        "hash": "9472623824062829775"
+      },
+      {
+        "file": "services/frontend/src/components/Message/utils.ts",
+        "hash": "17767207057157292154"
+      },
+      {
+        "file": "services/frontend/src/components/Modal/index.spec.tsx",
+        "hash": "2510357625969457895",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Modal/index.stories.tsx",
+        "hash": "10381039166421178258",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Modal/index.tsx",
+        "hash": "6069147515038381059",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/constants.ts",
+        "hash": "7626912601270772959"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/hooks/use-notification.spec.ts",
+        "hash": "13335906539565705542",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/hooks/use-notification.ts",
+        "hash": "1047184036655530621",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/index.spec.tsx",
+        "hash": "41045470116822925"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/index.stories.tsx",
+        "hash": "9354841499021565382",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/index.tsx",
+        "hash": "2574402030859349948"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notification/constants.ts",
+        "hash": "16473667228393911597"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notification/index.spec.tsx",
+        "hash": "13707640646493261012",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notification/index.tsx",
+        "hash": "9603491386024626307",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/constants.ts",
+        "hash": "975143617276610085"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/context.spec.tsx",
+        "hash": "4359522112602298413",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/context.tsx",
+        "hash": "1294511864413524679",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/index.spec.tsx",
+        "hash": "8919345358816728925",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/index.tsx",
+        "hash": "11350734113091377074"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/Notifications/utils.ts",
+        "hash": "16107370646374155788"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/types.ts",
+        "hash": "10480767177596762810"
+      },
+      {
+        "file": "services/frontend/src/components/Notification/utils.ts",
+        "hash": "17767207057157292154"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/constants.ts",
+        "hash": "6933569128985791735"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Modal/index.spec.tsx",
+        "hash": "15450695928465309099",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Modal/index.stories.tsx",
+        "hash": "4439904984893643657",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Modal/index.tsx",
+        "hash": "1288118499231391721"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Sheet/index.spec.tsx",
+        "hash": "10322551670779941525",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Sheet/index.stories.tsx",
+        "hash": "3981579823930129585",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Sheet/index.tsx",
+        "hash": "16265219289537516049"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/Sheet/style.module.css",
+        "hash": "10946535600292900077"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/types.ts",
+        "hash": "1333254789852865656"
+      },
+      {
+        "file": "services/frontend/src/components/Notify/utils.ts",
+        "hash": "8780912961648420988"
+      },
+      {
+        "file": "services/frontend/src/components/RadioGroup/constants.ts",
+        "hash": "14487378854811656501"
+      },
+      {
+        "file": "services/frontend/src/components/RadioGroup/index.spec.tsx",
+        "hash": "768359016755507911",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/RadioGroup/index.stories.tsx",
+        "hash": "9935995031834835616",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/RadioGroup/index.tsx",
+        "hash": "12608604810624586102"
+      },
+      {
+        "file": "services/frontend/src/components/Select/constants.ts",
+        "hash": "14782056972635571667"
+      },
+      {
+        "file": "services/frontend/src/components/Select/index.spec.tsx",
+        "hash": "14143086345600815197",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Select/index.stories.tsx",
+        "hash": "8689670839148603948",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Select/index.tsx",
+        "hash": "270708982415545857",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Select/Options/index.spec.tsx",
+        "hash": "6200089605380127118",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Select/Options/index.tsx",
+        "hash": "4621583905108632212",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Select/types.ts",
+        "hash": "16112568166406735757"
+      },
+      {
+        "file": "services/frontend/src/components/SelectTime/constants.ts",
+        "hash": "3951367931872790782"
+      },
+      {
+        "file": "services/frontend/src/components/SelectTime/index.spec.tsx",
+        "hash": "9767494647610340782",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/SelectTime/index.stories.tsx",
+        "hash": "2542685933473881773",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/SelectTime/index.tsx",
+        "hash": "3998849050868115766"
+      },
+      {
+        "file": "services/frontend/src/components/Separator/index.tsx",
+        "hash": "8238066247492352844"
+      },
+      {
+        "file": "services/frontend/src/components/shared/hooks/use-pan/index.tsx",
+        "hash": "9003906843400106494",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/shared/hooks/use-progressively-close/constants.ts",
+        "hash": "6510254101859025565"
+      },
+      {
+        "file": "services/frontend/src/components/shared/hooks/use-progressively-close/index.spec.ts",
+        "hash": "8282787843398578424",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/shared/hooks/use-progressively-close/index.ts",
+        "hash": "9502924538016086687",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Sheet/index.spec.tsx",
+        "hash": "5127950499905368334",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Sheet/index.stories.tsx",
+        "hash": "2857061449216350280",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Sheet/index.tsx",
+        "hash": "10435940225698625325",
+        "deps": [
+          "npm:react-modal-sheet"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/index.spec.tsx",
+        "hash": "3493276479734670599",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/index.stories.tsx",
+        "hash": "3188419473788427361",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/index.tsx",
+        "hash": "14687918802145142097",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/Progress/constants.ts",
+        "hash": "1307823689560611750"
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/Progress/index.spec.tsx",
+        "hash": "5905583248909564687",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/Progress/index.tsx",
+        "hash": "17839943926609854959"
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/Step/index.spec.tsx",
+        "hash": "4448042851701606421",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/StepProgress/Step/index.tsx",
+        "hash": "1957040703465809030"
+      },
+      {
+        "file": "services/frontend/src/components/Switch/index.spec.tsx",
+        "hash": "4449615040494196091",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Switch/index.stories.tsx",
+        "hash": "7281044465097819763",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Switch/index.tsx",
+        "hash": "4503259241845157527"
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/context/index.spec.tsx",
+        "hash": "4213144611083603242",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/context/index.tsx",
+        "hash": "17007579067663947723",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/index.stories.tsx",
+        "hash": "16214352508567765882",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/index.tsx",
+        "hash": "16869181654628853958"
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/Tab/constants.ts",
+        "hash": "11525346747159533035"
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/Tab/index.spec.tsx",
+        "hash": "7512208307144330487",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/Tab/index.tsx",
+        "hash": "2298602868382309196"
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/Tabs/index.tsx",
+        "hash": "12316659592022787456",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Tabs/types.ts",
+        "hash": "4714627614870798991"
+      },
+      {
+        "file": "services/frontend/src/components/Tag/constants.ts",
+        "hash": "9545611200932560501"
+      },
+      {
+        "file": "services/frontend/src/components/Tag/index.stories.tsx",
+        "hash": "11642779529473134961",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Textarea/constants.ts",
+        "hash": "9833677615230382467"
+      },
+      {
+        "file": "services/frontend/src/components/Textarea/index.spec.tsx",
+        "hash": "6484505856756512399",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Textarea/index.stories.tsx",
+        "hash": "5655898645877698520",
+        "deps": [
+          "npm:@storybook/react",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/Textarea/index.tsx",
+        "hash": "4127403442053379004",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/TextButton/constants.ts",
+        "hash": "7916417253436279694"
+      },
+      {
+        "file": "services/frontend/src/components/TextButton/index.spec.tsx",
+        "hash": "373125390008482750",
+        "deps": [
+          "npm:@testing-library/react",
+          "npm:@testing-library/user-event"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/TextButton/index.stories.tsx",
+        "hash": "4441476660525021053",
+        "deps": [
+          "npm:@storybook/react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/components/TextButton/index.tsx",
+        "hash": "12379867180476766161"
+      },
+      {
+        "file": "services/frontend/src/context/hooks/use-me/index.spec.tsx",
+        "hash": "11881242540338123594",
+        "deps": [
+          "npm:@testing-library/react-hooks"
+        ]
+      },
+      {
+        "file": "services/frontend/src/context/hooks/use-me/index.tsx",
+        "hash": "6785636360546672556",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/context/index.tsx",
+        "hash": "1175352899782918938",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/auth/Header/i.json",
+        "hash": "17849494843860930437"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Header/index.tsx",
+        "hash": "13163036389136080024",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/auth/Login/constants.ts",
+        "hash": "9713764476795747454"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Login/i.json",
+        "hash": "17683572108969344640"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Login/index.tsx",
+        "hash": "5328031164417907861",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/auth/Login/utils.tsx",
+        "hash": "8026136650059793745"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Privacy/Content/i.json",
+        "hash": "18154235063861734209"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Privacy/Content/index.tsx",
+        "hash": "9582497117350367626"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Privacy/Header/i.json",
+        "hash": "9423132197194416153"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Privacy/Header/index.tsx",
+        "hash": "4825823027270511119"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Privacy/index.tsx",
+        "hash": "3452160567413317463",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/auth/Terms/Content/i.json",
+        "hash": "1821002627916611091"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Terms/Content/index.tsx",
+        "hash": "10208688545530914612"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Terms/Header/i.json",
+        "hash": "9635962553280530793"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Terms/Header/index.tsx",
+        "hash": "4825823027270511119"
+      },
+      {
+        "file": "services/frontend/src/features/auth/Terms/index.tsx",
+        "hash": "5932606870307334780",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/auth/utils/logout/index.tsx",
+        "hash": "7488467683468169527"
+      },
+      {
+        "file": "services/frontend/src/features/booking/components/Calendar/index.tsx",
+        "hash": "14710972429650246188",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/booking/components/Header/index.tsx",
+        "hash": "4859139045664896961"
+      },
+      {
+        "file": "services/frontend/src/features/booking/components/StatusTag/i.json",
+        "hash": "1450673999946138195"
+      },
+      {
+        "file": "services/frontend/src/features/booking/components/StatusTag/index.tsx",
+        "hash": "12752364984314660015"
+      },
+      {
+        "file": "services/frontend/src/features/booking/components/StatusTag/types.ts",
+        "hash": "11476730679736829510"
+      },
+      {
+        "file": "services/frontend/src/features/booking/constants.ts",
+        "hash": "13318581975159923206"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/Footer/i.json",
+        "hash": "1317652819871155116"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/Footer/index.tsx",
+        "hash": "16119479102639243310"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceDetail/components/InfoBlock/index.tsx",
+        "hash": "6302080168528062819"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceDetail/index.tsx",
+        "hash": "13256877204175625503"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceDetail/types.ts",
+        "hash": "9274018830612539692"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/components/Times/i.json",
+        "hash": "16162793201700754163"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/components/Times/index.tsx",
+        "hash": "2798112963474348431"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/components/Times/type.ts",
+        "hash": "17222407489375868173"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/context.tsx",
+        "hash": "7888032802847817833",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/i.json",
+        "hash": "2212370617921637651"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/index.tsx",
+        "hash": "12852932790927938788"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/components/ServiceTimes/types.ts",
+        "hash": "11903740631613823277"
+      },
+      {
+        "file": "services/frontend/src/features/booking/detail/index.tsx",
+        "hash": "4935927823496533334",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/booking/home/components/ServiceCards/i.json",
+        "hash": "14953967681223500601"
+      },
+      {
+        "file": "services/frontend/src/features/booking/home/components/ServiceCards/index.tsx",
+        "hash": "12084516076047497651",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/booking/home/components/ServiceCards/types.ts",
+        "hash": "8058334200774017680"
+      },
+      {
+        "file": "services/frontend/src/features/booking/home/index.tsx",
+        "hash": "4619693103314835717",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/booking/i.json",
+        "hash": "6374094896189019618"
+      },
+      {
+        "file": "services/frontend/src/features/booking/types.ts",
+        "hash": "6093491537494004482"
+      },
+      {
+        "file": "services/frontend/src/features/cart/constants.ts",
+        "hash": "281677908317002854"
+      },
+      {
+        "file": "services/frontend/src/features/cart/context.tsx",
+        "hash": "17822168236367576927",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/cart/Footer/i.json",
+        "hash": "7055429422935445226"
+      },
+      {
+        "file": "services/frontend/src/features/cart/Footer/index.tsx",
+        "hash": "14019591318619106412"
+      },
+      {
+        "file": "services/frontend/src/features/cart/Header/i.json",
+        "hash": "7841985807941078872"
+      },
+      {
+        "file": "services/frontend/src/features/cart/Header/index.tsx",
+        "hash": "17208108607439463676"
+      },
+      {
+        "file": "services/frontend/src/features/cart/InfoForm/i.json",
+        "hash": "5866949892810837415"
+      },
+      {
+        "file": "services/frontend/src/features/cart/InfoForm/index.tsx",
+        "hash": "8649392105021223196",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/components/InfoBlock/index.tsx",
+        "hash": "5762748146338018603"
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/components/TimeCards/hooks/sortable/index.tsx",
+        "hash": "4404705288862909303",
+        "deps": [
+          "npm:react",
+          "npm:@dnd-kit/core",
+          "npm:@dnd-kit/sortable",
+          "npm:@dnd-kit/utilities"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/components/TimeCards/index.tsx",
+        "hash": "6894906181036146536"
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/context.tsx",
+        "hash": "1073133725704794738",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/i.json",
+        "hash": "8262897171245476120"
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/index.tsx",
+        "hash": "16933508924226767405"
+      },
+      {
+        "file": "services/frontend/src/features/cart/OrderCards/utils.ts",
+        "hash": "7319392494829320305"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/components/Field/index.tsx",
+        "hash": "15739051644626949597"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/components/Info/index.tsx",
+        "hash": "3554335792902911994"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/components/Services/i.json",
+        "hash": "15194881684453275057"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/components/Services/index.tsx",
+        "hash": "15835192209874296036"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/constants.ts",
+        "hash": "6584603701918470722"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/context.tsx",
+        "hash": "5414858859140980027",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/i.json",
+        "hash": "9953407539997757473"
+      },
+      {
+        "file": "services/frontend/src/features/cart/PreviewOrders/index.tsx",
+        "hash": "18018091380550025243"
+      },
+      {
+        "file": "services/frontend/src/features/cart/types.ts",
+        "hash": "10203201711348040094"
+      },
+      {
+        "file": "services/frontend/src/features/cart/utils.tsx",
+        "hash": "7040056045973566326"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Calendar/index.tsx",
+        "hash": "15433738350244987980",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/context.tsx",
+        "hash": "14579470389526909016",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Header/i.json",
+        "hash": "14846059695088255558"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Header/index.tsx",
+        "hash": "18154937925527036235"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/i.json",
+        "hash": "9482701506502569161"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/Footer/i.json",
+        "hash": "1366140417521454632"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/Footer/index.tsx",
+        "hash": "6220586502520906847",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/index.tsx",
+        "hash": "13226269862918735283",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/StatusBadge/index.tsx",
+        "hash": "13944021488952383237"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/TimeCard/Default/index.tsx",
+        "hash": "10144214392106130825"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/TimeCard/index.tsx",
+        "hash": "1362399752636649144"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/TimeCard/Queues/index.tsx",
+        "hash": "10591025050882431643",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/OrderDetail/TimeCard/types.ts",
+        "hash": "14367001049134615348"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/Card/i.json",
+        "hash": "7600471583208767565"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/Card/index.tsx",
+        "hash": "10663237189817864813",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/Card/UpdateTag/i.json",
+        "hash": "4725381124506251639"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/Card/UpdateTag/index.tsx",
+        "hash": "5596687526162146475"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/index.tsx",
+        "hash": "5033834628194806692",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/order/Orders/Title/index.tsx",
+        "hash": "5377984051747464150"
+      },
+      {
+        "file": "services/frontend/src/features/my/order/types.ts",
+        "hash": "15900672250690399216"
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Content/hooks/use-profile/index.spec.tsx",
+        "hash": "10886211651323170069",
+        "deps": [
+          "npm:@testing-library/react-hooks"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Content/hooks/use-profile/index.tsx",
+        "hash": "10328993000479768012",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Content/i.json",
+        "hash": "613089460065828221"
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Content/index.tsx",
+        "hash": "13735402917339941201",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Content/types.ts",
+        "hash": "7334045298252047158"
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Header/i.json",
+        "hash": "5873442520078041286"
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/Header/index.tsx",
+        "hash": "15006845653678734578"
+      },
+      {
+        "file": "services/frontend/src/features/my/setting/index.tsx",
+        "hash": "5239695969176676161"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/AttendeeTag/index.tsx",
+        "hash": "15352877760751832514"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/OrderBlocks/constants.ts",
+        "hash": "5102592310974877754"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/OrderBlocks/index.tsx",
+        "hash": "17679403074861546105",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/OrderBlocks/utils.ts",
+        "hash": "10627896546133497714"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/ScrollableCalendarWeek/index.tsx",
+        "hash": "7431087558991376740",
+        "deps": [
+          "npm:framer-motion"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/ServiceBlocks/index.tsx",
+        "hash": "3808960427821820418",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/ServiceNav/index.tsx",
+        "hash": "13995346667318336357"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/components/TakeleaveBlocks/index.tsx",
+        "hash": "11395870131228190755",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/constants.ts",
+        "hash": "3928067406377025775"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/i.json",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/Order.tsx",
+        "hash": "18076390105759553668",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/Service.tsx",
+        "hash": "15039172853555736433",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/ServiceRWD.tsx",
+        "hash": "13329902292657949",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/CalendarWeekList/utils.ts",
+        "hash": "15377187545801104515"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/OrderCards/index.tsx",
+        "hash": "14017887413123680149",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/OrderFields/i.json",
+        "hash": "14624565532039930595"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/OrderFields/index.tsx",
+        "hash": "17491680680704785609",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/ServiceDetailMore/i.json",
+        "hash": "3364121529637575331"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/ServiceDetailMore/index.tsx",
+        "hash": "15255828541795347984",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/ServiceSummary/index.tsx",
+        "hash": "13514580912636444268"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/StatusTag/index.tsx",
+        "hash": "18270998704054264593"
+      },
+      {
+        "file": "services/frontend/src/features/studio/components/StatusTag/types.ts",
+        "hash": "11476730679736829510"
+      },
+      {
+        "file": "services/frontend/src/features/studio/context.tsx",
+        "hash": "17927935861497928460",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Calendar/components/Month.tsx",
+        "hash": "4207582755352170598",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Calendar/index.tsx",
+        "hash": "13303298155425517124",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Header/index.tsx",
+        "hash": "5895544616285345952"
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/components/ContentTabs/constants.ts",
+        "hash": "13582789315115403569"
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/components/ContentTabs/i.json",
+        "hash": "3357999198817420025"
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/components/ContentTabs/index.tsx",
+        "hash": "10684755726305392927"
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/components/ServiceCards/index.tsx",
+        "hash": "17368724769802427705",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/constants.ts",
+        "hash": "12330152875220382324"
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/index.tsx",
+        "hash": "3964307397772883074",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/home/Home/types.ts",
+        "hash": "8727410274584245126"
+      },
+      {
+        "file": "services/frontend/src/features/studio/hooks/use-header.tsx",
+        "hash": "3104905370105084158",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/i.json",
+        "hash": "12440304907756634008"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Calendar/components/Month.tsx",
+        "hash": "13078671337178823056",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Calendar/index.tsx",
+        "hash": "17968665078306225722",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/Footer/i.json",
+        "hash": "1768485695743405367"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/Footer/index.tsx",
+        "hash": "15314967720491890137"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/ConsumerName/index.tsx",
+        "hash": "13375415195932066898"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/Requirement/i.json",
+        "hash": "16039691217569125845"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/Requirement/index.tsx",
+        "hash": "17947617563440316996"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/Requirement/QueueDescriptionPrompt/i.json",
+        "hash": "12392981657740877072"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/Requirement/QueueDescriptionPrompt/index.tsx",
+        "hash": "15137678933317870751",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/components/ServiceInfo/index.tsx",
+        "hash": "2156061642439286576"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/components/OrderDetail/index.tsx",
+        "hash": "5417125478471145595"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/context.tsx",
+        "hash": "13614289595618889884",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Detail/index.tsx",
+        "hash": "17164450047984295860",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Header/i.json",
+        "hash": "15324638519147884614"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Header/index.tsx",
+        "hash": "981166571392006436"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order-requested/Orders/index.tsx",
+        "hash": "9880859692391106979",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Calendar/components/Month.tsx",
+        "hash": "13043216881729637776",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Calendar/index.tsx",
+        "hash": "13027244595779026171",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/components/Content/components/Actions/i.json",
+        "hash": "1816639189427298618"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/components/Content/components/Actions/index.tsx",
+        "hash": "2835136833128620038"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/components/Content/components/Info/index.tsx",
+        "hash": "170650669172301630",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/components/Content/index.tsx",
+        "hash": "17622534497780192047",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/components/Header.tsx",
+        "hash": "17434847228436173791",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Detail/index.tsx",
+        "hash": "6257337265532570757",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Header/i.json",
+        "hash": "468393858422340209"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Header/index.tsx",
+        "hash": "5304235254650317347"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/components/OrderCardWithDate/index.tsx",
+        "hash": "12871984497391595502",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/components/StatusTabs/constants.ts",
+        "hash": "14104916875705889590"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/components/StatusTabs/index.tsx",
+        "hash": "13025506005479231459"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/constants.ts",
+        "hash": "16285422253166626134"
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/index.tsx",
+        "hash": "6577059916233926319",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/order/Orders/types.ts",
+        "hash": "14303880518417046321"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Calendar/components/Month.tsx",
+        "hash": "13043216881729637776",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Calendar/index.tsx",
+        "hash": "13027244595779026171",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/Actions/i.json",
+        "hash": "9151199475726804768"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/Actions/index.tsx",
+        "hash": "2036833938895706025"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/OrderLinks/i.json",
+        "hash": "7178131307993886614"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/OrderLinks/index.tsx",
+        "hash": "345060738918969308",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/ServiceInfo/i.json",
+        "hash": "10127251932567931732"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/components/ServiceInfo/index.tsx",
+        "hash": "989673748821886456",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Detail/index.tsx",
+        "hash": "13560018046754060730",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Header/i.json",
+        "hash": "15324638519147884614"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service-version/Header/index.tsx",
+        "hash": "9735858293331099876"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Calendar/components/Month.tsx",
+        "hash": "9099845588574953254",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Calendar/index.tsx",
+        "hash": "17968665078306225722",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Detail/components/Actions/i.json",
+        "hash": "15340540304851441590"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Detail/components/Actions/index.tsx",
+        "hash": "6592911541352758551",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Detail/components/ServiceInfo/i.json",
+        "hash": "16852460139510885612"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Detail/components/ServiceInfo/index.tsx",
+        "hash": "6271107027954570917",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Detail/index.tsx",
+        "hash": "15364617238728615753"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Header/i.json",
+        "hash": "4663069556580222828"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Header/index.tsx",
+        "hash": "6160788828875372857",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/components/Cards/index.tsx",
+        "hash": "785190540073177337",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/components/StatusTabs/constants.ts",
+        "hash": "13616972829300202780"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/components/StatusTabs/index.tsx",
+        "hash": "17452999519375713546"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/constants.ts",
+        "hash": "16285422253166626134"
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/index.tsx",
+        "hash": "6372154639569284801",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/service/Services/types.ts",
+        "hash": "14303880518417046321"
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/components/Content/i.json",
+        "hash": "7396645629910637719"
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/components/Content/index.tsx",
+        "hash": "3633724418099379619",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/components/Header/i.json",
+        "hash": "14356653097627334282"
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/components/Header/index.tsx",
+        "hash": "15806607090683871770",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/context.tsx",
+        "hash": "18295408130872512996",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/setting/index.tsx",
+        "hash": "4079184153931260167",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/features/studio/types.ts",
+        "hash": "13072756046062168074"
+      },
+      {
+        "file": "services/frontend/src/features/studio/utils.ts",
+        "hash": "1406475430203905403"
+      },
+      {
+        "file": "services/frontend/src/layout/Global/index.tsx",
+        "hash": "17655811402693809651"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/components/IconLink.tsx",
+        "hash": "8118170830642210679",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/constants.ts",
+        "hash": "6453113561010860523"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/context/index.tsx",
+        "hash": "1804273563175187175",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/index.tsx",
+        "hash": "2428914842699706124",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/CloseButton/index.tsx",
+        "hash": "16307230837207729207"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/constants.ts",
+        "hash": "7175794004097718165"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/FullScreen/index.tsx",
+        "hash": "15045932377956967879",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/i.json",
+        "hash": "3137076238865185175"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/index.tsx",
+        "hash": "7137570662004250580"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/Menu/RightTop/index.tsx",
+        "hash": "14719085750783483491",
+        "deps": [
+          "npm:react-router-dom",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/ProviderNavigation/constants.ts",
+        "hash": "12165234972229776123"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/ProviderNavigation/Drawer.tsx",
+        "hash": "11483874768060189046",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/Header/ProviderNavigation/i.json",
+        "hash": "10760794085931320089"
+      },
+      {
+        "file": "services/frontend/src/layout/Header/ProviderNavigation/index.tsx",
+        "hash": "17892773537259567972",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/layout/index.tsx",
+        "hash": "13200404561849337474",
+        "deps": [
+          "npm:virtual:uno.css",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/main.tsx",
+        "hash": "6013565506688027592",
+        "deps": [
+          "npm:react",
+          "npm:react-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/booking/provider/index.tsx",
+        "hash": "13082722368522153911"
+      },
+      {
+        "file": "services/frontend/src/pages/booking/provider/service.tsx",
+        "hash": "1500760522639805825"
+      },
+      {
+        "file": "services/frontend/src/pages/cart/index.tsx",
+        "hash": "3725265641662530660"
+      },
+      {
+        "file": "services/frontend/src/pages/login/index.tsx",
+        "hash": "16877400753562797469",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/my/orders/id.tsx",
+        "hash": "8158143689737925877",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/my/orders/index.tsx",
+        "hash": "1772812077194541385"
+      },
+      {
+        "file": "services/frontend/src/pages/my/orders/layout.tsx",
+        "hash": "13110256418786612528",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/my/setting/index.tsx",
+        "hash": "647616860082709100"
+      },
+      {
+        "file": "services/frontend/src/pages/privacy/index.tsx",
+        "hash": "10818123346613439682"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/index.tsx",
+        "hash": "2974986650455977240",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders-requested/id.tsx",
+        "hash": "1706839510974210893"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders-requested/index.tsx",
+        "hash": "15049344555649338042"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders-requested/layout.tsx",
+        "hash": "2697110087910863773",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders/id.tsx",
+        "hash": "7803492345665137374"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders/index.tsx",
+        "hash": "5885716903141836027"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/orders/layout.tsx",
+        "hash": "6557902339008952066",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/studio/services-version/index.tsx",
+        "hash": "14857523508130571460",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/studio/services/id/index.tsx",
+        "hash": "5056342771747071734"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/services/index.tsx",
+        "hash": "18061014847964301422"
+      },
+      {
+        "file": "services/frontend/src/pages/studio/services/layout.tsx",
+        "hash": "13682364540552850016",
+        "deps": [
+          "npm:react",
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/pages/studio/setting.tsx",
+        "hash": "15097659125844909146"
+      },
+      {
+        "file": "services/frontend/src/pages/terms/index.tsx",
+        "hash": "3146682847399243136"
+      },
+      {
+        "file": "services/frontend/src/shared/components/CalendarModeSwitchable/context.tsx",
+        "hash": "2123934562287969355",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/components/CalendarModeSwitchable/index.tsx",
+        "hash": "3033658150954675499",
+        "deps": [
+          "npm:framer-motion",
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/components/ConsumerContactInfo/i.json",
+        "hash": "17769964016236943592"
+      },
+      {
+        "file": "services/frontend/src/shared/components/ConsumerContactInfo/index.tsx",
+        "hash": "13095417977097701263",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/components/EmphasizeBlock/index.tsx",
+        "hash": "11816697093471447652"
+      },
+      {
+        "file": "services/frontend/src/shared/components/InfoBlocks/index.tsx",
+        "hash": "2448662093704796501",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/components/OrderNote/i.json",
+        "hash": "14576564356544786838"
+      },
+      {
+        "file": "services/frontend/src/shared/components/OrderNote/index.tsx",
+        "hash": "4238417389498664562"
+      },
+      {
+        "file": "services/frontend/src/shared/components/ServiceDescriptionMore/DescriptionPrompt/index.tsx",
+        "hash": "8420090777744286317"
+      },
+      {
+        "file": "services/frontend/src/shared/components/ServiceDescriptionMore/index.tsx",
+        "hash": "16462155519080038330",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/components/ServiceDescriptionMore/types.ts",
+        "hash": "8944292337615572392"
+      },
+      {
+        "file": "services/frontend/src/shared/get-avatar-by-id/constants.ts",
+        "hash": "5155049273881988891"
+      },
+      {
+        "file": "services/frontend/src/shared/get-avatar-by-id/index.spec.ts",
+        "hash": "4809537044893729200"
+      },
+      {
+        "file": "services/frontend/src/shared/get-avatar-by-id/index.ts",
+        "hash": "12905818661021362549"
+      },
+      {
+        "file": "services/frontend/src/shared/get-service-color-by-id/constants.ts",
+        "hash": "4589285721848080598"
+      },
+      {
+        "file": "services/frontend/src/shared/get-service-color-by-id/index.ts",
+        "hash": "12165892113302926468"
+      },
+      {
+        "file": "services/frontend/src/shared/hooks/use-fetch/index.tsx",
+        "hash": "15687814801756165539",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/hooks/use-fetch/types.ts",
+        "hash": "926539832976259214"
+      },
+      {
+        "file": "services/frontend/src/shared/i.json",
+        "hash": "15274356278777901535"
+      },
+      {
+        "file": "services/frontend/src/shared/route-guard/guest.tsx",
+        "hash": "5531522341443078209",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/route-guard/provider.tsx",
+        "hash": "3730325185650637074",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/shared/route-guard/user.tsx",
+        "hash": "11437371720848591366",
+        "deps": [
+          "npm:react-router-dom"
+        ]
+      },
+      {
+        "file": "services/frontend/src/styles/global.css",
+        "hash": "10663851943631754841"
+      },
+      {
+        "file": "services/frontend/src/styles/index.css",
+        "hash": "12620712918322179869"
+      },
+      {
+        "file": "services/frontend/src/styles/reset.css",
+        "hash": "9665587819688710018"
+      },
+      {
+        "file": "services/frontend/src/types/utils.ts",
+        "hash": "10496582608168140107"
+      },
+      {
+        "file": "services/frontend/src/utils/date/i.json",
+        "hash": "10080285315996635417"
+      },
+      {
+        "file": "services/frontend/src/utils/date/index.ts",
+        "hash": "3274621267860758377",
+        "deps": [
+          "npm:dayjs"
+        ]
+      },
+      {
+        "file": "services/frontend/src/utils/device/constants.ts",
+        "hash": "11207471234382636503"
+      },
+      {
+        "file": "services/frontend/src/utils/device/index.spec.ts",
+        "hash": "2852499923219418393"
+      },
+      {
+        "file": "services/frontend/src/utils/device/index.ts",
+        "hash": "1394390542109464838"
+      },
+      {
+        "file": "services/frontend/src/utils/env/get-base-path.ts",
+        "hash": "12138399313667131147"
+      },
+      {
+        "file": "services/frontend/src/utils/event/index.spec.ts",
+        "hash": "11838736705503767464"
+      },
+      {
+        "file": "services/frontend/src/utils/event/index.ts",
+        "hash": "12747045466080523534"
+      },
+      {
+        "file": "services/frontend/src/utils/event/types.ts",
+        "hash": "15932014276835179399"
+      },
+      {
+        "file": "services/frontend/src/utils/fetcher/index.tsx",
+        "hash": "6827967368308485313"
+      },
+      {
+        "file": "services/frontend/src/utils/fetcher/types.ts",
+        "hash": "2930946120516284567"
+      },
+      {
+        "file": "services/frontend/src/utils/storage/local-storage.tsx",
+        "hash": "5902126043646007905"
+      },
+      {
+        "file": "services/frontend/src/utils/time/index.ts",
+        "hash": "5158027686930944094",
+        "deps": [
+          "npm:dayjs"
+        ]
+      },
+      {
+        "file": "services/frontend/src/utils/validator/phone.ts",
+        "hash": "2710078715667868334",
+        "deps": [
+          "npm:validator"
+        ]
+      },
+      {
+        "file": "services/frontend/tsconfig.app.json",
+        "hash": "2328147339006154033"
+      },
+      {
+        "file": "services/frontend/tsconfig.json",
+        "hash": "449317346304060739"
+      },
+      {
+        "file": "services/frontend/tsconfig.spec.json",
+        "hash": "7795347956371338152"
+      },
+      {
+        "file": "services/frontend/tsconfig.storybook.json",
+        "hash": "6991559806007967529"
+      },
+      {
+        "file": "services/frontend/unocss.config.ts",
+        "hash": "4698788056710981567",
+        "deps": [
+          "npm:unocss",
+          "npm:../../unocss.config.base"
+        ]
+      },
+      {
+        "file": "services/frontend/vercel.json",
+        "hash": "15859500550097952638"
+      },
+      {
+        "file": "services/frontend/vite.config.ts",
+        "hash": "15419480243869802900",
+        "deps": [
+          "npm:vite",
+          "npm:unocss",
+          "npm:@vitejs/plugin-react",
+          "npm:vite-tsconfig-paths"
+        ]
+      }
+    ]
+  }
+}

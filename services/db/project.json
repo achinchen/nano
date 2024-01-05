@@ -4,13 +4,6 @@
   "sourceRoot": "services/db/src",
   "projectType": "library",
   "targets": {
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["services/db/**/*.ts"]
-      }
-    },
     "deploy": {
       "command": "fly deploy --config services/db/fly.toml"
     }

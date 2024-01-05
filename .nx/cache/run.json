@@ -1,0 +1,32 @@
+{
+  "run": {
+    "command": "nx deploy backend",
+    "startTime": "2024-01-05T04:30:54.689Z",
+    "endTime": "2024-01-05T04:36:15.222Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "backend:build:production",
+      "target": "build",
+      "projectName": "backend",
+      "hash": "6091579551896564759",
+      "startTime": "2024-01-05T04:30:54.696Z",
+      "endTime": "2024-01-05T04:31:01.286Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "backend:deploy",
+      "target": "deploy",
+      "projectName": "backend",
+      "hash": "16345285375576361544",
+      "startTime": "2024-01-05T04:31:01.287Z",
+      "endTime": "2024-01-05T04:36:15.222Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

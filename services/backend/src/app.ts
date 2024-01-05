@@ -22,8 +22,8 @@ app.locals.pluralize = require('pluralize');
 app.use(json());
 
 app.use(urlencoded({ extended: false }));
-app.use(cookieParser('123456789iamasecret987654321look'));
-app.use(csrf('123456789iamasecret987654321look'));
+app.use(cookieParser(process.env.SESSION_TOKEN));
+app.use(csrf(process.env.SESSION_TOKEN));
 app.use(
   cors({
     origin: process.env.CLIENT_HOST,
@@ -33,9 +33,10 @@ app.use(
 app.use(expressStatic(path.join(__dirname, 'assets')));
 app.use(
   session({
-    secret: '123456789iamasecret987654321look',
+    secret: process.env.SESSION_TOKEN,
     resave: false,
     saveUninitialized: true,
+    proxy: true,
     cookie: {
       secure: app.get('env') === 'production',
       signed: true,

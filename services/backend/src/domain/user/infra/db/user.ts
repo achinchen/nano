@@ -39,6 +39,7 @@ export class User {
   insertCreated() {
     this.createdAt = new Date();
     this.updatedAt = new Date();
+    this.sessionIdentifier = '';
   }
 
   @BeforeUpdate()
