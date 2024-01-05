@@ -10,7 +10,7 @@ export const loginFederatedGoogle = () => passport.authenticate(PROVIDER);
 export const loginCallbackGoogle = () =>
   passport.authenticate(PROVIDER, {
     failureRedirect: `${process.env.CLIENT_HOST}/login?failed`,
-    session: true,
+    session: false,
   });
 
 export const loginCallbackGoogleSuccess = async (req, res, next) => {

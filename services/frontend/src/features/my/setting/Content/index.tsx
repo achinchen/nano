@@ -13,7 +13,7 @@ export default function Content() {
 
   return (
     <section className="h-[calc(100dvh-112px)] flex flex-1 flex-col gap-4 overflow-y-scroll bg-white px-4 py-6 font-normal md:h-[calc(100dvh-108px)] md:px-10">
-      {!loading ? (
+      {loading ? (
         <IconLoading />
       ) : profile ? (
         <Fragment>
