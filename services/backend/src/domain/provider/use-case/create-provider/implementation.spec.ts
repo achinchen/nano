@@ -36,6 +36,11 @@ describe('CreateProviderUseCase', () => {
       description: 'Test Provider',
       name: 'Test',
       slug: 'test',
+      SNSId: 'test',
+      email: 'test',
+      avatarUrl: 'test',
+      openAt: new Date('2021-01-01'),
+      openDuration: 3000,
     };
 
     const result = await createProviderUseCase.execute(payload);
@@ -51,6 +56,11 @@ describe('CreateProviderUseCase', () => {
       description: 'Test Provider',
       name: 'Test',
       slug: 'test',
+      SNSId: 'test',
+      email: 'test',
+      avatarUrl: 'test',
+      openAt: new Date('2021-01-01'),
+      openDuration: 3000,
     };
 
     const provider = {
@@ -59,6 +69,7 @@ describe('CreateProviderUseCase', () => {
       description: 'Test Provider',
       name: 'Test',
       slug: 'test',
+      ...payload,
     };
 
     mockProviderRepository.create.mockResolvedValueOnce(provider);
@@ -71,6 +82,11 @@ describe('CreateProviderUseCase', () => {
       description: payload.description,
       name: payload.name,
       slug: payload.slug,
+      SNSId: payload.SNSId,
+      email: payload.email,
+      avatarUrl: payload.avatarUrl,
+      openAt: payload.openAt,
+      openDuration: payload.openDuration,
     });
     expect(result).toEqual(Result.ok(provider));
   });

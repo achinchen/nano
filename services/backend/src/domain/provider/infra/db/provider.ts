@@ -20,8 +20,23 @@ export class Provider {
   @Column({ length: 256 })
   description: string;
 
+  @Column({ length: 800 })
+  avatarUrl: string;
+
+  @Column({ length: 100 })
+  SNSId: string;
+
+  @Column({ length: 100 })
+  email: string;
+
   @Column()
   ownerId: number;
+
+  @Column()
+  openAt: Date;
+
+  @Column()
+  openDuration: number;
 
   @Column()
   createdAt: Date;
