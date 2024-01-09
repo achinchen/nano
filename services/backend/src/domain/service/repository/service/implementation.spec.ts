@@ -68,7 +68,7 @@ describe('ServiceRepository', () => {
         supplierId: 1,
         locationId: 1,
         description: 'Test Service Description',
-        duration: new Date(),
+        duration: 600,
         attendee: 10,
         allday: false,
         queue: false,

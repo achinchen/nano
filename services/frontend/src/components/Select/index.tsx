@@ -2,7 +2,11 @@ import type { SelectOption } from './types';
 import { useState, useEffect, useMemo } from 'react';
 import Input from '~frontend/components/Input';
 import Options from './Options';
-import { DEFAULT_PLACEHOLDER, NO_OPTIONS_LABEL } from './constants';
+import {
+  ERROR_PLACEHOLDER,
+  DEFAULT_PLACEHOLDER,
+  NO_OPTIONS_LABEL,
+} from './constants';
 
 export type SelectProps = React.PropsWithChildren<{
   value: string;
@@ -17,6 +21,7 @@ export type SelectProps = React.PropsWithChildren<{
   filterable?: boolean;
   center?: boolean;
   clearable?: boolean;
+  invalid?: boolean;
 }>;
 
 export default function Select({
@@ -32,6 +37,7 @@ export default function Select({
   filterable = false,
   center = false,
   clearable = false,
+  invalid = false,
   ...attributes
 }: SelectProps) {
   const [opened, setOpened] = useState(false);
@@ -52,7 +58,10 @@ export default function Select({
       : 'i-solar-alt-arrow-down-linear';
   }, [opened]);
 
-  const shouldOpen = clearable ? opened && Boolean(value) : opened;
+  const shouldOpen = useMemo(
+    () => (clearable ? opened && Boolean(value) : opened),
+    [opened, value, clearable]
+  );
 
   const inputValue = useMemo(() => {
     return inputKeyword ?? (selectedOption?.label || '');
@@ -89,7 +98,7 @@ export default function Select({
   };
 
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <div
         role="button"
         tabIndex={0}
@@ -100,13 +109,13 @@ export default function Select({
           value={inputValue}
           disabled={disabled}
           readOnly={!filterable}
-          className={className}
           placeholder={placeholder}
           prefixIcon={prefixIcon}
           suffixIcon={suffixIcon}
           onValueChange={setInputKeyword}
           center={center}
           clearable={opened || clearable}
+          errorMessage={invalid ? ERROR_PLACEHOLDER : ''}
           {...attributes}
         />
       </div>

@@ -22,7 +22,7 @@ export class CreateServiceUseCase implements UseCase<Payload, Promise<Return>> {
   async execute(payload?: Payload): Promise<Return> {
     if (!payload.providerId) return Result.fail(NOT_ALLOW);
     try {
-      const [error, result] = ServiceAggregateRoot.createService(payload);
+      const [error, result] = await ServiceAggregateRoot.createService(payload);
       if (error) return Result.fail(error);
       const serviceHistory = await this.serviceRepository.create(result);
       return Result.ok<CreatedServiceResult>(serviceHistory);

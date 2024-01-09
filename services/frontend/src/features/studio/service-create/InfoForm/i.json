@@ -1,0 +1,60 @@
+{
+  "required": "此欄位必填寫",
+  "name": {
+    "label": "服務名稱",
+    "placeholder": "請使用與 IG 上同樣的服務名稱"
+  },
+  "supplier": {
+    "label": "提供者"
+  },
+  "location": {
+    "label": "地點"
+  },
+  "description": {
+    "placeholder": "請介紹您的服務並且提供服務方式及事項"
+  },
+  "attendee" :{
+    "label": "提供名額"
+  },
+  "duration": {
+    "label": "服務時間長度"
+  },
+  "allday": {
+    "label": "整天"
+  },
+  "startAt": {
+    "label": "開始"
+  },
+  "endAt": {
+    "label": "結束"
+  },
+  "time": {
+    "label": "每天"
+  },
+  "queue": {
+    "label": "心願順序"
+  },
+  "step": {
+    "name": {
+      "label": "介紹您的服務",
+      "content": "在這個步驟中，請您建立服務標題及描述，明確的標題及服務說明將能減少您更多的來回溝通時間。"
+    },
+    "description": {
+      "label": "描述您的服務",
+      "content": ""
+    },
+    "detail": {
+      "label": "這個服務的更多細節",
+      "content": "定義您的服務"
+    },
+    "time": {
+      "label": "您何時可以提供此服務呢？",
+      "content":  "買家在這段時間中都可以買到這個服務"
+    },
+    "queue": {
+      "label": "提供心願順序",
+      "content": "買家可以針對同個服務選取 3 個順序，您將可以更有效管理您的時間！"
+    }
+  },
+  "example": "範例"
+}

@@ -30,8 +30,8 @@ export class ServiceHistory {
   @Column({ length: 500 })
   description: string;
 
-  @Column('time')
-  duration: Date;
+  @Column()
+  duration: number;
 
   @Column()
   attendee: number;

@@ -7,11 +7,11 @@ import Actions from './components/Actions';
 const orders = [
   {
     name: '阿狗',
-    id: '1',
+    id: 1,
   },
   {
     name: '阿貓',
-    id: '2',
+    id: 2,
   },
 ];
 

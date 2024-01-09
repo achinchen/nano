@@ -1,5 +1,5 @@
 export type StudioSetting = {
-  id: string;
+  id: number;
   name: string;
   description: string;
   slug: string;
@@ -11,10 +11,10 @@ export type StudioSetting = {
   location: {
     address: string;
     name: string;
-    id: string;
+    id: number;
   };
   suppliers: {
-    id: string;
+    id: number;
     name: string;
     avatarUrl: string;
   }[];

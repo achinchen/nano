@@ -4,6 +4,7 @@ export function getLocalStorage(key: string) {
   return JSON.parse(payload);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function setLocalStorage(key: string, payload: any) {
   localStorage.setItem(key, payload ? JSON.stringify(payload) : '');
 }

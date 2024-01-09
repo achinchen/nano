@@ -44,6 +44,7 @@ export default function Input({
   const clearable = propClearable && Boolean(value);
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (maxLength && event.target.value.length > maxLength) return;
     onChange?.(event);
     onValueChange?.(event.target.value);
   };
@@ -59,7 +60,7 @@ export default function Input({
   };
 
   return (
-    <div>
+    <div className={className}>
       <div
         className={`relative flex items-center py-2 px-3 border-solid border-1 rounded-3 overflow-auto focus-within:border-zinc-700  ${
           disabled ? ' bg-zinc-100  cursor-not-allowed' : 'cursor-pointer'
@@ -68,7 +69,7 @@ export default function Input({
             ? 'border-red-500'
             : 'border-zinc-400 hover:border-zinc-700 active:border-zinc-700'
         } 
-      ${className}`}
+      `}
       >
         {prefixIcon && (
           <Icon size="base" icon={prefixIcon} className={`mr-2 ${iconColor}`} />
@@ -99,7 +100,11 @@ export default function Input({
           />
         ) : (
           suffixIcon && (
-            <Icon size="base" icon={suffixIcon} className={iconColor} />
+            <Icon
+              size="base"
+              icon={suffixIcon}
+              className={`${iconColor} absolute right-0 translate-x--50%`}
+            />
           )
         )}
       </div>

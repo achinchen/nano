@@ -27,7 +27,7 @@ const service = {
     name: '台中',
     address: '407台中市西屯區臺灣大道三段251號',
   },
-  id: '1',
+  id: 1,
   queue: true,
 };
 

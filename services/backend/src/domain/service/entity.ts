@@ -6,7 +6,7 @@ export class Service {
   ) {}
 }
 
-const FIELDS = ['name', 'email', 'SNSId', 'phone'] as const;
+export const FIELDS = ['name', 'email', 'SNSId', 'phone'];
 export type Field = (typeof FIELDS)[number];
 
 export class ServiceHistory {
@@ -17,7 +17,7 @@ export class ServiceHistory {
     public supplierId: number,
     public locationId: number,
     public description: string,
-    public duration: Date,
+    public duration: number,
     public attendee: number,
     public allday: boolean,
     public startAt: Date,

@@ -36,7 +36,7 @@ describe('CreateServiceUseCase', () => {
     queue: false,
     startAt: new Date('2021-09-01T10:00:00'),
     endAt: new Date('2021-09-30T11:00:00'),
-    duration: new Date(),
+    duration: 600,
     description: 'DIY提拉米蘇蛋糕',
   };
 
@@ -62,7 +62,7 @@ describe('CreateServiceUseCase', () => {
 
   it('should return a Result object with an error if there is an error creating the service', async () => {
     const errorMessage = 'Error creating service';
-    mockServiceAggregateRoot.createService.mockReturnValueOnce(
+    mockServiceAggregateRoot.createService.mockResolvedValueOnce(
       Result.fail(errorMessage)
     );
     const [error] = await createServiceUseCase.execute(payload);
@@ -70,7 +70,7 @@ describe('CreateServiceUseCase', () => {
   });
 
   it('should return a Result object with the service history if the service is created successfully', async () => {
-    mockServiceAggregateRoot.createService.mockReturnValueOnce(
+    mockServiceAggregateRoot.createService.mockResolvedValueOnce(
       Result.ok(aggregateRootResult)
     );
     mockServiceRepository.create.mockResolvedValueOnce(serviceHistory);

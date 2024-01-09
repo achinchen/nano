@@ -9,5 +9,6 @@ export interface IProviderRepository {
   getById(id: Provider['id']): Promise<Provider>;
   getByOwnerId(id: Provider['ownerId']): Promise<Provider>;
   deleteById(id: Provider['id']): Promise<boolean>;
+  getDetailById(id: Provider['id']): Promise<ProviderDetailDTO>;
   getDetailByOwnerId(id: Provider['ownerId']): Promise<ProviderDetailDTO>;
 }

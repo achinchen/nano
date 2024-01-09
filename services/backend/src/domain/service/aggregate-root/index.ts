@@ -10,14 +10,15 @@ import {
   SERVICE_UPDATED,
   HAS_ORDER_SERVICE_UPDATED,
 } from '~backend/domain/service/event';
+import { providerRepository } from '~backend/domain/provider/repository/provider';
+import { getPlainPeriodTimes, setDateTime } from '~backend/domain/shared/utils';
 import { Result } from '~backend/domain/shared/result';
-
-export const FIRST_VERSION = '1.0.0';
+import { UNCHANGED_CREATE_PAYLOAD } from './constants';
 
 export class ServiceAggregateRoot extends AggregateRoot {
-  public static createService(
+  public static async createService(
     payload: CreateServiceDTO
-  ): IResult<CreateServiceDTO> {
+  ): Promise<IResult<CreateServiceDTO>> {
     const guardResult = Guard.notNullOrUndefinedOrEmptyStringBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,
@@ -27,9 +28,25 @@ export class ServiceAggregateRoot extends AggregateRoot {
     const [error] = guardResult;
     if (error) return guardResult;
 
+    const provider = await providerRepository.getDetailById(payload.providerId);
+
+    const [startTime, endTime] = getPlainPeriodTimes(
+      provider.openAt,
+      provider.openDuration
+    );
+
+    const startAt = payload.allday
+      ? setDateTime(payload.startAt, startTime)
+      : new Date(payload.startAt);
+    const endAt = payload.allday
+      ? setDateTime(payload.endAt, endTime)
+      : new Date(payload.endAt);
+
     const aggregateRootResult = {
       ...payload,
-      version: FIRST_VERSION,
+      ...UNCHANGED_CREATE_PAYLOAD,
+      startAt,
+      endAt,
     };
 
     const serviceAggregateRoot = new ServiceAggregateRoot();
@@ -57,7 +74,6 @@ export class ServiceAggregateRoot extends AggregateRoot {
   public static updateServiceHasOrder(
     payload: Omit<UpdateServiceDTO, 'id'>
   ): IResult<Omit<UpdateServiceDTO, 'id'>> {
-    // supplierId/ locationId/ duration，
     const guardResult = Guard.notNullOrUndefinedOrEmptyStringBulk(
       Object.entries(payload).map(([key, value]) => ({
         argumentName: key,

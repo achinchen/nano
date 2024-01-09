@@ -33,6 +33,24 @@ export const getPeriodTimes = (datetime: Date | string, duration: number) => {
   return timePeriod.split(SEPARATOR);
 };
 
+export const getTime = (datetime: Date | string) => {
+  return dayjs(datetime).format('A hh:mm').replace('早上', '上午');
+};
+
+export const getPlainTime = (datetime: Date | string) => {
+  return dayjs(datetime).format('HH:mm');
+};
+
+export const getPlainPeriodTimes = (
+  datetime: Date | string,
+  duration: number
+) => {
+  const start = dayjs(datetime).format('HH:mm');
+  const end = dayjs(datetime).add(duration, 'minute').format('HH:mm');
+
+  return [start, end];
+};
+
 export const getRelativeTime = (datetime: Date | string) => {
   return dayjs(datetime).fromNow();
 };
