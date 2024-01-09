@@ -5,10 +5,17 @@ import { AppError } from '~backend/domain/shared/error';
 import phoneValueObject from '~backend/domain/shared/value-object/phone';
 import emailValueObject from '~backend/domain/shared/value-object/email';
 import { CreateUserUseCase } from './implementation';
+import { logger } from '~backend/domain/shared/logger';
 
 jest.mock('~backend/domain/shared/error', () => ({
   AppError: {
     Unexpected: jest.fn((error) => [error]),
+  },
+}));
+
+jest.mock('~backend/domain/shared/logger', () => ({
+  logger: {
+    error: jest.fn(),
   },
 }));
 
@@ -130,6 +137,7 @@ describe('CreateUserUseCase', () => {
 
     expect(AppError.Unexpected).toHaveBeenCalledWith(errorInstance);
     expect(result).toBeUndefined();
+    expect(logger.error).toHaveBeenCalledWith(errorInstance);
     expect(error).toBe(AppError.Unexpected(errorInstance)[0]);
 
     expect(mockUserRepository.exist).toHaveBeenCalledWith(payload.email);

@@ -23,7 +23,7 @@ export class User {
   @Column({ length: 60, unique: true })
   email: string;
 
-  @Column({ length: 30, unique: true })
+  @Column({ length: 30, unique: false })
   phone: string;
 
   @Column({ length: 60 })
