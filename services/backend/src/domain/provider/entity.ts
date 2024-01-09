@@ -4,7 +4,12 @@ export class Provider {
     public name: string,
     public slug: string,
     public description: string,
-    public ownerId: number
+    public ownerId: number,
+    public avatarUrl: string,
+    public SNSId: string,
+    public email: string,
+    public openAt: Date,
+    public openDuration: number
   ) {}
 }
 

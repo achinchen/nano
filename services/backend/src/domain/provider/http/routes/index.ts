@@ -1,10 +1,11 @@
 import { Router } from 'express';
-// import { deleteLocationUseCase } from '~backend/domain/provider/use-case/delete-location';
-import { serviceRepository } from '~backend/domain/service/repository/service';
+import { auth } from '~backend/domain/shared/http/middleware/auth';
+import { middleware as transactionMiddleware } from '~backend/domain/shared/http/middleware/transaction';
+import setting from './setting';
+
 const router = Router();
-router.get('/provider/location', async (req, res) => {
-  await serviceRepository.getInfoByIdAndProviderId(3, 1);
-  res.send('Hello World!');
-});
+router.use(transactionMiddleware('provider'));
+
+router.get('/studio/setting', auth, setting);
 
 export default router;

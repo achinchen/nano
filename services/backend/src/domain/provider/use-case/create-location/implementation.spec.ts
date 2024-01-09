@@ -32,6 +32,11 @@ describe('CreateLocationUseCase', () => {
     description: 'Test Provider',
     name: 'Test',
     slug: 'test',
+    avatarUrl: 'https://example.com/avatar.png',
+    SNSId: '123456789',
+    email: 'example@exaple.com',
+    openAt: new Date('2023-01-01 10:00:00'),
+    openDuration: 400,
   };
 
   const location = {

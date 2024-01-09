@@ -32,7 +32,17 @@ export class CreateProviderUseCase
   async execute(payload?: Payload): Promise<Return> {
     if (!payload.userId) return Result.fail(NOT_ALLOW);
 
-    const { userId, description, name, slug } = payload;
+    const {
+      userId,
+      description,
+      name,
+      slug,
+      avatarUrl,
+      SNSId,
+      email,
+      openAt,
+      openDuration,
+    } = payload;
     try {
       const isExist = await this.userRepository.getById(userId);
       if (!isExist) return Result.fail(NOT_ALLOW);
@@ -41,6 +51,11 @@ export class CreateProviderUseCase
         description,
         name,
         slug,
+        avatarUrl,
+        SNSId,
+        email,
+        openAt,
+        openDuration,
         ownerId: userId,
       });
 

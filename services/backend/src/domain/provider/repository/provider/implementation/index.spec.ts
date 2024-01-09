@@ -7,13 +7,25 @@ const mockDBProviderRepository = {
   softDelete: jest.fn(),
 };
 
+const mockLocationRepository = {
+  findOne: jest.fn(),
+};
+
+const mockSupplierRepository = {
+  find: jest.fn(),
+};
+
 jest.mock('~backend/data-source', () => ({
   dataSource: {
-    getRepository: jest.fn().mockReturnValue(mockDBProviderRepository),
+    getRepository: jest
+      .fn()
+      .mockReturnValueOnce(mockDBProviderRepository)
+      .mockReturnValueOnce(mockSupplierRepository)
+      .mockReturnValueOnce(mockLocationRepository),
   },
 }));
 
-import { ProviderRepository } from './implementation';
+import { ProviderRepository } from '.';
 
 describe('ProviderRepository', () => {
   const providerRepository = new ProviderRepository();
@@ -22,6 +34,11 @@ describe('ProviderRepository', () => {
     name: 'Test Provider',
     slug: 'test-provider',
     description: 'A test provider',
+    avatarUrl: 'https://test.com/avatar.png',
+    SNSId: 'test-provider',
+    email: 'example@example.com',
+    openAt: new Date('2023-01-01 10:00:00'),
+    openDuration: 400,
   };
 
   const provider = { ...payload, id: 1 };
@@ -70,5 +87,49 @@ describe('ProviderRepository', () => {
       id: provider.id,
     });
     expect(result).toBe(true);
+  });
+
+  it('should return the correct detail for a given owner ID', async () => {
+    // Arrange
+    const ownerId = 123;
+    const mockProvider = {
+      id: '1',
+      name: 'Provider Name',
+      slug: 'provider-slug',
+      description: 'Provider Description',
+      avatarUrl: 'provider-avatar-url',
+      SNSId: 'provider-sns-id',
+      email: 'provider-email',
+      openAt: 'provider-open-at',
+      openDuration: 'provider-open-duration',
+    };
+    const mockLocation = {
+      id: '1',
+      name: 'Location Name',
+      address: 'Location Address',
+    };
+    const mockSuppliers = [
+      { id: '1', name: 'Supplier Name', avatarUrl: 'supplier-avatar-url' },
+    ];
+
+    mockDBProviderRepository.findOneBy.mockResolvedValue(mockProvider);
+    mockLocationRepository.findOne.mockResolvedValue(mockLocation);
+    mockSupplierRepository.find.mockResolvedValue(mockSuppliers);
+
+    const detail = await providerRepository.getDetailByOwnerId(ownerId);
+
+    expect(detail).toEqual({
+      id: mockProvider.id,
+      name: mockProvider.name,
+      slug: mockProvider.slug,
+      description: mockProvider.description,
+      avatarUrl: mockProvider.avatarUrl,
+      SNSId: mockProvider.SNSId,
+      email: mockProvider.email,
+      openAt: mockProvider.openAt,
+      openDuration: mockProvider.openDuration,
+      location: mockLocation,
+      suppliers: mockSuppliers,
+    });
   });
 });
