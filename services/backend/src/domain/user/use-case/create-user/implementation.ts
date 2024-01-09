@@ -12,6 +12,7 @@ import { UseCase } from '~backend/domain/shared/use-case';
 import phoneValueObject from '~backend/domain/shared/value-object/phone';
 import emailValueObject from '~backend/domain/shared/value-object/email';
 import { EXISTED_EMAIL } from '~backend/domain/user/error';
+import { logger } from '~backend/domain/shared/logger';
 
 type UserResult = User;
 type Payload = CreateUserDTO & Omit<CreateUserFederatedCredentialDTO, 'userId'>;
@@ -36,7 +37,7 @@ export class CreateUserUseCase implements UseCase<Payload, Promise<Return>> {
     if (emailError || phoneError) return Result.fail(emailError || phoneError);
 
     try {
-      const isExist = await this.userRepository.exist(email);
+      const isExist = await this.userRepository.exist(payload.email);
       if (isExist) return Result.fail(EXISTED_EMAIL);
 
       const user = await this.userRepository.create({
@@ -55,6 +56,7 @@ export class CreateUserUseCase implements UseCase<Payload, Promise<Return>> {
 
       return Result.ok<UserResult>(user);
     } catch (error) {
+      logger.error(error);
       return AppError.Unexpected(error);
     }
   }

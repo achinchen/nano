@@ -1,3 +1,4 @@
+import path from 'path';
 import { config } from 'dotenv';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
@@ -17,8 +18,6 @@ export const dataSource = new DataSource({
   type: 'mysql',
   url: process.env.DB_URL,
   driver: {},
-  synchronize: true,
-  // synchronize: process.env.NODE_ENV === 'development',
   logging: false,
   entities: [
     User,
@@ -31,6 +30,10 @@ export const dataSource = new DataSource({
     ServiceHistory,
     Order,
   ],
-  migrations: [],
+  // migrations: ['./migrations/**{.js}'],
+  // migrationsTableName: '_migrations',
+  // migrationsRun: true,
+  // synchronize: process.env.NODE_ENV === 'development',
+  synchronize: true,
   subscribers: [],
 });
