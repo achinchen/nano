@@ -88,6 +88,35 @@
         "build"
       ],
       "command": "fly deploy --config services/backend/fly.toml --dockerfile services/backend/Dockerfile"
+    },
+    "migration:build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "isolatedConfig": true,
+        "webpackConfig": "services/backend/webpack.config.js",
+        "tsConfig": "services/backend/tsconfig.app.json",
+        "outputPath": "services/backend/dist/migration",
+        "main": "services/backend/src/data-source.ts"
+      }
+    },
+    "migration:gen": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "commands": ["typeorm -d services/backend/dist/migration/main.js migration:generate"]
+      },
+      "dependsOn": ["migration:build"]
+    },
+    "migration:run": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "commands": ["typeorm -d services/backend/dist/migration/main.js migration:run"]
+      },
+      "dependsOn": ["migration:build"]
     }
   },
   "tags": []
