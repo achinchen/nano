@@ -16,7 +16,7 @@ export default function useMe() {
   useEffect(() => {
     fetcher({
       fetchArgs: {
-        path: `/users/me`,
+        path: '/users/me',
         options: { method: 'GET' },
       },
       onSuccess: (response) => {

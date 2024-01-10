@@ -1,10 +1,5 @@
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { createContext, useContext, useState } from 'react';
 import useMe from './hooks/use-me';
 
 export type InitialState = {
@@ -31,7 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
 export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const { me } = useMe();
-  const isLogin = Number(me?.role) !== 0;
+  const isLogin = Boolean(me) && Number(me?.role) !== 0;
   const isProvider = Number(me?.role) === 2;
   const id = me?.id ? Number(me.id) : 0;
 

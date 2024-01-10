@@ -1,4 +1,5 @@
-import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '~frontend/context';
 
 export default function GuestProtectedRoute({
@@ -7,6 +8,10 @@ export default function GuestProtectedRoute({
   children: JSX.Element;
 }) {
   const { isLogin } = useAppContext();
-  if (isLogin) return <Navigate to="/my/setting" />;
-  return children;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) navigate('/my/setting');
+  }, [isLogin, navigate]);
+  return isLogin ? null : children;
 }
