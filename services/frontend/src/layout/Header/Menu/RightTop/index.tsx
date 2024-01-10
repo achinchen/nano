@@ -26,7 +26,7 @@ export default function RightTop({ onClose }: Props) {
   return (
     <Fragment>
       <div className="fixed bottom-0 left-0 right-0 top-0" onClick={onClose} />
-      <aside className="fixed right-4 top-11 w-80 rounded-4 bg-white px-4 shadow-dialog">
+      <aside className="fixed top-12 mx-0 w-80 translate-x--90% rounded-4 bg-white px-4 shadow-dialog">
         {navigation.map(({ title, items }) => (
           <ul className="color-zinc-700" key={title}>
             <li className="h-11 flex items-center">{title}</li>
