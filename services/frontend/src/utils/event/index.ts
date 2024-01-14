@@ -9,6 +9,7 @@ import type {
   IEventEmitter,
   IEventHelper,
 } from '~frontend/utils/event/types';
+import { getIsProduction } from '~frontend/utils/env/get-is-production';
 
 export const createEventHelper = (serviceName: ServiceName): IEventHelper => {
   const getServiceEventName = (eventName: EventName): ServiceEventName => {
@@ -34,6 +35,7 @@ export const createEventEmitter = (serviceName: ServiceName): IEventEmitter => {
     document.addEventListener(serviceEventName, (event: CustomEvent) => {
       listener(event.detail);
     });
+    if (getIsProduction()) return;
     console.info('Subscribe to browser event', {
       detail: { eventName: serviceEventName },
     });
@@ -43,6 +45,7 @@ export const createEventEmitter = (serviceName: ServiceName): IEventEmitter => {
     const serviceEventName = getServiceEventName(eventName);
     const customEvent = new CustomEvent(serviceEventName, { detail: payload });
     document.dispatchEvent(customEvent);
+    if (getIsProduction()) return;
     console.info('Emit a browser event', {
       detail: { eventName: serviceEventName, payload },
     });

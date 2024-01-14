@@ -1,11 +1,12 @@
 export type Service = {
   name: string;
-  id: string;
+  id: number;
   description: string;
   location: {
     name: string;
     address: string;
   };
+  allday: boolean;
   attendee: number;
   duration: number;
   queue: boolean;

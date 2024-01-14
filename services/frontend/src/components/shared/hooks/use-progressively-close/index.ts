@@ -17,6 +17,7 @@ export function useProgressivelyClose({
       const target = event.target as HTMLElement;
       const isClickOutside =
         targetRef?.current && !targetRef.current.contains(target);
+
       if (!isClickOutside) return;
       event.stopPropagation();
       onClose();

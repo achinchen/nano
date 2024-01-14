@@ -66,4 +66,35 @@ export class ProviderRepository implements IProviderRepository {
       suppliers,
     };
   }
+
+  async getDetailById(id: Provider['id']): Promise<ProviderDetailDTO> {
+    const provider = await providerRepository.findOneBy({ id });
+    if (!provider) return null;
+    const [location, suppliers] = await Promise.all([
+      locationRepository.findOne({
+        where: {
+          providerId: provider.id,
+        },
+        select: ['id', 'name', 'address'],
+      }),
+      supplierRepository.find({
+        where: { providerId: provider.id },
+        select: ['id', 'name', 'avatarUrl'],
+      }),
+    ]);
+
+    return {
+      id: provider.id,
+      name: provider.name,
+      slug: provider.slug,
+      description: provider.description,
+      avatarUrl: provider.avatarUrl,
+      SNSId: provider.SNSId,
+      email: provider.email,
+      openAt: provider.openAt,
+      openDuration: provider.openDuration,
+      location,
+      suppliers,
+    };
+  }
 }

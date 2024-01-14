@@ -7,6 +7,10 @@ jest.mock('.', () => ({
   }),
 }));
 
+jest.mock('~frontend/utils/env/get-is-production', () => ({
+  getIsProduction: () => true,
+}));
+
 describe('EventEmitter', () => {
   const mockService = 'mock-service';
   const mockEventName = 'mock:custom:action';

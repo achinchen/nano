@@ -4,6 +4,7 @@ import Button from '~frontend/components/Button';
 import useHeader from '~frontend/features/studio/hooks/use-header';
 import { useStudioContext } from '~frontend/features/studio/context';
 import sharedI from '~frontend/shared/i.json';
+import featureI from '~frontend/features/studio/i.json';
 import i from './i.json';
 
 const CONTAINER_CLASSES = 'items-center justify-between gap-2';
@@ -54,7 +55,7 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
             onClick={toggleListMode}
           />
         </div>
-        <Link to="/studio/service/create">
+        <Link to="/studio/services/create">
           <Button
             color="dark"
             variant="outline"
@@ -62,7 +63,7 @@ export default function ServicesHeader({ smHidden }: { smHidden?: boolean }) {
             prefixIcon="i-solar-add-circle-bold"
             onClick={onCreateClick}
           >
-            {i.create}
+            {featureI.create}
           </Button>
         </Link>
       </aside>

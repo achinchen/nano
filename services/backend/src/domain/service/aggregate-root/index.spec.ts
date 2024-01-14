@@ -4,7 +4,11 @@ import {
   SERVICE_UPDATED,
   HAS_ORDER_SERVICE_UPDATED,
 } from '~backend/domain/service/event';
+import { setDateTime, getPlainPeriodTimes } from '~backend/domain/shared/utils';
+import { UNCHANGED_CREATE_PAYLOAD } from './constants';
+
 type EventEmitter = typeof DomainEvent.prototype.eventEmitter;
+import { providerRepository } from '~backend/domain/provider/repository/provider';
 const mockEventEmitter = { emit: jest.fn() } as unknown as EventEmitter;
 
 class MockDomainEvent {
@@ -23,7 +27,17 @@ jest.mock('~backend/domain/shared/event', () => ({
   DomainEvent: MockDomainEvent,
 }));
 
-import { ServiceAggregateRoot, FIRST_VERSION } from '.';
+jest.mock('~backend/domain/provider/repository/provider', () => ({
+  providerRepository: {
+    getDetailById: jest.fn(),
+  },
+}));
+
+const mockProviderRepository = providerRepository as jest.Mocked<
+  typeof providerRepository
+>;
+
+import { ServiceAggregateRoot } from '.';
 
 type CreateServicePayload = Parameters<
   typeof ServiceAggregateRoot.createService
@@ -45,8 +59,8 @@ describe('ServiceAggregateRoot', () => {
   });
 
   describe('createService', () => {
-    it('should return an error if any required field is missing', () => {
-      const [error] = ServiceAggregateRoot.createService({
+    it('should return an error if any required field is missing', async () => {
+      const [error] = await ServiceAggregateRoot.createService({
         name: 'Test Service',
         description: '',
       } as CreateServicePayload);
@@ -55,15 +69,78 @@ describe('ServiceAggregateRoot', () => {
       expect(mockEventEmitter.emit).not.toHaveBeenCalled();
     });
 
-    it('should return a result with the correct payload', () => {
+    it('should return a result with the correct payload when allday is false', async () => {
       const payload = {
+        providerId: 1,
+        allday: false,
         name: 'Test Service',
         description: 'A test service',
-      } as CreateServicePayload;
-      const [error, result] = ServiceAggregateRoot.createService(payload);
+        startAt: '2024-01-01T10:00:00',
+        endAt: '2024-07-31T11:00:00',
+      } as unknown as CreateServicePayload;
 
-      const expectedPayload = { ...payload, version: FIRST_VERSION };
+      mockProviderRepository.getDetailById.mockResolvedValue({
+        openAt: new Date('2024-01-01T10:00:00'),
+        openDuration: 600,
+      } as Awaited<ReturnType<(typeof providerRepository)['getDetailById']>>);
+      const [error, result] = await ServiceAggregateRoot.createService(payload);
+
+      const expectedPayload = {
+        ...payload,
+        ...UNCHANGED_CREATE_PAYLOAD,
+        startAt: new Date(payload.startAt),
+        endAt: new Date(payload.endAt),
+      };
+
       expect(error).toBe(null);
+      expect(mockProviderRepository.getDetailById).toHaveBeenCalledWith(
+        payload.providerId
+      );
+      expect(result).toMatchObject(expectedPayload);
+      expect(mockEventEmitter.emit).toHaveBeenCalledWith(
+        SERVICE_CREATED,
+        expectedPayload
+      );
+    });
+
+    it('should return a result with the correct payload when allday is true', async () => {
+      const payload = {
+        providerId: 1,
+        allday: true,
+        name: 'Test Service',
+        description: 'A test service',
+        startAt: '2024-01-01T10:00:00',
+        endAt: '2024-07-31T10:00:00',
+      } as unknown as CreateServicePayload;
+
+      const detail = {
+        openAt: new Date('2024-01-01T10:00:00'),
+        openDuration: 600,
+      };
+
+      mockProviderRepository.getDetailById.mockResolvedValue(
+        detail as Awaited<
+          ReturnType<(typeof providerRepository)['getDetailById']>
+        >
+      );
+      const [error, result] = await ServiceAggregateRoot.createService(payload);
+
+      const [startTime, endTime] = getPlainPeriodTimes(
+        detail.openAt,
+        detail.openDuration
+      );
+
+      const expectedPayload = {
+        ...payload,
+        ...UNCHANGED_CREATE_PAYLOAD,
+        startAt: setDateTime(payload.startAt, startTime),
+        endAt: setDateTime(payload.endAt, endTime),
+      };
+
+      expect(error).toBe(null);
+      expect(mockProviderRepository.getDetailById).toHaveBeenCalledWith(
+        payload.providerId
+      );
       expect(result).toMatchObject(expectedPayload);
       expect(mockEventEmitter.emit).toHaveBeenCalledWith(
         SERVICE_CREATED,

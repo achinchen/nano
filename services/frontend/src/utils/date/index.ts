@@ -93,3 +93,8 @@ export const isTomorrow = (date: Date) => {
 export function isToday(date: Date) {
   return dayjs(date).isToday();
 }
+
+export const setDateTime = (date: Date | string, time: string) => {
+  const [hour, minute] = time.split(':').map(Number);
+  return dayjs(date).set('hour', hour).set('minute', minute).toDate();
+};

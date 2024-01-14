@@ -8,6 +8,7 @@ import StudioSetting from '~frontend/pages/studio/setting';
 import StudioServiceLayout from '~frontend/pages/studio/services/layout';
 import StudioServices from '~frontend/pages/studio/services/index';
 import StudioServiceId from '~frontend/pages/studio/services/id';
+import StudioServiceCreate from '~frontend/pages/studio/services-create';
 import StudioServiceVersion from '~frontend/pages/studio/services-version';
 import StudioOrders from '~frontend/pages/studio/orders';
 import StudioOrderRequestedLayout from '~frontend/pages/studio/orders-requested/layout';
@@ -67,6 +68,15 @@ export function App() {
               <Route index element={<StudioServices />} />
               <Route path=":id" element={<StudioServiceId />} />
             </Route>
+
+            <Route
+              path="/studio/services/create"
+              element={
+                // <ProviderProtectedRoute>
+                <StudioServiceCreate />
+                // </ProviderProtectedRoute>
+              }
+            ></Route>
 
             <Route
               path="/studio/services/:id/:version"

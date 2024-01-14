@@ -1,4 +1,3 @@
-import path from 'path';
 import { config } from 'dotenv';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';

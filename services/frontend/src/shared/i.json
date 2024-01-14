@@ -27,7 +27,7 @@
       "name": "訂購人姓名",
       "email": "Email",
       "phone": "聯絡電話",
-      "SNSId": "社群帳號",
+      "SNSId": "Instagram ID",
       "note": "備註訊息"
     }
   } 

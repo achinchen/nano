@@ -1,6 +1,5 @@
 import { Fragment, useMemo, useState } from 'react';
 import Avatar from '~frontend/components/Avatar';
-import Avocado from '~frontend/assets/avatar.png';
 import sharedI from '~frontend/shared/i.json';
 import Separator from '~frontend/components/Separator';
 import { getPeriodTimes } from '~frontend/utils/time';
@@ -8,29 +7,8 @@ import { useStudioSettingContext } from '~frontend/features/studio/setting/conte
 import Icon from '~frontend/components/Icon';
 import IconLoading from '~frontend/components/IconLoading';
 import TextButton from '~frontend/components/TextButton';
-import useSetting from './hooks/use-setting';
+import useSetting from '~frontend/features/studio/hooks/use-setting';
 import scopedI from './i.json';
-
-const info = {
-  name: '酪梨小教室',
-  email: 'example@example.com',
-  no: '123456789',
-  SNS: 'a.b.c',
-  time: {
-    start: '2021-01-01T10:00:00',
-    duration: 600,
-  },
-  location: {
-    address: '台北市大安區復興南路一段390號',
-    name: '台北',
-  },
-  supplier: {
-    name: '阿狗狗',
-    avatar: Avocado,
-    email: 'supplier@example.com',
-    no: '12344',
-  },
-};
 
 const CONTAINER_CLASS = 'flex flex-col gap-4';
 
@@ -87,7 +65,7 @@ export default function Content() {
                   content={setting.email}
                 />
                 <Item title={scopedI.info.SNS} content={setting.SNSId} />
-                <Item title={scopedI.info.no} content={setting.id} />
+                <Item title={scopedI.info.no} content={String(setting.id)} />
               </div>
               <div className={`${CONTAINER_CLASS} mt-8 mb-12`}>
                 <header>
@@ -129,7 +107,7 @@ export default function Content() {
                 className="flex-shrink-0 flex-grow-0"
                 src={setting.suppliers[selectedSupplierIndex].avatarUrl}
               />
-              <Item title={scopedI.info.no} content={setting.id} />
+              <Item title={scopedI.info.no} content={String(setting.id)} />
               <Item
                 title={scopedI.supplier.name}
                 content={setting.suppliers[selectedSupplierIndex].name}

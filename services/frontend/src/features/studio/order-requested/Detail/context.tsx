@@ -62,11 +62,12 @@ export const RequestOrderContextProvider = ({
       address: '台北市中正區重慶南路一段122號',
     },
     attendee: 20,
-    id: '12',
+    id: 12,
     supplier: '阿狗狗',
     description:
       '創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容。',
     queue: Number(id) % 2 === 0,
+    allday: true,
   });
   const [contactInfo] = useState({
     name: '阿狗',

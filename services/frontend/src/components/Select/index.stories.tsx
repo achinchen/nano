@@ -14,7 +14,6 @@ export const Default = (args: SelectProps) => {
   const [value, setValue] = useState('');
   const onValueChange = (v: string) => {
     setValue(v);
-    console.log('changed', v);
   };
 
   return <Select {...args} value={value} onValueChange={onValueChange} />;

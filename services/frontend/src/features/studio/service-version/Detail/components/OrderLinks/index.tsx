@@ -8,7 +8,7 @@ import i from './i.json';
 
 type Order = {
   name: string;
-  id: string;
+  id: number;
 };
 
 type Props = {

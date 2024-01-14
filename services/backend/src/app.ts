@@ -4,15 +4,16 @@ import express, { json, urlencoded, static as expressStatic } from 'express';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
-import csrf from 'tiny-csrf';
 import cors from 'cors';
 import { config } from 'dotenv';
 import { middleware as loggerMiddleware } from './domain/shared/http/middleware/logger';
 import authRouter from './domain/user/http/routes';
 import orderRouter from './domain/order/http/routes';
 import providerRouter from './domain/provider/http/routes';
+import serviceRouter from './domain/service/http/routes';
 import { setupMonitor } from './domain/shared/monitor';
 
+//TODO: double csrf token
 config();
 setupMonitor(express);
 
@@ -23,7 +24,6 @@ app.use(json());
 
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser(process.env.SESSION_TOKEN));
-app.use(csrf(process.env.SESSION_TOKEN));
 app.use(
   cors({
     origin: process.env.CLIENT_HOST,
@@ -31,6 +31,7 @@ app.use(
 );
 
 app.use(expressStatic(path.join(__dirname, 'assets')));
+
 app.use(
   session({
     secret: process.env.SESSION_TOKEN,
@@ -55,15 +56,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(function (req, res, next) {
-  res.locals.csrfToken = req.csrfToken();
-  next();
-});
-
 app.use(loggerMiddleware);
 
 app.use('/', authRouter);
 app.use('/', providerRouter);
+app.use('/', serviceRouter);
 app.use('/', orderRouter);
 
 app.use('/health-check', function (req, res) {
