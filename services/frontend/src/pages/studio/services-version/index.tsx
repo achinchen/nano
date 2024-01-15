@@ -2,11 +2,15 @@ import { Fragment, lazy } from 'react';
 import { StudioContextProvider } from '~frontend/features/studio/context';
 import Detail from '~frontend/features/studio/service-version/Detail';
 import Header from '~frontend/features/studio/service-version/Header';
+import useBg from '~frontend/shared/hooks/use-bg';
+import { BG } from './constants';
+
 const Calendar = lazy(
   () => import('~frontend/features/studio/service-version/Calendar')
 );
 
 export default function Index() {
+  useBg(BG);
   return (
     <StudioContextProvider>
       <Fragment>

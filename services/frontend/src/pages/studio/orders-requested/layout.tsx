@@ -2,11 +2,15 @@ import { Fragment, lazy } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { StudioContextProvider } from '~frontend/features/studio/context';
 import Header from '~frontend/features/studio/order-requested/Header';
+import useBg from '~frontend/shared/hooks/use-bg';
+import { BG } from './constants';
+
 const Calendar = lazy(
   () => import('~frontend/features/studio/order-requested/Calendar')
 );
 
 export default function Index() {
+  useBg(BG);
   const { pathname } = useLocation();
   const isIndex = pathname === '/studio/orders/requested';
 

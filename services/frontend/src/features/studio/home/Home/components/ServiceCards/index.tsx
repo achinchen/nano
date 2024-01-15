@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Icon from '~frontend/components/Icon';
 import { formatDuration, getPeriodTime } from '~frontend/utils/time';
 import sharedI from '~frontend/shared/i.json';
-import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 
 const SERVICES = [
   {

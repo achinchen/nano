@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Avatar from '~frontend/components/Avatar';
 import sharedI from '~frontend/shared/i.json';
 import IconLoading from '~frontend/components/IconLoading';
-import getAvatarById from '~frontend/shared/get-avatar-by-id';
+import getAvatarById from '~frontend/shared/utils/get-avatar-by-id';
 import scopedI from './i.json';
 import useProfile from './hooks/use-profile';
 

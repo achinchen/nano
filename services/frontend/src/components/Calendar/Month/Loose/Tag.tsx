@@ -1,5 +1,5 @@
 import type { Props } from '~frontend/components/Calendar/Month/Loose/types';
-import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 import { Content as ContentType } from '~frontend/components/Calendar/types';
 import Container from './components/Container';
 import { MAX_LENGTH } from './constants';
