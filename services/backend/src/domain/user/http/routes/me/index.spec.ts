@@ -29,12 +29,24 @@ describe('me', () => {
   });
 
   it('returns the provider role when the user is a provider', async () => {
-    mockProviderRepository.getByOwnerId.mockResolvedValue({
+    const provider = {
       id: 3,
-    } as Provider);
+      name: 'name',
+      avatarUrl: 'avatarUrl',
+      SNSId: 'SNSId',
+    } as Provider;
+    mockProviderRepository.getByOwnerId.mockResolvedValue(provider);
 
     await me(req, res, next);
 
-    expect(res.json).toHaveBeenCalledWith({ id, role: Role.provider });
+    expect(res.json).toHaveBeenCalledWith({
+      id,
+      role: Role.provider,
+      studio: {
+        avatarUrl: provider.avatarUrl,
+        name: provider.name,
+        SNSId: provider.SNSId,
+      },
+    });
   });
 });

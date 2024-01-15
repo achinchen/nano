@@ -11,6 +11,7 @@ export type InitialState = {
   studio?: {
     avatarUrl: string;
     name: string;
+    SNSId: string;
   };
 };
 

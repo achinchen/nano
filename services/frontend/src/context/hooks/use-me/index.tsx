@@ -6,8 +6,9 @@ type Me = {
   role: string;
   id: string;
   studio?: {
-    avatar: string;
+    avatarUrl: string;
     name: string;
+    SNSId: string;
   };
 };
 
