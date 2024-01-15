@@ -12,7 +12,21 @@ export const me = async (req, res, next) => {
     if (!id) return res.json({ role: Role.guest });
 
     const provider = await providerRepository.getByOwnerId(id);
-    return res.json({ id, role: provider ? Role.provider : Role.consumer });
+    if (!provider)
+      return res.json({
+        id,
+        role: Role.consumer,
+      });
+
+    return res.json({
+      id,
+      role: Role.provider,
+      studio: {
+        avatarUrl: provider.avatarUrl,
+        name: provider.name,
+        SNSId: provider.SNSId,
+      },
+    });
   } catch {
     next();
   }

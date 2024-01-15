@@ -72,11 +72,11 @@ export function App() {
             <Route
               path="/studio/services/create"
               element={
-                // <ProviderProtectedRoute>
-                <StudioServiceCreate />
-                // </ProviderProtectedRoute>
+                <ProviderProtectedRoute>
+                  <StudioServiceCreate />
+                </ProviderProtectedRoute>
               }
-            ></Route>
+            />
 
             <Route
               path="/studio/services/:id/:version"

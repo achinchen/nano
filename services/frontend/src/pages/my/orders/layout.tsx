@@ -2,10 +2,13 @@ import { Fragment, lazy } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import { MyOrderContextProvider } from '~frontend/features/my/order/context';
 import Header from '~frontend/features/my/order/Header';
+import useBg from '~frontend/shared/hooks/use-bg';
+import { BG } from './constants';
 
 const Calendar = lazy(() => import('~frontend/features/my/order/Calendar'));
 
 export default function MyOrdersLayout() {
+  useBg(BG);
   const { pathname } = useLocation();
   const isIndex = pathname === '/my/orders';
 

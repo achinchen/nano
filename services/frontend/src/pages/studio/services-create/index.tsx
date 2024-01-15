@@ -8,8 +8,11 @@ import InfoForm from '~frontend/features/studio/service-create/InfoForm';
 import Preview from '~frontend/features/studio/service-create/Preview';
 import ExitPrompt from '~frontend/features/studio/service-create/ExitPrompt';
 import { Step } from '~frontend/features/studio/service-create/constants';
+import useBg from '~frontend/shared/hooks/use-bg';
+import { BG } from './constants';
 
 function Content() {
+  useBg(BG);
   const { currentStep } = useServiceCreateContext();
 
   return (

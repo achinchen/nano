@@ -19,7 +19,7 @@ main {
 }
 
 body {
-  @apply font-default font-500 color-zinc-700 max-h-100dvh overflow-hidden md:bg-zinc-400;
+  @apply font-default font-500 color-zinc-700 max-h-100dvh overflow-hidden md:bg-zinc-200 md:[background-image:var(--bg-url)] bg-center;
 }
 
 button {

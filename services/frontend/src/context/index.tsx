@@ -8,6 +8,11 @@ export type InitialState = {
   isLogin: boolean;
   isProvider: boolean;
   id: number;
+  studio?: {
+    avatarUrl: string;
+    name: string;
+    SNSId: string;
+  };
 };
 
 export const AppContext = createContext<InitialState>({
@@ -17,6 +22,7 @@ export const AppContext = createContext<InitialState>({
   isLogin: false,
   isProvider: false,
   id: 0,
+  studio: undefined,
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -29,6 +35,7 @@ export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
   const isLogin = Boolean(me) && Number(me?.role) !== 0;
   const isProvider = Number(me?.role) === 2;
   const id = me?.id ? Number(me.id) : 0;
+  const studio = me?.studio;
 
   return (
     <AppContext.Provider
@@ -38,6 +45,7 @@ export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
         id,
         isLogin,
         isProvider,
+        studio,
       }}
     >
       {children}

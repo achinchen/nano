@@ -2,7 +2,7 @@ import Avatar from '~frontend/components/Avatar';
 import { getIsMobile } from '~frontend/utils/device';
 import { useHeaderContext } from '~frontend/layout/Header/context/index';
 import { useAppContext } from '~frontend/context';
-import getAvatarById from '~frontend/shared/get-avatar-by-id';
+import getAvatarById from '~frontend/shared/utils/get-avatar-by-id';
 import FullScreen from './FullScreen';
 import RightTop from './RightTop';
 

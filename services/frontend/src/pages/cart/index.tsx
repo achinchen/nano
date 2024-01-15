@@ -8,8 +8,11 @@ import {
   useCartContext,
 } from '~frontend/features/cart/context';
 import { Step } from '~frontend/features/cart/constants';
+import useBg from '~frontend/shared/hooks/use-bg';
+import { BG } from './constants';
 
 function Content() {
+  useBg(BG);
   const { currentStep } = useCartContext();
 
   return (

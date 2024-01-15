@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
-import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
 import { isBefore } from '~frontend/utils/date';
 

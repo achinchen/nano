@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 import {
   getHeightByDuration,
   getTopByTimeAndOpenTime,

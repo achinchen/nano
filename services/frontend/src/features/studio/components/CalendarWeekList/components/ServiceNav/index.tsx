@@ -1,5 +1,5 @@
 import sharedI from '~frontend/shared/i.json';
-import { getServiceColorById } from '~frontend/shared/get-service-color-by-id';
+import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 
 const mockServiceData = {
   17: [{ name: '提拉米蘇蛋糕課', id: 1, status: 'full' }],
