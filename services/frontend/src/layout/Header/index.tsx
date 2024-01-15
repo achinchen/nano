@@ -11,8 +11,9 @@ import { SIDE_MENU } from './constants';
 import { HeaderContextProvider, useHeaderContext } from './context';
 
 export function Header() {
-  const { isLogin, isProvider } = useAppContext();
+  const { isLogin, isProvider, studio } = useAppContext();
   const { isMenuOpen } = useHeaderContext();
+
   return (
     <header className="mx-auto max-w-5xl min-h-11 flex justify-between px-4 py-2 md:color-zinc-50">
       <div className="flex items-center gap-1 md:gap-4">
@@ -22,18 +23,20 @@ export function Header() {
           isProvider && <ProviderNavigationDrawer />
         )}
         <img
-          alt="studio logo"
-          src={Studio}
+          alt={isProvider ? `${studio?.name} logo` : 'studio logo'}
+          src={isProvider ? studio?.avatarUrl : Studio}
           width={36}
           height={36}
           className={isProvider ? 'hidden md:block' : ''}
         />
         {isProvider && <ProviderNavigation />}
         <Link
-          to="/booking/QQ"
+          to={isProvider ? '/studio' : '/booking/QQ'}
           className={`flex items-center ${isProvider ? 'md:hidden' : ''}`}
         >
-          <h1 className="ml-1 text-sm">Studio Name</h1>
+          <h1 className="ml-1 text-sm">
+            {isProvider ? studio?.name : 'Studio Name'}
+          </h1>
         </Link>
       </div>
       <div className="flex items-baseline gap-1 md:gap-4">

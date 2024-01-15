@@ -5,6 +5,10 @@ import useFetch from '~frontend/shared/hooks/use-fetch';
 type Me = {
   role: string;
   id: string;
+  studio?: {
+    avatar: string;
+    name: string;
+  };
 };
 
 export default function useMe() {
