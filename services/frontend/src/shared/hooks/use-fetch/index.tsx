@@ -15,7 +15,7 @@ function useFetch<T>(): Return<T> {
           const { path, options } = fetchArgs;
           const headers = {
             ...options?.headers,
-            credentials: 'include',
+            credentials: 'same-origin',
           };
           const result = await utilsFetcher(basePath, path, {
             ...options,
