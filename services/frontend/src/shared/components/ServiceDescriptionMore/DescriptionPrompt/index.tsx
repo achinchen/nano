@@ -1,5 +1,4 @@
 import type { Content } from '~frontend/shared/components/ServiceDescriptionMore/types';
-import { Link } from 'react-router-dom';
 import BottomSheet from '~frontend/components/BottomSheet';
 import Dialog from '~frontend/components/Dialog';
 import { getIsMobile } from '~frontend/utils/device';
