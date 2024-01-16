@@ -4454,7 +4454,7 @@
   integrity sha512-oFPnBO+BlJap/qC3r80NuiHmedXdjpWnVnzAlNjsSZoAT7qJM/29tip6ZX/Qmp17mZAIiOVJ2MkyQ5OXHXPdLw==
   dependencies:
     "@aws-sdk/client-lambda" "^3.363.0"
-    axios "1.6.0"
+    axios "^1.6.0"
     check-disk-space "3.3.1"
     content-type "^1.0.5"
     fast-safe-stringify "^2.1.1"
