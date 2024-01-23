@@ -11,7 +11,11 @@ export default function DescriptionHint() {
       <Fragment>
         <div className="mb-6">
           {scopedI.description}
-          <Link className="font-bold underline" to="/studio/setting">
+          <Link
+            className="font-bold underline"
+            to="https://www.instagram.com/nano_tw_03"
+            target="_blank"
+          >
             {scopedI.link}
           </Link>
           。

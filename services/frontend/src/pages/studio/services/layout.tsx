@@ -1,5 +1,5 @@
 import { Fragment, lazy } from 'react';
-import { useLocation, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { StudioContextProvider } from '~frontend/features/studio/context';
 import Header from '~frontend/features/studio/service/Header';
 import useBg from '~frontend/shared/hooks/use-bg';
@@ -10,13 +10,11 @@ const Calendar = lazy(
 
 export default function Index() {
   useBg(BG);
-  const { pathname } = useLocation();
-  const isIndex = pathname === '/studio/services/';
 
   return (
     <StudioContextProvider>
       <Fragment>
-        <Header smHidden={!isIndex} />
+        <Header />
         <div className="h-full flex flex-col md:flex-row md:bg-white">
           <section className="hidden md:block">
             <Calendar />
