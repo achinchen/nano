@@ -31,7 +31,7 @@ export default function StepName({
     ? [
         {
           value: String(location?.id),
-          label: location?.name,
+          label: `${location?.name} (${location?.address})`,
         },
       ]
     : [];
