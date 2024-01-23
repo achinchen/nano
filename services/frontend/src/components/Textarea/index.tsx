@@ -68,13 +68,17 @@ export default function Textarea({
         maxLength={maxLength}
         className={`
           w-full border-1 rounded-3 outline-none
-           hover:border-zinc-700 active:border-zinc-700 text-sm overflow-auto resize-y px-3 py-2 mb-1 placeholder:color-zinc-500 border-zinc-400 
+          text-sm overflow-auto resize-y px-3 py-2 mb-1 placeholder:color-zinc-500 
           ${
             disabled
               ? 'bg-zinc-100 color-zinc-400 cursor-not-allowed'
               : 'color-zinc-700 cursor-pointer'
           }
-          ${isError ? 'border-red-500' : ''}
+          ${
+            isError
+              ? 'border-red-500 hover:border-red-500 active:border-red-500'
+              : 'hover:border-zinc-700 active:border-zinc-700 border-zinc-400'
+          }
           `}
         onChange={onTextAreaChange}
         style={{ minHeight, maxHeight }}
