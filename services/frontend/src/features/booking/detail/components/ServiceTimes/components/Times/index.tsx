@@ -2,7 +2,20 @@ import type { ServiceTime } from './type';
 import { useServiceTimesContext } from '~frontend/features/booking/detail/components/ServiceTimes/context';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
+import { useMessage } from '~frontend/components/Message';
 import scopedI from './i.json';
+
+const QUEUEABLE_REMINDER_PAYLOAD = {
+  severity: 'info',
+  title: scopedI.reminder.queueable.title,
+  children: scopedI.reminder.queueable.content,
+} as const;
+
+const DEFAULT_REMINDER_PAYLOAD = {
+  severity: 'info',
+  title: scopedI.reminder.default.title,
+  children: scopedI.reminder.default.content,
+} as const;
 
 const MAX_QUEUE_LENGTH = 3;
 const CONTAINER =
@@ -16,14 +29,30 @@ const STATUS_CONFIG = {
 
 function Time({ time, status, restAttendee }: ServiceTime) {
   const { queues, setQueues, queue: queueable } = useServiceTimesContext();
+  const { addMessage } = useMessage();
 
   const index = queues.indexOf(time);
   const selected = queues.includes(time);
   const disabled = status === 'full';
 
+  const onCheckQueues = () => {
+    if (selected) return;
+
+    if (queueable && queues.length === MAX_QUEUE_LENGTH) {
+      return addMessage(QUEUEABLE_REMINDER_PAYLOAD);
+    }
+
+    if (!queueable && queues.length) {
+      return addMessage(DEFAULT_REMINDER_PAYLOAD);
+    }
+  };
+
   const onToggle = () => {
     if (disabled) return;
-    return setQueues((queues) => {
+
+    onCheckQueues();
+
+    setQueues((queues) => {
       const selected = queues.includes(time);
       if (!queueable) return selected ? [] : [time];
       if (!selected && queues.length < MAX_QUEUE_LENGTH)
