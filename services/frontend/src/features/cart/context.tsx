@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Step } from '~frontend/features/cart/constants';
 import { eventEmitter } from '~frontend/utils/event';
 
@@ -37,12 +38,15 @@ export const CartContextProvider = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(Step.cart);
   const [disabled, setDisabled] = useState(false);
+  const navigator = useNavigate();
 
   const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
   const toNextStep = () => {
     if (currentStep === Step.cart) eventEmitter.emit(EVENT.order);
     if (currentStep === Step.info) eventEmitter.emit(EVENT.info);
-    setCurrentStep((prevStep) => prevStep + 1);
+    if (currentStep !== Step.preview)
+      return setCurrentStep((prevStep) => prevStep + 1);
+    navigator('/my/orders?prompt=request');
   };
 
   return (
