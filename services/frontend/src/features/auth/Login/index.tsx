@@ -4,12 +4,16 @@ import ExampleStudio from '~frontend/assets/example-studio.png';
 import Brand from '~frontend/assets/brand.jpg';
 import Button from '~frontend/components/Button';
 import { useAppContext } from '~frontend/context';
+import {
+  getAuthPrevPath,
+  removeAuthPrevPath,
+  setAuthPrevPath,
+} from '~frontend/shared/utils/auth-local';
 import { LOGIN_PATH } from './constants';
-import { getAuthPrevPath, removeAuthPrevPath, setAuthPrevPath } from './utils';
 import i from './i.json';
 
 const studio = {
-  name: '阿狗狗快樂工作室',
+  name: '日安蛋糕工作室',
   avatar: ExampleStudio,
 };
 
@@ -21,17 +25,11 @@ export default function Auth() {
   const navigator = useNavigate();
 
   const onLogin = () => {
-    setAuthPrevPath(window.location.pathname);
     window.location.href = LOGIN_PATH;
   };
 
   useEffect(() => {
-    if (isLogin) {
-      navigator('/');
-    }
-  }, [isLogin, navigator]);
-
-  useEffect(() => {
+    if (!isLogin) return;
     const prev = getAuthPrevPath();
     if (prev) {
       removeAuthPrevPath();

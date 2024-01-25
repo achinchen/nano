@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import StepProgress from '~frontend/components/StepProgress';
 import { EVENT, useCartContext } from '~frontend/features/cart/context';
 import { Step } from '~frontend/features/cart/constants';
@@ -40,6 +40,7 @@ export default function InfoForm({ className }: { className?: string }) {
   const { currentStep, toPreviousStep, setDisabled } = useCartContext();
   const [form, dispatch] = useReducer(reducer, { ...defaultForm });
   const [errors, dispatchError] = useReducer(reducer, { ...defaultForm });
+  const [empty, setEmpty] = useState(false);
 
   const checkRequired = (key: string, value: string) => {
     const isEmpty = value.trim().length === 0;
@@ -71,8 +72,13 @@ export default function InfoForm({ className }: { className?: string }) {
   }, [form]);
 
   useEffect(() => {
-    setDisabled(Object.values(errors).some(Boolean));
-  }, [setDisabled, errors]);
+    const { note, email, ...requiredFields } = form;
+    setEmpty(!Object.values(requiredFields).every(Boolean));
+  }, [setDisabled, form]);
+
+  useEffect(() => {
+    setDisabled(empty || Object.values(errors).some(Boolean));
+  }, [setDisabled, empty, errors]);
 
   return (
     <section className={className}>
