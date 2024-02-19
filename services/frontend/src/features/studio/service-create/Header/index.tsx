@@ -7,7 +7,7 @@ export function Header() {
 
   return (
     <header className="flex border-b border-b-zinc-200 border-b-solid py-4 content-header">
-      <h2 className="mx-auto text-2xl">{featureI.create}</h2>
+      <h2 className="text-2xl md:mx-auto">{featureI.create}</h2>
       <IconButton
         size="sm"
         variant="text"

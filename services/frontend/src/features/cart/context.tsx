@@ -1,6 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useAppContext } from '~frontend/context';
 import { Step } from '~frontend/features/cart/constants';
 import { eventEmitter } from '~frontend/utils/event';
+import { setAuthPrevPath } from '~frontend/shared/utils/auth-local';
+
+export const HINT = 'continue';
 
 export type InitialState = {
   currentStep: Step;
@@ -35,15 +40,37 @@ export const CartContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
+  const { isLogin } = useAppContext();
+  const [searchParams] = useSearchParams();
   const [currentStep, setCurrentStep] = useState(Step.cart);
   const [disabled, setDisabled] = useState(false);
+  const navigator = useNavigate();
 
   const toPreviousStep = () => setCurrentStep((prevStep) => prevStep - 1);
-  const toNextStep = () => {
-    if (currentStep === Step.cart) eventEmitter.emit(EVENT.order);
-    if (currentStep === Step.info) eventEmitter.emit(EVENT.info);
+  const onInfoNext = () => {
+    eventEmitter.emit(EVENT.info);
     setCurrentStep((prevStep) => prevStep + 1);
   };
+
+  const onCartNext = () => {
+    eventEmitter.emit(EVENT.order);
+    if (isLogin) return setCurrentStep((prevStep) => prevStep + 1);
+    setAuthPrevPath(`/cart?${HINT}`);
+    navigator('/login');
+  };
+
+  const toNextStep = () => {
+    if (currentStep === Step.cart) return onCartNext();
+    if (currentStep === Step.info) return onInfoNext();
+    navigator('/my/orders?prompt=request');
+  };
+
+  useEffect(() => {
+    if (searchParams.get(HINT) !== undefined && isLogin) {
+      setCurrentStep(Step.info);
+      searchParams.delete(HINT);
+    }
+  }, [setCurrentStep, searchParams, isLogin]);
 
   return (
     <CartContext.Provider

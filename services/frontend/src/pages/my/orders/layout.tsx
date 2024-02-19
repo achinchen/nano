@@ -3,8 +3,8 @@ import { useLocation, Outlet } from 'react-router-dom';
 import { MyOrderContextProvider } from '~frontend/features/my/order/context';
 import Header from '~frontend/features/my/order/Header';
 import useBg from '~frontend/shared/hooks/use-bg';
+import NotificationPrompt from '~frontend/features/my/order/NotificationPrompt';
 import { BG } from './constants';
-
 const Calendar = lazy(() => import('~frontend/features/my/order/Calendar'));
 
 export default function MyOrdersLayout() {
@@ -24,6 +24,7 @@ export default function MyOrdersLayout() {
             <Outlet />
           </section>
         </div>
+        <NotificationPrompt />
       </Fragment>
     </MyOrderContextProvider>
   );

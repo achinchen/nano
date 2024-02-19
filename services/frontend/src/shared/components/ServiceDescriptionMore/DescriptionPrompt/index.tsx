@@ -13,7 +13,7 @@ function Precraution() {
   const { studio } = useAppContext();
   const REGEX = new RegExp(i.key, 'g');
   const SNS_LINK = `<a href="https://www.instagram.com/${
-    studio?.SNSId || ''
+    studio?.SNSId || 'nano_tw_03'
   }" target="_blank" rel="noopener noreferrer" class="underline">${i.key}</a>`;
   const content = i.precraution.replace(REGEX, SNS_LINK);
   return (
