@@ -6,6 +6,9 @@
   "targets": {
     "deploy": {
       "command": "fly deploy --config services/db/fly.toml"
+    },
+    "staging": {
+      "command": "flyctl proxy 3306 -a bukku-db"
     }
   },
   "tags": []
