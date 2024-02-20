@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, lazy } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useStudioContext } from '~frontend/features/studio/context';
+import { STUDIO_TIMES } from '~frontend/features/studio/mock';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
@@ -65,7 +66,6 @@ const mockServiceData = {
 };
 
 const TIME = 'w-14 md:w-17 text-xs color-zinc-500 font-normal text-right';
-const studioOpeningHours = ['09:00', '21:00'];
 
 const getMockData = (month: number) => {
   return Object.entries(mockServiceData).reduce((data, [date, value]) => {
@@ -83,10 +83,7 @@ export default function ServiceCalendarListModeWithRWD({
 }) {
   const { selectedDate, setSelectedDate } = useStudioContext();
   const [serviceData, setServiceData] = useState({});
-  const timeOptions = getTimeOptions(
-    studioOpeningHours[0],
-    studioOpeningHours[1]
-  );
+  const timeOptions = getTimeOptions(STUDIO_TIMES[0], STUDIO_TIMES[1]);
 
   const serviceStatusData = useMemo(() => {
     return Object.entries(serviceData).reduce(

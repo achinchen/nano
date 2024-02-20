@@ -1,42 +1,23 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLooseName from '~frontend/components/Calendar/Month/Loose/Name';
 import { useAppContext } from '~frontend/context';
+import { SERVICE } from '~frontend/features/studio/mock';
 
-const mockServiceData = {
-  17: [{ name: '提拉米蘇蛋糕課', id: 1 }],
-  20: [
-    {
-      name: '提拉米蘇蛋糕課',
-      id: 1,
-    },
-    {
-      name: '情人節手作',
-      id: 2,
-    },
-    {
-      name: '3天寫程式就上手不可能',
-      id: 3,
-    },
-    {
-      name: '精油課程妳看不見',
-      id: 12,
-    },
-  ],
-  30: [
-    {
-      name: '提拉米蘇蛋糕課',
-      id: 30,
-    },
-  ],
-};
+const services = SERVICE.IN_PROGRESS.map(({ name, serviceId }) => ({
+  name,
+  id: serviceId,
+}));
 
-const getMockData = (month: number) => {
-  return Object.entries(mockServiceData).reduce((data, [date, value]) => {
-    return {
+const getMockServiceData = (month: number) => {
+  const getDays = new Date(2024, month - 1, 0).getDate();
+
+  return new Array(getDays).fill(0).reduce(
+    (data, _, index) => ({
       ...data,
-      [`${month}-${date}`]: value,
-    };
-  }, {});
+      [index + 1]: services,
+    }),
+    {}
+  );
 };
 
 export default function CalendarMonthOrder() {
@@ -45,8 +26,7 @@ export default function CalendarMonthOrder() {
 
   useEffect(() => {
     const thisMonth = new Date().getMonth();
-    const isThisMonth = selectedDate.getMonth() === thisMonth;
-    setServiceData(isThisMonth ? getMockData(thisMonth + 1) : {});
+    setServiceData(getMockServiceData(thisMonth + 1));
   }, [selectedDate, setSelectedDate]);
 
   return (

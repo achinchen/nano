@@ -1,6 +1,9 @@
 const LOCATION = { name: '台北店', address: '台北市中正區忠孝西路一段49號' };
 const SUPPLIER = '安老師';
 
+export const STUDIO_TIMES = ['10:00', '20:30'];
+export const STUDIO_DURATION = 690;
+
 export const SERVICE = {
   IN_PROGRESS: [
     {
@@ -194,6 +197,6 @@ export const SERVICE = {
       `,
     },
   ],
-};
+} as const;
 
 export const SERVICES = Object.values(SERVICE).flat();
