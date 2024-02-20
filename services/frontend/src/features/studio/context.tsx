@@ -39,7 +39,7 @@ export const StudioContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date('2024-01-01'));
   const [isListMode, setListMode] = useState(false);
 
   const toggleListMode = () =>

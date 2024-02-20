@@ -1,26 +1,27 @@
-import { Link, useParams } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
 import i from './i.json';
 
 const CLASSNAMES =
   'text-lg flex justify-between items-center py-3 pl-0 pr-2 border-b-px border-b-solid border-b-zinc-200';
 
-export default function Actions() {
-  const { id } = useParams<{ id?: string }>();
-  const end = Number(id) % 2 === 0;
+type Props = {
+  end: boolean;
+  id: number;
+};
 
+export default function Actions({ id, end }: Props) {
   return (
     <div className="flex flex-col">
       {!end && (
-        <Link to={`/studio/services/${id}/update`} className={CLASSNAMES}>
+        <button className={CLASSNAMES}>
           {i.update}
           <Icon size="xl" icon="i-solar-alt-arrow-right-linear" />
-        </Link>
+        </button>
       )}
-      <Link to={`/studio/services/create`} className={CLASSNAMES}>
+      <button className={CLASSNAMES}>
         {i.duplicate}
         <Icon size="xl" icon="i-solar-alt-arrow-right-linear" />
-      </Link>
+      </button>
       {!end && (
         <button type="button" className={CLASSNAMES}>
           {i.close}

@@ -15,7 +15,7 @@ export default function ServiceSummary({
   return (
     <div className="my-2 font-normal">
       <h3 className="text-base">{title}</h3>
-      <p className="mt-0">{description}</p>
+      <p className="mt-0 whitespace-pre-line">{description}</p>
       <Separator />
       <InfoBlocks
         duration={duration}

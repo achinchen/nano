@@ -4,87 +4,10 @@ import Icon from '~frontend/components/Icon';
 import { formatDuration, getPeriodTime } from '~frontend/utils/time';
 import sharedI from '~frontend/shared/i.json';
 import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
-
-const SERVICES = [
-  {
-    duration: 90,
-    name: '創業諮詢',
-    currentAttendee: 4,
-    allday: false,
-    serviceId: 7,
-    startAt: '2023-12-19T10:00',
-  },
-  {
-    duration: 90,
-    name: '客製蛋糕',
-    currentAttendee: 1,
-    serviceId: 21,
-    allday: true,
-    startAt: '2023-12-19T13:00',
-  },
-  {
-    duration: 120,
-    currentAttendee: 2,
-    serviceId: 20,
-    allday: true,
-    address: '台北',
-    name: '小飛象戚風蛋糕',
-    startAt: '2023-12-19T15:00',
-  },
-  {
-    duration: 90,
-    name: '創業諮詢',
-    currentAttendee: 4,
-    allday: false,
-    serviceId: 7,
-    startAt: '2023-12-21T10:00',
-  },
-  {
-    duration: 90,
-    name: '客製蛋糕',
-    currentAttendee: 1,
-    serviceId: 21,
-    allday: true,
-    startAt: '2023-12-28T13:00',
-  },
-  {
-    duration: 120,
-    currentAttendee: 2,
-    serviceId: 20,
-    allday: true,
-    address: '台北',
-    name: '小飛象戚風蛋糕',
-    startAt: '2023-12-31T15:00',
-  },
-  {
-    duration: 90,
-    name: '創業諮詢',
-    currentAttendee: 4,
-    allday: false,
-    serviceId: 7,
-    startAt: '2024-01-21T10:00',
-  },
-  {
-    duration: 90,
-    name: '客製蛋糕',
-    currentAttendee: 1,
-    serviceId: 21,
-    allday: true,
-    startAt: '2024-01-28T13:00',
-  },
-  {
-    duration: 120,
-    currentAttendee: 2,
-    serviceId: 20,
-    allday: true,
-    address: '台北',
-    name: '小飛象戚風蛋糕',
-    startAt: '2024-01-31T15:00',
-  },
-];
+import { SERVICE } from '~frontend/features/studio/mock';
 
 export default function ServiceSimpleCards() {
-  const [services] = useState(SERVICES);
+  const [services] = useState(SERVICE.IN_PROGRESS);
 
   return (
     <section className="mt-2 flex flex-col gap-2">
