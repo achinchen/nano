@@ -200,3 +200,226 @@ export const SERVICE = {
 } as const;
 
 export const SERVICES = Object.values(SERVICE).flat();
+
+export const ORDER = {
+  IN_PROGRESS: [
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[0].serviceId,
+        name: SERVICE.IN_PROGRESS[0].name,
+        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
+        duration: SERVICE.IN_PROGRESS[0].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[0].attendee,
+        address: SERVICE.IN_PROGRESS[0].location.address,
+      },
+      userId: 1,
+      name: '花花',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-06-30T13:00',
+      id: 1,
+    },
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[0].serviceId,
+        name: SERVICE.IN_PROGRESS[0].name,
+        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
+        duration: SERVICE.IN_PROGRESS[0].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[0].attendee,
+        address: SERVICE.IN_PROGRESS[0].location.address,
+      },
+      userId: 2,
+      name: '泡泡',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-06-30T14:20',
+      id: 2,
+    },
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[1].serviceId,
+        name: SERVICE.IN_PROGRESS[1].name,
+        serviceId: SERVICE.IN_PROGRESS[1].serviceId,
+        duration: SERVICE.IN_PROGRESS[1].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[1].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[1].attendee,
+        address: SERVICE.IN_PROGRESS[1].location.address,
+      },
+      userId: 3,
+      name: '毛毛',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-06-30T16:20',
+      id: 4,
+    },
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[2].serviceId,
+        name: SERVICE.IN_PROGRESS[2].name,
+        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
+        duration: SERVICE.IN_PROGRESS[2].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[2].attendee,
+        address: SERVICE.IN_PROGRESS[2].location.address,
+      },
+      userId: 4,
+      name: '老皮',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-06-29T13:00',
+      id: 5,
+    },
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[2].serviceId,
+        name: SERVICE.IN_PROGRESS[2].name,
+        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
+        duration: SERVICE.IN_PROGRESS[2].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[2].attendee,
+        address: SERVICE.IN_PROGRESS[2].location.address,
+      },
+      userId: 5,
+      name: '阿賢',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-07-01T13:00',
+      id: 6,
+    },
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[2].serviceId,
+        name: SERVICE.IN_PROGRESS[2].name,
+        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
+        duration: SERVICE.IN_PROGRESS[2].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[2].attendee,
+        address: SERVICE.IN_PROGRESS[2].location.address,
+      },
+      userId: 6,
+      name: '荷馬',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2024-01-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2024-07-02T13:00',
+      id: 7,
+    },
+  ],
+  END: [
+    {
+      service: {
+        id: SERVICE.IN_PROGRESS[0].serviceId,
+        name: SERVICE.IN_PROGRESS[0].name,
+        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
+        duration: SERVICE.IN_PROGRESS[0].duration,
+        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
+        attendee: SERVICE.IN_PROGRESS[0].attendee,
+        address: SERVICE.IN_PROGRESS[0].location.address,
+      },
+      userId: 7,
+      name: 'Doremi',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2023-12-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2023-12-30T13:00:00',
+      id: 8,
+    },
+    {
+      service: {
+        id: SERVICE.END[0].serviceId,
+        name: SERVICE.END[0].name,
+        serviceId: SERVICE.END[0].serviceId,
+        duration: SERVICE.END[0].duration,
+        currentAttendee: SERVICE.END[0].currentAttendee,
+        attendee: SERVICE.END[0].attendee,
+        address: SERVICE.END[0].location.address,
+      },
+      userId: 8,
+      name: '小愛',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2023-12-01T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2023-12-30T14:00',
+      id: 9,
+    },
+    {
+      service: {
+        id: SERVICE.END[2].serviceId,
+        name: SERVICE.END[2].name,
+        serviceId: SERVICE.END[2].serviceId,
+        duration: SERVICE.END[2].duration,
+        currentAttendee: SERVICE.END[2].currentAttendee,
+        attendee: SERVICE.END[2].attendee,
+        address: SERVICE.END[2].location.address,
+      },
+      userId: 9,
+      name: '羽月',
+      SNSId: 'bukku_user_a',
+      email: 'example@example.com',
+      phone: '0900-000-000',
+      comment: '',
+      note: {
+        updateAt: '2023-12-10T13:50:00',
+        content:
+          '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
+      },
+      startAt: '2023-12-31T13:00',
+      id: 10,
+    },
+  ],
+};
