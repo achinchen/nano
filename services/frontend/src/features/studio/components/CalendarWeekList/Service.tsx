@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useAppContext } from '~frontend/context';
-import { SERVICE } from '~frontend/features/studio/mock';
+import { SERVICE } from '~frontend/shared/mock';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import OrderFields from '~frontend/features/studio/components/OrderFields';
 import ServiceInfo from '~frontend/features/studio/components/ServiceInfo';
-import { SERVICES } from '~frontend/features/studio/mock';
+import { SERVICES } from '~frontend/shared/mock';
 import { isEndService } from '~frontend/features/studio/utils';
 import Actions from './components/Actions';
 

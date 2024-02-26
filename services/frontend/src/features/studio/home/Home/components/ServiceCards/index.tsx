@@ -4,7 +4,7 @@ import Icon from '~frontend/components/Icon';
 import { formatDuration, getPeriodTime } from '~frontend/utils/time';
 import sharedI from '~frontend/shared/i.json';
 import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
-import { SERVICE } from '~frontend/features/studio/mock';
+import { SERVICE } from '~frontend/shared/mock';
 
 export default function ServiceSimpleCards() {
   const [services] = useState(SERVICE.IN_PROGRESS);

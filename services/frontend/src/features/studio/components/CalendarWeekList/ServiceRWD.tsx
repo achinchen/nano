@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, lazy } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useStudioContext } from '~frontend/features/studio/context';
-import { STUDIO_TIMES } from '~frontend/features/studio/mock';
+import { STUDIO_TIMES } from '~frontend/shared/mock';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';

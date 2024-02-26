@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLooseTag from '~frontend/components/Calendar/Month/Loose/Tag';
 import { useAppContext } from '~frontend/context';
-import { SERVICE } from '~frontend/features/studio/mock';
+import { SERVICE } from '~frontend/shared/mock';
 
 const services = SERVICE.IN_PROGRESS.map(({ name, serviceId }) => ({
   name,

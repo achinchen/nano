@@ -9,7 +9,7 @@ import { formateDate } from '~frontend/utils/date';
 import EmphasizeBlock from '~frontend/shared/components/EmphasizeBlock';
 import ServiceInfoBlocks from '~frontend/shared/components/InfoBlocks';
 import Button from '~frontend/components/Button';
-import { SERVICES } from '~frontend/features/studio/mock';
+import { SERVICES } from '~frontend/shared/mock';
 import { isEndService } from '~frontend/features/studio/utils';
 import i from './i.json';
 

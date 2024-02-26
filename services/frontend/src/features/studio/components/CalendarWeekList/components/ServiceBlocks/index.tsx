@@ -4,11 +4,7 @@ import {
   getHeightByDuration,
   getTopByTimeAndOpenTime,
 } from '~frontend/features/studio/components/CalendarWeekList/utils';
-import {
-  SERVICE,
-  STUDIO_TIMES,
-  STUDIO_DURATION,
-} from '~frontend/features/studio/mock';
+import { SERVICE, STUDIO_TIMES, STUDIO_DURATION } from '~frontend/shared/mock';
 
 const SERVICES = SERVICE.IN_PROGRESS.map(
   ({ serviceId, startAt, duration, allday }) => ({

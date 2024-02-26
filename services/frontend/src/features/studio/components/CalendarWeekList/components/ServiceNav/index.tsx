@@ -1,6 +1,6 @@
 import sharedI from '~frontend/shared/i.json';
 import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
-import { SERVICE } from '~frontend/features/studio/mock';
+import { SERVICE } from '~frontend/shared/mock';
 
 const TIME = 'w-14 md:w-17 text-xs color-zinc-500 font-normal text-right';
 
