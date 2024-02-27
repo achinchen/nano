@@ -209,7 +209,7 @@ export const ORDER = {
         name: SERVICE.IN_PROGRESS[0].name,
         serviceId: SERVICE.IN_PROGRESS[0].serviceId,
         duration: SERVICE.IN_PROGRESS[0].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[0].attendee,
         address: SERVICE.IN_PROGRESS[0].location.address,
       },
@@ -231,9 +231,8 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[0].serviceId,
         name: SERVICE.IN_PROGRESS[0].name,
-        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
         duration: SERVICE.IN_PROGRESS[0].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[0].attendee,
         address: SERVICE.IN_PROGRESS[0].location.address,
       },
@@ -255,9 +254,8 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[1].serviceId,
         name: SERVICE.IN_PROGRESS[1].name,
-        serviceId: SERVICE.IN_PROGRESS[1].serviceId,
         duration: SERVICE.IN_PROGRESS[1].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[1].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[1].attendee,
         address: SERVICE.IN_PROGRESS[1].location.address,
       },
@@ -279,9 +277,8 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[2].serviceId,
         name: SERVICE.IN_PROGRESS[2].name,
-        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
         duration: SERVICE.IN_PROGRESS[2].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[2].attendee,
         address: SERVICE.IN_PROGRESS[2].location.address,
       },
@@ -303,9 +300,8 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[2].serviceId,
         name: SERVICE.IN_PROGRESS[2].name,
-        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
         duration: SERVICE.IN_PROGRESS[2].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[2].attendee,
         address: SERVICE.IN_PROGRESS[2].location.address,
       },
@@ -327,9 +323,8 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[2].serviceId,
         name: SERVICE.IN_PROGRESS[2].name,
-        serviceId: SERVICE.IN_PROGRESS[2].serviceId,
         duration: SERVICE.IN_PROGRESS[2].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[2].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[2].attendee,
         address: SERVICE.IN_PROGRESS[2].location.address,
       },
@@ -351,13 +346,12 @@ export const ORDER = {
   END: [
     {
       service: {
-        id: SERVICE.IN_PROGRESS[0].serviceId,
-        name: SERVICE.IN_PROGRESS[0].name,
-        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
-        duration: SERVICE.IN_PROGRESS[0].duration,
-        currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
-        attendee: SERVICE.IN_PROGRESS[0].attendee,
-        address: SERVICE.IN_PROGRESS[0].location.address,
+        id: SERVICE.END[0].serviceId,
+        name: SERVICE.END[0].name,
+        duration: SERVICE.END[0].duration,
+        currentAttendee: 1,
+        attendee: SERVICE.END[0].attendee,
+        address: SERVICE.END[0].location.address,
       },
       userId: 7,
       name: 'Doremi',
@@ -377,9 +371,8 @@ export const ORDER = {
       service: {
         id: SERVICE.END[0].serviceId,
         name: SERVICE.END[0].name,
-        serviceId: SERVICE.END[0].serviceId,
         duration: SERVICE.END[0].duration,
-        currentAttendee: SERVICE.END[0].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.END[0].attendee,
         address: SERVICE.END[0].location.address,
       },
@@ -401,9 +394,8 @@ export const ORDER = {
       service: {
         id: SERVICE.END[2].serviceId,
         name: SERVICE.END[2].name,
-        serviceId: SERVICE.END[2].serviceId,
         duration: SERVICE.END[2].duration,
-        currentAttendee: SERVICE.END[2].currentAttendee,
+        currentAttendee: 1,
         attendee: SERVICE.END[2].attendee,
         address: SERVICE.END[2].location.address,
       },
@@ -427,7 +419,6 @@ export const ORDER = {
       service: {
         id: SERVICE.IN_PROGRESS[0].serviceId,
         name: SERVICE.IN_PROGRESS[0].name,
-        serviceId: SERVICE.IN_PROGRESS[0].serviceId,
         duration: SERVICE.IN_PROGRESS[0].duration,
         currentAttendee: SERVICE.IN_PROGRESS[0].currentAttendee,
         attendee: SERVICE.IN_PROGRESS[0].attendee,
@@ -458,13 +449,17 @@ export const ORDER = {
           disabled: false,
         },
       ],
+      note: {
+        updateAt: '',
+        content: '',
+      },
+      startAt: '',
       id: 11,
     },
     {
       service: {
         id: SERVICE.END[1].serviceId,
         name: SERVICE.END[1].name,
-        serviceId: SERVICE.END[1].serviceId,
         duration: SERVICE.END[1].duration,
         currentAttendee: SERVICE.END[1].currentAttendee,
         attendee: SERVICE.END[1].attendee,
@@ -479,28 +474,32 @@ export const ORDER = {
       queues: [
         {
           currentAttendee: 0,
-          time: '2024-06-29T09:00:00',
+          startAt: '2024-06-29T09:00:00',
           disabled: false,
         },
         {
           currentAttendee: 1,
-          time: '2024-06-30T16:20:00',
+          startAt: '2024-06-30T16:20:00',
           disabled: true,
           reason: '此時段已有訂單',
         },
         {
           currentAttendee: 0,
-          time: '2024-06-29T10:00:00',
+          startAt: '2024-06-29T10:00:00',
           disabled: false,
         },
       ],
+      note: {
+        updateAt: '',
+        content: '',
+      },
+      startAt: '',
       id: 12,
     },
     {
       service: {
         id: SERVICE.END[2].serviceId,
         name: SERVICE.END[2].name,
-        serviceId: SERVICE.END[2].serviceId,
         duration: SERVICE.END[2].duration,
         currentAttendee: SERVICE.END[2].currentAttendee,
         attendee: SERVICE.END[2].attendee,
@@ -515,21 +514,28 @@ export const ORDER = {
       queues: [
         {
           currentAttendee: 0,
-          time: '2024-06-26T13:00:00',
+          startAt: '2024-06-26T13:00:00',
           disabled: false,
         },
         {
           currentAttendee: 1,
-          time: '2024-06-27T13:00:00',
+          startAt: '2024-06-27T13:00:00',
           disabled: false,
         },
         {
           currentAttendee: 0,
-          time: '2024-06-28T13:00:00',
+          startAt: '2024-06-28T13:00:00',
           disabled: false,
         },
       ],
+      note: {
+        updateAt: '',
+        content: '',
+      },
+      startAt: '',
       id: 13,
     },
   ],
-};
+} as const;
+
+export const ORDERS = Object.values(ORDER).flat();

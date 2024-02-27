@@ -1,5 +1,5 @@
 import { isBefore, getMMDD, getYYYYMMDD } from '~frontend/utils/date';
-import { ServiceDetail } from './types';
+import { ServiceDetail, Order } from './types';
 
 export const formateDate = (date: string) => {
   const today = new Date();
@@ -10,3 +10,6 @@ export const formateDate = (date: string) => {
 
 export const isEndService = (endAt: ServiceDetail['endAt']) =>
   isBefore(new Date('2024-01-01'), new Date(endAt));
+
+export const isEndOrder = (startAt: Order['startAt']) =>
+  isBefore(new Date('2024-01-01'), new Date(startAt));

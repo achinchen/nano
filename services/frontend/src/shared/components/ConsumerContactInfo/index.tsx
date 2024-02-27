@@ -1,7 +1,10 @@
+import type { OrderDetail } from '~frontend/features/studio/types';
 import { Fragment } from 'react';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
 import i from './i.json';
+
+type Props = Pick<OrderDetail, 'comment' | 'SNSId' | 'email' | 'phone'>;
 
 const order = {
   service: {
@@ -40,9 +43,12 @@ function Item({
 
 const getInstagramBioUrl = (id: string) => `https://www.instagram.com/${id}`;
 
-const { comment, SNSId, email, phone } = order;
-
-export default function ConsumerContactInfo() {
+export default function ConsumerContactInfo({
+  comment,
+  SNSId,
+  email,
+  phone,
+}: Props = order) {
   return (
     <section className="flex flex-col gap-2">
       <Item icon="i-custom-sns-instagram" title={i.SNS}>

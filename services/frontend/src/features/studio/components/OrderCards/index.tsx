@@ -1,3 +1,4 @@
+import type { Order } from '~frontend/features/studio/types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
@@ -5,41 +6,51 @@ import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by
 import { getPeriodTime } from '~frontend/utils/time';
 import { isBefore } from '~frontend/utils/date';
 
+type Props = {
+  orders?: Order[];
+};
+
 const ORDERS = [
   {
     id: 1,
-    duration: 90,
-    name: '創業諮詢',
-    currentAttendee: 4,
-    serviceId: 7,
-    attendee: 4,
     startAt: '2023-12-19T10:00',
+    service: {
+      duration: 90,
+      name: '創業諮詢',
+      currentAttendee: 4,
+      id: 7,
+      attendee: 4,
+    },
   },
   {
     id: 20,
-    duration: 90,
-    name: '客製蛋糕',
-    currentAttendee: 1,
-    serviceId: 21,
-    attendee: 2,
     startAt: '2023-12-19T13:00',
+    service: {
+      duration: 90,
+      name: '客製蛋糕',
+      currentAttendee: 1,
+      id: 21,
+      attendee: 2,
+    },
   },
   {
     id: 22,
-    duration: 120,
-    currentAttendee: 2,
-    serviceId: 20,
-    attendee: 2,
-    address: '台北',
-    name: '小飛象戚風蛋糕',
     startAt: '2023-12-19T15:00',
+    service: {
+      duration: 120,
+      currentAttendee: 2,
+      id: 20,
+      attendee: 2,
+      address: '台北',
+      name: '小飛象戚風蛋糕',
+    },
   },
 ];
 
-const today = new Date();
+const today = new Date('2024/01/01');
 
-export default function OrderCards() {
-  const [orders] = useState(ORDERS);
+export default function OrderCards({ orders: propOrders }: Props) {
+  const [orders] = useState(propOrders || ORDERS);
 
   return (
     <section className="mt-2 flex flex-col gap-2">
@@ -47,11 +58,7 @@ export default function OrderCards() {
         ({
           id,
           startAt,
-          duration,
-          name,
-          currentAttendee,
-          attendee,
-          serviceId,
+          service: { duration, name, currentAttendee, attendee, id: serviceId },
         }) => (
           <Link
             to={`/studio/orders/${id}`}
