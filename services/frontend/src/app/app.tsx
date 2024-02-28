@@ -43,9 +43,9 @@ export function App() {
             <Route
               path="/studio"
               element={
-                <ProviderProtectedRoute>
-                  <StudioHome />
-                </ProviderProtectedRoute>
+                // <ProviderProtectedRoute>
+                <StudioHome />
+                // </ProviderProtectedRoute>
               }
             />
 
@@ -57,6 +57,7 @@ export function App() {
                 </ProviderProtectedRoute>
               }
             />
+
             <Route
               path="/studio/services"
               element={

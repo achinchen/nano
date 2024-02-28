@@ -30,7 +30,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date('2024/01/01'));
   const { me } = useMe();
   const isLogin = Boolean(me) && Number(me?.role) !== 0;
   const isProvider = Number(me?.role) === 2;

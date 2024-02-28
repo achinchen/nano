@@ -18,9 +18,10 @@ function Content({ data, date }: Payload) {
 
   return (
     <ul className="mt-1 w-100% flex flex-col gap-1 p-0">
-      {items.map(({ name, id }) => (
+      {items.map(({ name, id }, index) => (
         <li
-          key={`${date}-${name}-${id}`}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${date}-${name}-${id}-${index}`}
           className={`truncate rounded-1 px-2 text-xs font-medium ${
             getServiceColorById(id).LABEL
           }`}

@@ -19,16 +19,18 @@ function Content({ data, date }: Payload) {
   return (
     <ul className="mt-1 w-100% flex flex-col gap-1 p-0">
       <li className="h-1 flex flex-row gap-1">
-        {items.map(({ id }) => (
+        {items.map(({ id }, index) => (
           <span
-            key={`${id}-tag-${date}`}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${id}-tag-${date}-${index}`}
             className={`flex-1 rounded-3 ${getServiceColorById(id).BG.DEFAULT}`}
           />
         ))}
       </li>
-      {items.map(({ name, id }) => (
+      {items.map(({ name, id }, index) => (
         <li
-          key={`${date}-${name}-${id}`}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${date}-${name}-${id}-${index}`}
           className={`truncate rounded-1 px-2 text-xs font-medium ${
             getServiceColorById(id).LABEL
           }`}

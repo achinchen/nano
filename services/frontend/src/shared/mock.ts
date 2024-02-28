@@ -1,7 +1,8 @@
 const LOCATION = { name: '台北店', address: '台北市中正區忠孝西路一段49號' };
 const SUPPLIER = '安老師';
 
-export const STUDIO_TIMES = ['10:00', '20:30'];
+export const STUDIO_TIMES = ['09:00', '20:30'];
+
 export const STUDIO_DURATION = 690;
 
 export const SERVICE = {
@@ -82,8 +83,8 @@ export const SERVICE = {
       currentAttendee: 0,
       allday: false,
       serviceId: 12,
-      startAt: '2024-06-01T13:00',
-      endAt: '2024-06-10T17:00',
+      startAt: '2024-01-01T13:00',
+      endAt: '2024-12-31T17:00',
       description: `
       【課程簡介】 
   歡迎您預約塔羅啟發培訓課程！這是一場塔羅深度培訓，專為您打造的個人化心靈探索之旅。在這四小時的課程中，您將與安老師深入探討塔羅牌的奧秘，學會如何解讀牌面的象徵意義，並掌握塔羅的應用技巧，啟發您的內在力量，指引您走向心靈成長之路。
@@ -179,7 +180,7 @@ export const SERVICE = {
       allday: false,
       serviceId: 8,
       startAt: '2023-12-01T13:00',
-      endAt: '2023-12-10T17:00',
+      endAt: '2023-12-31T17:00',
       description: `
       【課程簡介】 
   歡迎您預約塔羅啟發培訓課程！這是一場塔羅深度培訓，專為您打造的個人化心靈探索之旅。在這四小時的課程中，您將與安老師深入探討塔羅牌的奧秘，學會如何解讀牌面的象徵意義，並掌握塔羅的應用技巧，啟發您的內在力量，指引您走向心靈成長之路。
@@ -224,7 +225,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-06-30T13:00',
+      startAt: '2024-01-30T13:00',
       id: 1,
     },
     {
@@ -247,7 +248,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-06-30T14:20',
+      startAt: '2024-01-30T14:20',
       id: 2,
     },
     {
@@ -270,7 +271,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-06-30T16:20',
+      startAt: '2024-01-30T16:20',
       id: 4,
     },
     {
@@ -293,7 +294,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-06-29T13:00',
+      startAt: '2024-01-29T13:00',
       id: 5,
     },
     {
@@ -316,7 +317,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-07-01T13:00',
+      startAt: '2024-01-05T13:00',
       id: 6,
     },
     {
@@ -339,7 +340,7 @@ export const ORDER = {
         content:
           '感謝您的預約，在到來之前可以先想好您要諮詢的內容，讓安老師能更精準的協助您！',
       },
-      startAt: '2024-07-02T13:00',
+      startAt: '2024-01-02T13:00',
       id: 7,
     },
   ],
@@ -433,19 +434,19 @@ export const ORDER = {
       queues: [
         {
           currentAttendee: 1,
-          time: '2024-06-30T14:30:00',
+          time: '2024-01-30T14:30:00',
           disabled: true,
           reason: '此時段已有訂單',
         },
         {
           currentAttendee: 0,
-          time: '2024-06-30T09:20:00',
+          time: '2024-01-30T09:20:00',
           disabled: true,
           reason: '此時段為休假時間',
         },
         {
           currentAttendee: 0,
-          time: '2024-06-29T09:20:00',
+          time: '2024-01-29T09:20:00',
           disabled: false,
         },
       ],
@@ -474,18 +475,18 @@ export const ORDER = {
       queues: [
         {
           currentAttendee: 0,
-          startAt: '2024-06-29T09:00:00',
+          startAt: '2024-01-29T09:00:00',
           disabled: false,
         },
         {
           currentAttendee: 1,
-          startAt: '2024-06-30T16:20:00',
+          startAt: '2024-01-30T16:20:00',
           disabled: true,
           reason: '此時段已有訂單',
         },
         {
           currentAttendee: 0,
-          startAt: '2024-06-29T10:00:00',
+          startAt: '2024-06-21T10:00:00',
           disabled: false,
         },
       ],
@@ -514,17 +515,17 @@ export const ORDER = {
       queues: [
         {
           currentAttendee: 0,
-          startAt: '2024-06-26T13:00:00',
+          startAt: '2024-01-26T13:00:00',
           disabled: false,
         },
         {
           currentAttendee: 1,
-          startAt: '2024-06-27T13:00:00',
+          startAt: '2024-01-27T13:00:00',
           disabled: false,
         },
         {
           currentAttendee: 0,
-          startAt: '2024-06-28T13:00:00',
+          startAt: '2024-01-28T13:00:00',
           disabled: false,
         },
       ],

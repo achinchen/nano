@@ -1,3 +1,4 @@
+import type { Status } from './types';
 import { FULL_TIME_OPTIONS } from './constants';
 
 export const getTimeOptions = (startTime: string, endTime: string) => {
@@ -17,6 +18,8 @@ const UNIT_HEIGHT = {
 const ONE_QUARTER_HOUR = 15;
 const QUARTER = 4;
 
+export const PADDING_TOP = ONE_QUARTER_HOUR * QUARTER;
+
 const getUnitHeight = (loose: boolean) =>
   UNIT_HEIGHT[loose ? 'LOOSE' : 'TIGHT'];
 
@@ -34,4 +37,15 @@ export const getTopByTimeAndOpenTime = (
   const startHour = new Date(startAt).getHours();
   const top = (startHour - Number(hour)) * QUARTER * getUnitHeight(loose);
   return top;
+};
+
+export const getStatusByAttendee = (
+  attendee: number,
+  currentAttendee: number
+): Status => {
+  return currentAttendee >= attendee
+    ? 'full'
+    : currentAttendee
+    ? 'has-order'
+    : 'unsold';
 };

@@ -1,80 +1,75 @@
+import type { Status } from './types';
+import type { ServiceDetail, Order } from '~frontend/features/studio/types';
 import { useState, useEffect, useMemo, lazy } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useStudioContext } from '~frontend/features/studio/context';
-import { STUDIO_TIMES } from '~frontend/shared/mock';
+import { SERVICE, ORDER, STUDIO_TIMES } from '~frontend/shared/mock';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';
-import { getTimeOptions } from './utils';
+import { getTimeOptions, getStatusByAttendee } from './utils';
 
 const ScrollableCalendarWeek = lazy(
   () => import('./components/ScrollableCalendarWeek')
 );
 
-const mockServiceData = {
-  17: [{ name: '提拉米蘇蛋糕課', id: 1, status: 'full' }],
-  20: [
-    {
-      name: '提拉米蘇蛋糕課',
-      description: '提拉米蘇蛋糕課的敘述就好似這樣',
-      id: 1,
-      startTime: '10:00',
-      endTime: '20:00',
-      status: 'unsold',
-    },
-    {
-      name: '情人節手作',
-      id: 2,
-      description: '情人節手作的敘述就好似這樣',
-      startTime: '10:00',
-      endTime: '12:00',
-      status: 'has-order',
-    },
-    {
-      name: '3天寫程式就上手不可能',
-      description: '3天寫程式就上手不可能的敘述就好似這樣',
-      id: 3,
-      startTime: '09:00',
-      endTime: '15:00',
-      status: 'full',
-    },
-    {
-      name: '精油課程妳看不見',
-      id: 12,
-      startTime: '10:00',
-      endTime: '18:00',
-      description: '精油課程妳看不見的敘述就好似這樣',
-      status: 'has-order',
-    },
-    {
-      name: '提拉米蘇蛋糕課',
-      description: '提拉米蘇蛋糕課的敘述就好似這樣',
-      startTime: '19:00',
-      endTime: '21:00',
-      id: 30,
-      status: 'has-order',
-    },
-  ],
-  30: [
-    {
-      name: '提拉米蘇蛋糕課',
-      id: 30,
-      status: 'has-order',
-    },
-  ],
+const getMockServiceData = (selectedDate: Date) => {
+  const selectedMonth = selectedDate.getMonth();
+  const year = selectedDate.getFullYear();
+  const getDays = new Date(year, selectedMonth, 0).getDate();
+  const mockServices = year === 2023 ? SERVICE.END : SERVICE.IN_PROGRESS;
+
+  const services = mockServices.map(
+    ({
+      currentAttendee,
+      attendee,
+      startAt,
+      name,
+      serviceId,
+      allday,
+      endAt,
+    }) => ({
+      name,
+      id: serviceId,
+      status: getStatusByAttendee(attendee, currentAttendee),
+      startAt,
+      allday,
+      endAt,
+    })
+  );
+  return new Array(getDays).fill(0).reduce(
+    (data, _, index) => ({
+      ...data,
+      [index + 1]: services,
+    }),
+    {}
+  );
+};
+
+const getMockOrderData = (selectedDate: Date) => {
+  const year = selectedDate.getFullYear();
+  const mockOrders = year === 2023 ? ORDER.END : ORDER.IN_PROGRESS;
+
+  return mockOrders
+    .map((order) => ({
+      ...order,
+      status: getStatusByAttendee(
+        order.service.currentAttendee,
+        order.service.attendee
+      ),
+    }))
+    .reduce((data, order) => {
+      const orderDate = new Date(order.startAt);
+      const dateString = `${orderDate.getMonth() + 1}-${orderDate.getDate()}`;
+      return {
+        ...data,
+        [dateString]: [...(data[dateString] || []), order],
+      };
+    }, {} as { [key: string]: Order[] });
 };
 
 const TIME = 'w-14 md:w-17 text-xs color-zinc-500 font-normal text-right';
-
-const getMockData = (month: number) => {
-  return Object.entries(mockServiceData).reduce((data, [date, value]) => {
-    return {
-      ...data,
-      [`${month}-${date}`]: value,
-    };
-  }, {});
-};
 
 export default function ServiceCalendarListModeWithRWD({
   loose = true,
@@ -83,23 +78,29 @@ export default function ServiceCalendarListModeWithRWD({
 }) {
   const { selectedDate, setSelectedDate } = useStudioContext();
   const [serviceData, setServiceData] = useState({});
+  const [orderData, setOrderData] = useState<{ [key: string]: Order[] }>({});
   const timeOptions = getTimeOptions(STUDIO_TIMES[0], STUDIO_TIMES[1]);
+
+  const selectedDateOrders = useMemo(() => {
+    const dateString = `${
+      selectedDate.getMonth() + 1
+    }-${selectedDate.getDate()}`;
+    return orderData[dateString];
+  }, [orderData, selectedDate]);
 
   const serviceStatusData = useMemo(() => {
     return Object.entries(serviceData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: 'unsold' | 'full' | 'has-order' }[])[0]
-          .status,
+        [date]: (services as { status: Status }[])[0].status,
       }),
       {}
     );
   }, [serviceData]);
 
   useEffect(() => {
-    const thisMonth = new Date().getMonth();
-    const isThisMonth = selectedDate.getMonth() === thisMonth;
-    setServiceData(isThisMonth ? getMockData(thisMonth + 1) : {});
+    setServiceData(getMockServiceData(selectedDate));
+    setOrderData(getMockOrderData(selectedDate));
   }, [selectedDate, setSelectedDate]);
 
   return (
@@ -127,9 +128,17 @@ export default function ServiceCalendarListModeWithRWD({
               </li>
             ))}
           </ul>
-          <ul className="absolute top-0 w-[calc(100%-60px)] translate-x-15 md:w-[calc(100%-72px)] md:translate-x-18">
-            <ServiceTimeBlock loose={loose} />
-            <OrderTimeBlocks loose={loose} />
+          <ul className="absolute top-0 w-[calc(100%-60px)] flex translate-x-15 md:w-[calc(100%-72px)] md:translate-x-18">
+            <ServiceTimeBlock
+              loose={loose}
+              services={
+                Object.values(serviceData)[0] as Pick<
+                  ServiceDetail,
+                  'id' | 'startAt' | 'endAt' | 'allday'
+                >[]
+              }
+            />
+            <OrderTimeBlocks loose={loose} orders={selectedDateOrders} />
             <TakeleaveBlocks loose={loose} />
           </ul>
         </main>

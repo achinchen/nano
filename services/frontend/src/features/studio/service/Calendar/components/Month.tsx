@@ -3,13 +3,16 @@ import CalendarMonthLooseTag from '~frontend/components/Calendar/Month/Loose/Tag
 import { useAppContext } from '~frontend/context';
 import { SERVICE } from '~frontend/shared/mock';
 
-const services = SERVICE.IN_PROGRESS.map(({ name, serviceId }) => ({
-  name,
-  id: serviceId,
-}));
+const getMockServiceData = (selectedDate: Date) => {
+  const selectedMonth = selectedDate.getMonth();
+  const year = selectedDate.getFullYear();
+  const getDays = new Date(year, selectedMonth, 0).getDate();
+  const mockServices = year === 2023 ? SERVICE.END : SERVICE.IN_PROGRESS;
 
-const getMockServiceData = (month: number) => {
-  const getDays = new Date(2024, month - 1, 0).getDate();
+  const services = mockServices.map(({ name, serviceId }) => ({
+    name,
+    id: serviceId,
+  }));
 
   return new Array(getDays).fill(0).reduce(
     (data, _, index) => ({
@@ -20,8 +23,9 @@ const getMockServiceData = (month: number) => {
   );
 };
 
-const getMockData = (month: number) => {
-  return Object.entries(getMockServiceData(month)).reduce(
+const getMockData = (selectedDate: Date) => {
+  const month = selectedDate.getMonth() + 1;
+  return Object.entries(getMockServiceData(selectedDate)).reduce(
     (data, [date, value]) => {
       return {
         ...data,
@@ -37,9 +41,10 @@ export default function CalendarMonth() {
   const [serviceData, setServiceData] = useState({});
 
   useEffect(() => {
-    const thisMonth = selectedDate.getMonth();
-    setServiceData(getMockData(thisMonth + 1));
+    setServiceData(getMockData(selectedDate));
   }, [selectedDate, setSelectedDate]);
+
+  if (Object.values(serviceData).length === 0) return null;
 
   return (
     <section className="h-full w-160 bg-zinc-50">

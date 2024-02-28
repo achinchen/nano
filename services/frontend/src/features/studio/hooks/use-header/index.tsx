@@ -27,7 +27,7 @@ export default function useHeader({ isListMode }: { isListMode: boolean }) {
   }, [isListMode, setSelectedDate]);
 
   const onTodayClick = useCallback(
-    () => setSelectedDate(new Date()),
+    () => setSelectedDate(new Date('2024/01/01')),
     [setSelectedDate]
   );
 

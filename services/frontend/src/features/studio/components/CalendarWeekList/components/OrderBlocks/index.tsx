@@ -1,79 +1,42 @@
+import type { Order } from '~frontend/features/studio/types';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
-import { isBefore } from '~frontend/utils/date';
+import { isEndOrder } from '~frontend/features/studio/utils';
 import {
   getHeightByDuration,
   getTopByTimeAndOpenTime,
 } from '~frontend/features/studio/components/CalendarWeekList/utils';
 import { FULL_BLOCK_CLASS_NAMES } from '~frontend/features/studio/components/CalendarWeekList/constants';
+import { STUDIO_TIMES } from '~frontend/shared/mock';
 import { getSizeByDuration } from './utils';
 
-const ORDERS = [
-  {
-    id: 101,
-    duration: 15,
-    name: '創業諮詢',
-    description: '創業諮詢的敘述就好似這樣',
-    currentAttendee: 4,
-    serviceId: 7,
-    attendee: 4,
-    startAt: '2023-12-19T10:00',
-  },
-  {
-    id: 102,
-    duration: 90,
-    name: '客製蛋糕',
-    description: '客製蛋糕的敘述就好似這樣',
-    currentAttendee: 1,
-    serviceId: 21,
-    attendee: 2,
-    startAt: '2023-12-19T13:00',
-  },
-  {
-    id: 103,
-    duration: 30,
-    name: '客製蛋糕',
-    description: '客製蛋糕的敘述就好似這樣',
-    currentAttendee: 2,
-    serviceId: 21,
-    attendee: 2,
-    startAt: '2023-12-19T12:00',
-  },
-  {
-    id: 104,
-    duration: 45,
-    currentAttendee: 2,
-    serviceId: 20,
-    attendee: 2,
-    description: '小飛象戚風蛋糕的敘述就好似這樣',
-    name: '小飛象戚風蛋糕',
-    startAt: '2023-12-19T15:00',
-  },
-];
+type Props = {
+  loose?: boolean;
+  orders?: Order[];
+};
 
-const studioOpeningHours = ['09:00', '21:00'];
-const today = new Date();
+export default function OrderTimeBlocks({ loose = true, orders }: Props) {
+  if (!orders?.length) return null;
 
-export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
   return (
     <Fragment>
-      {ORDERS.map(
-        ({ startAt, duration, name, currentAttendee, attendee, serviceId }) => {
+      {orders.map(
+        ({
+          startAt,
+          id,
+          service: { duration, name, currentAttendee, attendee, id: serviceId },
+        }) => {
           const size = getSizeByDuration(duration);
           const { BORDER, BG } = getServiceColorById(serviceId);
           return (
             <li
               className={`${FULL_BLOCK_CLASS_NAMES} pr-2`}
-              key={`order-cards-${serviceId}-${name}-${startAt}`}
+              key={`order-cards-${id}-${serviceId}-${name}-${startAt}`}
               style={{
                 height: `${getHeightByDuration(duration, loose)}px`,
-                top: getTopByTimeAndOpenTime(
-                  startAt,
-                  studioOpeningHours[0],
-                  loose
-                ),
+                top: getTopByTimeAndOpenTime(startAt, STUDIO_TIMES[0], loose),
               }}
             >
               <Link
@@ -90,7 +53,7 @@ export default function OrderTimeBlocks({ loose = true }: { loose?: boolean }) {
                 </span>
                 <h5
                   className={`line-clamp-2 font-normal ${
-                    isBefore(new Date(startAt), today) ? 'color-zinc-500' : ''
+                    isEndOrder(startAt) ? 'color-zinc-500' : ''
                   } ${size.DESCRIPTION}`}
                 >
                   {name}

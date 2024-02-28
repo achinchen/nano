@@ -1,27 +1,38 @@
+import type { Status } from './types';
+import type { ServiceDetail } from '~frontend/features/studio/types';
 import { useState, useEffect, useMemo } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useAppContext } from '~frontend/context';
-import { SERVICE } from '~frontend/shared/mock';
+import { SERVICE, STUDIO_TIMES } from '~frontend/shared/mock';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';
-import { getTimeOptions } from './utils';
+import { getTimeOptions, getStatusByAttendee } from './utils';
 
-const services = SERVICE.IN_PROGRESS.map(
-  ({ currentAttendee, attendee, name, serviceId }) => ({
-    name,
-    id: serviceId,
-    status:
-      currentAttendee >= attendee
-        ? 'full'
-        : currentAttendee
-        ? 'has-order'
-        : 'unsold',
-  })
-);
+const getMockServiceData = (selectedDate: Date) => {
+  const selectedMonth = selectedDate.getMonth();
+  const year = selectedDate.getFullYear();
+  const getDays = new Date(year, selectedMonth, 0).getDate();
+  const mockServices = year === 2023 ? SERVICE.END : SERVICE.IN_PROGRESS;
 
-const getMockServiceData = (month: number) => {
-  const getDays = new Date(2024, month - 1, 0).getDate();
+  const services = mockServices.map(
+    ({
+      currentAttendee,
+      attendee,
+      startAt,
+      name,
+      serviceId,
+      allday,
+      endAt,
+    }) => ({
+      name,
+      id: serviceId,
+      status: getStatusByAttendee(attendee, currentAttendee),
+      startAt,
+      allday,
+      endAt,
+    })
+  );
 
   return new Array(getDays).fill(0).reduce(
     (data, _, index) => ({
@@ -33,30 +44,24 @@ const getMockServiceData = (month: number) => {
 };
 
 const TIME = 'w-14 md:w-17 text-xs color-zinc-500 font-normal text-right';
-const studioOpeningHours = ['09:00', '20:30'];
 
 export default function ServiceCalendarListMode() {
   const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
-  const timeOptions = getTimeOptions(
-    studioOpeningHours[0],
-    studioOpeningHours[1]
-  );
+  const timeOptions = getTimeOptions(STUDIO_TIMES[0], STUDIO_TIMES[1]);
 
   const serviceStatusData = useMemo(() => {
     return Object.entries(serviceData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: 'unsold' | 'full' | 'has-order' }[])[0]
-          .status,
+        [date]: (services as { status: Status }[])[0].status,
       }),
       {}
     );
   }, [serviceData]);
 
   useEffect(() => {
-    const thisMonth = new Date().getMonth();
-    setServiceData(getMockServiceData(thisMonth + 1));
+    setServiceData(getMockServiceData(selectedDate));
   }, [selectedDate, setSelectedDate]);
 
   return (
@@ -80,8 +85,16 @@ export default function ServiceCalendarListMode() {
               </li>
             ))}
           </ul>
-          <ul className="absolute top-0 w-[calc(100%-72px)] translate-x-18">
-            <ServiceTimeBlock loose />
+          <ul className="absolute top-0 w-[calc(100%-72px)] flex translate-x-18">
+            <ServiceTimeBlock
+              loose
+              services={
+                Object.values(serviceData)[0] as Pick<
+                  ServiceDetail,
+                  'id' | 'startAt' | 'endAt' | 'allday'
+                >[]
+              }
+            />
             <TakeleaveBlocks loose />
           </ul>
         </main>

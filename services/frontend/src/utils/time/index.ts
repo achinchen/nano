@@ -8,6 +8,17 @@ locale('zh-tw', zhTW);
 
 const HOUR = 60;
 
+export const getDurationByStartAtAndEndAt = (
+  startAt: Date | string,
+  endAt: Date | string
+) => {
+  const start = dayjs(startAt);
+  const end = dayjs(endAt)
+    .set('month', start.get('month'))
+    .set('date', start.get('date'));
+  return end.diff(start, 'minute');
+};
+
 export const formatDuration = (duration: number) => {
   if (duration < HOUR) return `${duration} ${i.unit.minute}`;
 
