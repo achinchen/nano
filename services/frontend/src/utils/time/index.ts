@@ -63,5 +63,5 @@ export const getPlainPeriodTimes = (
 };
 
 export const getRelativeTime = (datetime: Date | string) => {
-  return dayjs(datetime).fromNow();
+  return dayjs(datetime).from('2023-12-31T23:59:59Z');
 };

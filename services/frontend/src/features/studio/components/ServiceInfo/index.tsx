@@ -13,7 +13,6 @@ import ServiceDescriptionMore from '~frontend/shared/components/ServiceDescripti
 import i from './i.json';
 
 export default function ServiceInfo({
-  id,
   name,
   supplier,
   duration,

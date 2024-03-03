@@ -4,6 +4,7 @@ import ServiceDetail from '~frontend/features/studio/components/ServiceDetailMor
 
 export default function ServiceInfo() {
   const { service } = useRequestOrderContext();
+  if (!service) return null;
 
   return (
     <section className="text-sm font-normal">

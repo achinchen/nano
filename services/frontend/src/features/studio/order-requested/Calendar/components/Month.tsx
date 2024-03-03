@@ -1,58 +1,42 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLooseNameTag from '~frontend/components/Calendar/Month/Loose/NameTag';
 import { useAppContext } from '~frontend/context';
+import { ORDER } from '~frontend/shared/mock';
 
-const mockServiceData = {
-  17: [{ name: '提拉米蘇蛋糕課', id: 1 }],
-  20: [
-    {
-      name: '提拉米蘇蛋糕課',
-      id: 1,
-    },
-    {
-      name: '情人節手作',
-      id: 2,
-    },
-    {
-      name: '3天寫程式就上手不可能',
-      id: 3,
-    },
-    {
-      name: '精油課程妳看不見',
-      id: 12,
-    },
-  ],
-  30: [
-    {
-      name: '提拉米蘇蛋糕課',
-      id: 30,
-    },
-  ],
-};
+const getMockData = (selectedDate: Date) => {
+  const year = selectedDate.getFullYear();
+  const mockOrders = year === 2023 ? ORDER.END : ORDER.IN_PROGRESS;
 
-const getMockData = (month: number) => {
-  return Object.entries(mockServiceData).reduce((data, [date, value]) => {
-    return {
-      ...data,
-      [`${month}-${date}`]: value,
-    };
-  }, {});
+  return mockOrders
+    .map(({ service, startAt }) => ({
+      name: service.name,
+      id: service.id,
+      startAt,
+    }))
+    .reduce((data, order) => {
+      const orderDate = new Date(order.startAt);
+      const dateString = `${orderDate.getMonth() + 1}-${orderDate.getDate()}`;
+      return {
+        ...data,
+        [dateString]: [...(data[dateString] || []), order],
+      };
+    }, {} as { [key: string]: unknown[] });
 };
 
 export default function CalendarMonthOrder() {
   const { selectedDate, setSelectedDate } = useAppContext();
-  const [serviceData, setServiceData] = useState({});
+  const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
-    const thisMonth = new Date().getMonth();
-    const isThisMonth = selectedDate.getMonth() === thisMonth;
-    setServiceData(isThisMonth ? getMockData(thisMonth + 1) : {});
+    setOrderData(getMockData(selectedDate));
   }, [selectedDate, setSelectedDate]);
+
+  if (Object.values(orderData).length === 0) return null;
 
   return (
     <section className="h-full w-160 bg-zinc-50">
       <CalendarMonthLooseNameTag
-        data={serviceData}
+        data={orderData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
       />

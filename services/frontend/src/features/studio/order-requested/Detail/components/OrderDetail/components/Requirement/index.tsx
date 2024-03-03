@@ -10,15 +10,17 @@ import scopedI from './i.json';
 import QueueDescription from './QueueDescriptionPrompt';
 
 function QueueItem({ index }: { index: number }) {
-  const {
-    requirement,
-    service: { duration, queue },
-  } = useRequestOrderContext();
+  const { requirement, service } = useRequestOrderContext();
 
-  const { currentAttendee, attendee, time, disabled } =
+  if (!requirement || !service) return null;
+
+  const { duration, attendee, queue } = service;
+
+  const { currentAttendee, startAt, disabled, reason } =
     requirement.queues[index];
 
   const disabledClass = disabled ? 'color-zinc-500' : '';
+
   return (
     <span className="flex flex-1 gap-2">
       <span className={`text-base font-normal ${disabledClass}`}>
@@ -26,9 +28,9 @@ function QueueItem({ index }: { index: number }) {
       </span>
       <span className="w-full flex-1 translate-y--2">
         <span className="block border-px border-zinc-400 rounded-3 border-solid bg-white pa-2">
-          <span className={disabledClass}>{getMMDD(new Date(time))}</span>
+          <span className={disabledClass}>{getMMDD(startAt)}</span>
           <span className="ml-2 color-zinc-500">
-            {getPeriodTime(time, duration)}
+            {getPeriodTime(startAt, duration)}
           </span>
           <span className="mt-2 flex items-center gap-2">
             <Icon
@@ -45,23 +47,25 @@ function QueueItem({ index }: { index: number }) {
             />
           </span>
         </span>
-        {/* <span className="mt-1 text-xs font-normal color-red-500">
-          此時段為休假時間
-        </span> */}
+        {reason && (
+          <span className="mt-1 text-xs font-normal color-red-500">
+            {reason}
+          </span>
+        )}
       </span>
     </span>
   );
 }
 
 export default function ConsumerRequirement() {
-  const {
-    requirement,
-    service: { queue },
-    selectedTime,
-    setSelectedTime,
-  } = useRequestOrderContext();
-  const queueTimes = requirement.queues.map(({ time, disabled }) => ({
-    value: time,
+  const { requirement, selectedTime, setSelectedTime, service } =
+    useRequestOrderContext();
+  if (!requirement || !service) return null;
+
+  const { queue } = service;
+
+  const queueTimes = requirement.queues.map(({ startAt, disabled }) => ({
+    value: startAt,
     disabled,
   }));
 

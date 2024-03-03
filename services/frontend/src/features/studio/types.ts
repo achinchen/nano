@@ -28,8 +28,14 @@ export type Order = {
   startAt: string;
   service: Pick<
     ServiceDetail,
-    'name' | 'id' | 'duration' | 'attendee' | 'currentAttendee'
+    'name' | 'id' | 'duration' | 'attendee' | 'currentAttendee' | 'supplier'
   >;
+};
+
+export type RequestedOrder = {
+  id: number;
+  startAt: string;
+  service: Service;
 };
 
 export type OrderDetail = Order & {

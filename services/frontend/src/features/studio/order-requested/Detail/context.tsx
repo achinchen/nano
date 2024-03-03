@@ -1,22 +1,23 @@
-import type { Service } from '~frontend/features/studio/types';
+import type {
+  RequestedOrder,
+  OrderDetail,
+} from '~frontend/features/studio/types';
 import { useParams } from 'react-router-dom';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
+import { ORDER } from '~frontend/shared/mock';
 
-type ContactInfo = {
-  name: string;
-  SNSId: string;
-  email: string;
-  phone: string;
-  comment: string;
-};
+type ContactInfo = Pick<
+  OrderDetail,
+  'name' | 'SNSId' | 'email' | 'phone' | 'comment' | 'userId'
+>;
 
 type Time = string;
 
 type Queue = {
   currentAttendee: number;
-  attendee: number;
-  time: Time;
+  startAt: Time;
   disabled: boolean;
+  reason?: string;
 };
 
 type Requirement = {
@@ -25,15 +26,15 @@ type Requirement = {
 };
 
 export type InitialState = {
-  service: Service;
-  contactInfo: ContactInfo;
-  requirement: Requirement;
+  service?: RequestedOrder['service'];
+  contactInfo?: ContactInfo;
+  requirement?: Requirement;
   selectedTime: Time | undefined;
   setSelectedTime: React.Dispatch<React.SetStateAction<Time | undefined>>;
 };
 
 export const RequestOrderContext = createContext<InitialState>({
-  service: {} as Service,
+  service: {} as RequestedOrder['service'],
   contactInfo: {} as ContactInfo,
   requirement: {} as Requirement,
   selectedTime: undefined,
@@ -54,46 +55,25 @@ export const RequestOrderContextProvider = ({
   const [selectedTime, setSelectedTime] = useState<Time>();
   const { id } = useParams<{ id: string }>();
 
-  const [service] = useState({
-    name: '創業諮詢',
-    duration: 60,
-    location: {
-      name: '台北',
-      address: '台北市中正區重慶南路一段122號',
-    },
-    attendee: 20,
-    id: 12,
-    supplier: '阿狗狗',
-    description:
-      '創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容，創業諮詢的敘述內容。',
-    queue: Number(id) % 2 === 0,
-    allday: true,
-  });
-  const [contactInfo] = useState({
-    name: '阿狗',
-    SNSId: 'a.gogo.chen',
-    email: 'example@example.com',
-    phone: '0912345678',
-    comment: '我想要預約',
-  });
+  const order = useMemo(
+    () => ORDER.REQUESTED.find(({ id: orderId }) => orderId === Number(id)),
+    [id]
+  );
 
-  const [requirement] = useState({
-    attendee: 1,
-    queues: [
-      {
-        currentAttendee: 1,
-        attendee: 3,
-        time: '2024-08-01T10:00:00',
-        disabled: true,
-      },
-      {
-        currentAttendee: 0,
-        attendee: 3,
-        time: '2023-12-31T11:00:00',
-        disabled: false,
-      },
-    ],
-  });
+  const service = order?.service as RequestedOrder['service'];
+  const contactInfo = {
+    userId: order?.userId,
+    name: order?.name,
+    SNSId: order?.SNSId,
+    email: order?.email,
+    phone: order?.phone,
+    comment: order?.comment,
+  } as ContactInfo;
+
+  const requirement = {
+    attendee: service?.attendee,
+    queues: order?.queues,
+  } as unknown as Requirement;
 
   return (
     <RequestOrderContext.Provider

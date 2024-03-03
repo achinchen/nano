@@ -7,7 +7,7 @@ import i from './i.json';
 
 export default function Header({ smHidden }: { smHidden?: boolean }) {
   const { isListMode, toggleListMode } = useStudioContext();
-  const { onPreviousClick, onNextClick, onTodayClick } = useHeader({
+  const { onNextClick, onPreviousClick, onTodayClick } = useHeader({
     isListMode,
   });
 

@@ -2,8 +2,8 @@ import type { Status } from './types';
 import type { ServiceDetail, Order } from '~frontend/features/studio/types';
 import { useState, useEffect, useMemo, lazy } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
-import { useStudioContext } from '~frontend/features/studio/context';
 import { SERVICE, ORDER, STUDIO_TIMES } from '~frontend/shared/mock';
+import { useAppContext } from '~frontend/context';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
@@ -76,7 +76,7 @@ export default function ServiceCalendarListModeWithRWD({
 }: {
   loose?: boolean;
 }) {
-  const { selectedDate, setSelectedDate } = useStudioContext();
+  const { selectedDate, setSelectedDate } = useAppContext();
   const [serviceData, setServiceData] = useState({});
   const [orderData, setOrderData] = useState<{ [key: string]: Order[] }>({});
   const timeOptions = getTimeOptions(STUDIO_TIMES[0], STUDIO_TIMES[1]);

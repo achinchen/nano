@@ -1,8 +1,8 @@
-import ConsumerContactInfo from '~frontend/shared/components/ConsumerContactInfo';
 import Separator from '~frontend/components/Separator';
 import sharedI from '~frontend/shared/i.json';
 import ServiceInfo from './components/ServiceInfo';
 import ConsumerName from './components/ConsumerName';
+import ConsumerContactInfo from './components/ConsumerContactInfo';
 import Requirement from './components/Requirement';
 
 export default function RequestOrderDetail() {
