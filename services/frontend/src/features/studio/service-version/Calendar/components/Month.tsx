@@ -1,38 +1,42 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLooseName from '~frontend/components/Calendar/Month/Loose/Name';
 import { useAppContext } from '~frontend/context';
-import { SERVICE } from '~frontend/shared/mock';
+import { ORDER } from '~frontend/shared/mock';
 
-const services = SERVICE.IN_PROGRESS.map(({ name, serviceId }) => ({
-  name,
-  id: serviceId,
-}));
+const getMockData = (selectedDate: Date) => {
+  const year = selectedDate.getFullYear();
+  const mockOrders = year === 2023 ? ORDER.END : ORDER.IN_PROGRESS;
 
-const getMockServiceData = (month: number) => {
-  const getDays = new Date(2024, month - 1, 0).getDate();
-
-  return new Array(getDays).fill(0).reduce(
-    (data, _, index) => ({
-      ...data,
-      [index + 1]: services,
-    }),
-    {}
-  );
+  return mockOrders
+    .map(({ service, startAt }) => ({
+      name: service.name,
+      id: service.id,
+      startAt,
+    }))
+    .reduce((data, order) => {
+      const orderDate = new Date(order.startAt);
+      const dateString = `${orderDate.getMonth() + 1}-${orderDate.getDate()}`;
+      return {
+        ...data,
+        [dateString]: [...(data[dateString] || []), order],
+      };
+    }, {} as { [key: string]: unknown[] });
 };
 
 export default function CalendarMonthOrder() {
   const { selectedDate, setSelectedDate } = useAppContext();
-  const [serviceData, setServiceData] = useState({});
+  const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
-    const thisMonth = new Date().getMonth();
-    setServiceData(getMockServiceData(thisMonth + 1));
+    setOrderData(getMockData(selectedDate));
   }, [selectedDate, setSelectedDate]);
+
+  if (Object.values(orderData).length === 0) return null;
 
   return (
     <section className="h-full w-160 bg-zinc-50">
       <CalendarMonthLooseName
-        data={serviceData}
+        data={orderData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
       />

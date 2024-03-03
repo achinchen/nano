@@ -40,23 +40,9 @@ export function App() {
             />
             <Route path="/cart" element={<Cart />} />
 
-            <Route
-              path="/studio"
-              element={
-                // <ProviderProtectedRoute>
-                <StudioHome />
-                // </ProviderProtectedRoute>
-              }
-            />
+            <Route path="/studio" element={<StudioHome />} />
 
-            <Route
-              path="/studio/setting"
-              element={
-                <ProviderProtectedRoute>
-                  <StudioSetting />
-                </ProviderProtectedRoute>
-              }
-            />
+            <Route path="/studio/setting" element={<StudioSetting />} />
 
             <Route
               path="/studio/services"
@@ -72,20 +58,12 @@ export function App() {
 
             <Route
               path="/studio/services/create"
-              element={
-                <ProviderProtectedRoute>
-                  <StudioServiceCreate />
-                </ProviderProtectedRoute>
-              }
+              element={<StudioServiceCreate />}
             />
 
             <Route
               path="/studio/services/:id/:version"
-              element={
-                <ProviderProtectedRoute>
-                  <StudioServiceVersion />
-                </ProviderProtectedRoute>
-              }
+              element={<StudioServiceVersion />}
             />
 
             <Route
