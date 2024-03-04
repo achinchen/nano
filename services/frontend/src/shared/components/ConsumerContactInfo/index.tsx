@@ -6,23 +6,6 @@ import i from './i.json';
 
 type Props = Pick<OrderDetail, 'comment' | 'SNSId' | 'email' | 'phone'>;
 
-const order = {
-  service: {
-    id: 7,
-    name: '創業諮詢',
-  },
-  name: '阿狗',
-  SNSId: 'a.gogo.chen',
-  email: 'example@example.com',
-  phone: '0912345678',
-  comment: '想詢問還需要準備什麼嗎？',
-  note: {
-    updateAt: '2023-08-31T08:00:00.000Z',
-    content:
-      '阿狗的備註好多蚊子，阿狗的備註好多蚊子，阿狗的備註好多蚊子，阿狗的備註好多蚊子，阿狗的備註好多蚊子，阿狗的備註好多蚊子。',
-  },
-};
-
 function Item({
   icon,
   title,
@@ -48,7 +31,7 @@ export default function ConsumerContactInfo({
   SNSId,
   email,
   phone,
-}: Props = order) {
+}: Props) {
   return (
     <section className="flex flex-col gap-2">
       <Item icon="i-custom-sns-instagram" title={i.SNS}>

@@ -313,6 +313,7 @@ export const ORDER = {
         currentAttendee: 1,
         attendee: SERVICE.IN_PROGRESS[2].attendee,
         location: SERVICE.IN_PROGRESS[2].location,
+        supplier: SERVICE.IN_PROGRESS[2].supplier,
       },
       userId: 5,
       name: '阿賢',

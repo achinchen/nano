@@ -1,57 +1,17 @@
 import type { Order } from '~frontend/features/studio/types';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import AttendeeTag from '~frontend/features/studio/components/AttendeeTag';
 import { getServiceColorById } from '~frontend/shared/utils/get-service-color-by-id';
 import { getPeriodTime } from '~frontend/utils/time';
 import { isBefore } from '~frontend/utils/date';
 
 type Props = {
-  orders?: Order[];
+  orders: Order[];
 };
-
-const ORDERS = [
-  {
-    id: 1,
-    startAt: '2023-12-19T10:00',
-    service: {
-      duration: 90,
-      name: '創業諮詢',
-      currentAttendee: 4,
-      id: 7,
-      attendee: 4,
-    },
-  },
-  {
-    id: 20,
-    startAt: '2023-12-19T13:00',
-    service: {
-      duration: 90,
-      name: '客製蛋糕',
-      currentAttendee: 1,
-      id: 21,
-      attendee: 2,
-    },
-  },
-  {
-    id: 22,
-    startAt: '2023-12-19T15:00',
-    service: {
-      duration: 120,
-      currentAttendee: 2,
-      id: 20,
-      attendee: 2,
-      address: '台北',
-      name: '小飛象戚風蛋糕',
-    },
-  },
-];
 
 const today = new Date('2024/01/01');
 
-export default function OrderCards({ orders: propOrders }: Props) {
-  const [orders] = useState(propOrders || ORDERS);
-
+export default function OrderCards({ orders }: Props) {
   return (
     <section className="mt-2 flex flex-col gap-2">
       {orders.map(

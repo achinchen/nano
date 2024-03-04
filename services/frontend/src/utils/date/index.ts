@@ -87,11 +87,13 @@ export const isBefore = (dateA: Date, dateB: Date) => {
 };
 
 export const isTomorrow = (date: Date) => {
-  return dayjs(date).isTomorrow();
+  const mockToday = new Date('2024/01/02');
+  return dayjs(date).isSame(mockToday, 'date');
 };
 
 export function isToday(date: Date) {
-  return dayjs(date).isToday();
+  const mockToday = new Date('2024/01/01');
+  return dayjs(date).isSame(mockToday, 'date');
 }
 
 export const setDateTime = (date: Date | string, time: string) => {
