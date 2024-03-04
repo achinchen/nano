@@ -5,7 +5,7 @@ export type InitialState = {
 };
 
 export const MyOrderContext = createContext<InitialState>({
-  visitedAt: new Date(),
+  visitedAt: new Date('2024/01/01'),
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -17,7 +17,7 @@ export const MyOrderContextProvider = ({
 }: {
   children: JSX.Element;
 }) => {
-  const [visitedAt] = useState(new Date('2023-12-18'));
+  const [visitedAt] = useState(new Date('2023-12-25'));
 
   return (
     <MyOrderContext.Provider

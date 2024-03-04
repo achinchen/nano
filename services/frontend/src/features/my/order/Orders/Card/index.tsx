@@ -1,4 +1,7 @@
-import type { Order } from '~frontend/features/my/order/types';
+import type {
+  OrderDetail,
+  OrderStatus,
+} from '~frontend/features/my/order/types';
 import { useNavigate } from 'react-router-dom';
 import { isBefore, getYYYYMMDD } from '~frontend/utils/date';
 import { getPeriodTime } from '~frontend/utils/time';
@@ -10,19 +13,26 @@ import UpdateTag from '~frontend/features/my/order/Orders/Card/UpdateTag';
 import { useMyOrderContext } from '~frontend/features/my/order/context';
 import i from './i.json';
 
+type Props = OrderDetail & {
+  status: OrderStatus;
+};
+
 export default function OrderCard({
   id,
   name,
-  updatedAt,
-  queues,
-  duration,
+  updateAt,
   status,
-}: Order) {
+  service: { duration },
+  queues,
+}: Props) {
   const navigate = useNavigate();
   const { visitedAt } = useMyOrderContext();
 
   const onMoreClick = () => navigate(`/my/orders/${id}`);
-  const onCalendarEventClick = () => navigate(`/my/orders/${id}/calendar`);
+  const onCalendarEventClick = () => {
+    return;
+    // navigate(`/my/orders/${id}/calendar`);
+  };
   const end = status === 'end';
   const TEXT_CLASSNAME = end ? 'color-zinc-500' : 'color-zinc-700';
 
@@ -30,10 +40,10 @@ export default function OrderCard({
     <section className="mt-2 border-px border-zinc-200 rounded-3 border-solid pa-2">
       <header className={`flex items-center justify-between ${TEXT_CLASSNAME}`}>
         {name}
-        {isBefore(new Date(updatedAt), visitedAt) && <UpdateTag />}
+        {isBefore(new Date(updateAt), visitedAt) && <UpdateTag />}
       </header>
-      {queues.map((datetime) => (
-        <div key={`order-card-${id}-time-${datetime}`}>
+      {queues?.map(({ startAt }) => (
+        <div key={`order-card-${id}-time-${startAt}`}>
           <Icon
             size="2xl"
             icon="i-solar-alarm-linear"
@@ -41,10 +51,10 @@ export default function OrderCard({
           />
           <span className="whitespace-pre text-sm">
             <span className={`mx-1 ${TEXT_CLASSNAME}`}>
-              {getYYYYMMDD(datetime)} ·
+              {getYYYYMMDD(startAt)} ·
             </span>
             <span className="color-zinc-500">
-              {getPeriodTime(datetime, duration)}
+              {getPeriodTime(startAt, duration)}
             </span>
           </span>
         </div>

@@ -1,2 +1,4 @@
-import type { Order } from '~frontend/features/my/order/types';
-export type Props = Pick<Order, 'queues' | 'duration'>;
+import type { OrderDetail } from '~frontend/features/my/order/types';
+export type Props = Partial<Pick<OrderDetail, 'queues' | 'startAt'>> & {
+  duration: OrderDetail['service']['duration'];
+};
