@@ -1,63 +1,48 @@
 import { useEffect, useState } from 'react';
 import CalendarMonthLoose from '~frontend/components/Calendar/Month/Loose/Process';
 import { useAppContext } from '~frontend/context';
-import { isBefore } from '~frontend/utils/date';
+import { ORDER } from '~frontend/features/my/order/mock';
 
 type Props = {
   className?: string;
 };
 
-const mockServiceData = {
-  17: [{ id: 1 }],
-  20: [
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-    {
-      id: 3,
-    },
-    {
-      id: 12,
-    },
-  ],
-  30: [
-    {
-      id: 30,
-    },
-  ],
-};
+const getMockData = (selectedDate: Date) => {
+  const year = selectedDate.getFullYear();
+  const mockOrders =
+    year === 2023 ? ORDER.end : [...ORDER.coming, ...ORDER.coming];
 
-const getMockData = (month: number) => {
-  return Object.entries(mockServiceData).reduce((data, [date]) => {
-    return {
-      ...data,
-      [`${month}-${date}`]: isBefore(
-        new Date(),
-        new Date(2023, month, Number(date))
-      )
-        ? 'end'
-        : 'start',
-    };
-  }, {});
+  return mockOrders
+    .map(({ service, status, startAt }) => ({
+      id: service.id,
+      status: status === 'end' ? 'end' : 'start',
+      startAt,
+    }))
+    .reduce((data, order) => {
+      const { startAt, status } = order;
+      const orderDate = new Date(startAt);
+      const dateString = `${orderDate.getMonth() + 1}-${orderDate.getDate()}`;
+      return {
+        ...data,
+        [dateString]: status,
+      };
+    }, {} as { [key: string]: string });
 };
 
 export default function Calendar({ className = '' }: Props) {
   const { selectedDate, setSelectedDate } = useAppContext();
-  const [serviceData, setServiceData] = useState({});
+  const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
-    const thisMonth = new Date().getMonth();
-    const isThisMonth = selectedDate.getMonth() === thisMonth;
-    setServiceData(isThisMonth ? getMockData(thisMonth + 1) : {});
+    setOrderData(getMockData(selectedDate));
   }, [selectedDate, setSelectedDate]);
+
+  if (Object.values(orderData).length === 0) return null;
 
   return (
     <section className={`w-160 bg-zinc-50 h-full ${className}`}>
       <CalendarMonthLoose
-        data={serviceData}
+        data={orderData}
         selectedDate={selectedDate}
         onSelect={setSelectedDate}
       />
