@@ -27,24 +27,41 @@ export default function FullScreenMenu() {
             <ul>
               {items.map(({ icon, label, href }) => (
                 <li key={label}>
-                  <Link
-                    to={href}
-                    className="h-14 flex items-center gap-4 color-zinc-700"
-                    onClick={onClick}
-                  >
-                    <Icon icon={icon} size="2xl" className="h-8 w-8" />
-                    <span className="h-100% flex flex-1 items-center justify-between border-b-1 border-b-zinc-200 border-b-solid">
-                      {label}
-                      <IconButton
-                        icon="i-solar-alt-arrow-right-linear"
-                        size="sm"
-                        onClick={onClick}
-                        className={title ? '' : 'invisible'}
-                        color="dark"
-                        variant="text"
-                      />
+                  {href ? (
+                    <Link
+                      to={href}
+                      className="h-14 flex items-center gap-4 color-zinc-700"
+                      onClick={onClick}
+                    >
+                      <Icon icon={icon} size="2xl" className="h-8 w-8" />
+                      <span className="h-100% flex flex-1 items-center justify-between border-b-1 border-b-zinc-200 border-b-solid">
+                        {label}
+                        <IconButton
+                          icon="i-solar-alt-arrow-right-linear"
+                          size="sm"
+                          onClick={onClick}
+                          className={title ? '' : 'invisible'}
+                          color="dark"
+                          variant="text"
+                        />
+                      </span>
+                    </Link>
+                  ) : (
+                    <span className="h-14 flex items-center gap-4 color-zinc-700">
+                      <Icon icon={icon} size="2xl" className="h-8 w-8" />
+                      <span className="h-100% flex flex-1 items-center justify-between border-b-1 border-b-zinc-200 border-b-solid">
+                        {label}
+                        <IconButton
+                          icon="i-solar-alt-arrow-right-linear"
+                          size="sm"
+                          onClick={onClick}
+                          className={title ? '' : 'invisible'}
+                          color="dark"
+                          variant="text"
+                        />
+                      </span>
                     </span>
-                  </Link>
+                  )}
                 </li>
               ))}
             </ul>

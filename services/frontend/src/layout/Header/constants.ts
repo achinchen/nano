@@ -8,7 +8,7 @@ export const SIDE_MENU = {
     icon: 'i-solar-cart-large-minimalistic-bold',
   },
   TAKE_LEAVE: {
-    href: '/studio/takeleave',
+    href: '',
     icon: 'i-solar-moon-sleep-bold',
   },
 };

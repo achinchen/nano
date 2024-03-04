@@ -5,17 +5,14 @@ import {
 } from '~frontend/features/studio/components/CalendarWeekList/utils';
 import { FULL_BLOCK_CLASS_NAMES } from '~frontend/features/studio/components/CalendarWeekList/constants';
 import takeLeaveImage from '~frontend/assets/takeleave.svg';
+import { STUDIO_TIMES, STUDIO_DURATION } from '~frontend/shared/mock';
 
-const studioOpeningHours = ['09:00', '21:00'];
 const TAKE_LEAVES = [
   {
-    duration: 40,
-    name: '創業諮詢',
-    description: '創業諮詢的敘述就好似這樣',
-    startAt: '2023-12-19T19:00',
+    duration: STUDIO_DURATION,
+    startAt: '2024-01-30T09:00',
   },
 ];
-
 export default function TakeleaveBlocks({ loose = true }: { loose?: boolean }) {
   return (
     <Fragment>
@@ -26,7 +23,7 @@ export default function TakeleaveBlocks({ loose = true }: { loose?: boolean }) {
           key={`takeleave-${startAt}-${index}`}
           style={{
             height: `${getHeightByDuration(duration, loose)}px`,
-            top: getTopByTimeAndOpenTime(startAt, studioOpeningHours[0], loose),
+            top: getTopByTimeAndOpenTime(startAt, STUDIO_TIMES[0], loose),
           }}
         >
           <img src={takeLeaveImage} alt="take leave" />

@@ -11,7 +11,7 @@ const NAVIGATION = {
         label: i.studio.profile,
       },
       {
-        href: '/studio/takeleave',
+        href: '',
         icon: 'i-solar-moon-sleep-bold',
         label: i.studio.takeleave,
       },

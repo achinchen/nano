@@ -34,16 +34,25 @@ export default function RightTop({ onClose }: Props) {
               <ul>
                 {items.map(({ icon, label, href }) => (
                   <li key={label}>
-                    <Link
-                      to={href}
-                      className="h-14 flex items-center gap-4"
-                      onClick={onClick}
-                    >
-                      <Icon icon={icon} size="2xl" />
-                      <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
-                        {label}
+                    {href ? (
+                      <Link
+                        to={href}
+                        className="h-14 flex items-center gap-4"
+                        onClick={onClick}
+                      >
+                        <Icon icon={icon} size="2xl" />
+                        <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
+                          {label}
+                        </span>
+                      </Link>
+                    ) : (
+                      <span className="h-14 flex items-center gap-4">
+                        <Icon icon={icon} size="2xl" />
+                        <span className="h-100% flex flex-1 items-center border-b-1 border-b-zinc-200 border-b-solid">
+                          {label}
+                        </span>
                       </span>
-                    </Link>
+                    )}
                   </li>
                 ))}
               </ul>
