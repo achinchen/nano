@@ -64,7 +64,7 @@ const getMockOrderData = (selectedDate: Date) => {
       const dateString = `${orderDate.getMonth() + 1}-${orderDate.getDate()}`;
       return {
         ...data,
-        [dateString]: [...(data[dateString] || []), order],
+        [dateString]: [...(data[dateString] || []), order] as Order[],
       };
     }, {} as { [key: string]: Order[] });
 };

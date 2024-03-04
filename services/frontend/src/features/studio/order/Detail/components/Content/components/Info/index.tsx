@@ -6,7 +6,7 @@ import Avatar from '~frontend/components/Avatar';
 import getAvatarById from '~frontend/shared/utils/get-avatar-by-id';
 import Separator from '~frontend/components/Separator';
 
-type Props = OrderDetail;
+type Props = Omit<OrderDetail, 'service'>;
 
 export default function Info({
   name,
