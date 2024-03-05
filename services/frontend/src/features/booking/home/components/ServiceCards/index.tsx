@@ -1,4 +1,5 @@
-import type { ServiceCardProps } from './types';
+import type { Service } from '~frontend/features/booking/types';
+import type { ServiceStatus } from '~frontend/types';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Icon from '~frontend/components/Icon';
@@ -8,103 +9,39 @@ import sharedI from '~frontend/shared/i.json';
 import { formatDuration } from '~frontend/utils/time';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import { useAppContext } from '~frontend/context';
+import { SERVICE, ORDER, TAKE_LEAVES } from '~frontend/shared/mock';
+import { isSameDay } from '~frontend/utils/date';
+import { getStatusByAttendee } from '~frontend/shared/utils/get-status-by-attendee';
 import scopedI from './i.json';
 
-const SERVICES = [
-  {
-    id: 10,
-    attendee: 3,
-    duration: 240,
-    name: '小飛象造型戚風蛋糕',
-    time: '下午 2:00 - 下午 6:00',
-    allday: false,
-    address: '台中',
-    supplier: '泡泡',
-    status: 'has-order',
-  },
-  {
-    id: 12,
-    attendee: 1,
-    duration: 60,
-    name: '創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢創業諮詢',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'full',
-  },
-  {
-    id: 13,
-    attendee: 2,
-    duration: 30,
-    name: '美味寵物便當',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'unsold',
-  },
-  {
-    id: 20,
-    attendee: 3,
-    duration: 240,
-    name: '小飛象造型戚風蛋糕',
-    time: '下午 2:00 - 下午 6:00',
-    allday: false,
-    address: '台中',
-    supplier: '泡泡',
-    status: 'has-order',
-  },
-  {
-    id: 22,
-    attendee: 1,
-    duration: 60,
-    name: '創業諮詢',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'full',
-  },
-  {
-    id: 24,
-    attendee: 2,
-    duration: 30,
-    name: '美味寵物便當',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'unsold',
-  },
-  {
-    id: 40,
-    attendee: 3,
-    duration: 240,
-    name: '小飛象造型戚風蛋糕',
-    time: '下午 2:00 - 下午 6:00',
-    allday: false,
-    address: '台中',
-    supplier: '泡泡',
-    status: 'has-order',
-  },
-  {
-    id: 42,
-    attendee: 1,
-    duration: 60,
-    name: '創業諮詢',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'full',
-  },
-  {
-    id: 44,
-    attendee: 2,
-    duration: 30,
-    name: '美味寵物便當',
-    allday: true,
-    address: '台北',
-    supplier: '阿狗狗',
-    status: 'unsold',
-  },
-] as ServiceCardProps[];
+type ServiceDetail = Service & {
+  status: ServiceStatus;
+};
+
+const getMockServiceData = (selectedDate: Date) => {
+  const year = selectedDate.getFullYear();
+  const services = year === 2023 ? SERVICE.END : SERVICE.IN_PROGRESS;
+  const orders = year === 2023 ? ORDER.END : ORDER.IN_PROGRESS;
+  const isDayOff = isSameDay(new Date(TAKE_LEAVES[0].startAt), selectedDate);
+
+  if (isDayOff) return [];
+
+  return services.map((service) => {
+    const currentAttendee =
+      [...orders].filter(
+        (order) =>
+          order.service.id === service.serviceId &&
+          isSameDay(new Date(order.startAt), selectedDate)
+      )?.length || 0;
+    const status = getStatusByAttendee(service.attendee, currentAttendee);
+
+    return {
+      ...service,
+      currentAttendee,
+      status,
+    };
+  }) as unknown as ServiceDetail[];
+};
 
 export function ServiceCard({
   id,
@@ -113,10 +50,10 @@ export function ServiceCard({
   name,
   allday,
   time = '',
-  address,
+  location: { address },
   supplier,
   status,
-}: ServiceCardProps) {
+}: ServiceDetail) {
   const { provider } = useParams();
   const duration = formatDuration(propDuration);
 
@@ -157,17 +94,18 @@ export function ServiceCard({
 
 export function ServiceCards() {
   const { selectedDate } = useAppContext();
-  const [services, setServices] = useState<ServiceCardProps[]>([]);
+  const [serviceData, setServiceData] = useState<ServiceDetail[]>([]);
 
   useEffect(() => {
-    const today = selectedDate.getDate() === new Date().getDate();
-    setServices(today ? SERVICES : []);
-  }, [selectedDate, setServices]);
+    setServiceData(getMockServiceData(selectedDate));
+  }, [selectedDate]);
 
   return (
     <section className="ma-4">
-      {services.length ? (
-        services.map((service) => <ServiceCard {...service} key={service.id} />)
+      {serviceData.length ? (
+        serviceData.map((service) => (
+          <ServiceCard {...service} key={service.serviceId} />
+        ))
       ) : (
         <div className="flex flex-col items-center color-zinc-500">
           <Icon

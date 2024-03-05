@@ -1,14 +1,15 @@
 import type { Order } from '~frontend/features/studio/types';
-import type { Status } from './types';
+import type { ServiceStatus } from '~frontend/types';
 import { useState, useEffect, useMemo } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useAppContext } from '~frontend/context';
 import { STUDIO_TIMES, ORDER } from '~frontend/shared/mock';
+import { getStatusByAttendee } from '~frontend/shared/utils/get-status-by-attendee';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
-import { getStatusByAttendee, getTimeOptions } from './utils';
+import { getTimeOptions } from './utils';
 
-type Data = Order & { status: Status };
+type Data = Order & { status: ServiceStatus };
 
 const getMockData = (selectedDate: Date) => {
   const year = selectedDate.getFullYear();
@@ -43,7 +44,7 @@ export default function OrderCalendarListMode() {
     return Object.entries(orderData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: Status }[])[0].status,
+        [date]: (services as { status: ServiceStatus }[])[0].status,
       }),
       {}
     );

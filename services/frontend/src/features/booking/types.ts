@@ -1,8 +1,9 @@
-import type { Status } from '~frontend/features/booking/components/StatusTag/types';
+import type { ServiceStatus } from '~frontend/types';
 
 export type Service = {
   name: string;
   id: number;
+  serviceId: number;
   description: string;
   location: {
     name: string;
@@ -13,5 +14,5 @@ export type Service = {
   duration: number;
   allday: boolean;
   supplier: string;
-  status: Status;
+  status: ServiceStatus;
 };

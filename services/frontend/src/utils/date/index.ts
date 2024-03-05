@@ -86,6 +86,11 @@ export const isBefore = (dateA: Date, dateB: Date) => {
   return dateB < dateA;
 };
 
+
+export const isSameDay = (dateA: Date, dateB: Date) => {
+  return dayjs(dateA).isSame(dateB, 'date');
+};
+
 export const isTomorrow = (date: Date) => {
   const mockToday = new Date('2024/01/02');
   return dayjs(date).isSame(mockToday, 'date');

@@ -1,15 +1,15 @@
-import type { Status } from '~frontend/features/studio/service/Services/types';
+import type { ServiceStatus } from '~frontend/types';
 import type { Value } from '~frontend/components/Tabs/types';
 import { Tabs, Tab } from '~frontend/components/Tabs';
 import { STATUS_ITEMS } from './constants';
 
 type Props = {
-  status: Status;
-  setStatus: (Status: Status) => void;
+  status: ServiceStatus;
+  setStatus: (Status: ServiceStatus) => void;
 };
 
 export default function StatusTabs({ status, setStatus }: Props) {
-  const onChange = (value?: Value) => setStatus(value as Status);
+  const onChange = (value?: Value) => setStatus(value as ServiceStatus);
 
   return (
     <Tabs defaultValue={status} onChange={onChange}>

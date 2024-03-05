@@ -1,14 +1,15 @@
-import type { Status } from './types';
+import type { ServiceStatus } from '~frontend/types';
 import type { ServiceDetail, Order } from '~frontend/features/studio/types';
 import { useState, useEffect, useMemo, lazy } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { SERVICE, ORDER, STUDIO_TIMES } from '~frontend/shared/mock';
 import { useAppContext } from '~frontend/context';
+import { getStatusByAttendee } from '~frontend/shared/utils/get-status-by-attendee';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import OrderTimeBlocks from './components/OrderBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';
-import { getTimeOptions, getStatusByAttendee } from './utils';
+import { getTimeOptions } from './utils';
 
 const ScrollableCalendarWeek = lazy(
   () => import('./components/ScrollableCalendarWeek')
@@ -92,7 +93,7 @@ export default function ServiceCalendarListModeWithRWD({
     return Object.entries(serviceData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: Status }[])[0].status,
+        [date]: (services as { status: ServiceStatus }[])[0].status,
       }),
       {}
     );

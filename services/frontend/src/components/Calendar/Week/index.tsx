@@ -1,5 +1,5 @@
 import type { SelectedDatePayload } from '~frontend/components/Calendar/hooks/use-date-select';
-import type { Status } from '~frontend/components/Calendar/types';
+import type { ServiceStatus } from '~frontend/types';
 import { useMemo } from 'react';
 import { DAYS, STATUS_CLASS } from '~frontend/components/Calendar/constants';
 import { useDateSelect } from '~frontend/components/Calendar/hooks/use-date-select';
@@ -10,7 +10,7 @@ type CalendarWeekProps = React.PropsWithChildren<{
   selectedDate?: Date;
   loose?: boolean;
   data?: {
-    [key: string]: Status;
+    [key: string]: ServiceStatus;
   };
 }>;
 

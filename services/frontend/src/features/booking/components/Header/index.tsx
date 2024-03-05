@@ -19,7 +19,7 @@ export function Header({ smHidden = false }: { smHidden?: boolean }) {
       getFirstDateInPreviousMonth(selectedDate)
     );
   };
-  const onTodayClick = () => setSelectedDate(new Date());
+  const onTodayClick = () => setSelectedDate(new Date('2024/01/01'));
 
   return (
     <header className={`content-header ${smHidden ? 'hidden md:flex' : ''}`}>

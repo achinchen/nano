@@ -1,10 +1,10 @@
-import type { Status } from './types';
+import type { ServiceStatus } from '~frontend/types';
 import { TAG_CONFIG } from '~frontend/components/Tag/constants';
 import i from './i.json';
 
 type StatusTagProps = {
   className?: string;
-  status: Status;
+  status: ServiceStatus;
 };
 
 const STATUS_CONFIG = {

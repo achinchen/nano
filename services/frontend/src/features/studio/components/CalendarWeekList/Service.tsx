@@ -1,13 +1,14 @@
-import type { Status } from './types';
+import type { ServiceStatus } from '~frontend/types';
 import type { ServiceDetail } from '~frontend/features/studio/types';
 import { useState, useEffect, useMemo } from 'react';
 import CalendarWeek from '~frontend/components/Calendar/Week';
 import { useAppContext } from '~frontend/context';
 import { SERVICE, STUDIO_TIMES } from '~frontend/shared/mock';
+import { getStatusByAttendee } from '~frontend/shared/utils/get-status-by-attendee';
 import ServiceTimeBlock from './components/ServiceBlocks';
 import TakeleaveBlocks from './components/TakeleaveBlocks';
 import ServiceNav from './components/ServiceNav';
-import { getTimeOptions, getStatusByAttendee } from './utils';
+import { getTimeOptions } from './utils';
 
 const getMockServiceData = (selectedDate: Date) => {
   const selectedMonth = selectedDate.getMonth();
@@ -54,7 +55,7 @@ export default function ServiceCalendarListMode() {
     return Object.entries(serviceData).reduce(
       (data, [date, services]) => ({
         ...data,
-        [date]: (services as { status: Status }[])[0].status,
+        [date]: (services as { status: ServiceStatus }[])[0].status,
       }),
       {}
     );

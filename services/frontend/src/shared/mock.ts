@@ -5,6 +5,13 @@ export const STUDIO_TIMES = ['09:00', '20:30'];
 
 export const STUDIO_DURATION = 690;
 
+export const TAKE_LEAVES = [
+  {
+    duration: STUDIO_DURATION,
+    startAt: '2024-01-30T09:00',
+  },
+];
+
 export const SERVICE = {
   IN_PROGRESS: [
     {

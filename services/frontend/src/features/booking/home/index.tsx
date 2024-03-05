@@ -19,10 +19,8 @@ function Content() {
       <Calendar className="hidden md:block" />
       <CalendarModeSwitchable className="md:hidden" />
       <section
-        className={`overflow-y-scroll flex-1 md:max-h-[calc(100dvh-116px)] ${
-          mode === 'week'
-            ? 'max-h-[calc(100dvh-188px)]'
-            : 'max-h-[calc(100dvh-388px)]'
+        className={`overflow-y-scroll flex-1 md:h-[calc(100dvh-116px)] ${
+          mode === 'week' ? 'h-[calc(100dvh-188px)]' : 'h-[calc(100dvh-388px)]'
         }`}
       >
         <ServiceCards />

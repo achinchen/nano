@@ -1,4 +1,4 @@
-import type { Status } from './types';
+import type { ServiceStatus } from '~frontend/types';
 import { FULL_TIME_OPTIONS } from './constants';
 
 export const getTimeOptions = (startTime: string, endTime: string) => {
@@ -37,15 +37,4 @@ export const getTopByTimeAndOpenTime = (
   const startHour = new Date(startAt).getHours();
   const top = (startHour - Number(hour)) * QUARTER * getUnitHeight(loose);
   return top;
-};
-
-export const getStatusByAttendee = (
-  attendee: number,
-  currentAttendee: number
-): Status => {
-  return currentAttendee >= attendee
-    ? 'full'
-    : currentAttendee
-    ? 'has-order'
-    : 'unsold';
 };

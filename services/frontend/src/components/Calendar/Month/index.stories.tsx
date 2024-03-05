@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react';
-import type { Status } from '~frontend/components/Calendar/types';
+import type { ServiceStatus } from '~frontend/types';
 import { useState } from 'react';
 import CalendarMonthLooseNameTag from './Loose/NameTag';
 import { CalendarMonthTight } from '.';
@@ -65,7 +65,7 @@ const data = {
   '9-18': 'full',
   '9-17': 'has-order',
 } as {
-  [key: string]: Status;
+  [key: string]: ServiceStatus;
 };
 
 export const Tight = () => {
