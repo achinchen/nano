@@ -1,4 +1,5 @@
-import type { ServiceDetailProps } from './types';
+import type { Service } from '~frontend/features/booking/types';
+import { useAppContext } from '~frontend/context';
 import i from '~frontend/shared/i.json';
 import StatusTag from '~frontend/features/booking/components/StatusTag';
 import { formatDuration } from '~frontend/utils/time';
@@ -13,10 +14,11 @@ export function ServiceDetail({
   duration,
   location,
   description,
-  selectedDate,
   attendee,
   status,
-}: ServiceDetailProps) {
+}: Service) {
+  const { selectedDate } = useAppContext();
+
   return (
     <section>
       <h2 className="my-3 flex justify-between text-xl font-bold">

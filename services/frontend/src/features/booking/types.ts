@@ -2,7 +2,6 @@ import type { ServiceStatus } from '~frontend/types';
 
 export type Service = {
   name: string;
-  id: number;
   serviceId: number;
   description: string;
   location: {
@@ -10,9 +9,13 @@ export type Service = {
     address: string;
   };
   time?: string;
+  currentAttendee: number;
+  queue: boolean;
   attendee: number;
   duration: number;
   allday: boolean;
+  startAt: string;
+  endAt: string;
   supplier: string;
   status: ServiceStatus;
 };

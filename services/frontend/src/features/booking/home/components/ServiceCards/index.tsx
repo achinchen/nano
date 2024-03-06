@@ -1,5 +1,4 @@
 import type { Service } from '~frontend/features/booking/types';
-import type { ServiceStatus } from '~frontend/types';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Icon from '~frontend/components/Icon';
@@ -9,42 +8,11 @@ import sharedI from '~frontend/shared/i.json';
 import { formatDuration } from '~frontend/utils/time';
 import { ICON_COLOR } from '~frontend/features/booking/constants';
 import { useAppContext } from '~frontend/context';
-import { SERVICE, ORDER, TAKE_LEAVES } from '~frontend/shared/mock';
-import { isSameDay } from '~frontend/utils/date';
-import { getStatusByAttendee } from '~frontend/shared/utils/get-status-by-attendee';
+import { getMockServiceData } from '~frontend/features/booking/utils';
 import scopedI from './i.json';
 
-type ServiceDetail = Service & {
-  status: ServiceStatus;
-};
-
-const getMockServiceData = (selectedDate: Date) => {
-  const year = selectedDate.getFullYear();
-  const services = year === 2023 ? SERVICE.END : SERVICE.IN_PROGRESS;
-  const orders = year === 2023 ? ORDER.END : ORDER.IN_PROGRESS;
-  const isDayOff = isSameDay(new Date(TAKE_LEAVES[0].startAt), selectedDate);
-
-  if (isDayOff) return [];
-
-  return services.map((service) => {
-    const currentAttendee =
-      [...orders].filter(
-        (order) =>
-          order.service.id === service.serviceId &&
-          isSameDay(new Date(order.startAt), selectedDate)
-      )?.length || 0;
-    const status = getStatusByAttendee(service.attendee, currentAttendee);
-
-    return {
-      ...service,
-      currentAttendee,
-      status,
-    };
-  }) as unknown as ServiceDetail[];
-};
-
 export function ServiceCard({
-  id,
+  serviceId,
   attendee,
   duration: propDuration,
   name,
@@ -53,13 +21,13 @@ export function ServiceCard({
   location: { address },
   supplier,
   status,
-}: ServiceDetail) {
+}: Service) {
   const { provider } = useParams();
   const duration = formatDuration(propDuration);
 
   return (
     <Link
-      to={`/booking/${provider}/s/${id}`}
+      to={`/booking/${provider}/s/${serviceId}`}
       className="mb-2 flex flex-col gap-2 border-px border-zinc-200 rounded-4 border-solid pa-2 active:bg-zinc-200 hover:bg-zinc-50"
     >
       <div className="inline-flex justify-between">
@@ -94,7 +62,7 @@ export function ServiceCard({
 
 export function ServiceCards() {
   const { selectedDate } = useAppContext();
-  const [serviceData, setServiceData] = useState<ServiceDetail[]>([]);
+  const [serviceData, setServiceData] = useState<Service[]>([]);
 
   useEffect(() => {
     setServiceData(getMockServiceData(selectedDate));

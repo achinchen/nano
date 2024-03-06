@@ -65,3 +65,13 @@ export const getPlainPeriodTimes = (
 export const getRelativeTime = (datetime: Date | string) => {
   return dayjs(datetime).from('2023-12-31T23:59:59Z');
 };
+
+export const addMinutes = (datetime: Date | string, minutes: number) => {
+  return dayjs(datetime).add(minutes, 'minute').format('HH:mm');
+};
+
+export const isBefore = (timeA: string, timeB: string) => {
+  const [hourA, minuteA] = timeA.split(':').map(Number);
+  const [hourB, minuteB] = timeB.split(':').map(Number);
+  return hourA <= hourB || (hourA === hourB && minuteA <= minuteB);
+};
