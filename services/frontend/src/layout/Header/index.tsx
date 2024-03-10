@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
 import Studio from '~frontend/assets/example-studio.png';
 import { useAppContext } from '~frontend/context';
+import Badge from '~frontend/components/Badge';
 import ProviderNavigationDrawer from './ProviderNavigation/Drawer';
 import ProviderNavigation from './ProviderNavigation';
 import IconLink from './components/IconLink';
@@ -11,7 +12,7 @@ import { SIDE_MENU } from './constants';
 import { HeaderContextProvider, useHeaderContext } from './context';
 
 export function Header() {
-  const { isLogin, isProvider, studio } = useAppContext();
+  const { isLogin, isProvider, studio, isEmptyCart } = useAppContext();
   const { isMenuOpen } = useHeaderContext();
 
   return (
@@ -40,7 +41,13 @@ export function Header() {
         </Link>
       </div>
       <div className="flex items-baseline gap-1 md:gap-4">
-        <IconLink {...SIDE_MENU.CART} />
+        {!isEmptyCart ? (
+          <Badge>
+            <IconLink {...SIDE_MENU.CART} />
+          </Badge>
+        ) : (
+          <IconLink {...SIDE_MENU.CART} />
+        )}
         {isLogin ? (
           <Menu />
         ) : (

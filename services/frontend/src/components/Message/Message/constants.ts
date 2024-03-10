@@ -8,7 +8,7 @@ export const AUTOMATICALLY_CLOSE_SEVERITIES: MessageSeverity[] = [
 ];
 
 export const CONTAINER_CLASSNAMES =
-  'flex flex-row items-center mx-3 my-2 pr-3 pl-4 py-2 max-w-lg min-w-72 rounded-3 shadow-dialog font-default text-sm whitespace-pre-line';
+  'flex flex-row items-center mx-3 my-2 pr-3 pl-4 py-2 max-w-72 min-w-72 rounded-3 shadow-dialog font-default text-sm whitespace-pre-line';
 
 export const COLOR: { [key in MessageSeverity]: string } = {
   success: 'bg-primary-100 color-functional-success',

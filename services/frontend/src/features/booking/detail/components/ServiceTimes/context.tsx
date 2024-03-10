@@ -37,6 +37,7 @@ type InitialState = {
   queue: Props['queue'];
   queues: string[];
   setQueues: Dispatch<SetStateAction<string[]>>;
+  setDisabled: Dispatch<SetStateAction<boolean>>;
 };
 
 export const ServiceTimesContext = createContext<InitialState>({
@@ -45,6 +46,8 @@ export const ServiceTimesContext = createContext<InitialState>({
   queues: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setQueues: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setDisabled: () => {},
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -60,6 +63,7 @@ export const ServiceTimesContextProvider = ({
   duration,
   attendee,
   children,
+  setDisabled,
 }: {
   children: JSX.Element;
   queue: InitialState['queue'];
@@ -69,6 +73,7 @@ export const ServiceTimesContextProvider = ({
   allday: Props['allday'];
   startAt: Props['startAt'];
   endAt: Props['endAt'];
+  setDisabled: Dispatch<SetStateAction<boolean>>;
 }) => {
   const times = useMemo(() => {
     const orders = propOrder.map(({ startAt, currentAttendee }) => {
@@ -105,6 +110,7 @@ export const ServiceTimesContextProvider = ({
         queue,
         setQueues,
         queues,
+        setDisabled,
       }}
     >
       {children}

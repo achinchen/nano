@@ -1,4 +1,5 @@
 import type { Service } from '~frontend/features/booking/types';
+import type { Dispatch, SetStateAction } from 'react';
 
 export type Props = Pick<
   Service,
@@ -8,4 +9,5 @@ export type Props = Pick<
     startAt: string;
     currentAttendee: number;
   }[];
+  setDisabled: Dispatch<SetStateAction<boolean>>;
 };

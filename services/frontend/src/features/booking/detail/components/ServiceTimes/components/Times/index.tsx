@@ -1,4 +1,6 @@
 import type { ServiceTime } from './type';
+import { useEffect } from 'react';
+import { useAppContext } from '~frontend/context';
 import { useServiceTimesContext } from '~frontend/features/booking/detail/components/ServiceTimes/context';
 import sharedI from '~frontend/shared/i.json';
 import Icon from '~frontend/components/Icon';
@@ -28,7 +30,13 @@ const STATUS_CONFIG = {
 };
 
 function Time({ time, status, restAttendee }: ServiceTime) {
-  const { queues, setQueues, queue: queueable } = useServiceTimesContext();
+  const {
+    queues,
+    setQueues,
+    queue: queueable,
+    setDisabled,
+  } = useServiceTimesContext();
+  const { setIsEmptyCart } = useAppContext();
   const { addMessage } = useMessage();
 
   const index = queues.indexOf(time);
@@ -43,9 +51,15 @@ function Time({ time, status, restAttendee }: ServiceTime) {
     }
 
     if (!queueable && queues.length) {
+      setIsEmptyCart(false);
       return addMessage(DEFAULT_REMINDER_PAYLOAD);
     }
   };
+
+  useEffect(() => {
+    const hasItem = Boolean(queues.length);
+    setDisabled(!hasItem);
+  }, [setDisabled, setIsEmptyCart, queues.length]);
 
   const onToggle = () => {
     if (disabled) return;
