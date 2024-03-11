@@ -19,7 +19,7 @@ const mockServices = [
 
 type InitialState = {
   services: ServiceOrder[];
-  onRemove: (id: ServiceOrder['id']) => void;
+  onRemove: (id: ServiceOrder['serviceId']) => void;
   onUpdate: (service: ServiceOrder) => void;
 };
 

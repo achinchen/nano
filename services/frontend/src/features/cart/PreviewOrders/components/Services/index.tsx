@@ -69,7 +69,7 @@ export function Services() {
       <h3 className="mb-4">{scopedI.title}</h3>
       <ul className="flex flex-col gap-4">
         {services.map((service) => (
-          <ServiceCard key={service.id} {...service} />
+          <ServiceCard key={service.serviceId} {...service} />
         ))}
       </ul>
     </section>

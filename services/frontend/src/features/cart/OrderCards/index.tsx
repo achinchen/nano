@@ -11,7 +11,7 @@ import TimeCards from './components/TimeCards';
 function OrderCard(service: ServiceOrder) {
   const { onRemove, onUpdate } = useOrderCardsContext();
   const {
-    id,
+    serviceId,
     queue,
     duration,
     attendee,
@@ -21,7 +21,7 @@ function OrderCard(service: ServiceOrder) {
     times,
     expired,
   } = service;
-  const onRemoveClick = () => onRemove(id);
+  const onRemoveClick = () => onRemove(serviceId);
 
   const onDecrease = () => {
     if (attendee === 0) return;
@@ -39,7 +39,7 @@ function OrderCard(service: ServiceOrder) {
   };
 
   const onUpdateTimes = (times: ServiceOrder['times']) => {
-    if (times.length === 0) return onRemove(id);
+    if (times.length === 0) return onRemove(serviceId);
     onUpdate({
       ...service,
       times,
