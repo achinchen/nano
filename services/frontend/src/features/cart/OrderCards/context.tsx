@@ -3,40 +3,19 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { EVENT } from '~frontend/features/cart/context';
 import { eventEmitter } from '~frontend/utils/event';
 import { setCart } from '~frontend/features/cart/utils';
+import { SERVICE } from '~frontend/shared/mock';
 import { isExpiredServices } from './utils';
 
 const mockServices = [
   {
-    id: 44,
-    attendee: 2,
-    duration: 40,
-    name: '小飛象戚風蛋糕',
-    address: '台北',
-    supplier: '阿狗狗',
-    queue: true,
-    times: ['2023-12-19T13:00', '2023-12-17T15:00', '2023-12-15T18:00'],
+    ...SERVICE.IN_PROGRESS[0],
+    times: [
+      '2024-01-29T09:20:00',
+      '2024-01-12T10:00:00',
+      '2024-01-29T10:00:00',
+    ],
   },
-  {
-    id: 45,
-    attendee: 2,
-    duration: 90,
-    name: '小飛象戚風蛋糕',
-    address: '台北',
-    supplier: '阿狗狗',
-    queue: false,
-    times: ['2023-12-19T13:00'],
-  },
-  {
-    id: 48,
-    attendee: 2,
-    duration: 45,
-    name: '小飛象戚風蛋糕',
-    address: '台北',
-    supplier: '阿狗狗',
-    queue: false,
-    times: ['2023-10-12T01:00'],
-  },
-] as ServiceOrder[];
+] as unknown as ServiceOrder[];
 
 type InitialState = {
   services: ServiceOrder[];
@@ -68,13 +47,17 @@ export const OrderCardsContextProvider = ({
     }))
   );
 
-  const onRemove = (targetId: ServiceOrder['id']) => {
-    setServices((services) => services.filter(({ id }) => id !== targetId));
+  const onRemove = (targetId: ServiceOrder['serviceId']) => {
+    setServices((services) =>
+      services.filter(({ serviceId }) => serviceId !== targetId)
+    );
   };
 
   const onUpdate = (service: ServiceOrder) => {
     setServices((services) => {
-      const index = services.findIndex(({ id }) => id === service.id);
+      const index = services.findIndex(
+        ({ serviceId }) => serviceId === service.serviceId
+      );
       if (index === -1) return services;
       services[index] = service;
       return [...services];

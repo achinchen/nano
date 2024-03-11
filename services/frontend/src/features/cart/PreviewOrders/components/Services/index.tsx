@@ -13,7 +13,7 @@ const StringSeparator = <span className="mx-2 inline-block">|</span>;
 
 function ServiceCard({
   name,
-  address,
+  location: { address },
   supplier,
   duration,
   times,

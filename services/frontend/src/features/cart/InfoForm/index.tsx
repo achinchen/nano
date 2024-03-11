@@ -11,6 +11,14 @@ import { setInfo } from '~frontend/features/cart/utils';
 import sharedI from '~frontend/shared/i.json';
 import scopedI from './i.json';
 
+const MOCK_INFO = {
+  name: '芭比',
+  SNSId: 'bukku_user_a',
+  email: 'example@example.com',
+  phone: '0900-000-000',
+  note: '',
+};
+
 const {
   info: { title, field: fieldI },
 } = sharedI;
@@ -38,7 +46,7 @@ const labelClassName = 'text-base font-normal flex flex-col gap-2';
 
 export default function InfoForm({ className }: { className?: string }) {
   const { currentStep, toPreviousStep, setDisabled } = useCartContext();
-  const [form, dispatch] = useReducer(reducer, { ...defaultForm });
+  const [form, dispatch] = useReducer(reducer, MOCK_INFO);
   const [errors, dispatchError] = useReducer(reducer, { ...defaultForm });
   const [empty, setEmpty] = useState(false);
 

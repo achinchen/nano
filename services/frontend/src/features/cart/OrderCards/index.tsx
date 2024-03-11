@@ -16,7 +16,7 @@ function OrderCard(service: ServiceOrder) {
     duration,
     attendee,
     name,
-    address,
+    location: { address },
     supplier,
     times,
     expired,
@@ -130,7 +130,7 @@ export function OrderCards({ className }: { className: string }) {
   return (
     <section className={className}>
       {services.map((service) => (
-        <OrderCard key={service.id} {...service} />
+        <OrderCard key={service.serviceId} {...service} />
       ))}
     </section>
   );
