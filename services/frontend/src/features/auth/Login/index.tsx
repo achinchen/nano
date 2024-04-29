@@ -25,6 +25,7 @@ export default function Auth() {
   const navigator = useNavigate();
 
   const onLogin = () => {
+    setAuthPrevPath(window.location.pathname);
     window.location.href = LOGIN_PATH;
   };
 
