@@ -44,14 +44,7 @@ export function App() {
 
             <Route path="/studio/setting" element={<StudioSetting />} />
 
-            <Route
-              path="/studio/services"
-              element={
-                <ProviderProtectedRoute>
-                  <StudioServiceLayout />
-                </ProviderProtectedRoute>
-              }
-            >
+            <Route path="/studio/services" element={<StudioServiceLayout />}>
               <Route index element={<StudioServices />} />
               <Route path=":id" element={<StudioServiceId />} />
             </Route>
@@ -66,14 +59,7 @@ export function App() {
               element={<StudioServiceVersion />}
             />
 
-            <Route
-              path="/studio/orders"
-              element={
-                <ProviderProtectedRoute>
-                  <StudioOrderLayout />
-                </ProviderProtectedRoute>
-              }
-            >
+            <Route path="/studio/orders" element={<StudioOrderLayout />}>
               <Route index element={<StudioOrders />} />
               <Route path=":id" element={<StudioOrderId />} />
             </Route>
