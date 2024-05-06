@@ -44,11 +44,6 @@ export function App() {
 
             <Route path="/studio/setting" element={<StudioSetting />} />
 
-            <Route path="/studio/services" element={<StudioServiceLayout />}>
-              <Route index element={<StudioServices />} />
-              <Route path=":id" element={<StudioServiceId />} />
-            </Route>
-
             <Route
               path="/studio/services/create"
               element={<StudioServiceCreate />}
@@ -58,6 +53,11 @@ export function App() {
               path="/studio/services/:id/:version"
               element={<StudioServiceVersion />}
             />
+
+            <Route path="/studio/services" element={<StudioServiceLayout />}>
+              <Route index element={<StudioServices />} />
+              <Route path=":id" element={<StudioServiceId />} />
+            </Route>
 
             <Route path="/studio/orders" element={<StudioOrderLayout />}>
               <Route index element={<StudioOrders />} />

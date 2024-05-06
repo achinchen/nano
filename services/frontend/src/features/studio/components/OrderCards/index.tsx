@@ -9,6 +9,8 @@ type Props = {
   orders: Order[];
 };
 
+const version = '1-0-0';
+
 const today = new Date('2024/01/01');
 
 export default function OrderCards({ orders }: Props) {
@@ -21,7 +23,7 @@ export default function OrderCards({ orders }: Props) {
           service: { duration, name, currentAttendee, attendee, id: serviceId },
         }) => (
           <Link
-            to={`/studio/orders/${id}`}
+            to={`/studio/services/${serviceId}/${version}`}
             className="flex flex-col overflow-hidden border-1 border-zinc-200 rounded-2 border-solid bg-light-100 pr-2 active:bg-zinc-100 hover:bg-zinc-50"
             key={`order-cards-${serviceId}-${name}-${startAt}`}
           >
