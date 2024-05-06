@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Icon from '~frontend/components/Icon';
-import Studio from '~frontend/assets/example-studio.png';
 import { useAppContext } from '~frontend/context';
 import Badge from '~frontend/components/Badge';
+import { STUDIO } from '~frontend/shared/mock';
 import ProviderNavigationDrawer from './ProviderNavigation/Drawer';
 import ProviderNavigation from './ProviderNavigation';
 import IconLink from './components/IconLink';
@@ -25,7 +25,7 @@ export function Header() {
         )}
         <img
           alt={isProvider ? `${studio?.name} logo` : 'studio logo'}
-          src={isProvider ? studio?.avatarUrl : Studio}
+          src={isProvider ? studio?.avatarUrl : STUDIO.avatar}
           width={36}
           height={36}
           className={isProvider ? 'hidden md:block' : ''}
@@ -36,7 +36,7 @@ export function Header() {
           className={`flex items-center ${isProvider ? 'md:hidden' : ''}`}
         >
           <h1 className="ml-1 text-sm">
-            {isProvider ? studio?.name : 'Studio Name'}
+            {isProvider ? studio?.name : STUDIO.name}
           </h1>
         </Link>
       </div>

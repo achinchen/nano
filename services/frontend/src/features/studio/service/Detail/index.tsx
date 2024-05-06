@@ -15,7 +15,7 @@ export default function Detail() {
 
   if (!service) return null;
   return (
-    <section className="max-h-[calc(100dvh-52px)] overflow-y-scroll pa-4 md:max-h-[calc(100dvh-112px)]">
+    <section className="max-h-[calc(100dvh-52px)] overflow-y-scroll pa-4 md:h-[calc(100dvh-112px)]">
       <ServiceInfo {...service} id={Number(id || 1)} />
       <OrderFields queue={service.queue} />
       <div className="mx--4 h-2 bg-zinc-200" />

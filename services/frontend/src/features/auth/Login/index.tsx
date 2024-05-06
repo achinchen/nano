@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import ExampleStudio from '~frontend/assets/example-studio.png';
-import Brand from '~frontend/assets/brand.jpg';
+import Brand from '~frontend/assets/brand.svg';
 import Button from '~frontend/components/Button';
 import { useAppContext } from '~frontend/context';
 import {
@@ -9,13 +8,9 @@ import {
   removeAuthPrevPath,
   setAuthPrevPath,
 } from '~frontend/shared/utils/auth-local';
+import { STUDIO } from '~frontend/shared/mock';
 import { LOGIN_PATH } from './constants';
 import i from './i.json';
-
-const studio = {
-  name: '日安蛋糕工作室',
-  avatar: ExampleStudio,
-};
 
 const WIDTH = 'md:w-sm';
 const LINK = 'px-0.5 mx-0.5 border-b border-zinc-700 border-b-solid';
@@ -41,8 +36,8 @@ export default function Auth() {
   return (
     <section className="h-[calc(100dvh-112px)] flex flex-1 flex-col items-center gap-4 bg-white px-4 py-6 font-normal md:h-[calc(100dvh-108px)] md:px-10">
       <div className={`mt-26 flex justify-center items-center gap-2 ${WIDTH}`}>
-        <img src={studio.avatar} alt="logo" className="h-6 w-6" />
-        <h2 className="text-2xl">{studio.name}</h2>
+        <img src={STUDIO.avatar} alt="logo" className="h-6 w-6" />
+        <h2 className="text-2xl">{STUDIO.name}</h2>
       </div>
       <Button
         prefixIcon="i-custom-brand-google"
@@ -74,7 +69,7 @@ export default function Auth() {
           {i.terms}
         </Link>
       </p>
-      <img src={Brand} alt="example" className="mt-auto h-6 md:mb-4" />
+      <img src={Brand} alt="bukku" className="mt-auto h-6 md:mb-4" />
     </section>
   );
 }

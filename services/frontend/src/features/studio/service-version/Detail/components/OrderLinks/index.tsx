@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import Separator from '~frontend/components/Separator';
 import Avatar from '~frontend/components/Avatar';
 import Icon from '~frontend/components/Icon';
-import Avocado from '~frontend/assets/avatar.png';
+import getAvatarById from '~frontend/shared/utils/get-avatar-by-id';
 import i from './i.json';
 
 type Order = {
@@ -30,7 +30,7 @@ export default function OrderLinks({ orders, attendee, end }: Props) {
         <h4 className="h-9 flex items-center text-base">{i.title}</h4>
         {orders.map(({ name, id }) => (
           <Link to={`/studio/orders/${id}`} key={id} className={ITEM_CLASSNAME}>
-            <Avatar src={Avocado} />
+            <Avatar src={getAvatarById(id)} />
             {name}
             <span className="ml-auto text-sm color-primary-500">{i.to}</span>
           </Link>

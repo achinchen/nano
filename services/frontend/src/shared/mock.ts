@@ -1,5 +1,12 @@
+import ExampleStudio from '~frontend/assets/example-studio.png';
+
 const LOCATION = { name: '台北店', address: '台北市中正區忠孝西路一段49號' };
 const SUPPLIER = '安老師';
+
+export const STUDIO = {
+  name: '日安蛋糕工作室',
+  avatar: ExampleStudio,
+};
 
 export const STUDIO_TIMES = ['09:00', '20:30'];
 
